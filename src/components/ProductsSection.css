@@ -20,11 +20,12 @@
     bottom: 57px;
 }
 
-/* Left Side - Text Content */
 .products-left {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    left: 15%;
+    position: relative;
 }
 
 .products-label {
@@ -79,7 +80,6 @@
     height: 10px;
 }
 
-/* Right Side - Card */
 .products-right {
     position: relative;
     display: flex;
@@ -88,7 +88,7 @@
 }
 
 .validate-card {
-    width: 125%;
+    width: 146%;
     max-width: 2277px;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -97,6 +97,7 @@
     position: relative;
     min-height: 320px;
     background-color: rgb(0, 17, 25);
+    left: 52%;
 }
 
 .validate-inner {
@@ -165,125 +166,13 @@
     background: linear-gradient(90deg, rgb(0, 17, 25) 0%, rgba(0, 17, 25, 0.95) 10%, rgba(0, 28, 30, 0.97) 59%, rgba(0, 72, 49, 0.66) 81%, rgba(0, 147, 82, 0) 90%, rgb(0, 177, 95) 100%);
 }
 
-/* Gradient Controls */
-.gradient-controls-toggle {
-    margin-top: 20px;
-    padding: 8px 16px;
-    background: rgba(166, 246, 59, 0.1);
-    border: 1px solid #A6F63B;
-    border-radius: 4px;
-    color: #A6F63B;
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.gradient-controls-toggle:hover {
-    background: rgba(166, 246, 59, 0.2);
-}
-
-.gradient-controls-panel {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(10, 26, 31, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.gradient-controls-panel h4 {
-    color: #A6F63B;
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 14px;
-    margin: 0 0 16px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.gradient-stop-control {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.gradient-stop-control:last-child {
-    border-bottom: none;
-}
-
-.gradient-stop-control label {
-    display: block;
-    color: #ffffff;
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.control-row {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.control-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.control-group span {
-    color: rgba(255, 255, 255, 0.8);
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 11px;
-    min-width: 100px;
-}
-
-.control-group input[type="range"] {
-    flex: 1;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    outline: none;
-    -webkit-appearance: none;
-}
-
-.control-group input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-    background: #A6F63B;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.control-group input[type="range"]::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    background: #A6F63B;
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-}
-
-.control-group input[type="color"] {
-    width: 50px;
-    height: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    cursor: pointer;
-    background: transparent;
-}
-
-/* Carousel Controls */
 .carousel-controls {
-    position: absolute;
-    bottom: -50px;
-    right: 0;
+    position: relative;
+    left: 50%;
+    margin-top: 32px;
+    align-self: flex-end;
     display: flex;
-    gap: 8px;
-    align-items: center;
+    gap: 12px;
 }
 
 .carousel-btn {
@@ -296,25 +185,11 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.carousel-btn-prev {
     background: rgba(255, 255, 255, 0.08);
     opacity: 0.5;
 }
 
-.carousel-btn-prev:hover {
-    background: rgba(255, 255, 255, 0.25);
-    opacity: 1;
-}
-
-.carousel-btn-next {
-    background: rgba(255, 255, 255, 0.08);
-    opacity: 0.5;
-}
-
-.carousel-btn-next:hover {
+.carousel-btn:hover {
     background: rgba(255, 255, 255, 0.25);
     opacity: 1;
 }
@@ -322,15 +197,8 @@
 .carousel-btn svg {
     width: 20px;
     height: 20px;
+    color: #FFFFFF;
     transition: color 0.3s ease, filter 0.3s ease;
-}
-
-.carousel-btn-prev svg {
-    color: #ffffff;
-}
-
-.carousel-btn-next svg {
-    color: #ffffff;
 }
 
 .carousel-btn:hover svg {
@@ -338,20 +206,17 @@
     filter: drop-shadow(0 0 6px rgba(166, 246, 59, 0.8));
 }
 
-/* Accelerators Section Wrapper */
 .accelerators-section-wrapper {
     width: 100%;
     position: relative;
-    min-height: 100vh;
     z-index: 2;
+    padding: 80px 0;
 }
 
-/* Bottom Label */
 .accelerators-bottom-label {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
-    margin-top: 117px;
+    margin-bottom: 16px;
 }
 
 .accelerators-bottom-label p {
@@ -363,39 +228,36 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 0;
-    margin-top: 63px;
-    position: relative;
 }
 
-/* Accelerators Heading */
 .accelerators-heading {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 0 16px;
 }
 
 .accelerators-heading-text {
     font-family: "Stage Grotesk", sans-serif;
     font-size: 30px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.3;
     color: #FFFFFF;
     text-align: center;
-    white-space: pre-wrap;
+    max-width: 800px;
     margin: 0;
 }
 
-/* Accelerator Cards Grid */
 .accelerator-cards-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 60px;
-    padding: 0 80px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    /* gap: 0; */
+    margin-top: 64px;
+    padding: 0 32px;
+    /* max-width: 1400px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
     position: relative;
     z-index: 3;
 }
@@ -415,7 +277,7 @@
 
 .accelerator-image-section {
     width: 100%;
-    padding: 40px 40px 20px;
+    padding: 32px 32px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -428,7 +290,7 @@
 }
 
 .accelerator-content {
-    padding: 0 40px 40px;
+    padding: 0 32px 32px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -454,17 +316,14 @@
     color: #FFFFFF;
     margin: 0;
     text-align: center;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background: transparent;
+    padding: 16px 16px;
 }
 
 .accelerator-proof {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     margin-top: auto;
     padding-top: 8px;
 }
@@ -481,8 +340,6 @@
 
 .proof-value {
     font-family: "Stage Grotesk", sans-serif;
-    align-items: center;
-    align-content: center;
     font-size: 12px;
     font-weight: 600;
     line-height: normal;
@@ -491,80 +348,21 @@
     letter-spacing: 0.05em;
 }
 
-/* Individual Card Styles */
-.compliance-card {
-    /* Add specific styles here if needed */
+.gradient-circle {
+    position: absolute;
+    bottom: 0;
+    left: -20%;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00c47b 0%, #02322a 100%);
+    filter: blur(100px);
+    opacity: 0.7;
+    z-index: -1;
+    pointer-events: none;
+    transform: translateY(37%);
 }
 
-.compliance-image-section {
-    /* Add specific styles here if needed */
-}
-
-.compliance-content {
-    /* Add specific styles here if needed */
-}
-
-.compliance-title {
-    /* Add specific styles here if needed */
-}
-
-.compliance-description {
-    /* Add specific styles here if needed */
-}
-
-.compliance-proof {
-    /* Add specific styles here if needed */
-}
-
-.sales-enablement-card {
-    /* Add specific styles here if needed */
-}
-
-.sales-enablement-image-section {
-    /* Add specific styles here if needed */
-}
-
-.sales-enablement-content {
-    /* Add specific styles here if needed */
-}
-
-.sales-enablement-title {
-    /* Add specific styles here if needed */
-}
-
-.sales-enablement-description {
-    /* Add specific styles here if needed */
-}
-
-.sales-enablement-proof {
-    /* Add specific styles here if needed */
-}
-
-.document-sync-card {
-    margin-top: -20px; /* Adjust this value to align with other cards */
-}
-
-.document-sync-image-section {
-    /* Add specific styles here if needed */
-}
-
-.document-sync-content {
-    /* Add specific styles here if needed */
-}
-
-.document-sync-title {
-    /* Add specific styles here if needed */
-}
-
-.document-sync-description {
-    /* Add specific styles here if needed */
-}
-
-.document-sync-proof {
-    /* Add specific styles here if needed */
-}
-
-/* Responsive Design */
 @media (max-width: 1200px) {
     .products-container {
         padding: 0 60px;
@@ -578,11 +376,6 @@
     .validate-card {
         max-width: 600px;
         grid-template-columns: 1fr 1fr;
-    }
-
-    .accelerator-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 60px;
     }
 }
 
@@ -663,44 +456,4 @@
         margin-top: 24px;
         align-self: flex-end;
     }
-
-    .accelerator-cards-grid {
-        grid-template-columns: 1fr;
-        padding: 0 24px;
-        margin-top: 40px;
-        gap: 32px;
-    }
-
-    .accelerator-card {
-        justify-self: center;
-    }
-
-    .accelerator-content {
-        padding: 0 24px 32px;
-    }
-
-    .accelerator-title {
-        font-size: 24px;
-    }
-
-    .accelerator-description {
-        font-size: 14px;
-        padding: 12px 16px;
-    }
-}
-
-/* Gradient Circle */
-.gradient-circle {
-    position: absolute;
-    bottom: 0;
-    left: -479px;
-    width: 700px;
-    height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #00c47b 0%, #02322a 100%);
-    filter: blur(100px);
-    opacity: 6.7;
-    /* z-index: -121; */
-    pointer-events: none;
-    transform: translateY(37%);
 }

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef } from "react";
+import React, { createContext, useContext, useRef, memo } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -9,7 +9,7 @@ function useGradientScroll() {
   return context;
 }
 
-function TextGradientScroll({
+const TextGradientScroll = memo(function TextGradientScroll({
   text,
   className,
   type = "letter",
@@ -42,11 +42,11 @@ function TextGradientScroll({
       </p>
     </TextGradientScrollContext.Provider>
   );
-}
+});
 
 export { TextGradientScroll };
 
-const Word = ({ children, progress, range }) => {
+const Word = memo(({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
@@ -57,9 +57,9 @@ const Word = ({ children, progress, range }) => {
       </motion.span>
     </span>
   );
-};
+});
 
-const Letter = ({ children, progress, range }) => {
+const Letter = memo(({ children, progress, range }) => {
   if (typeof children === "string") {
     const amount = range[1] - range[0];
     const step = amount / children.length;
@@ -78,9 +78,9 @@ const Letter = ({ children, progress, range }) => {
       </span>
     );
   }
-};
+});
 
-const Char = ({ children, progress, range }) => {
+const Char = memo(({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   const { textOpacity } = useGradientScroll();
 
@@ -105,5 +105,5 @@ const Char = ({ children, progress, range }) => {
       </motion.span>
     </span>
   );
-};
+});
 

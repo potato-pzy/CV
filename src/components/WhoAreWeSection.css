@@ -6,13 +6,15 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
-/* Make navbar match homepage hero navbar */
+/* Use same navbar overrides as home hero (.hero .navbar) */
 .whoarewe-page .navbar {
     background: transparent;
     border-bottom: none;
-    padding: 2rem 3rem;
+    padding: var(--spacing-xl) var(--spacing-2xl);
     height: auto;
 }
 
@@ -25,7 +27,7 @@
 .whoarewe-background-effects {
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -183,14 +185,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 120px;
-    padding: 120px 24px 120px;
+    gap: 0;
+    padding: 0 0 120px;
 }
 
 /* Hero Section */
 .whoarewe-hero {
-    position: relative;
-    top: 165px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #000000 0%, #020f14 100%);
+    overflow: hidden;
+    padding: 0;
+}
+
+.whoarewe-hero-inner {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
@@ -198,7 +215,9 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+    padding: 120px 32px;
 }
 
 .whoarewe-hero-title {
@@ -210,6 +229,7 @@
     color: white;
     max-width: 800px;
     margin: 0 0 32px 0;
+    text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -238,6 +258,7 @@
     max-width: 540px;
     margin: 0 auto 48px auto;
     letter-spacing: 0.02em;
+    text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -273,6 +294,7 @@
     width: 100%;
     max-width: 760px;
     text-align: center;
+    margin-top: calc(100vh + 120px);
 }
 
 @media (min-width: 768px) {
@@ -290,6 +312,8 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    position: relative;
+    bottom: 100px;
 }
 
 @media (min-width: 768px) {
@@ -402,8 +426,9 @@
 }
 
 .whoarewe-continuation-sticky {
-    position: sticky;
-    top: 96px;
+    position: relative;
+    top: 553px;
+    width: 231%;
 }
 
 .whoarewe-continuation-headline {
@@ -412,7 +437,7 @@
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: #A6F63B;
+    color: #ffffff;
     margin: 0;
 }
 
@@ -424,7 +449,9 @@
 
 @media (min-width: 1024px) {
     .whoarewe-continuation-headline {
-        font-size: 40px;
+        font-size: 44px;
+        position: relative;
+        right: 68px;
     }
 }
 
@@ -432,15 +459,18 @@
 .whoarewe-continuation-right {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 179px;
+    width: 100% !important;
 }
 
 /* Features Grid */
 .whoarewe-features-grid {
     display: grid;
     grid-template-columns: 1fr;
+    row-gap: 74px;
     gap-x: 48px;
     gap-y: 64px;
+    column-gap: 80px;
 }
 
 @media (min-width: 768px) {
@@ -486,19 +516,20 @@
 
 /* Bottom Text */
 .whoarewe-continuation-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 40px;
     margin-top: 16px;
 }
 
 .whoarewe-continuation-bottom-text {
+    position: relative;
     font-family: "Blauer Nue", sans-serif;
     font-size: 16px;
     font-weight: 300;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.7);
-    max-width: 768px;
+    max-width: 468px;
     margin: 0;
+    right: -197px;
 }
 
 @media (min-width: 768px) {

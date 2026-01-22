@@ -1,7 +1,12 @@
 import './CareersSection.css';
 import Navbar from './Navbar';
+import CTASection from './CTASection';
+import Footer from './Footer';
+import { TextGradientScroll } from './ui/text-gradient-scroll';
+import { useState } from 'react';
 
 function CareersSection() {
+    const [activeRole, setActiveRole] = useState('vectors');
     return (
         <div className="careers-page">
             {/* Background Elements */}
@@ -10,11 +15,10 @@ function CareersSection() {
                 <div className="careers-gradient-blob"></div>
             </div>
 
-            <Navbar />
-
             <main className="careers-main">
                 {/* Hero Section */}
                 <section className="careers-hero">
+                    <Navbar />
                     <div className="careers-hero-container">
                         {/* Main Headline */}
                         <div className="careers-hero-content">
@@ -40,9 +44,12 @@ function CareersSection() {
 
                     <div className="careers-statement-container">
                         <div className="careers-statement-content">
-                            <p className="careers-statement-text">
-                                Most companies talk about AI. <span className="text-white">We run on it.</span> Our agents validate hypotheses, debate architecture, review code, and flag risks—before humans make the call. Fewer meetings. More shipping. <span className="text-white">Real accountability.</span>
-                            </p>
+                            <TextGradientScroll
+                                text="Most companies talk about AI. We run on it. Our agents validate hypotheses, debate architecture, review code, and flag risks—before humans make the call. Fewer meetings. More shipping. Real accountability."
+                                type="letter"
+                                textOpacity="soft"
+                                className="careers-statement-text"
+                            />
                         </div>
                     </div>
                 </section>
@@ -114,80 +121,75 @@ function CareersSection() {
                         </div>
                         <div className="careers-roles-header-right">
                             <p className="careers-roles-description">
-                                Three roles. One mission. <br className="hidden md:block" />
-                                <span className="text-brand-lime font-semibold">Vectors deploy.</span> <span className="text-white font-semibold">Forgers build.</span> <span className="text-white font-semibold">Pathfinders discover.</span> 
-                                <span className="block mt-2 text-neutral-400 font-light text-lg md:text-xl">Together, they move clients from vision to production.</span>
+                                <span className="careers-roles-topline">Three roles. One mission.</span> <br className="hidden md:block" />
+                                <div className="careers-roles-lines">
+                                    <span className="careers-roles-sub">Vectors deploy. Forgers build. Pathfinders discover.</span>
+                                    <span className="careers-roles-sub">Together, they move clients from vision to production.</span>
+                                </div>
                             </p>
                         </div>
                     </div>
 
-                    <div className="careers-roles-list">
-                        <div className="careers-role-item active">
-                            <div className="careers-role-item-left">
-                                <span className="careers-role-name">Vectors</span>
-                                <span className="iconify text-brand-lime lg:hidden" data-icon="lucide:arrow-down" data-width="20"></span>
+                    <div className="careers-roles-container">
+                        <div className="careers-roles-list">
+                            <div className={`careers-role-item ${activeRole === 'vectors' ? 'active' : ''}`} onClick={() => setActiveRole('vectors')}>
+                                <div className="careers-role-name-wrapper">
+                                    <span className={`careers-role-name ${activeRole === 'vectors' ? 'active' : 'inactive'}`}>Vectors</span>
+                                    <div className={`careers-role-line ${activeRole === 'vectors' ? 'active' : ''}`}></div>
+                                </div>
                             </div>
-                            <div className="careers-role-item-right">
-                                <div className="careers-role-content">
-                                    <div className="careers-role-header">
-                                        <h3 className="careers-role-heading">Vectors deploy</h3>
-                                        <span className="iconify text-brand-lime hidden lg:block" data-icon="lucide:arrow-right" data-width="20"></span>
-                                    </div>
-                                    <p className="careers-role-text">
-                                        You embed with clients, ship AI to production, and stay until adoption is complete. In a world of prototypes and pilots, you deliver outcomes. Vectors are adaptable, client-facing, and own the last mile.
-                                    </p>
+
+                            <div className={`careers-role-item ${activeRole === 'forgers' ? 'active' : ''}`} onClick={() => setActiveRole('forgers')}>
+                                <div className="careers-role-name-wrapper">
+                                    <span className={`careers-role-name ${activeRole === 'forgers' ? 'active' : 'inactive'}`}>Forgers</span>
+                                    <div className={`careers-role-line ${activeRole === 'forgers' ? 'active' : ''}`}></div>
+                                </div>
+                            </div>
+
+                            <div className={`careers-role-item ${activeRole === 'pathfinders' ? 'active' : ''}`} onClick={() => setActiveRole('pathfinders')}>
+                                <div className="careers-role-name-wrapper">
+                                    <span className={`careers-role-name ${activeRole === 'pathfinders' ? 'active' : 'inactive'}`}>Pathfinders</span>
+                                    <div className={`careers-role-line ${activeRole === 'pathfinders' ? 'active' : ''}`}></div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="careers-role-divider"></div>
-
-                        <div className="careers-role-item">
-                            <div className="careers-role-item-left">
-                                <span className="careers-role-name inactive">Forgers</span>
-                            </div>
-                            <div className="careers-role-item-right hidden lg:block"></div>
+                        <div className="careers-role-description">
+                            {activeRole === 'vectors' && (
+                                <div className="careers-role-content">
+                                    <h3 className="careers-role-heading">Vectors deploy</h3>
+                                    <p className="careers-role-text">
+                                        You embed with clients, ship AI to production, and stay until adoption is complete. In a world of prototypes and pilots, you deliver outcomes. Vectors are adaptable, client-facing, and own the last mile.
+                                    </p>
+                                </div>
+                            )}
+                            {activeRole === 'forgers' && (
+                                <div className="careers-role-content">
+                                    <h3 className="careers-role-heading">Forgers build</h3>
+                                    <p className="careers-role-text">
+                                        You create the accelerators, platforms, and tools that make Vectors faster. You're deep technical, craft-driven, and obsessed with building systems that scale. Forgers turn repeatable problems into reusable solutions.
+                                    </p>
+                                </div>
+                            )}
+                            {activeRole === 'pathfinders' && (
+                                <div className="careers-role-content">
+                                    <h3 className="careers-role-heading">Pathfinders discover</h3>
+                                    <p className="careers-role-text">
+                                        You create the accelerators, platforms, and tools that make Vectors faster. You're deep technical, craft-driven, and obsessed with building systems that scale. Forgers turn repeatable problems into reusable solutions.
+                                    </p>
+                                </div>
+                            )}
                         </div>
-
-                        <div className="careers-role-divider"></div>
-
-                        <div className="careers-role-item">
-                            <div className="careers-role-item-left">
-                                <span className="careers-role-name inactive">Pathfinders</span>
-                            </div>
-                            <div className="careers-role-item-right hidden lg:block"></div>
-                        </div>
-
-                        <div className="careers-role-divider"></div>
                     </div>
                 </section>
             </main>
 
-            {/* CTA Section */}
-            <section className="careers-cta">
-                <div className="careers-cta-container">
-                    <h2 className="careers-cta-title">What comes next is worth building together.</h2>
-                    <a href="#" className="careers-cta-button">
-                        <span className="careers-cta-button-text">BOOK A DISCOVERY CALL</span>
-                        <span className="iconify careers-cta-button-icon" data-icon="lucide:arrow-right"></span>
-                    </a>
-                </div>
-            </section>
-
-            {/* Footer decorative line */}
-            <div className="careers-footer-divider"></div>
-
-            {/* Footer Simple */}
-            <footer className="careers-footer">
-                <div className="careers-footer-container">
-                    <span className="careers-footer-copyright">© 2026 Chartered Vectorial</span>
-                    <div className="careers-footer-social">
-                        <span className="iconify careers-footer-icon" data-icon="lucide:twitter"></span>
-                        <span className="iconify careers-footer-icon" data-icon="lucide:linkedin"></span>
-                        <span className="iconify careers-footer-icon" data-icon="lucide:github"></span>
-                    </div>
-                </div>
-            </footer>
+            <CTASection 
+                title="Shape what is next"
+                subtitle="We're always looking for exceptional people. Reach out."
+                buttonText="BOOK A DISCOVERY CALL"
+            />
+            <Footer />
         </div>
     );
 }

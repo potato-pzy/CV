@@ -7,7 +7,7 @@ headers = []
 [functions."*"]
 
 [build]
-publish = "/home/potato/Documents/projects/vc/dist"
+publish = "/home/potato/Documents/vc(1)/vc/dist"
 publishOrigin = "config"
 commandOrigin = "config"
 command = "npm run build"

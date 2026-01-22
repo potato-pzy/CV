@@ -190,11 +190,11 @@ function ProductsSection() {
                 <div className="gradient-circle"></div>
                 
                 <div className="accelerators-bottom-label">
-                    <p>ACCELERATORS</p>
+                    <p className="products-label">ACCELERATORS</p>
                 </div>
 
                 <div className="accelerators-heading">
-                    <h2 className="accelerators-heading-text">
+                    <h2 className="products-title accelerators-heading-text">
                         Our Accelerators: Proven. Adaptable. Production-Ready.
                     </h2>
                 </div>

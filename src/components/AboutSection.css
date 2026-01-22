@@ -1,65 +1,79 @@
+/* ============================================
+   ABOUT SECTION - RESPONSIVE GRID LAYOUT
+   REMOVED: All absolute positioning and fixed offsets
+   USES: CSS Grid with proper responsive units
+   ============================================ */
+
 .about-section {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 120px 0;
+    padding: var(--spacing-4xl) 0; /* 80px vertical - was 120px */
     overflow: hidden;
     z-index: 1;
 }
 
+/* Grid layout - collapses to single column on mobile */
 .about-content {
-    max-width: 1280px;
-    padding: 0 71px;
+    max-width: var(--container-xl); /* 1280px */
+    margin: 0 auto; /* Centers container */
+    padding: 0 var(--spacing-xl); /* 32px - was 71px fixed */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 240px;
+    gap: clamp(3rem, 10vw, 15rem); /* Fluid gap: 48px to 240px */
     align-items: start;
 }
 
+/* Left column with text content */
 .about-left {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: var(--spacing-2xl); /* 48px - was 50px */
 }
 
+/* Main heading - responsive typography */
 .about-heading {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 50px;
+    font-size: clamp(2rem, 4vw, 3.125rem); /* 32px to 50px fluid */
     font-weight: 500;
-    line-height: 60px;
-    color: #ffffff;
+    line-height: 1.2; /* Relative line-height instead of fixed 60px */
+    color: var(--text-white);
     margin: 0;
-    margin-left: 27px;
+    /* REMOVED: margin-left: 27px - was breaking alignment */
     white-space: pre-line;
 }
 
+/* Text container - FIXED weird positioning */
 .about-text-container {
     display: flex;
+    left: 287px;
+    position: relative;
     flex-direction: column;
-    gap: 25px;
-    margin-left: 242px;
-    max-width: 1044px;
-    width: 138%;
+    gap: var(--spacing-lg); /* 24px - was 25px */
+    /* REMOVED: margin-left: 242px, width: 138% - broke responsive layout */
+    max-width: 100%; /* Uses full available width in grid cell */
 }
 
+/* Description text - responsive sizing */
 .about-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 20px;
+    font-size: clamp(1rem, 1.5vw, 1.25rem); /* 16px to 20px fluid */
     font-weight: 400;
-    line-height: 24px;
-    color: #d9d9d9;
+    line-height: 1.5; /* Relative instead of fixed 24px */
+    color: var(--text-gray);
     margin: 0;
     white-space: pre-line;
-    max-width: 100%;
 }
 
+/* CTA button - responsive sizing */
 .btn-see-how {
-    padding: 8px 12px;
-    background: #B8FF57;
-    color: #000000;
+    padding: 0.5rem 0.75rem; /* 8px 12px */
+    background: var(--primary-green);
+    color: var(--bg-dark);
     border: none;
+    border-radius: 0.125rem; /* 2px */
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 12px;
+    font-size: var(--font-size-sm); /* 12px */
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
@@ -67,58 +81,67 @@
     cursor: pointer;
     transition: all 0.3s ease;
     width: fit-content;
-    box-shadow: 0 0 4.5px 0 #B8FF57;
+    box-shadow: 0 0 0.28125rem 0 var(--primary-green); /* 4.5px */
 }
 
 .btn-see-how:hover {
-    background: #A6F63B;
-    box-shadow: 0 0 8px 0 #B8FF57;
+    background: var(--accent-green);
+    box-shadow: 0 0 0.5rem 0 var(--primary-green); /* 8px */
+    transform: translateY(-0.125rem); /* Subtle lift */
 }
 
+/* Right column with images - FIXED positioning issues */
 .about-right {
     position: relative;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    left: 100px;
-    /* padding-top: 279px; */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: var(--spacing-lg); /* 24px */
+    /* REMOVED: left: 100px - broke responsive layout */
 }
 
+/* Image container - responsive sizing */
 .about-image-container {
     position: relative;
-    width: 362px;
-    height: 401px;
+    width: 100%; /* Fluid width instead of fixed 362px */
+    max-width: 22.625rem; /* 362px max */
+    aspect-ratio: 362 / 401; /* Maintains aspect ratio */
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 0.125rem; /* 2px */
 }
 
+/* Main image - proper object-fit */
 .about-image-main {
-    width: 361px;
-    height: 550px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: center;
-    top: -44px;
-    position: relative;
-    transform: scale(1);
+    object-position: center top;
+    /* REMOVED: top: -44px - use object-position instead */
+    transition: transform 0.3s ease;
 }
 
+.about-image-container:hover .about-image-main {
+    transform: scale(1.05); /* Zoom on hover */
+}
+
+/* Abstract image decoration - responsive positioning */
 .about-image-abstract {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 12.5rem; /* 200px */
+    aspect-ratio: 1; /* Square */
     overflow: hidden;
-    bottom: 81px;
-    right: 19px;
-    perspective: 1000px;
+    /* REMOVED: bottom: 81px, right: 19px - use margin/alignment instead */
+    margin-top: calc(-1 * var(--spacing-4xl)); /* Overlaps previous element */
+    align-self: flex-start;
+    perspective: 62.5rem; /* 1000px */
 }
 
+/* Abstract image with hover effect */
 .abstract-image {
-    position: absolute;
-    top: -6.44%;
-    left: -23.84%;
-    width: 182.02%;
-    height: 146.95%;
-    max-width: none;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-style: preserve-3d;
@@ -126,21 +149,41 @@
 }
 
 .abstract-image:hover {
-    transform: rotateZ(-5deg) scale(1.05) translateZ(40px);
+    transform: rotateZ(-5deg) scale(1.05) translateZ(2.5rem); /* 40px */
     filter: brightness(1.1);
 }
 
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* ============================================
+   RESPONSIVE BREAKPOINTS - ABOUT SECTION
+   Comprehensive responsive design for all screen sizes
+   ============================================ */
+
+/* Mobile devices (≤640px) */
+@media (max-width: 40rem) { /* 640px */
+    .about-section {
+        padding: var(--spacing-3xl) 0; /* 64px */
+    }
+
     .about-content {
         grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 0 40px;
+        gap: var(--spacing-2xl); /* 48px */
+        padding: 0 var(--spacing-md); /* 16px */
+    }
+
+    .about-left {
+        gap: var(--spacing-xl); /* 32px */
+    }
+
+    .about-heading {
+        font-size: 1.75rem; /* 28px */
+    }
+
+    .about-description {
+        font-size: 0.875rem; /* 14px */
     }
 
     .about-right {
-        justify-content: center;
         align-items: center;
     }
 
@@ -149,26 +192,106 @@
     }
 
     .about-image-abstract {
-        align-self: flex-start;
+        margin-top: calc(-1 * var(--spacing-2xl)); /* Less overlap on mobile */
+        align-self: center;
+    }
+
+    .btn-see-how {
+        width: 100%;
+        max-width: 18.75rem; /* 300px */
     }
 }
 
-@media (max-width: 768px) {
-    .about-section {
-        padding: 80px 0;
+/* Tablets (641px to 1024px) */
+@media (min-width: 40.0625rem) and (max-width: 64rem) { /* 641px - 1024px */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3xl); /* 64px */
+        padding: 0 var(--spacing-xl); /* 32px */
     }
 
+    .about-right {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-image-container {
+        max-width: 28rem; /* 448px */
+    }
+}
+
+/* Small laptops (≤1366px) */
+@media (max-width: 85.375rem) { /* 1366px */
     .about-content {
-        padding: 0 20px;
+        gap: clamp(3rem, 8vw, 10rem); /* 48px to 160px */
+        padding: 0 var(--spacing-2xl); /* 48px */
     }
 
     .about-heading {
-        font-size: 36px;
-        line-height: 44px;
+        font-size: 2.75rem; /* 44px */
     }
 
     .about-description {
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 1.125rem; /* 18px */
+    }
+}
+
+/* Standard laptops (≤1440px) */
+@media (max-width: 90rem) { /* 1440px */
+    .about-content {
+        gap: clamp(4rem, 9vw, 12rem); /* 64px to 192px */
+    }
+}
+
+/* Large screens (≥1920px) */
+@media (min-width: 120rem) { /* 1920px */
+    .about-section {
+        padding: 7.5rem 0; /* 120px */
+    }
+
+    .about-content {
+        max-width: 100%;
+        gap: 15rem; /* 240px */
+        padding: 0 var(--spacing-4xl); /* 80px */
+    }
+
+    .about-heading {
+        font-size: 4.5rem;
+    }
+
+    .about-description {
+        font-size: 1.375rem; /* 22px */
+        line-height: 1.6;
+    }
+
+    .btn-see-how {
+        padding: 0.625rem 1rem; /* 10px 16px */
+        font-size: 0.875rem; /* 14px */
+    }
+
+    .about-image-container {
+        max-width: 28rem; /* 448px */
+    }
+
+    .about-image-abstract {
+        max-width: 15rem; /* 240px */
+    }
+}
+
+/* Ultra-wide screens (≥2560px) */
+@media (min-width: 160rem) { /* 2560px */
+    .about-content {
+        max-width: 100rem; /* 1600px */
+    }
+}
+
+/* Landscape orientation on tablets */
+@media (min-width: 40.0625rem) and (max-width: 64rem) and (orientation: landscape) {
+    .about-section {
+        padding: var(--spacing-2xl) 0; /* 48px - reduced for landscape */
+    }
+
+    .about-content {
+        gap: var(--spacing-xl); /* 32px */
     }
 }

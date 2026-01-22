@@ -3,6 +3,10 @@ import CTASection from './CTASection';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { TextGradientScroll } from './ui/text-gradient-scroll';
+import { FlickeringGrid } from './ui/flickering-grid';
+import logoSvg from '../assets/Asset 1.svg';
+
+const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
 
 function WhoAreWeSection() {
     return (
@@ -13,21 +17,47 @@ function WhoAreWeSection() {
                 <div className="gradient-radial"></div>
             </div>
 
-            <Navbar />
-
             <main className="whoarewe-main">
+                <Navbar />
                 {/* Hero Section */}
                 <section className="whoarewe-hero">
-                    <h1 className="whoarewe-hero-title">
-                        AI changes the <br className="whoarewe-hero-break" />
-                        equation in how value is created
-                    </h1>
+                    {/* Center grid masked to logo (only green element) */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                        <div
+                            className="w-full max-w-2xl aspect-video animate-pulse"
+                            style={{
+                                WebkitMaskImage: `url('${LOGO_BASE64}')`,
+                                WebkitMaskSize: 'contain',
+                                WebkitMaskPosition: 'center',
+                                WebkitMaskRepeat: 'no-repeat',
+                                maskImage: `url('${LOGO_BASE64}')`,
+                                maskSize: 'contain',
+                                maskPosition: 'center',
+                                maskRepeat: 'no-repeat',
+                            }}
+                        >
+                            <FlickeringGrid 
+                                color="#A6F63B"
+                                squareSize={1.5}
+                                gridGap={1}
+                                flickerChance={0.3}
+                                maxOpacity={0.6}
+                            />
+                        </div>
+                    </div>
 
-                    <p className="whoarewe-hero-subtitle">
-                        Chartered Vectorial is an AI-native, applied AI firm. We use AI to accelerate how we consult and how we engineer, so clients get to production faster.
-                    </p>
+                    <div className="whoarewe-hero-inner">
+                        <h1 className="whoarewe-hero-title">
+                            AI changes the <br className="whoarewe-hero-break" />
+                            equation in how value is created
+                        </h1>
 
-                    <a href="#" className="whoarewe-hero-btn">Book a discovery call</a>
+                        <p className="whoarewe-hero-subtitle">
+                            Chartered Vectorial is an AI-native, applied AI firm. We use AI to accelerate how we consult and how we engineer, so clients get to production faster.
+                        </p>
+
+                        <a href="#" className="whoarewe-hero-btn">Book a discovery call</a>
+                    </div>
                 </section>
 
                 {/* Content Section */}
@@ -73,7 +103,8 @@ function WhoAreWeSection() {
                                 <h1 className="whoarewe-continuation-headline">
                                     Small by design.<br />
                                     Fast by conviction.<br />
-                                    Built for companies ready to move.
+                                    Built for companies{' '}
+                                    <span className="whoarewe-highlight">ready to move.</span>
                                 </h1>
                             </div>
                         </div>
@@ -104,7 +135,7 @@ function WhoAreWeSection() {
                                         Built by agents, <br className="whoarewe-feature-break" />governed by humans
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        A small team with the right systems can out-deliver large teams. Our AI agents multiply what each person can move.
+                                        AI agents do the heavy lifting- validating, building, reviewing. Humans approve what matters.
                                     </p>
                                 </div>
 
@@ -114,7 +145,7 @@ function WhoAreWeSection() {
                                         Access, not <br className="whoarewe-feature-break" />exclusivity
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        A small team with the right systems can out-deliver large teams. Our AI agents multiply what each person can move.
+                                        World-class capability shouldn't be reserved for giants. The barrier dropped. We're here to prove it.
                                     </p>
                                 </div>
                             </div>

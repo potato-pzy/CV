@@ -59,10 +59,14 @@ function Navbar() {
                             </Link>
                         </li>
                         <li>
-                            <a href="#what-we-do" className="navbar-link">What we do</a>
+                            <Link to="/whatwedo" className={`navbar-link ${isActive('/whatwedo') ? 'active' : ''}`}>
+                                What we do
+                            </Link>
                         </li>
                         <li>
-                            <a href="#insights" className="navbar-link">Insights</a>
+                            <Link to="/insights" className={`navbar-link ${isActive('/insights') ? 'active' : ''}`}>
+                                Insights
+                            </Link>
                         </li>
                         <li>
                             <Link to="/careers" className={`navbar-link ${isActive('/careers') ? 'active' : ''}`}>

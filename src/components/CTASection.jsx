@@ -1,6 +1,6 @@
 import './CTASection.css';
 
-function CTASection() {
+function CTASection({ title, subtitle, buttonText }) {
   return (
     <section className="cta-section">
       <div className="cta-background">
@@ -11,8 +11,9 @@ function CTASection() {
         />
       </div>
       <div className="cta-content">
-        <h2 className="cta-title">What comes next is worth building together.</h2>
-        <button className="cta-button">BOOK A DISCOVERY CALL</button>
+        <h2 className="cta-title">{title || "What comes next is worth building together."}</h2>
+        {subtitle && <p className="cta-subtitle">{subtitle}</p>}
+        <button className="cta-button">{buttonText || "BOOK A DISCOVERY CALL"}</button>
       </div>
     </section>
   );
