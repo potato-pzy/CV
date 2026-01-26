@@ -2,21 +2,25 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  background: linear-gradient(180deg, #000 0%, #071920 100%);
+  background: #020F14;
   overflow: hidden;
 }
 
-.insights-hero .navbar {
-  background: transparent;
-  border-bottom: none;
-  padding: var(--spacing-xl) var(--spacing-2xl);
-  height: auto;
+/* Top black gradient - pro UI enhancement */
+.insights-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 30%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-.insights-hero .navbar-container {
-  padding: 0;
-  max-width: 100%;
-}
+/* Navbar overrides handled by global Navbar.css */
+
 
 .insights-hero-content {
   position: absolute;
@@ -30,28 +34,54 @@
 
 .insights-hero-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 48px;
-  font-weight: 600;
+  font-size: 50px;
+  font-weight: 500;
   color: white;
-  margin: 0 0 30px 0;
-  letter-spacing: -1px;
-  max-width: 900px;
-  line-height: 1.2;
+  margin: 0 0 21px 0;
+  line-height: normal;
 }
 
 .insights-hero-subtitle {
-  font-family: 'Stage Grotesk', sans-serif;
-  font-size: 17px;
+  font-family: 'Blauer Nue', sans-serif;
+  font-size: 20px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
+  color: #fafafc;
   margin: 0;
-  max-width: 800px;
-  line-height: 1.6;
-  text-align: justify;
-  -moz-text-align-last: center;
-  text-align-last: center;
-  left: 52px;
-  position: relative;
+  max-width: 720px;
+  line-height: 1.1;
+}
+
+.insights-scroll-to-explore {
+  position: absolute;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #dfed3f;
+  text-align: center;
+  z-index: 10;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
 }
 
 @media (max-width: 768px) {

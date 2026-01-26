@@ -10,18 +10,8 @@
     padding: 0;
 }
 
-/* Use same navbar overrides as home hero (.hero .navbar) */
-.whoarewe-page .navbar {
-    background: transparent;
-    border-bottom: none;
-    padding: var(--spacing-xl) var(--spacing-2xl);
-    height: auto;
-}
+/* Navbar overrides handled by global Navbar.css */
 
-.whoarewe-page .navbar-container {
-    padding: 0;
-    max-width: 100%;
-}
 
 /* Background Effects */
 .whoarewe-background-effects {
@@ -35,7 +25,7 @@
     position: absolute;
     inset: 0;
     background-size: 40px 40px;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
@@ -49,6 +39,7 @@
     transform: translateX(-50%);
     width: 100%;
     height: 600px;
+    display: none;
     background: radial-gradient(circle, #1A2515 0%, transparent 70%);
     opacity: 0.5;
     filter: blur(60px);
@@ -118,10 +109,11 @@
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
+    line-height: normal;
 }
 
 .whoarewe-nav-link.active {
@@ -141,13 +133,14 @@
     border: 1px solid rgba(166, 246, 59, 0.3);
     border-radius: 2px;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     color: #A6F63B;
     text-decoration: none;
     transition: all 0.3s ease;
+    line-height: normal;
 }
 
 .whoarewe-nav-cta:hover {
@@ -187,6 +180,7 @@
     align-items: center;
     gap: 0;
     padding: 0 0 120px;
+    background-color: black;
 }
 
 /* Hero Section */
@@ -202,9 +196,28 @@
     justify-content: center;
     text-align: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #000000 0%, #020f14 100%);
+    background-color: black !important;
     overflow: hidden;
     padding: 0;
+    z-index: 20;
+}
+
+/* Top black gradient - pro UI enhancement */
+.whoarewe-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 30%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.whoarewe-hero .items-center {
+    align-items: center;
+    left: 183px !important;
 }
 
 .whoarewe-hero-inner {
@@ -224,18 +237,19 @@
     font-family: "Stage Grotesk", sans-serif;
     font-size: 36px;
     font-weight: 500;
-    line-height: 1.1;
+    line-height: normal;
     letter-spacing: -0.02em;
     color: white;
     max-width: 800px;
     margin: 0 0 32px 0;
     text-align: center;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
 }
 
 @media (min-width: 768px) {
     .whoarewe-hero-title {
-        font-size: 50px;
-        line-height: 1.2;
+        font-size: 55px;
+        line-height: normal;
     }
 }
 
@@ -251,19 +265,20 @@
 
 .whoarewe-hero-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: #D0D0D0;
-    max-width: 540px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    /* color: #A6F63B; */
+    max-width: 740px;
     margin: 0 auto 48px auto;
     letter-spacing: 0.02em;
     text-align: center;
+    text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
     .whoarewe-hero-subtitle {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
@@ -276,13 +291,15 @@
     color: black;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     border-radius: 2px;
     text-decoration: none;
     box-shadow: 0 0 15px rgba(166, 246, 59, 0.4);
     transition: all 0.3s ease;
+    line-height: normal;
+    text-align: center;
 }
 
 .whoarewe-hero-btn:hover {
@@ -291,54 +308,96 @@
 
 /* Content Section */
 .whoarewe-content {
-    width: 100%;
-    max-width: 760px;
+    height: 39vh;
+    width: 160%;
+    max-width: 831px;
+    /* right: 30px; */
+    position: relative;
     text-align: center;
-    margin-top: calc(100vh + 120px);
+    margin-top: calc(100vh + 267px);
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: #C7C7C7;
 }
 
 @media (min-width: 768px) {
     .whoarewe-content {
-        text-align: left;
+        text-align: -webkit-auto;
+        font-size: 24px;
     }
 }
 
 .whoarewe-content-text {
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: #D9D9D9;
     display: flex;
     flex-direction: column;
     gap: 32px;
     position: relative;
     bottom: 100px;
-}
-
-@media (min-width: 768px) {
-    .whoarewe-content-text {
-        font-size: 20px;
-    }
+    z-index: 20;
 }
 
 .whoarewe-content-text p {
     margin: 0;
-    font-family: "Stage Grotesk", sans-serif;
 }
 
 .whoarewe-para {
-    font-family: "Stage Grotesk", sans-serif !important;
-    font-size: 25px !important;
-    font-weight: 300 !important;
-    line-height: 1.6 !important;
-    color: #D9D9D9 !important;
     margin: 0 !important;
 }
 
 .whoarewe-highlight {
     color: #A6F63B !important;
     font-family: "Stage Grotesk", sans-serif;
+}
+
+/* Ellipse Section */
+.whoarewe-ellipse {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    z-index: 5;
+    pointer-events: none;
+    left: 0;
+    top: -400px;
+    overflow: visible;
+}
+
+.whoarewe-ellipse-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 800px;
+    border-radius: 50%;
+    overflow: hidden;
+    filter: blur(60px);
+    clip-path: ellipse(50% 50% at 50% 50%);
+}
+
+.whoarewe-ellipse-image {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Radial Blur Oval */
+.whoarewe-radial-blur-oval {
+    position: absolute;
+    width: 1658px;
+    height: 777px;
+    border-radius: 1658px;
+    background: #001D26;
+    filter: blur(200px);
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100vh + 600px);
+    z-index: -3;
+    pointer-events: none;
 }
 
 /* Footer */
@@ -388,6 +447,206 @@
     color: #A6F63B;
 }
 
+/* Meet the Founders Section */
+.whoarewe-founders {
+    width: 100%;
+    max-width: 1280px;
+    margin: 128px auto 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .whoarewe-founders {
+        margin: 192px auto 0;
+    }
+}
+
+.whoarewe-founders-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+    .whoarewe-founders-header {
+        grid-template-columns: 1fr 1fr;
+        gap: 0px;
+        align-items: start;
+    }
+}
+
+.whoarewe-founders-title {
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: normal;
+    color: #ffffff;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .whoarewe-founders-title {
+        font-size: 36px;
+        right: -69px;
+        position: relative;
+    }
+}
+
+.whoarewe-founders-description {
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: normal;
+    color: #ffffff;
+    margin: 0;
+    max-width: 423px;
+}
+
+.whoarewe-founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-items: center;
+}
+
+@media (min-width: 768px) {
+    .whoarewe-founders-grid {
+        grid-template-columns: repeat(5, auto);
+        gap: 54px;
+        justify-content: center;
+    }
+}
+
+.whoarewe-founder-card {
+    position: relative;
+    width: 460px;
+    height: 460px;
+    overflow: hidden;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.whoarewe-founder-front,
+.whoarewe-founder-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+}
+
+.whoarewe-founder-front {
+    opacity: 1;
+    z-index: 1;
+}
+
+.whoarewe-founder-back {
+    opacity: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 28px 24px;
+    text-align: left;
+}
+
+.whoarewe-founder-back-bg {
+    position: absolute;
+    right: 20px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 83% -10%, #01121a 0%, #00b068 90%);
+    z-index: -1;
+}
+
+.whoarewe-founder-card:hover .whoarewe-founder-front {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.whoarewe-founder-card:hover .whoarewe-founder-back {
+    opacity: 1;
+}
+
+.whoarewe-founder-back-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    filter: blur(0) !important;
+    /* Ensure text remains sharp */
+}
+
+.whoarewe-founder-back-name {
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+}
+
+.whoarewe-founder-back-designation {
+    font-family: "Blauer Nue", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 4px 0 0 0;
+    line-height: normal;
+}
+
+.whoarewe-founder-back-bio {
+    width: 95%;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #ffffff;
+    position: absolute;
+    bottom: 24px;
+}
+
+@media (max-width: 480px) {
+    .whoarewe-founder-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+.whoarewe-founder-image {
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    display: block;
+}
+
+.whoarewe-founder-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(166, 246, 59, 0) 82.05%, rgba(32, 190, 95, 0.5) 88.87%, rgba(0, 176, 104, 1) 98.36%);
+    pointer-events: none;
+}
+
+.whoarewe-founder-name {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: normal;
+    color: #ffffff;
+    margin: 0;
+    z-index: 1;
+}
+
 /* Continuation Section */
 .whoarewe-continuation {
     width: 100%;
@@ -435,7 +694,7 @@
     font-family: "Stage Grotesk", sans-serif;
     font-size: 30px;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: normal;
     letter-spacing: -0.02em;
     color: #ffffff;
     margin: 0;
@@ -443,15 +702,17 @@
 
 @media (min-width: 768px) {
     .whoarewe-continuation-headline {
-        font-size: 36px;
+        font-size: 50px;
+        line-height: normal;
     }
 }
 
 @media (min-width: 1024px) {
     .whoarewe-continuation-headline {
-        font-size: 44px;
+        font-size: 50px;
         position: relative;
         right: 68px;
+        line-height: normal;
     }
 }
 
@@ -467,9 +728,7 @@
 .whoarewe-features-grid {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 74px;
-    gap-x: 48px;
-    gap-y: 64px;
+    row-gap: 64px;
     column-gap: 80px;
 }
 
@@ -483,13 +742,37 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.whoarewe-features-grid.features-visible .whoarewe-feature-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.whoarewe-features-grid.features-visible .whoarewe-feature-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.whoarewe-features-grid.features-visible .whoarewe-feature-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.whoarewe-features-grid.features-visible .whoarewe-feature-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.whoarewe-features-grid.features-visible .whoarewe-feature-item:nth-child(4) {
+    transition-delay: 0.4s;
 }
 
 .whoarewe-feature-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 30px;
     letter-spacing: -0.01em;
     color: white;
     margin: 0;
@@ -506,11 +789,11 @@
 }
 
 .whoarewe-feature-text {
-    font-family: "Blauer Nue", sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.6);
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: #C7C7C7;
     margin: 0;
 }
 
@@ -522,11 +805,11 @@
 
 .whoarewe-continuation-bottom-text {
     position: relative;
-    font-family: "Blauer Nue", sans-serif;
+    font-family: "Stage Grotesk", sans-serif;
     font-size: 16px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    line-height: normal;
+    color: #C7C7C7;
     max-width: 468px;
     margin: 0;
     right: -197px;
@@ -534,7 +817,7 @@
 
 @media (min-width: 768px) {
     .whoarewe-continuation-bottom-text {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -553,10 +836,81 @@
 }
 
 .whoarewe-card {
+    position: relative;
+    background-color: #020F14;
+    height: 480px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: cardAppear 0.8s ease-out forwards;
+}
+
+.whoarewe-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.whoarewe-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.whoarewe-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.whoarewe-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Sliding Content Wrapper */
+.whoarewe-card-sliding-content {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.85, 0, 0, 1);
+    transform: translateX(0);
+}
+
+.whoarewe-card:hover .whoarewe-card-sliding-content {
+    transform: translateX(-50%);
+}
+
+/* We Think Card - Override sliding behavior */
+.whoarewe-card-think-special .whoarewe-card-sliding-content {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.whoarewe-card-think-special:hover .whoarewe-card-sliding-content {
+    transform: translateX(0);
+}
+
+/* Front and Back Panels */
+.whoarewe-card-front-content,
+.whoarewe-card-back-content {
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Front Content */
+.whoarewe-card-front-content {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    cursor: default;
+    justify-content: flex-end;
+    padding: 32px;
+    z-index: 1;
 }
 
 .whoarewe-card-image {
@@ -566,16 +920,525 @@
     overflow: hidden;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: border-color 0.5s ease;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    z-index: -1;
+    margin-bottom: 32px;
 }
 
 .whoarewe-card:hover .whoarewe-card-image {
-    border-color: rgba(166, 246, 59, 0.3);
+    opacity: 0.4;
 }
 
 /* Card 1: We Think */
 .whoarewe-card-think {
-    background: linear-gradient(180deg, rgba(0,17,25,1) 0%, rgba(3,18,26,1) 34%, rgba(7,25,32,1) 47%, rgba(17,37,42,1) 57%, rgba(31,54,56,1) 64%, rgba(50,77,75,1) 71%, rgba(73,104,98,1) 76%, rgba(100,137,125,1) 82%, rgba(131,174,156,1) 86%, rgba(166,216,191,1) 100%);
+    background: linear-gradient(180deg, rgba(0, 17, 25, 1) 0%, rgba(3, 18, 26, 1) 34%, rgba(7, 25, 32, 1) 47%, rgba(17, 37, 42, 1) 57%, rgba(31, 54, 56, 1) 64%, rgba(50, 77, 75, 1) 71%, rgba(73, 104, 98, 1) 76%, rgba(100, 137, 125, 1) 82%, rgba(131, 174, 156, 1) 86%, rgba(166, 216, 191, 1) 100%);
+}
+
+/* We Think Card Special Styling */
+.whoarewe-card-think-special {
+    width: 300px;
+    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    background-color: transparent;
+    aspect-ratio: 1;
+}
+
+.whoarewe-card-think-special .whoarewe-card-think-front {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    opacity: 1;
+}
+
+.whoarewe-card-think-special:hover .whoarewe-card-think-front {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.whoarewe-card-think-special .whoarewe-card-image.whoarewe-card-think {
+    background: none;
+}
+
+.whoarewe-card-think-special .whoarewe-card-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    z-index: 1;
+    aspect-ratio: unset;
+}
+
+.whoarewe-card-think-special .whoarewe-card-sliding-content {
+    height: 100%;
+    position: relative;
+}
+
+.whoarewe-card-think-special .whoarewe-card-front-content,
+.whoarewe-card-think-special .whoarewe-card-back-content {
+    height: 100%;
+}
+
+.whoarewe-card-think-special .whoarewe-card-back-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    background-color: #020F14;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.whoarewe-card-think-special:hover .whoarewe-card-back-content {
+    opacity: 1;
+}
+
+.whoarewe-card-think-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.whoarewe-card-think-special:hover .whoarewe-card-image {
+    opacity: 1;
+}
+
+.whoarewe-card-think-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    min-height: 100%;
+}
+
+/* Figma Design Implementation */
+.whoarewe-card-think-figma-design {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.whoarewe-card-think-layer1 {
+    position: absolute;
+    inset: 0;
+}
+
+.whoarewe-card-think-clip-group {
+    position: absolute;
+    inset: 0.41% 0.38%;
+}
+
+.whoarewe-card-think-mask-group {
+    position: absolute;
+    inset: -1.09% -14.27% -14.19% -6.7%;
+}
+
+.whoarewe-card-think-vector-mask {
+    position: absolute;
+    inset: 0.41% -13.25% -5.19% 0.38%;
+    mask-size: 335.379px 307.462px;
+    mask-position: 0.001px 0px;
+    mask-repeat: no-repeat;
+    mask-composite: intersect;
+    -webkit-mask-size: 335.379px 307.462px;
+    -webkit-mask-position: 0.001px 0px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-composite: intersect;
+}
+
+.whoarewe-card-think-vector-img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-think-zcq-group {
+    position: absolute;
+    inset: -1.09% -14.27% -14.19% -6.7%;
+}
+
+.whoarewe-card-think-edu-group {
+    position: absolute;
+    inset: -1.09% -14.27% -14.19% -6.7%;
+}
+
+.whoarewe-card-think-clip-path-group {
+    position: absolute;
+    inset: -1.09% -14.27% -14.19% -6.7%;
+}
+
+.whoarewe-card-think-rectangle-group {
+    position: absolute;
+    inset: -1.09% -13.69% -13.64% -6.7%;
+}
+
+.whoarewe-card-think-rectangle-mask {
+    position: absolute;
+    inset: -1.09% -13.69% -13.64% -6.7%;
+    mask-size: 335.379px 307.462px, 408.813px 357.395px;
+    mask-position: 23.925px 4.672px, 0px 0px;
+    -webkit-mask-size: 335.379px 307.462px, 408.813px 357.395px;
+    -webkit-mask-position: 23.925px 4.672px, 0px 0px;
+}
+
+.whoarewe-card-think-rectangle-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.whoarewe-card-think-rectangle-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-think-bg-img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.whoarewe-card-think-text {
+    position: absolute;
+    inset: 75.16% 43.48% 9.36% 9.17%;
+    font-family: "Stage Grotesk", sans-serif;
+    font-weight: 400;
+    line-height: normal;
+    font-style: normal;
+    color: #a6f63b;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* We Build Card Special Styling */
+.whoarewe-card-build-special {
+    width: 300px;
+    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    background-color: transparent;
+    aspect-ratio: 1;
+}
+
+.whoarewe-card-build-special .whoarewe-card-build-front {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    opacity: 1;
+}
+
+.whoarewe-card-build-special:hover .whoarewe-card-build-front {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.whoarewe-card-build-special .whoarewe-card-sliding-content {
+    height: 100%;
+    position: relative;
+}
+
+.whoarewe-card-build-special .whoarewe-card-front-content,
+.whoarewe-card-build-special .whoarewe-card-back-content {
+    height: 100%;
+}
+
+.whoarewe-card-build-special .whoarewe-card-back-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    background-color: #020F14;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.whoarewe-card-build-special:hover .whoarewe-card-back-content {
+    opacity: 1;
+}
+
+/* We Build Figma Design */
+.whoarewe-card-build-figma-design {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.whoarewe-card-build-layer1 {
+    position: absolute;
+    inset: 67.06% 36.84% 8.39% 36.84%;
+}
+
+.whoarewe-card-build-group {
+    position: absolute;
+    inset: 67.06% 36.84% 8.39% 36.84%;
+}
+
+.whoarewe-card-build-inner-group {
+    position: absolute;
+    inset: 67.16% 36.94% 8.49% 36.94%;
+}
+
+.whoarewe-card-build-vector {
+    position: absolute;
+    inset: 67.16% 36.94% 8.49% 36.94%;
+}
+
+.whoarewe-card-build-vector-img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-build-clip-group {
+    position: absolute;
+    inset: 67.16% 36.94% 8.49% 36.94%;
+}
+
+.whoarewe-card-build-mask-group {
+    position: absolute;
+    inset: 66.01% 31.95% 3.73% 36.94%;
+}
+
+.whoarewe-card-build-cc-group {
+    position: absolute;
+    inset: 66.01% 31.95% 3.73% 36.94%;
+}
+
+.whoarewe-card-build-cc-psd {
+    position: absolute;
+    inset: 66.01% 31.95% 3.73% 36.94%;
+}
+
+.whoarewe-card-build-cc-clip {
+    position: absolute;
+    inset: 66.01% 31.95% 3.73% 36.94%;
+}
+
+.whoarewe-card-build-cc-inner {
+    position: absolute;
+    inset: 66.01% 32.09% 3.87% 36.94%;
+}
+
+.whoarewe-card-build-rectangle-mask {
+    position: absolute;
+    inset: 66.01% 32.09% 3.87% 36.94%;
+    mask-size: 335.379px 307.462px, 399.501px 382.086px;
+    mask-position: 0.001px 14.528px, 0px 0px;
+    -webkit-mask-size: 335.379px 307.462px, 399.501px 382.086px;
+    -webkit-mask-position: 0.001px 14.528px, 0px 0px;
+}
+
+.whoarewe-card-build-rectangle-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.whoarewe-card-build-rectangle-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-build-vector2 {
+    position: absolute;
+    inset: 67.06% 36.84% 8.39% 36.84%;
+}
+
+.whoarewe-card-build-vector2-img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-build-text {
+    position: absolute;
+    inset: 85.59% 49.07% 10.61% 39.33%;
+    font-family: "Stage Grotesk", sans-serif;
+    font-weight: 400;
+    line-height: normal;
+    font-style: normal;
+    color: #a6f63b;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* We Stay Card Special Styling */
+.whoarewe-card-stay-special {
+    width: 300px;
+    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    background-color: transparent;
+    aspect-ratio: 1;
+}
+
+.whoarewe-card-stay-special .whoarewe-card-stay-front {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    opacity: 1;
+}
+
+.whoarewe-card-stay-special:hover .whoarewe-card-stay-front {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.whoarewe-card-stay-special .whoarewe-card-sliding-content {
+    height: 100%;
+    position: relative;
+}
+
+.whoarewe-card-stay-special .whoarewe-card-front-content,
+.whoarewe-card-stay-special .whoarewe-card-back-content {
+    height: 100%;
+}
+
+.whoarewe-card-stay-special .whoarewe-card-back-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.55s cubic-bezier(0.85, 0, 0, 1);
+    background-color: #020F14;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.whoarewe-card-stay-special:hover .whoarewe-card-back-content {
+    opacity: 1;
+}
+
+/* We Stay Figma Design */
+.whoarewe-card-stay-figma-design {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.whoarewe-card-stay-layer1 {
+    position: absolute;
+    inset: 67.22% 8.49% 8.23% 65.19%;
+}
+
+.whoarewe-card-stay-group {
+    position: absolute;
+    inset: 67.22% 8.49% 8.23% 65.19%;
+}
+
+.whoarewe-card-stay-inner-group {
+    position: absolute;
+    inset: 67.32% 8.59% 8.33% 65.29%;
+}
+
+.whoarewe-card-stay-clip-group {
+    position: absolute;
+    inset: 67.32% 8.59% 8.33% 65.29%;
+}
+
+.whoarewe-card-stay-mask-group {
+    position: absolute;
+    inset: 63.12% 3.49% 0.75% 60.97%;
+}
+
+.whoarewe-card-stay-vb-group {
+    position: absolute;
+    inset: 63.12% 3.49% 0.75% 60.97%;
+}
+
+.whoarewe-card-stay-vb-mask {
+    position: absolute;
+    inset: 63.12% 3.49% 0.75% 60.97%;
+    mask-size: 335.379px 307.462px;
+    mask-position: 55.456px 53.069px;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 335.379px 307.462px;
+    -webkit-mask-position: 55.456px 53.069px;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.whoarewe-card-stay-vb-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.whoarewe-card-stay-vb-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-stay-vector {
+    position: absolute;
+    inset: 67.22% 8.49% 8.23% 65.19%;
+}
+
+.whoarewe-card-stay-vector-img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.whoarewe-card-stay-text {
+    position: absolute;
+    inset: 85.59% 21.26% 10.61% 67.68%;
+    font-family: "Stage Grotesk", sans-serif;
+    font-weight: 400;
+    line-height: normal;
+    font-style: normal;
+    color: #a6f63b;
+    font-size: 24px;
+    margin: 0;
 }
 
 .whoarewe-card-overlay {
@@ -597,13 +1460,13 @@
 
 /* Card 2: We Build */
 .whoarewe-card-build {
-    background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+    background: #020F14;
 }
 
 .whoarewe-card-build-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom right, #1F2622, #0E1110, #000000);
+    background: #020F14;
     opacity: 0.8;
 }
 
@@ -614,15 +1477,15 @@
     transform: translate(-50%, -50%);
     width: 75%;
     height: 75%;
-    background: #A6F63B;
+    background: transparent;
     border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.08;
+    box-shadow: 0 0 200px 100px rgba(166, 246, 59, 0.08);
+    opacity: 1;
     transition: opacity 0.7s ease;
 }
 
 .whoarewe-card:hover .whoarewe-card-build-glow {
-    opacity: 0.15;
+    box-shadow: 0 0 200px 100px rgba(166, 246, 59, 0.15);
 }
 
 /* Card 3: We Stay */
@@ -663,19 +1526,71 @@
     color: #A6F63B;
 }
 
-.whoarewe-card:hover .whoarewe-card-icon {
+.whoarewe-card:hover .whoarewe-card-front-content .whoarewe-card-icon {
     opacity: 0.6;
 }
 
 /* Card Title */
 .whoarewe-card-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: normal;
     letter-spacing: -0.02em;
-    color: #A6F63B;
+    color: #ffffff;
     margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Back Content */
+.whoarewe-card-back-content {
+    background-color: #020F14;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    color: #ffffff;
+}
+
+.whoarewe-card-body {
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 40px;
+    color: #C7C7C7;
+}
+
+.whoarewe-card-footer {
+    margin-top: auto;
+}
+
+.whoarewe-card-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease;
+    line-height: normal;
+}
+
+.whoarewe-card-link:hover {
+    border-bottom-color: #A6F63B;
+}
+
+.whoarewe-card-link::after {
+    content: "→";
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.whoarewe-card-link:hover::after {
+    transform: translateX(6px);
 }
 
 /* Background Circles */
@@ -706,4 +1621,200 @@
     width: 40%;
     height: 40%;
     background: rgba(166, 246, 59, 0.03);
+}
+
+/* Image Cards Grid Section */
+.whoarewe-image-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    gap: 40px;
+    max-width: 1320px;
+    justify-content: center;
+}
+
+.whoarewe-image-card {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: cardAppear 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+    background-color: #020F14;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.whoarewe-image-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+.whoarewe-image-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.08) 30%, rgba(166, 246, 59, 0.15) 50%, rgba(255, 255, 255, 0.05) 70%, rgba(255, 255, 255, 0.2));
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+    animation: border-reflection 6s ease-in-out infinite;
+}
+
+.whoarewe-image-card-front {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 1;
+    transform: scale(1);
+}
+
+.whoarewe-image-card:hover .whoarewe-image-card-front {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+.whoarewe-image-card-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.whoarewe-image-card-text {
+    position: absolute;
+    bottom: 28px;
+    left: 27.5px;
+    font-family: "Stage Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: normal;
+    color: #A6F63B;
+    margin: 0;
+    z-index: 1;
+}
+
+.whoarewe-image-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.5s ease-in-out 0.1s, transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0.1s;
+    background-color: #020F14;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.whoarewe-image-card:hover .whoarewe-image-card-back {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@keyframes border-reflection {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@media (max-width: 1320px) {
+    .whoarewe-image-cards-grid {
+        grid-template-columns: repeat(2, 400px);
+    }
+}
+
+@media (max-width: 900px) {
+    .whoarewe-image-cards-grid {
+        grid-template-columns: 400px;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 450px) {
+    .whoarewe-image-card {
+        width: 90vw;
+        height: 90vw;
+        max-width: 90vw;
+        max-height: 90vw;
+    }
+
+    .whoarewe-image-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scroll to explore */
+.whoarewe-hero .scroll-to-explore {
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #DFED3F;
+    text-align: center;
+    text-shadow: 0 0 4px #FFF;
+    z-index: 30;
+    animation: bounce 2s infinite;
+}
+
+.whoarewe-hero .scroll-to-explore svg {
+    color: #DFED3F;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .whoarewe-hero .scroll-to-explore {
+        bottom: 15vh;
+    }
 }

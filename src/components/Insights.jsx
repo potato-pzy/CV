@@ -1,12 +1,12 @@
 import InsightsHero from './InsightsHero';
-import BlogResourcesSection from './BlogResourcesSection';
+import InsightsSection from './InsightsSection';
 import Footer from './Footer';
 
 function Insights() {
   return (
     <div className="insights-page">
       <InsightsHero />
-      <BlogResourcesSection />
+      <InsightsSection />
       <Footer />
     </div>
   );

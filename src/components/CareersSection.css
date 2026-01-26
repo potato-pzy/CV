@@ -1,24 +1,14 @@
 .careers-page {
     position: relative;
     min-height: 100vh;
-    background-color: #020f14;
+    background-color: #000000;
     color: white;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Navbar inside careers hero uses same layout overrides as hero / who-we */
-.careers-hero .navbar {
-    background: transparent;
-    border-bottom: none;
-    padding: var(--spacing-xl) var(--spacing-2xl);
-    height: auto;
-}
+/* Navbar overrides handled by global Navbar.css */
 
-.careers-hero .navbar-container {
-    padding: 0;
-    max-width: 100%;
-}
 
 /* Background Elements */
 .careers-background {
@@ -32,7 +22,7 @@
     position: absolute;
     inset: 0;
     background-size: 40px 40px;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
@@ -60,7 +50,7 @@
     height: 100px;
     display: flex;
     align-items: center;
-    background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(5,5,5,0) 100%);
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(5, 5, 5, 0) 100%);
     backdrop-filter: blur(4px);
 }
 
@@ -127,7 +117,7 @@
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -171,7 +161,7 @@
     font-size: 11px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     color: #A6F63B;
 }
 
@@ -219,10 +209,32 @@
     position: relative;
     padding-top: 0;
     /* padding-bottom: 18px; */
-    background-image: url('/src/assets/career_hero.png');
+    background-image: url('/src/assets/careers-hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Black overlay for contrast */
+.careers-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Top black gradient - pro UI enhancement */
+.careers-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 30%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
 }
 
 .careers-hero-container {
@@ -235,6 +247,8 @@
     align-items: flex-start;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    z-index: 3;
 }
 
 @media (min-width: 768px) {
@@ -244,58 +258,75 @@
 }
 
 .careers-hero-content {
-    max-width: 768px;
+    max-width: 900px;
     text-align: left;
-    right: 21%;
+    /* padding-left: 40px; */
+    left: -196px;
+    top: 63px;
     position: relative;
 }
 
 .careers-hero-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    color: white;
-    margin: 0 0 8px 0;
+    color: #FFFFFF;
+    margin: 0 0 24px 0;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+.careers-hero-title-green {
+    color: #A6F63B;
 }
 
 @media (min-width: 768px) {
     .careers-hero-title {
-        font-size: 50px;
-        line-height: 1.2;
+        font-size: 63px;
+        line-height: 1.15;
+    }
+
+    .careers-hero-content {
+        padding-left: 65px;
     }
 }
 
 .careers-hero-subtitle-wrapper {
-    margin-top: 48px;
-    max-width: 576px;
+    margin-top: 32px;
+    max-width: 944px;
 }
 
 .careers-hero-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 13px;
+    font-size: 19px;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.65;
+    max-width: 944px;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 768px) {
     .careers-hero-subtitle {
-        font-size: 13px;
+        line-height: 1.7;
     }
 }
 
 /* Statement Section */
 .careers-statement {
     width: 100%;
-    background-color: #020f14;
+    height: 100vh;
+    background-color: transparent;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 128px 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
+    z-index: 20;
 }
 
 @media (min-width: 768px) {
@@ -304,18 +335,7 @@
     }
 }
 
-.careers-statement-gradient {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 300px;
-    background: rgba(166, 246, 59, 0.05);
-    filter: blur(100px);
-    border-radius: 50%;
-    pointer-events: none;
-}
+
 
 .careers-statement-container {
     max-width: 1320px;
@@ -338,21 +358,36 @@
     text-align: center;
 }
 
+.careers-statement-title {
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: white;
+    margin-bottom: 35px;
+    text-align: left;
+    width: 100%;
+}
+
 .careers-statement-text {
     font-family: "Stage Grotesk", sans-serif;
     font-size: 18px;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1;
     color: #D9D9D9;
     margin: 0;
     letter-spacing: normal;
+    row-gap: 0;
+    column-gap: 0.3em;
 }
 
 @media (min-width: 768px) {
     .careers-statement-text {
         font-size: 31px;
-        line-height: 1.5;
-        height: 29vh;
+        line-height: 0.2;
+        height: 22vh;
+        row-gap: 0;
+        column-gap: 0.3em;
     }
 }
 
@@ -385,7 +420,7 @@
     font-family: "Stage Grotesk", sans-serif;
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     color: white;
 }
 
@@ -400,18 +435,88 @@
     color: white;
 }
 
+/* Decorative Ellipse Section - Background Overlay */
+.careers-ellipse-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 50px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.careers-ellipse-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.careers-ellipse-glow {
+    position: absolute;
+    width: 1200px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(0, 150, 150, 0.15) 0%, rgba(0, 100, 120, 0.08) 30%, transparent 70%);
+    filter: blur(100px);
+    opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+    .careers-ellipse-glow {
+        width: 1600px;
+        height: 800px;
+        filter: blur(120px);
+        opacity: 0.5;
+    }
+}
+
+/* Border animation keyframes */
+@keyframes border-reflection {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
 /* Who Thrives Here Section */
 .careers-who-thrives {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
     padding: 80px 24px;
+    position: relative;
+    z-index: 2;
 }
 
 @media (min-width: 768px) {
     .careers-who-thrives {
-        padding: 270px 48px;
+        padding: 0px 48px 170px 10px;
     }
+}
+
+.careers-who-thrives-glow {
+    position: absolute;
+    top: -466px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1706px;
+    height: 730px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #001117 0%, #013445 100%);
+    filter: blur(200px);
+    opacity: 0.77;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .careers-who-thrives-title {
@@ -443,32 +548,79 @@
 
 .careers-who-thrives-card {
     position: relative;
-    border-radius: 16px;
-    padding: 1px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
-    transition: all 0.3s ease;
-}
-
-.careers-who-thrives-card:hover {
-    background: linear-gradient(180deg, rgba(166, 246, 59, 0.2) 0%, transparent 100%);
-}
-
-.careers-who-thrives-card-inner {
-    position: relative;
-    height: 100%;
-    background: #0A0A0A;
-    border-radius: 16px;
+    background: rgba(2, 15, 20, 0);
+    border-radius: 12px;
     padding: 32px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
+    justify-content: center;
+    min-height: 300px;
+    backdrop-filter: blur(8px);
+    transition: background-color 0.5s ease, transform 0.3s ease;
+    background: rgba(2, 15, 20, 0);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 768px) {
-    .careers-who-thrives-card-inner {
+    .careers-who-thrives-card {
         padding: 40px;
     }
+}
+
+.careers-who-thrives-card:hover {
+    background: rgba(2, 15, 20, 0.15);
+    transform: translateY(-4px);
+    /* Hover effects removed, handled by GlowingEffect */
+}
+
+/* Before pseudo-element removed */
+
+/* Glowing Effect Styles */
+.glowing-effect-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.glow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: var(--glowingeffect-border-width, 1px) solid transparent;
+    background: var(--gradient);
+    background-attachment: fixed;
+    opacity: var(--active, 0);
+    transition: opacity 300ms ease;
+    -webkit-mask-clip: padding-box, border-box;
+    mask-clip: padding-box, border-box;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    -webkit-mask-image:
+        linear-gradient(#0000, #0000),
+        conic-gradient(from calc((var(--start, 0deg) - var(--spread, 45)) * 1deg),
+            #0000 0deg,
+            #fff,
+            #0000 calc(var(--spread, 45) * 2deg));
+    mask-image:
+        linear-gradient(#0000, #0000),
+        conic-gradient(from calc((var(--start, 0deg) - var(--spread, 45)) * 1deg),
+            #0000 0deg,
+            #fff,
+            #0000 calc(var(--spread, 45) * 2deg));
+}
+
+.careers-who-thrives-card-inner {
+    display: none;
 }
 
 .careers-who-thrives-card-content {
@@ -516,15 +668,38 @@
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 24px 200px;
     display: flex;
     flex-direction: column;
     gap: 64px;
+    position: relative;
 }
 
 @media (min-width: 768px) {
     .careers-roles {
-        padding: 0 48px;
+        padding: 0 48px 280px;
+    }
+}
+
+.careers-roles-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(0, 150, 150, 0.3) 0%, rgba(0, 100, 120, 0.15) 30%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+@media (min-width: 768px) {
+    .careers-roles-glow {
+        width: 1600px;
+        height: 800px;
+        filter: blur(120px);
+        top: 127px;
     }
 }
 
@@ -545,9 +720,9 @@
 .careers-roles-title {
     font-family: "Stage Grotesk", sans-serif;
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.02em;
-    color: #A6F63B;
+    color: #FFFFFF;
     position: relative;
     right: 136px;
 }
@@ -559,24 +734,28 @@
 }
 
 .careers-roles-description {
-    font-family: "Blauer Nue", sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    color: rgba(255, 255, 255, 0.7);
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .careers-roles-sub {
     display: block;
-    margin-top: 4px;
+    margin-top: 8px;
     color: #A6F63B;
-    font-weight: 300;
-    line-height: 1.3;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .careers-roles-lines {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 8px;
+    color: #A6F63B;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .careers-roles-topline {
@@ -587,12 +766,16 @@
 @media (min-width: 768px) {
     .careers-roles-lines {
         font-size: 20px;
+        max-width: 505px;
     }
 }
 
 @media (min-width: 768px) {
     .careers-roles-description {
-        font-size: 24px;
+        font-size: 20px;
+        line-height: 1.5;
+        position: relative;
+        left: 160px;
     }
 }
 
@@ -699,6 +882,8 @@
     flex-direction: column;
     gap: 16px;
     animation: fadeInUp 0.4s ease;
+    position: relative;
+    left: 160px;
 }
 
 @keyframes fadeInUp {
@@ -706,6 +891,7 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -714,19 +900,32 @@
 
 .careers-role-heading {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: -0.02em;
-    color: white;
+    color: #A6F63B;
+    margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+    .careers-role-heading {
+        font-size: 24px;
+    }
 }
 
 .careers-role-text {
-    font-family: "Blauer Nue", sans-serif;
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 887px;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 585px;
+}
+
+@media (min-width: 768px) {
+    .careers-role-text {
+        font-size: 18px;
+    }
 }
 
 /* CTA Section */
@@ -785,7 +984,7 @@
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     padding: 8px 16px;
     border: none;
     border-radius: 2px;
@@ -830,3 +1029,36 @@
     color: black;
 }
 
+/* MacBook Air / Pro 13" and up */
+@media (min-width: 1280px) {
+    .careers-hero-content {
+        padding-left: 65px;
+        max-width: 984px;
+    }
+
+    .careers-statement-text {
+        font-size: 31px;
+        line-height: 0.2;
+        height: 22vh;
+    }
+
+    .careers-who-thrives {
+        padding: 0px 48px 170px 10px;
+    }
+}
+
+/* MacBook Pro 14" / 16" */
+@media (min-width: 1512px) {
+    .careers-hero-content {
+        padding-left: 65px;
+        max-width: 984px;
+    }
+}
+
+/* iMac / External Monitor */
+@media (min-width: 1920px) {
+    .careers-hero-content {
+        padding-left: 65px;
+        max-width: 984px;
+    }
+}

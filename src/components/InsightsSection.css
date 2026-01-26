@@ -1,0 +1,329 @@
+.insights-section {
+  position: relative;
+  width: 100%;
+  height: 170vh;
+  background-color: #000000;
+  background-image: url('/insights-background.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0 0 100px 0;
+  overflow: hidden;
+}
+
+.insights-bottom-glow {
+  position: absolute;
+  bottom: -400px;
+  right: -1088px;
+  width: 2812px;
+  height: 1356px;
+  border-radius: 1212px;
+  background: linear-gradient(180deg, #001117 0%, #013445 100%);
+  filter: blur(200px);
+  opacity: 0.77;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.insights-top-bar {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.insights-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Why this Firm Exists Section */
+.insights-why-exists {
+  width: 100%;
+  max-width: 1046px;
+  aspect-ratio: 1046 / 698;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin: 40px auto 80px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.insights-image-cropper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.insights-featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  /* This crops the bottom if aspect ratio differs */
+}
+
+.insights-why-exists-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.6) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.insights-why-exists-badge {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  letter-spacing: 0.05em;
+  margin-top: 25px;
+  left: -12px;
+  position: relative;
+}
+
+.insights-why-exists-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  bottom: 45px !important;
+}
+
+.insights-why-exists-title {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.insights-why-exists-date {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.insights-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.insights-logo {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #a6f63b;
+  letter-spacing: 0.05em;
+}
+
+.insights-cta-button {
+  padding: 8px 16px;
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  background: transparent;
+  border: 1px solid #a6f63b;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 4.5px #a6f63b;
+  letter-spacing: 0.05em;
+}
+
+.insights-cta-button:hover {
+  background: rgba(166, 246, 59, 0.1);
+  box-shadow: 0px 0px 12px #a6f63b;
+}
+
+.insights-main-content {
+  left: 125px;
+  position: relative;
+}
+
+.insights-featured {
+  position: relative;
+  margin: 80px 0 60px 0;
+}
+
+.insights-featured-badge {
+  position: relative;
+  display: inline-block;
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 40px;
+}
+
+.insights-featured-content {
+  max-width: 800px;
+}
+
+.insights-featured-title {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+}
+
+.insights-featured-date {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #d9d9d9;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.insights-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.insights-filter-btn {
+  padding: 8px 12px;
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  background: transparent;
+  color: #d9d9d9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.insights-filter-btn.active {
+  border-color: #a6f63b;
+  color: #a6f63b;
+  font-weight: 500;
+  box-shadow: 0px 0px 4.5px #a6f63b;
+}
+
+.insights-filter-btn:hover {
+  border-color: #a6f63b;
+  color: #a6f63b;
+}
+
+.insights-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 370px);
+  gap: 27px;
+  justify-content: start;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .insights-articles-grid {
+    grid-template-columns: repeat(auto-fit, 370px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .insights-container {
+    padding: 0 30px;
+  }
+
+  .insights-articles-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 370px));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .insights-container {
+    padding: 0 20px;
+  }
+
+  .insights-featured {
+    margin: 40px 0 40px 0;
+  }
+
+  .insights-featured-badge {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .insights-featured-title {
+    font-size: 32px;
+  }
+
+  .insights-filters {
+    margin-bottom: 30px;
+    gap: 8px;
+  }
+
+  .insights-filter-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .insights-articles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .insights-cta-button {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .insights-featured-title {
+    font-size: 24px;
+  }
+
+  .insights-nav {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+/* MacBook Air / Pro 13" and up */
+@media (min-width: 1280px) {
+  .insights-main-content {
+    left: 125px;
+    position: relative;
+  }
+}
+
+/* MacBook Pro 14" / 16" */
+@media (min-width: 1512px) {
+  .insights-main-content {
+    left: 125px;
+  }
+}
+
+/* iMac / External Monitor */
+@media (min-width: 1920px) {
+  .insights-main-content {
+    left: 125px;
+  }
+}

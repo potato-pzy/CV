@@ -7,20 +7,42 @@
 .about-section {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    padding: var(--spacing-4xl) 0; /* 80px vertical - was 120px */
+    padding-top: 20vh;
+    padding-bottom: 20vh;
     overflow: hidden;
     z-index: 1;
+    min-height: 100vh;
+}
+
+.about-glow-top-right {
+    position: absolute;
+    top: -200px;
+    right: -400px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-glow-ellipse {
+    width: 1303.363px;
+    height: 823.699px;
+    transform: rotate(86.339deg);
+    border-radius: 1303.363px;
+    background: #001D26;
+    filter: blur(200px);
 }
 
 /* Grid layout - collapses to single column on mobile */
 .about-content {
-    max-width: var(--container-xl); /* 1280px */
-    margin: 0 auto; /* Centers container */
-    padding: 0 var(--spacing-xl); /* 32px - was 71px fixed */
+    max-width: var(--container-xl);
+    /* 1280px */
+    margin: 0 auto;
+    /* Centers container */
+    padding: 0 var(--spacing-xl);
+    /* 32px - was 71px fixed */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(3rem, 10vw, 15rem); /* Fluid gap: 48px to 240px */
+    gap: clamp(2rem, 6vw, 6rem);
+    /* Fluid gap: 32px to 96px */
     align-items: start;
 }
 
@@ -28,38 +50,51 @@
 .about-left {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2xl); /* 48px - was 50px */
+    gap: var(--spacing-2xl);
+    /* 48px - was 50px */
 }
 
 /* Main heading - responsive typography */
 .about-heading {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2rem, 4vw, 3.125rem); /* 32px to 50px fluid */
+    font-size: clamp(2rem, 4vw, 3.125rem);
+    /* 32px to 50px fluid */
     font-weight: 500;
-    line-height: 1.2; /* Relative line-height instead of fixed 60px */
+    line-height: 1.2;
+    /* Relative line-height instead of fixed 60px */
     color: var(--text-white);
     margin: 0;
-    /* REMOVED: margin-left: 27px - was breaking alignment */
     white-space: pre-line;
+    margin-top: 9vh;
+    position: relative;
+    margin-left: 3.6vw;
+}
+
+.about-heading-green {
+    color: #A6F63B;
 }
 
 /* Text container - FIXED weird positioning */
 .about-text-container {
     display: flex;
-    left: 287px;
+    left: 18vw;
     position: relative;
     flex-direction: column;
-    gap: var(--spacing-lg); /* 24px - was 25px */
+    gap: var(--spacing-lg);
+    /* 24px - was 25px */
     /* REMOVED: margin-left: 242px, width: 138% - broke responsive layout */
-    max-width: 100%; /* Uses full available width in grid cell */
+    max-width: 100%;
+    /* Uses full available width in grid cell */
 }
 
 /* Description text - responsive sizing */
 .about-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.25rem); /* 16px to 20px fluid */
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    /* 16px to 20px fluid */
     font-weight: 400;
-    line-height: 1.5; /* Relative instead of fixed 24px */
+    line-height: 1.5;
+    /* Relative instead of fixed 24px */
     color: var(--text-gray);
     margin: 0;
     white-space: pre-line;
@@ -67,13 +102,16 @@
 
 /* CTA button - responsive sizing */
 .btn-see-how {
-    padding: 0.5rem 0.75rem; /* 8px 12px */
+    padding: 0.5rem 0.75rem;
+    /* 8px 12px */
     background: var(--primary-green);
     color: var(--bg-dark);
     border: none;
-    border-radius: 0.125rem; /* 2px */
+    border-radius: 0.125rem;
+    /* 2px */
     font-family: "Stage Grotesk", sans-serif;
-    font-size: var(--font-size-sm); /* 12px */
+    font-size: var(--font-size-sm);
+    /* 12px */
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
@@ -81,13 +119,16 @@
     cursor: pointer;
     transition: all 0.3s ease;
     width: fit-content;
-    box-shadow: 0 0 0.28125rem 0 var(--primary-green); /* 4.5px */
+    box-shadow: 0 0 0.28125rem 0 var(--primary-green);
+    /* 4.5px */
 }
 
 .btn-see-how:hover {
     background: var(--accent-green);
-    box-shadow: 0 0 0.5rem 0 var(--primary-green); /* 8px */
-    transform: translateY(-0.125rem); /* Subtle lift */
+    box-shadow: 0 0 0.5rem 0 var(--primary-green);
+    /* 8px */
+    transform: translateY(-0.125rem);
+    /* Subtle lift */
 }
 
 /* Right column with images - FIXED positioning issues */
@@ -95,20 +136,23 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: var(--spacing-lg); /* 24px */
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    /* 24px */
     /* REMOVED: left: 100px - broke responsive layout */
 }
 
 /* Image container - responsive sizing */
 .about-image-container {
     position: relative;
-    width: 100%; /* Fluid width instead of fixed 362px */
-    max-width: 22.625rem; /* 362px max */
-    aspect-ratio: 362 / 401; /* Maintains aspect ratio */
+    top: 65px;
+    left: 120px;
+    width: 100%;
+    /* maintains aspect ratio */
+    aspect-ratio: 362 / 401;
     overflow: hidden;
-    border-radius: 0.125rem; /* 2px */
+    border-radius: 0.125rem;
 }
 
 /* Main image - proper object-fit */
@@ -122,36 +166,34 @@
 }
 
 .about-image-container:hover .about-image-main {
-    transform: scale(1.05); /* Zoom on hover */
+    transform: scale(1.05);
+    /* Zoom on hover */
 }
 
 /* Abstract image decoration - responsive positioning */
 .about-image-abstract {
     position: relative;
-    width: 100%;
-    max-width: 12.5rem; /* 200px */
-    aspect-ratio: 1; /* Square */
+    width: 177%;
+    max-width: 18.5rem !important;
+    aspect-ratio: 1;
     overflow: hidden;
-    /* REMOVED: bottom: 81px, right: 19px - use margin/alignment instead */
-    margin-top: calc(-1 * var(--spacing-4xl)); /* Overlaps previous element */
+    /* margin-top: var(--spacing-md); */
     align-self: flex-start;
-    perspective: 62.5rem; /* 1000px */
+    perspective: 66.5rem;
+    bottom: 3vh;
+    left: -1.5vw;
 }
 
 /* Abstract image with hover effect */
 .abstract-image {
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: cover;
     transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-style: preserve-3d;
     transform-origin: center center;
 }
 
-.abstract-image:hover {
-    transform: rotateZ(-5deg) scale(1.05) translateZ(2.5rem); /* 40px */
-    filter: brightness(1.1);
-}
 
 
 /* ============================================
@@ -160,54 +202,60 @@
    ============================================ */
 
 /* Mobile devices (≤640px) */
-@media (max-width: 40rem) { /* 640px */
+@media (max-width: 40rem) {
+
+    /* 640px */
     .about-section {
-        padding: var(--spacing-3xl) 0; /* 64px */
+        padding: var(--spacing-xl) 0;
+        /* 32px */
     }
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-2xl); /* 48px */
-        padding: 0 var(--spacing-md); /* 16px */
+        gap: var(--spacing-2xl);
+        /* 48px */
+        padding: 0 var(--spacing-md);
+        /* 16px */
     }
 
     .about-left {
-        gap: var(--spacing-xl); /* 32px */
+        gap: var(--spacing-xl);
+        /* 32px */
     }
 
     .about-heading {
-        font-size: 1.75rem; /* 28px */
+        font-size: 1.75rem;
+        /* 28px */
     }
 
     .about-description {
-        font-size: 0.875rem; /* 14px */
+        font-size: 0.875rem;
+        /* 14px */
     }
 
     .about-right {
         align-items: center;
     }
 
-    .about-image-container {
-        max-width: 100%;
-    }
 
-    .about-image-abstract {
-        margin-top: calc(-1 * var(--spacing-2xl)); /* Less overlap on mobile */
-        align-self: center;
-    }
 
     .btn-see-how {
         width: 100%;
-        max-width: 18.75rem; /* 300px */
+        max-width: 18.75rem;
+        /* 300px */
     }
 }
 
 /* Tablets (641px to 1024px) */
-@media (min-width: 40.0625rem) and (max-width: 64rem) { /* 641px - 1024px */
+@media (min-width: 40.0625rem) and (max-width: 64rem) {
+
+    /* 641px - 1024px */
     .about-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-3xl); /* 64px */
-        padding: 0 var(--spacing-xl); /* 32px */
+        gap: var(--spacing-3xl);
+        /* 64px */
+        padding: 0 var(--spacing-xl);
+        /* 32px */
     }
 
     .about-right {
@@ -215,44 +263,55 @@
         align-items: center;
     }
 
-    .about-image-container {
-        max-width: 28rem; /* 448px */
-    }
 }
 
 /* Small laptops (≤1366px) */
-@media (max-width: 85.375rem) { /* 1366px */
+@media (max-width: 85.375rem) {
+
+    /* 1366px */
     .about-content {
-        gap: clamp(3rem, 8vw, 10rem); /* 48px to 160px */
-        padding: 0 var(--spacing-2xl); /* 48px */
+        gap: clamp(3rem, 8vw, 10rem);
+        /* 48px to 160px */
+        padding: 0 var(--spacing-2xl);
+        /* 48px */
     }
 
     .about-heading {
-        font-size: 2.75rem; /* 44px */
+        font-size: 2.75rem;
+        /* 44px */
     }
 
     .about-description {
-        font-size: 1.125rem; /* 18px */
+        font-size: 1.125rem;
+        /* 18px */
     }
 }
 
 /* Standard laptops (≤1440px) */
-@media (max-width: 90rem) { /* 1440px */
+@media (max-width: 90rem) {
+
+    /* 1440px */
     .about-content {
-        gap: clamp(4rem, 9vw, 12rem); /* 64px to 192px */
+        gap: clamp(4rem, 9vw, 12rem);
+        /* 64px to 192px */
     }
 }
 
 /* Large screens (≥1920px) */
-@media (min-width: 120rem) { /* 1920px */
+@media (min-width: 120rem) {
+
+    /* 1920px */
     .about-section {
-        padding: 7.5rem 0; /* 120px */
+        padding: var(--spacing-3xl) 0;
+        /* 64px */
     }
 
     .about-content {
         max-width: 100%;
-        gap: 15rem; /* 240px */
-        padding: 0 var(--spacing-4xl); /* 80px */
+        gap: clamp(4rem, 8vw, 8rem);
+        /* 64px to 128px */
+        padding: 0 var(--spacing-4xl);
+        /* 80px */
     }
 
     .about-heading {
@@ -260,38 +319,103 @@
     }
 
     .about-description {
-        font-size: 1.375rem; /* 22px */
+        font-size: 1.375rem;
+        /* 22px */
         line-height: 1.6;
     }
 
     .btn-see-how {
-        padding: 0.625rem 1rem; /* 10px 16px */
-        font-size: 0.875rem; /* 14px */
+        padding: 0.625rem 1rem;
+        /* 10px 16px */
+        font-size: 0.875rem;
+        /* 14px */
     }
 
-    .about-image-container {
-        max-width: 28rem; /* 448px */
-    }
 
-    .about-image-abstract {
-        max-width: 15rem; /* 240px */
-    }
 }
 
 /* Ultra-wide screens (≥2560px) */
-@media (min-width: 160rem) { /* 2560px */
+@media (min-width: 160rem) {
+
+    /* 2560px */
     .about-content {
-        max-width: 100rem; /* 1600px */
+        max-width: 100rem;
+        /* 1600px */
     }
 }
 
 /* Landscape orientation on tablets */
 @media (min-width: 40.0625rem) and (max-width: 64rem) and (orientation: landscape) {
     .about-section {
-        padding: var(--spacing-2xl) 0; /* 48px - reduced for landscape */
+        padding: var(--spacing-xl) 0;
+        /* 32px - reduced for landscape */
     }
 
     .about-content {
-        gap: var(--spacing-xl); /* 32px */
+        gap: var(--spacing-xl);
+        /* 32px */
     }
+}
+
+/* ============================================
+   MAC DEVICE SPECIFIC STYLES (1280px - MacBook Air)
+   Matches Figma design specifications
+   ============================================ */
+@media (min-width: 80rem) and (max-width: 85rem) {
+    /* 1280px - 1360px - MacBook Air and similar */
+
+    .about-section {
+        padding: 10vh 0 15vh;
+        background-image: url('../assets/vector-background.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .about-content {
+        max-width: 80rem;
+        /* 1280px */
+        padding: 0 2.8125rem;
+        /* 45px - matches navbar */
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .about-heading {
+        font-size: 3.125rem;
+        /* 50px - exact Figma spec */
+        line-height: 1.2;
+        margin: 0;
+        margin-left: 0;
+    }
+
+    .about-text-container {
+        left: 0;
+        position: static;
+        margin-top: 2rem;
+    }
+
+    .about-description {
+        font-size: 1rem;
+        /* 16px - exact Figma spec */
+        line-height: 1.5;
+        color: #d9d9d9;
+    }
+
+    .btn-see-how {
+        font-size: 0.75rem;
+        /* 12px */
+        padding: 0.5rem 0.75rem;
+        letter-spacing: 0.05em;
+    }
+
+    .about-right {
+        position: relative;
+        left: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+
 }

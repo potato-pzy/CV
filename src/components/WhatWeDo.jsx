@@ -7,50 +7,92 @@ import CTASection from './CTASection';
 import Hyperspeed from './Hyperspeed';
 import { hyperspeedPresets } from './HyperSpeedPresets';
 import { GlowingEffect } from './GlowingEffect';
-
-// Placeholder images - replace with actual assets
-const imgBackground = 'https://www.figma.com/api/mcp/asset/d5590780-6fd5-4a77-a667-2dd5b58164c9';
-const imgCarousel1 = 'https://www.figma.com/api/mcp/asset/25591f7e-9e9b-4d30-b145-083fbcfd3fdb';
+import { AnimatePresence, motion } from 'framer-motion';
+import envisionLogo from '../assets/envision 1.png';
+import proveLogo from '../assets/prove 1.png';
+import buildLogo from '../assets/build 1.png';
+import adaptLogo from '../assets/Adopt 1.png';
+import blog1 from '../assets/discovery_native.jpg';
+import blog2 from '../assets/agent_built.jpg';
+import blog3 from '../assets/accelerators_native.jpg';
 
 function WhatWeDo() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const frameworks = [
     {
       title: 'Envision',
       description: 'Discover AI transformation opportunities with quantified ROI — so you invest where it matters most.',
-      icon: '👁️'
+      icon: envisionLogo
     },
     {
       title: 'Prove',
       description: 'Validate feasibility fast. Agentic prototypes in weeks — with real ROI data before you commit to scale.',
-      icon: '🔬'
+      icon: proveLogo
     },
     {
       title: 'Build',
       description: 'Production-grade AI at scale. Architected for governance, resilience, and measurable business outcomes.',
-      icon: '🔨'
+      icon: buildLogo
     },
     {
-      title: 'Adapt',
+      title: 'Adopt',
       description: 'Enterprise-wide adoption. Continuous enhancement. AI that scales across teams, functions, and markets.',
-      icon: '🔄'
+      icon: adaptLogo
     }
   ];
 
-  const slides = [
+  const aiSlides = [
     {
-      image: imgCarousel1,
+      title: 'AI-POWERED DISCOVERY',
+      image: blog1,
       text: 'Our AI agents validate transformation hypotheses with consulting-grade rigor, identifying opportunities and quantifying ROI in days, not weeks.'
+    },
+    {
+      title: 'Agent built solutions',
+      image: blog2,
+      text: 'AI agents analyze, architect, code, and review together. Humans approve what matters. Production-grade output, accelerated timelines.'
+    },
+    {
+      title: 'Pre-built Accelerators',
+      image: blog3,
+      text: 'Battle-tested components for compliance, document intelligence, and sales enablement. Proven starting points, customized for your context.'
     }
   ];
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  const cardVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 80 : -80,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (dir) => ({
+      x: dir < 0 ? 80 : -80,
+      opacity: 0,
+      position: 'absolute',
+      top: 0,
+      width: '100%'
+    })
   };
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentSlide((prev) => (prev + 1) % aiSlides.length);
+  };
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentSlide((prev) => (prev - 1 + aiSlides.length) % aiSlides.length);
+  };
+
+  const goToSlide = (index) => {
+    setDirection(index > currentSlide ? 1 : -1);
+    setCurrentSlide(index);
   };
 
   return (
@@ -64,17 +106,19 @@ function WhatWeDo() {
         </div>
         <div className="hero-content-overlay">
           <div className="what-we-do-hero">
-            <h1 className="what-we-do-title">The vectorial framework</h1>
+            <h1 className="what-we-do-title">From strategy to production</h1>
             <p className="what-we-do-subtitle">
-              <span>From vision to adoption</span>
-              <span className="highlight"> — accelerated by AI.</span>
+              We embed with your team to validate where AI fits, build production-grade agents, and stay until adoption is complete.
             </p>
-            <p className="what-we-do-tagline">We use AI to deliver AI transformation</p>
+          </div>
+          <div className="scroll-to-explore">
+            <span>Scroll to explore</span>
           </div>
         </div>
       </section>
 
       <section className="what-we-do-section">
+        <div className="what-we-do-glow"></div>
         <div className="what-we-do-container">
 
           {/* Framework Cards Grid */}
@@ -82,17 +126,19 @@ function WhatWeDo() {
             {frameworks.map((item, index) => (
               <div key={index} className="framework-card">
                 <GlowingEffect
-                  blur={24}
-                  spread={45}
-                  proximity={160}
+                  blur={0}
+                  spread={25}
+                  proximity={140}
                   movementDuration={1.2}
                   borderWidth={2}
-                  inactiveZone={0.3}
+                  inactiveZone={0.2}
                   disabled={false}
                   className="glowing-effect-overlay"
                 />
                 <div className="framework-card-inner">
-                  <div className="framework-icon">{item.icon}</div>
+                  <div className="framework-icon">
+                    <img src={item.icon} alt={item.title} />
+                  </div>
                   <h3 className="framework-title">{item.title}</h3>
                   <p className="framework-description">{item.description}</p>
                 </div>
@@ -100,57 +146,78 @@ function WhatWeDo() {
             ))}
           </div>
 
-          {/* AI-Native Delivery Section */}
-          <div className="ai-delivery-section">
-            <div className="ai-delivery-header">
-              <h2 className="ai-delivery-title">AI-Native Delivery</h2>
-              <p className="ai-delivery-subtitle">We use AI to deliver AI transformation</p>
+          {/* AI Discovery card */}
+          <div className="ai-discovery-section">
+            {/* Radial glow effect */}
+            <div className="ai-discovery-ellipse-glow" />
+
+            {/* Header */}
+            <div className="ai-discovery-header">
+              <h2 className="ai-discovery-section-title">AI-Native Delivery</h2>
+              <p className="ai-discovery-section-subtitle">We use AI to deliver AI transformation</p>
             </div>
 
-            {/* Carousel */}
-            <div className="carousel-container">
-              <div className="carousel-image-wrapper">
-                <img 
-                  src={slides[currentSlide].image} 
-                  alt="AI Delivery" 
-                  className="carousel-image"
+            <div className="ai-discovery-carousel-wrapper">
+              <AnimatePresence initial={false} mode="popLayout" custom={direction}>
+                <motion.div
+                  key={currentSlide}
+                  custom={direction}
+                  variants={cardVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: 'spring', stiffness: 260, damping: 34, mass: 0.9 },
+                    opacity: { duration: 0.25, ease: 'easeOut' }
+                  }}
+                  className="ai-discovery-card"
+                >
+                  {/* Background with image */}
+                  <div className="ai-discovery-image-container">
+                    <img
+                      src={aiSlides[currentSlide].image}
+                      alt=""
+                      className="ai-discovery-bg-image"
+                    />
+                    <div className="ai-discovery-gradient-overlay" />
+
+                    {/* Title inside image */}
+                    <h3 className="ai-discovery-title">{aiSlides[currentSlide].title}</h3>
+                  </div>
+
+                  {/* Text overlay at bottom */}
+                  <div className="ai-discovery-text-overlay">
+                    <p className="ai-discovery-text">
+                      {aiSlides[currentSlide].text}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Pagination dots - outside card */}
+            <div className="ai-discovery-pagination">
+              {aiSlides.map((_, index) => (
+                <span
+                  key={index}
+                  className={`ai-discovery-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => goToSlide(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to slide ${index + 1}`}
                 />
-              </div>
-              
-              <div className="carousel-text-overlay">
-                <p>{slides[currentSlide].text}</p>
-              </div>
-
-              {/* Pagination Dots */}
-              <div className="carousel-pagination">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`pagination-dot ${index === currentSlide ? 'active' : ''}`}
-                    onClick={() => setCurrentSlide(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
+              ))}
             </div>
 
-            {/* Navigation Arrows */}
-            <div className="carousel-controls">
-              <button 
-                className="carousel-btn carousel-btn-prev" 
-                onClick={handlePrevSlide}
-                aria-label="Previous slide"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Arrow buttons - outside card */}
+            <div className="ai-discovery-controls">
+              <button className="ai-discovery-btn ai-discovery-btn-prev" onClick={prevSlide} aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <button 
-                className="carousel-btn carousel-btn-next" 
-                onClick={handleNextSlide}
-                aria-label="Next slide"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <button className="ai-discovery-btn ai-discovery-btn-next" onClick={nextSlide} aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>

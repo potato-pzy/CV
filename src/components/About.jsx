@@ -15,7 +15,7 @@ function About() {
 
                     <div className="about-bottom">
                         {/* Small Green Image */}
-                        <div className="about-green-image-wrapper">
+                        <div className="about-image-abstract">
                             <img src={greenAbstract} alt="Abstract Green" className="about-green-image" />
                         </div>
 
@@ -39,7 +39,7 @@ function About() {
                 </div>
 
                 {/* Right Column - Large Image */}
-                <div className="about-right-column">
+                <div className="about-image-container">
                     <img
                         src={officeWindow}
                         alt="Office View"

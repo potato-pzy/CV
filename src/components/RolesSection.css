@@ -1,0 +1,233 @@
+.roles-section {
+  position: relative;
+  width: 100%;
+  min-height: 650px;
+  background-color: #000000;
+  padding: 80px 40px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.roles-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+/* Left Side - Title and Tabs */
+.roles-left {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.roles-main-title {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  position: relative;
+  bottom: 150px;
+}
+
+.roles-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.roles-tab {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.roles-tab-text {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  color: #666666;
+  transition: all 0.3s ease;
+}
+
+.roles-tab.active .roles-tab-text {
+  font-weight: 500;
+  color: #a6f63b;
+}
+
+.roles-tab:hover .roles-tab-text {
+  color: #a6f63b;
+}
+
+.roles-tab-line {
+  width: 250px;
+  height: 1px;
+  background-color: #505951;
+  transition: background-color 0.3s ease;
+}
+
+.roles-tab.active .roles-tab-line {
+  background-color: #a6f63b;
+}
+
+/* Right Side - Content */
+.roles-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.roles-intro {
+  margin-top: 0;
+}
+
+.roles-intro-text {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #a6f63b;
+  line-height: 1.4;
+  margin: 0;
+  white-space: pre-line;
+  bottom: 100px;
+  position: relative;
+}
+
+.roles-highlight {
+  color: #a6f63b;
+}
+
+.roles-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.roles-content-title {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.roles-content-description {
+  font-family: 'Stage Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .roles-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .roles-left {
+    gap: 40px;
+  }
+
+  .roles-main-title {
+    font-size: 32px;
+  }
+
+  .roles-right {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .roles-section {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .roles-container {
+    gap: 40px;
+  }
+
+  .roles-main-title {
+    font-size: 28px;
+  }
+
+  .roles-tab-text {
+    font-size: 18px;
+  }
+
+  .roles-tab-line {
+    width: 200px;
+  }
+
+  .roles-intro-text {
+    font-size: 18px;
+  }
+
+  .roles-content-title {
+    font-size: 18px;
+  }
+
+  .roles-content-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roles-main-title {
+    font-size: 24px;
+  }
+
+  .roles-tab-text {
+    font-size: 16px;
+  }
+
+  .roles-tab-line {
+    width: 150px;
+  }
+
+  .roles-intro-text {
+    font-size: 16px;
+  }
+
+  .roles-content-title {
+    font-size: 16px;
+  }
+
+  .roles-content-description {
+    font-size: 14px;
+  }
+}
+
+.roles-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1706px;
+  height: 730px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #001117 0%, #013445 100%);
+  filter: blur(200px);
+  opacity: 0.77;
+  pointer-events: none;
+  z-index: 0;
+}

@@ -25,7 +25,7 @@ const TextGradientScroll = memo(function TextGradientScroll({
 
   return (
     <TextGradientScrollContext.Provider value={{ textOpacity, type }}>
-      <p ref={ref} className={cn("relative flex m-0 flex-wrap", className)}>
+      <p ref={ref} className={cn("relative flex m-0 flex-wrap gap-x-1.5 gap-y-0", className)}>
         {words.map((word, i) => {
           const start = i / words.length;
           const end = start + 1 / words.length;
@@ -50,7 +50,7 @@ const Word = memo(({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
-    <span className="relative" style={{ marginRight: '0.5rem', marginTop: '0.5rem' }}>
+    <span className="relative">
       <span style={{ position: "absolute", opacity: 0.1 }}>{children}</span>
       <motion.span style={{ transition: "all .5s", opacity: opacity }}>
         {children}
@@ -65,7 +65,7 @@ const Letter = memo(({ children, progress, range }) => {
     const step = amount / children.length;
 
     return (
-      <span className="relative" style={{ marginRight: '0.5rem', marginTop: '0.5rem' }}>
+      <span className="relative">
         {children.split("").map((char, i) => {
           const start = range[0] + i * step;
           const end = range[0] + (i + 1) * step;

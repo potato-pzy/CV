@@ -1,6 +1,9 @@
 import './WhySection.css';
 import whyBg from '../assets/why-cv-bg.svg';
 
+const figmaBg =
+  'https://www.figma.com/api/mcp/asset/3f8b45a2-37b6-4f1e-b183-dd707a5ccbac';
+
 const leftColumnCards = [
   {
     title: 'Production-Grade Engineering',
@@ -64,15 +67,18 @@ function WhyCard({ title, titleParts, stat, body, label, variant }) {
   );
 }
 
-function WhySection() {
+function WhySection({ variant }) {
+  const sectionClass =
+    variant === 'embedded' ? 'why-section why-section-embedded' : 'why-section';
+
   return (
-    <section className="why-section">
-      <div className="ambient-glow">
-        <div className="glow-spot-1"></div>
-        <div className="glow-spot-2"></div>
-        <img src={whyBg} alt="" className="why-bg-graphic" />
-      </div>
-      
+    <section className={sectionClass}>
+      {variant === 'embedded' && (
+        <div className="why-figma-bg-wrapper">
+          <img src={figmaBg} alt="" className="why-figma-bg" />
+        </div>
+      )}
+
       <main className="why-main">
         <header className="why-header">
           <h1 className="why-title">

@@ -63,11 +63,11 @@ export const FlickeringGrid = memo(({
     let lastTime = 0;
     const fps = 30;
     const interval = 1000 / fps;
-    
+
     const render = (currentTime) => {
       animationFrameId = window.requestAnimationFrame(render);
       const deltaTime = currentTime - lastTime;
-      
+
       if (deltaTime >= interval) {
         lastTime = currentTime - (deltaTime % interval);
         draw();

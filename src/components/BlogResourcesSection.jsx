@@ -8,37 +8,52 @@ const imgScreenshot = "https://www.figma.com/api/mcp/asset/2e2f9270-c1d9-4149-ab
 const imgRectangle = "https://www.figma.com/api/mcp/asset/b340d30c-5211-456b-8ff7-fd5061efe766";
 const imgRectangle1 = "https://www.figma.com/api/mcp/asset/57eded5b-edbe-46db-b87b-8befe08c85ce";
 
-const categories = ['ALL', 'ENGINEERING', 'USECASES', 'FOUNDER\'S NOTES'];
+// CMS-ready data structure - can be replaced with CMS data
+const defaultCategories = ['ALL', 'ENGINEERING', 'USECASES', 'FOUNDER\'S NOTES'];
 
-const articles = [
+const defaultFeaturedPost = {
+  id: 'featured-1',
+  image: imgWkC7AP1,
+  title: 'Why most AI pilots never reach production',
+  date: 'JAN 31, 2026',
+  slug: 'why-most-ai-pilots-never-reach-production',
+};
+
+const defaultArticles = [
   {
     id: 1,
     category: 'ENGINEERING',
     date: 'FEB 19, 2026',
     title: 'Automating compliance checks in regulated environments',
-    gradient: 'linear-gradient(137.41deg, rgba(0, 140, 86, 1) 66.98%, rgba(7, 25, 32, 1) 100%)',
-    hasOverlay: true,
+    image: null,
+    slug: 'automating-compliance-checks',
+    gradient: 'teal',
   },
   {
     id: 2,
     category: 'ENGINEERING',
     date: 'FEB 19, 2026',
     title: 'Automating compliance checks in regulated environments',
-    gradient: 'linear-gradient(137.41deg, rgba(166, 216, 191, 1) 66.98%, rgba(0, 0, 0, 1) 100%)',
-    hasOverlay: true,
+    image: null,
+    slug: 'automating-compliance-checks-2',
+    gradient: 'gray',
   },
   {
     id: 3,
     category: 'ENGINEERING',
     date: 'FEB 19, 2026',
     title: 'Automating compliance checks in regulated environments',
-    gradient: 'linear-gradient(204.36deg, rgba(164, 237, 63, 1) 49.6%, rgba(0, 0, 0, 1) 119.27%)',
     image: imgScreenshot,
-    hasOverlay: false,
+    slug: 'automating-compliance-checks-3',
+    gradient: 'green',
   },
 ];
 
-function BlogResourcesSection() {
+function BlogResourcesSection({ 
+  featuredPost = defaultFeaturedPost,
+  articles = defaultArticles,
+  categories = defaultCategories 
+}) {
   const [activeCategory, setActiveCategory] = useState('ALL');
 
   return (
@@ -46,11 +61,12 @@ function BlogResourcesSection() {
       <div className="blog-container">
         <div className="blog-featured-card">
           <div className="blog-featured-image">
-            <img src={imgWkC7AP1} alt="Team collaboration" />
+            <span className="blog-featured-badge">FEATURED</span>
+            <img src={featuredPost.image} alt={featuredPost.title} />
           </div>
           <div className="blog-featured-content">
-            <h2 className="blog-featured-title">Why most AI pilots never reach production</h2>
-            <p className="blog-featured-date">JAN 31, 2026</p>
+            <h2 className="blog-featured-title">{featuredPost.title}</h2>
+            <p className="blog-featured-date">{featuredPost.date}</p>
           </div>
         </div>
 
@@ -68,22 +84,17 @@ function BlogResourcesSection() {
 
         <div className="blog-articles-grid">
           {articles.map((article) => (
-            <article key={article.id} className="blog-article-card">
-              <div 
-                className="blog-article-bg" 
-                style={{ backgroundImage: article.gradient }}
-              />
-              {article.hasOverlay && <div className="blog-article-overlay" />}
-              {article.image && (
-                <div className="blog-article-image">
-                  <img src={article.image} alt="" />
-                </div>
-              )}
-              <div className="blog-article-content">
+            <article key={article.id} className={`blog-article-card gradient-${article.gradient}`}>
+              <div className="blog-article-header">
                 <p className="blog-article-category">{article.category}</p>
-                <h3 className="blog-article-title">{article.title}</h3>
                 <p className="blog-article-date">{article.date}</p>
               </div>
+              <h3 className="blog-article-title">{article.title}</h3>
+              {article.image && (
+                <div className="blog-article-image">
+                  <img src={article.image} alt={article.title} />
+                </div>
+              )}
             </article>
           ))}
         </div>

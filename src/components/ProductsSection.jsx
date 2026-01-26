@@ -1,48 +1,22 @@
 import { useState } from 'react';
 import './ProductsSection.css';
 import { AnimatePresence, motion } from 'framer-motion';
-import ComplianceIcon from './ComplianceIcon';
-import SalesEnablementIcon from './SalesEnablementIcon';
-import DocumentSyncIcon from './DocumentSyncIcon';
+// import ComplianceIcon from './ComplianceIcon';
+// import SalesEnablementIcon from './SalesEnablementIcon';
+// import DocumentSyncIcon from './DocumentSyncIcon';
 import imgVector from '../assets/Document.png';
 import imgVector1 from '../assets/background.png';
 import imgValidate2 from '../assets/validate 2.png';
 import imgValidate3 from '../assets/validate 3.png';
+import imgAcceleratorLeft from '../assets/acceleratorleft.png';
+import imgAcceleratorCenter from '../assets/acceleratorcenter.png';
+import imgAcceleratorRight from '../assets/acceleratorright.png';
 
 function ProductsSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [direction, setDirection] = useState(1);
 
-    // Gradient controls state
-    const [gradientStops, setGradientStops] = useState([
-        { offset: 0, color: '#001119', opacity: 1.00 },
-        { offset: 0, color: '#001119', opacity: 1.00 },
-        { offset: 10, color: '#001119', opacity: 0.95 },
-        { offset: 37, color: '#001C1E', opacity: 0.97 },
-        { offset: 74, color: '#004831', opacity: 0.81 },
-        { offset: 100, color: '#009352', opacity: 0.00 },
-        { offset: 100, color: '#00B15F', opacity: 1.00 }
-    ]);
 
-
-    const generateGradientString = () => {
-        const hexToRgb = (hex) => {
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? {
-                r: parseInt(result[1], 16),
-                g: parseInt(result[2], 16),
-                b: parseInt(result[3], 16)
-            } : null;
-        };
-
-        return `linear-gradient(90deg, ${gradientStops.map(stop => {
-            const rgb = hexToRgb(stop.color);
-            if (rgb) {
-                return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${stop.opacity}) ${stop.offset}%`;
-            }
-            return `${stop.color} ${stop.offset}%`;
-        }).join(', ')})`;
-    };
 
     // const imgB9HUcC1 = "https://www.figma.com/api/mcp/asset/22f55e5f-ec3a-4832-8975-84b282fb97b2";
     // const imgB9HUcC = "https://www.figma.com/api/mcp/asset/8d0bb8df-5091-42e5-937a-02c7a8db3970";
@@ -151,6 +125,7 @@ function ProductsSection() {
                                     <div className="validate-content-left">
                                         <h3 className="validate-title">{slides[currentSlide].title}</h3>
                                         <p className="validate-description">{slides[currentSlide].description}</p>
+                                        <button className="validate-cta">Start a Discovery</button>
                                     </div>
                                     <div className="validate-image-right">
                                         <img
@@ -158,11 +133,14 @@ function ProductsSection() {
                                             alt=""
                                             className="validate-image"
                                         />
-                                        <div
-                                            className="validate-gradient-overlay"
-                                            style={{ background: generateGradientString() }}
-                                        ></div>
                                     </div>
+                                    <div
+                                        className="validate-gradient-overlay"
+                                        style={{
+                                            background: 'linear-gradient(90deg, #001119 36.54%, rgba(0, 28, 30, 0.97) 59%, rgba(0, 72, 49, 0.65) 81%, rgba(0, 147, 82, 0.18) 96%, rgba(0, 177, 95, 0.00) 100%)',
+                                            border: '1px solid rgba(0, 0, 0, 0.00)'
+                                        }}
+                                    ></div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
@@ -188,15 +166,17 @@ function ProductsSection() {
             <div className="accelerators-section-wrapper">
                 {/* Gradient Circle */}
                 <div className="gradient-circle"></div>
-                
-                <div className="accelerators-bottom-label">
-                    <p className="products-label">ACCELERATORS</p>
-                </div>
 
                 <div className="accelerators-heading">
+                    <div className="accelerators-bottom-label">
+                        <p className="products-label">ACCELERATORS</p>
+                    </div>
                     <h2 className="products-title accelerators-heading-text">
-                        Our Accelerators: Proven. Adaptable. Production-Ready.
+                        Proven. Adaptable. Production-Ready.
                     </h2>
+                    <p className="accelerators-description">
+                        Positioned as pre-built, battle-tested components (not off-the-shelf SaaS) customized for each client:
+                    </p>
                 </div>
 
                 {/* Accelerator Cards */}
@@ -204,10 +184,10 @@ function ProductsSection() {
                     {/* Compliance Accelerator Card */}
                     <div className="accelerator-card compliance-card">
                         <div className="accelerator-image-section compliance-image-section">
-                            <ComplianceIcon />
+                            <img src={imgAcceleratorLeft} alt="Compliance Accelerator" className="compliance-icon" />
                         </div>
                         <div className="accelerator-content compliance-content">
-                            <h3 className="accelerator-title compliance-title">Compliance Accelerator</h3>
+                            <h3 className="accelerator-title compliance-title">Compliance<br />Accelerator</h3>
                             <p className="accelerator-description compliance-description">
                                 AI-powered document review for regulatory checks. Audit-ready decisions in seconds.
                             </p>
@@ -221,7 +201,7 @@ function ProductsSection() {
                     {/* Sales Enablement Accelerator Card */}
                     <div className="accelerator-card sales-enablement-card">
                         <div className="accelerator-image-section sales-enablement-image-section">
-                            <SalesEnablementIcon />
+                            <img src={imgAcceleratorCenter} alt="Sales Enablement Accelerator" className="sales-enablement-icon" />
                         </div>
                         <div className="accelerator-content sales-enablement-content">
                             <h3 className="accelerator-title sales-enablement-title">Sales Enablement Accelerator</h3>
@@ -238,7 +218,7 @@ function ProductsSection() {
                     {/* Document Sync Accelerator Card */}
                     <div className="accelerator-card document-sync-card">
                         <div className="accelerator-image-section document-sync-image-section">
-                            <DocumentSyncIcon />
+                            <img src={imgAcceleratorRight} alt="Document Sync Accelerator" className="document-sync-icon" />
                         </div>
                         <div className="accelerator-content document-sync-content">
                             <h3 className="accelerator-title document-sync-title">Document Sync Accelerator</h3>

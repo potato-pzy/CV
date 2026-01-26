@@ -1,16 +1,19 @@
 import './CaseStudiesSection.css';
+import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg';
+import caseStudyLeftBottom from '../assets/homepage-case-study/case-study-left-bottom.jpg';
+import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpg';
 
 const leftColumnStudies = [
   {
     id: 1,
-    image: 'https://www.figma.com/api/mcp/asset/83fdd32d-fbef-472d-84d0-0b42041d739a',
+    image: caseStudyLeftTop,
     description: 'Reduced regulatory compliance reviews from days to minutes using production-grade AI agents',
     company: 'PWM Japan Securities',
     aspectRatio: '16/9',
   },
   {
     id: 3,
-    image: 'https://www.figma.com/api/mcp/asset/9f15cba2-a6cd-41df-847e-303937128ac1',
+    image: caseStudyLeftBottom,
     description: 'Automated legal document updates with semantic accuracy and full traceability',
     company: 'Chartered Investment Germany',
     aspectRatio: '4/5',
@@ -20,7 +23,7 @@ const leftColumnStudies = [
 const rightColumnStudies = [
   {
     id: 2,
-    image: 'https://www.figma.com/api/mcp/asset/b91e951d-ae4f-46ce-8bce-d717d2dc7348',
+    image: caseStudyRight,
     description: 'Enabled advisors to deliver instant, citation-backed answers from complex policy documents',
     company: 'PWM Japan Securities',
     aspectRatio: '4/5',
@@ -76,7 +79,7 @@ function CaseStudiesSection() {
                 aspectRatio={study.aspectRatio}
               />
             ))}
-            
+
             <div className="case-studies-quote">
               <h2 className="quote-text">"Value that extends beyond initial delivery."</h2>
             </div>

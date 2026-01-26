@@ -74,7 +74,9 @@ function Navbar() {
                             </Link>
                         </li>
                         <li>
-                            <a href="#contact" className="navbar-link">Contact</a>
+                            <Link to="/contact" className={`navbar-link ${isActive('/contact') ? 'active' : ''}`}>
+                                Contact
+                            </Link>
                         </li>
                     </ul>
                 </div>

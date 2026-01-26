@@ -4,9 +4,9 @@ function CTASection({ title, subtitle, buttonText }) {
   return (
     <section className="cta-section">
       <div className="cta-background">
-        <img 
-          src="https://www.figma.com/api/mcp/asset/1d146db6-0b7a-41f5-bada-8d361b9ff2a3" 
-          alt="Background pattern" 
+        <img
+          src="https://www.figma.com/api/mcp/asset/e910735e-1725-4c2f-885c-fd95b6e9cbbe"
+          alt="Background pattern"
           className="cta-bg-image"
         />
       </div>

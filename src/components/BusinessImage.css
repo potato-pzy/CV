@@ -1,0 +1,22 @@
+.business-image-container {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.business-image {
+  width: 100%;
+  max-width: 677px;
+  height: auto;
+  aspect-ratio: 677 / 267;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 48rem) {
+  .business-image {
+    border-radius: 8px;
+  }
+}
