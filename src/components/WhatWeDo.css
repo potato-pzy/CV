@@ -84,18 +84,19 @@
 
 .what-we-do-subtitle {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(14px, 2vw, 18px);
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 48px 0;
     line-height: 1.6;
     max-width: 513px;
     margin-left: auto;
     margin-right: auto;
+    text-transform: none;
 }
 
 .scroll-to-explore {
     position: absolute;
-    bottom: 150px;
+    bottom: 15vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -110,10 +111,27 @@
     color: #A6F63B;
     text-align: center;
     text-shadow: 0 0 4px #FFF;
+    z-index: 30;
+    animation: bounce 2s infinite;
 }
 
-.scroll-to-explore svg {
-    color: #A6F63B;
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
 }
 
 /* Framework Cards Grid */
@@ -284,10 +302,12 @@
 }
 
 .ai-discovery-section-subtitle {
+    position: relative;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 15px;
     color: #ffffff;
-    margin: 0;
+    margin: 10px;
+    top: 20px;
 }
 
 .ai-discovery-carousel-wrapper {
@@ -356,7 +376,7 @@
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 0.05em;
     margin: 0;
     z-index: 2;
@@ -376,10 +396,11 @@
 
 .ai-discovery-text {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 24px;
+    font-size: 1rem;
     color: #ffffff;
     line-height: 1.4;
     margin: 0;
+    font-weight: 300;
 }
 
 .ai-discovery-blog-link {

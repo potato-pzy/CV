@@ -87,7 +87,7 @@ const BlogPost = ({
 
                         <div className="share-links">
                             <p className="author-label">Share</p>
-                            <button className="share-btn">Twitter</button>
+                            <button className="share-btn">X</button>
                             <button className="share-btn">LinkedIn</button>
                             <button className="share-btn">Copy Link</button>
                         </div>

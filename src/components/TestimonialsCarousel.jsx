@@ -3,7 +3,7 @@ import './TestimonialsCarousel.css';
 import { testimonials } from '../data/testimonials';
 
 function TestimonialsCarousel() {
-    const [activeIndex, setActiveIndex] = useState(1); // Start with center card active
+    const [activeIndex, setActiveIndex] = useState(0); // Updated to 0 since there are now only 2 cards
 
     const handleDotClick = (index) => {
         setActiveIndex(index);
@@ -29,8 +29,8 @@ function TestimonialsCarousel() {
                                     transform: isActive
                                         ? 'translateX(0)'
                                         : position < 0
-                                            ? 'translateX(-115%)'
-                                            : 'translateX(115%)',
+                                            ? 'translateX(-105%)'
+                                            : 'translateX(105%)',
                                     top: isActive ? '0' : '-21px',
                                     opacity: Math.abs(position) > 1 ? 0 : 1,
                                     zIndex: isActive ? 10 : 1,
@@ -40,10 +40,12 @@ function TestimonialsCarousel() {
                                 onClick={() => handleDotClick(index)}
                             >
                                 <p className="testimonial-quote">{testimonial.quote}</p>
-                                <h3 className="testimonial-name">{testimonial.name}</h3>
-                                <p className="testimonial-title">
-                                    {testimonial.title},<br />{testimonial.company}
-                                </p>
+                                <div className="testimonial-meta">
+                                    <h3 className="testimonial-client">{testimonial.clientName}</h3>
+                                    <p className="testimonial-solution">
+                                        CV Solution: {testimonial.cvSolution}
+                                    </p>
+                                </div>
                             </div>
                         );
                     })}

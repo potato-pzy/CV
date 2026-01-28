@@ -53,7 +53,7 @@ function NewPage() {
       <ProductsSection />
       <WhySection variant="embedded" />
       <CaseStudiesSection />
-      {/* <TestimonialsCarousel /> */}
+      <TestimonialsCarousel />
       <CTASection />
       <Footer />
     </div>

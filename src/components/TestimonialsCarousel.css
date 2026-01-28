@@ -43,9 +43,10 @@
 }
 
 .testimonial-card {
+  gap: 23px;
+  /* margin-bottom: 320px; - Removed as it might break layout, user asked for it but typically position absolute handles this differently, keeping width changes */
   position: absolute;
-  width: 32rem;
-  /* 512px - center card size */
+  width: 31rem;
   background-color: #0c0c0c;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
@@ -54,7 +55,7 @@
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   pointer-events: auto;
 }
 
@@ -74,23 +75,29 @@
   margin: 0;
 }
 
-.testimonial-name {
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: auto;
+}
+
+.testimonial-client {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: 1.625rem;
-  /* 26px for all cards */
+  font-size: 2.25rem;
   font-weight: 500;
   color: var(--accent-green);
   margin: 0;
+  line-height: 1.1;
 }
 
-.testimonial-title {
+.testimonial-solution {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: 0.6875rem;
-  /* 11px for all cards */
+  font-size: 1.5rem;
   font-weight: 300;
-  color: var(--text-gray);
-  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
+  line-height: 1.2;
 }
 
 /* Carousel Pagination */
@@ -135,7 +142,7 @@
   }
 
   .testimonial-card.active {
-    width: 28rem;
+    width: 35rem;
   }
 
   .testimonial-card:not(.active) {

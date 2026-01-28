@@ -34,7 +34,7 @@ function Footer() {
               <img src={instagramIcon} alt="Instagram" className="footer-social-icon-img" />
             </a>
             <a href="https://x.com/cvectorial15617?s=21" target="_blank" rel="noopener noreferrer" className="footer-social-link">
-              <img src={twitterIcon} alt="Twitter" className="footer-social-icon-img" />
+              <img src={twitterIcon} alt="X" className="footer-social-icon-img" />
             </a>
             <a href="https://www.linkedin.com/company/charteredvectorial" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <img src={linkedinIcon} alt="LinkedIn" className="footer-social-icon-img" />
@@ -45,7 +45,7 @@ function Footer() {
         <div className="footer-center">
           <p className="footer-section-title">Chartered Vectorial</p>
           <nav className="footer-nav">
-            <Link to="/whoareewe" className="footer-link">About</Link>
+            <Link to="/whoarewe" className="footer-link">About</Link>
             <Link to="/whatwedo" className="footer-link">Products & Solutions</Link>
             <Link to="/careers" className="footer-link">Careers</Link>
             <Link to="/terms" className="footer-link">Terms of Use</Link>

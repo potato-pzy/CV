@@ -6,6 +6,15 @@
   overflow: hidden;
 }
 
+.insights-hero .light-rays-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
 /* Top black gradient - pro UI enhancement */
 /* Overlay removed */
 /* .insights-hero::after {
@@ -29,7 +38,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 10;
+  z-index: 5;
   pointer-events: auto;
 }
 
@@ -54,11 +63,11 @@
 
 .insights-scroll-to-explore {
   position: absolute;
-  bottom: 85px;
+  bottom: 15vh;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Stage Grotesk", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   color: #a6f63b;
   text-align: center;

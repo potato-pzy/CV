@@ -69,10 +69,11 @@
 
 .blog-featured-date {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   color: #d9d9d9;
   text-transform: uppercase;
   margin: 0;
+  font-weight: 300;
 }
 
 .blog-filters {
@@ -150,11 +151,12 @@
 
 .blog-article-category {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 12px;
+  font-size: 1rem;
   color: white;
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 0.05em;
+  font-weight: 300;
 }
 
 .blog-article-title {
@@ -169,11 +171,12 @@
 
 .blog-article-date {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 12px;
+  font-size: 1rem;
   color: white;
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 0.05em;
+  font-weight: 300;
 }
 
 .blog-article-image {

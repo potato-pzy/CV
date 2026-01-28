@@ -29,7 +29,7 @@
 .accelerators-hero p,
 .case-hero p {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 18px;
+  font-size: 1rem;
   margin: 0;
 }
 
@@ -299,6 +299,10 @@
   object-fit: contain;
 }
 
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
 .acc-title {
   margin: 0px 0 40px 0;
   font-family: 'Stage Grotesk', sans-serif;
@@ -460,7 +464,7 @@
 
 .case-meta {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   color: #ffffff;
   margin-bottom: 12px;
 }

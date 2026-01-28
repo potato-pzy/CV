@@ -18,7 +18,7 @@ const leftColumnCards = [
     titleParts: ["We don't stop at", 'Prototypes'],
     stat: '< 12 weeks',
     body: 'Most AI initiatives stall in pilot mode. We stay embedded until agents deliver measurable impact in production.',
-    label: 'To ship a production-ready agent',
+    label: 'to ship',
   },
 ];
 

@@ -57,7 +57,7 @@ function Navbar() {
                     </Link>
                     <ul className="navbar-menu">
                         <li>
-                            <Link to="/whoareewe" className={`navbar-link ${isActive('/whoareewe') ? 'active' : ''}`}>
+                            <Link to="/whoarewe" className={`navbar-link ${isActive('/whoarewe') ? 'active' : ''}`}>
                                 Who we are
                             </Link>
                         </li>

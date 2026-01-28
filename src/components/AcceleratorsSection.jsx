@@ -133,7 +133,7 @@ const lightCards = [
       {
         type: 'overview',
         title: 'Client Overview',
-        content: 'Industry: Financial Services (Private Wealth Management)\nRegion: Japan\nChallenge: Regulatory Compliance Automation\nTimeline: 12 weeks (5 iterative sprints)\n\nPWM Japan Securities, a major Japanese financial services institution, required a modern approach to regulatory compliance for their Private Wealth Management division. With document volumes growing rapidly and stringent FSA (Financial Services Agency) requirements, the manual compliance process had become unsustainable.'
+        content: 'Industry: Financial Services (Private Wealth Management)\nRegion: Japan\nChallenge: Regulatory Compliance Automation\nTimeline: < 12 weeks to ship (5 iterative sprints)\n\nPWM Japan Securities, a major Japanese financial services institution, required a modern approach to regulatory compliance for their Private Wealth Management division. With document volumes growing rapidly and stringent FSA (Financial Services Agency) requirements, the manual compliance process had become unsustainable.'
       },
       {
         type: 'challenges',
@@ -432,7 +432,7 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
                             )}
 
                             {section.content && (
-                              <p className="mb-6">{section.content}</p>
+                              <p className="mb-6 whitespace-pre-line">{section.content}</p>
                             )}
 
                             {section.subsections && section.subsections.map((sub, subIdx) => (

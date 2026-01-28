@@ -46,7 +46,7 @@
 }
 
 .blog-subtitle {
-    font-size: 20px;
+    font-size: 1rem;
     color: #d9d9d9;
     max-width: 700px;
     line-height: 1.5;
@@ -140,34 +140,71 @@
 }
 
 .blog-post-body p {
-    font-size: 20px;
+    font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 30px;
     color: #e5e5e5;
     font-weight: 300;
 }
 
-.blog-post-body h2 {
-    font-size: 36px;
+.blog-post-body h1,
+.blog-post-body h2,
+.blog-post-body h3,
+.blog-post-body h4,
+.blog-post-body h5,
+.blog-post-body h6 {
     margin: 60px 0 30px;
     color: #ffffff;
+    font-weight: 700;
+}
+
+.blog-post-body h1 {
+    font-size: 42px;
+}
+
+.blog-post-body h2 {
+    font-size: 36px;
+}
+
+.blog-post-body h3 {
+    font-size: 30px;
+}
+
+.blog-post-body h4 {
+    font-size: 24px;
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.blog-post-body li {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: #e5e5e5;
+    font-weight: 300;
 }
 
 .blog-post-body blockquote {
     border-left: 2px solid #A6F63B;
     padding-left: 30px;
     margin: 50px 0;
-    font-size: 28px;
+    font-size: 1.5rem;
     line-height: 1.4;
     font-style: italic;
     color: #ffffff;
+    font-weight: 300;
 }
 
 .blog-post-body .lead {
-    font-size: 26px;
+    font-size: 1rem;
     line-height: 1.5;
     color: #ffffff;
     margin-bottom: 50px;
+    font-weight: 300;
 }
 
 /* Bottom Nav */

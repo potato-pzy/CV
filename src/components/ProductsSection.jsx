@@ -27,7 +27,7 @@ function ProductsSection() {
     const slides = [
         {
             title: "Validate",
-            description: "1-week sprint to identify high-value AI opportunities and build business case before committing budget.",
+            description: "Not sure where AI fits? A 1-week sprint to identify high-value opportunities and build the business case, before you commit budget.",
             images: {
                 base: imgVector1,
                 mask: imgVector,
@@ -37,7 +37,7 @@ function ProductsSection() {
         },
         {
             title: "Transform",
-            description: "Strategy and engineering together, delivering production-grade AI systems in 60–90 days — not decks or pilots.",
+            description: "Strategy and engineering in the same room. We deliver production-grade AI systems in 60–90 days- not decks, not pilots.",
             images: {
                 base: imgValidate2,
                 mask: imgValidate2,
@@ -46,8 +46,8 @@ function ProductsSection() {
             }
         },
         {
-            title: "Evolve",
-            description: "Embed with teams to turn deployed systems into organizational capability and identify what's next.",
+            title: "Embed",
+            description: "Adoption is the key to transformation. We embed with your teams to turn deployed systems into organizational capability, and identify what's next.",
             images: {
                 base: imgValidate3,
                 mask: imgValidate3,
@@ -98,13 +98,11 @@ function ProductsSection() {
                         <h2 className="products-title">
                             Turn manual, rule-driven processes into fast, consistent agentic workflows.
                         </h2>
-                        <Link to="/whatwedo#what-we-do-section">
-                            <button className="btn-explore">
-                                EXPLORE MORE
-                                <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
+                        <Link to="/whatwedo" className="btn-explore">
+                            EXPLORE MORE
+                            <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
                         </Link>
                     </div>
 
@@ -129,7 +127,7 @@ function ProductsSection() {
                                         <h3 className="validate-title">{slides[currentSlide].title}</h3>
                                         <p className="validate-description">{slides[currentSlide].description}</p>
                                         <Link to="/contact">
-                                            <button className="validate-cta">Start a Discovery</button>
+                                            <button className="validate-cta">Explore Partnership</button>
                                         </Link>
                                     </div>
                                     <div className="validate-image-right">
@@ -168,8 +166,7 @@ function ProductsSection() {
             </section>
 
             {/* Accelerators Section */}
-            <div className="accelerators-section-wrapper">
-                {/* Gradient Circle */}
+            {/* <div className="accelerators-section-wrapper">
                 <div className="gradient-circle"></div>
 
                 <div className="accelerators-heading">
@@ -184,9 +181,7 @@ function ProductsSection() {
                     </p>
                 </div>
 
-                {/* Accelerator Cards */}
                 <div className="accelerator-cards-grid">
-                    {/* Compliance Accelerator Card */}
                     <div className="accelerator-card compliance-card">
                         <div className="accelerator-image-section compliance-image-section">
                             <img src={imgAcceleratorLeft} alt="Compliance Accelerator" className="compliance-icon" />
@@ -203,7 +198,6 @@ function ProductsSection() {
                         </div>
                     </div>
 
-                    {/* Sales Enablement Accelerator Card */}
                     <div className="accelerator-card sales-enablement-card">
                         <div className="accelerator-image-section sales-enablement-image-section">
                             <img src={imgAcceleratorCenter} alt="Sales Enablement Accelerator" className="sales-enablement-icon" />
@@ -220,7 +214,6 @@ function ProductsSection() {
                         </div>
                     </div>
 
-                    {/* Document Sync Accelerator Card */}
                     <div className="accelerator-card document-sync-card">
                         <div className="accelerator-image-section document-sync-image-section">
                             <img src={imgAcceleratorRight} alt="Document Sync Accelerator" className="document-sync-icon" />
@@ -237,7 +230,7 @@ function ProductsSection() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }

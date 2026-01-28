@@ -1,23 +1,20 @@
 export const testimonials = [
   {
     id: 1,
-    quote: "We build AI agents with the same rigor as enterprise software — tested, governed, audit-ready. We embed with your teams to turn deployed systems into organizational capability, and identify what's next. Keep legal and policy documents aligned as regulations change, with automated updates at scale.",
-    name: "Elena Rodriguez",
-    title: "VP, Marketing & Sales",
-    company: "Singapore General Hospital"
+    quote: "What stood out was their commitment to ensuring the solution actually solves our real-world problems. Chartered Vectorial consistently incorporated feedback, iterated rapidly, and ensured the end system fit our workflows perfectly.",
+    clientName: "PWM Japan Securities",
+    cvSolution: "Compliance Agent"
   },
   {
     id: 2,
-    quote: "We build AI agents with the same rigor as enterprise software — tested, governed, audit-ready. We embed with your teams to turn deployed systems into organizational capability, and identify what's next. Keep legal and policy documents aligned as regulations change, with automated updates at scale.",
-    name: "Elena Rodriguez",
-    title: "VP, Marketing & Sales",
-    company: "Singapore General Hospital"
+    quote: "Chartered Vectorial quickly became a trusted partner. The team moved with clarity, speed, and professionalism to create a tool that fundamentally improved how we support IFAs. Their understanding of both technology and financial operations made all the difference.",
+    clientName: "PWM Japan Securities",
+    cvSolution: "IFA Sales Co-pilot"
   },
   {
     id: 3,
-    quote: "We build AI agents with the same rigor as enterprise software — tested, governed, audit-ready. We embed with your teams to turn deployed systems into organizational capability, and identify what's next. Keep legal and policy documents aligned as regulations change, with automated updates at scale.",
-    name: "Elena Rodriguez",
-    title: "VP, Marketing & Sales",
-    company: "Singapore General Hospital"
+    quote: "Chartered Vectorial quickly became a trusted partner. The team moved with clarity, speed, and professionalism to create a tool that fundamentally improved how we support IFAs. Their understanding of both technology and financial operations made all the difference.",
+    clientName: "PWM Japan Securities",
+    cvSolution: "IFA Sales Co-pilot"
   }
 ];

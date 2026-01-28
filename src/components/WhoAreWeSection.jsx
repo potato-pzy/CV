@@ -14,6 +14,7 @@ import weStayImage from '../assets/stay.jpeg';
 import founderPradeepImage from '../assets/founder_pradeep.jpg';
 import founderEyalImage from '../assets/founder_eyal.jpg';
 import founderCardBg from '../assets/founder_card_bg.svg';
+import leftImage from '../assets/left 1.png';
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
 
@@ -125,7 +126,7 @@ function WhoAreWeSection() {
                     <div className="whoarewe-hero-inner">
                         <h1 className="whoarewe-hero-title">
                             AI changes the <br className="whoarewe-hero-break" />
-                            equation in how value is created
+                            equation in how value is created.
                         </h1>
 
                         <p className="whoarewe-hero-subtitle">
@@ -189,6 +190,7 @@ function WhoAreWeSection() {
                     <div className="whoarewe-continuation-grid">
                         {/* Left Column: Main Headline */}
                         <div className="whoarewe-continuation-left">
+                            <img src={leftImage} alt="" className="whoarewe-left-image" />
                             <div className="whoarewe-continuation-sticky">
                                 <h1 className="whoarewe-continuation-headline">
                                     Small by design.<br />

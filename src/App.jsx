@@ -38,7 +38,7 @@ function App() {
       <Suspense fallback={<div style={{ background: '#020f14', minHeight: '100vh' }} />}>
         <Routes>
           <Route path="/" element={<NewPage />} />
-          <Route path="/whoareewe" element={<WhoAreWeSection />} />
+          <Route path="/whoarewe" element={<WhoAreWeSection />} />
           <Route path="/whatwedo" element={<WhatWeDo />} />
           <Route path="/careers" element={<CareersSection />} />
           <Route path="/insights" element={<Insights />} />

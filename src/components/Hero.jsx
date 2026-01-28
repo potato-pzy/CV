@@ -25,13 +25,16 @@ function Hero() {
                         Engineering Intelligence. Creating Value.
                     </h1>
                     <p className="hero-subtitle blauer-neue">
-                        AI-NATIVE. EMBEDDED. STRATEGY TO PRODUCTION
+                        AI-native. Embedded. Strategy to production
                     </p>
                     <Link to="/contact">
                         <button className="btn-primary">
                             <div className="btn-primary-text">BOOK A DISCOVERY CALL</div>
                         </button>
                     </Link>
+                </div>
+                <div className="scroll-to-explore-hero">
+                    <span>Scroll to explore</span>
                 </div>
             </div>
         </div>

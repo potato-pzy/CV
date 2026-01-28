@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef, useId } from 'react';
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './CaseStudiesSection.css';
 import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg';
@@ -317,13 +317,7 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
         };
     }, [isSelected]);
 
-    const { scrollYProgress } = useScroll({
-        target: cardRef,
-        offset: ["start end", "end start"]
-    });
 
-    // Parallax effect - interpreting "transform ease -0.7" as a negative scroll speed factor
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
 
     return (
         <>
@@ -349,7 +343,6 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
                         <motion.img
                             src={image}
                             alt={description}
-                            style={{ y, scale: 1.15 }} // Add parallax and scale to prevent gaps
                         />
                     </motion.div>
                 </div>
@@ -436,7 +429,7 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
                                                 )}
 
                                                 {section.content && (
-                                                    <p>{section.content}</p>
+                                                    <p style={{ whiteSpace: 'pre-line' }}>{section.content}</p>
                                                 )}
 
                                                 {section.subsections && section.subsections.map((subsection, subIndex) => (
