@@ -34,7 +34,7 @@ const darkCards = [
 
 import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg'
 import caseStudyLeftBottom from '../assets/homepage-case-study/case-study-left-bottom.jpg'
-import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpg'
+import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpeg'
 
 const lightCards = [
   {
@@ -298,7 +298,7 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
   const [active, setActive] = useState(false)
   const cardRef = useRef(null)
   const id = useId()
-  
+
   // Auto-open if this card matches the requested ID
   useEffect(() => {
     if (shouldAutoOpen) {
@@ -422,72 +422,72 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
                     className="prose prose-invert prose-lg max-w-none text-gray-300/90 font-['Stage_Grotesk'] font-light leading-relaxed"
                   >
                     {sections && sections.length > 0 ? (
-                       <>
-                         {sections.map((section, idx) => (
-                           <div key={idx}>
-                             <h4 className="text-white text-2xl font-medium mt-10 mb-6 first:mt-0">{section.title}</h4>
-                             
-                             {section.subtitle && (
-                               <p className="text-gray-300 italic mb-6">{section.subtitle}</p>
-                             )}
-                             
-                             {section.content && (
-                               <p className="mb-6">{section.content}</p>
-                             )}
-                             
-                             {section.subsections && section.subsections.map((sub, subIdx) => (
-                               <div key={subIdx} className="mb-6">
-                                 <h5 className="text-white text-lg font-medium mb-2">{sub.heading}</h5>
-                                 <p>{sub.content}</p>
-                               </div>
-                             ))}
-                             
-                             {section.table && (
-                               <table className="w-full mt-6 mb-6 border-collapse">
-                                 <thead>
-                                   <tr className="bg-gray-900/50 border-b border-white/10">
-                                     {section.table.headers.map((header, hIdx) => (
-                                       <th key={hIdx} className="text-[#A6F63B] text-left px-4 py-3 font-medium text-sm uppercase tracking-wide">
-                                         {header}
-                                       </th>
-                                     ))}
-                                   </tr>
-                                 </thead>
-                                 <tbody>
-                                   {section.table.rows.map((row, rIdx) => (
-                                     <tr key={rIdx} className="border-b border-white/5 hover:bg-gray-900/30">
-                                       {section.table.headers.map((header, cIdx) => {
-                                         const headerKey = header.toLowerCase().replace(/\s+/g, '');
-                                         let cellValue = '';
-                                         
-                                         if (headerKey === 'layer') cellValue = row.layer;
-                                         else if (headerKey === 'metric') cellValue = row.metric;
-                                         else if (headerKey.includes('technology')) {
-                                           if (headerKey.includes('1')) cellValue = row.tech1 || row.technology;
-                                           else if (headerKey.includes('2')) cellValue = row.tech2;
-                                           else cellValue = row.technology; // Plain 'Technology' header
-                                         }
-                                         else if (headerKey === 'beforepatchbot') cellValue = row.before;
-                                         else if (headerKey === 'afterpatchbot') cellValue = row.after;
-                                         else if (headerKey === 'impact') cellValue = row.impact;
-                                         
-                                         return (
-                                           <td key={cIdx} className="px-4 py-3 text-sm text-gray-300">
-                                             {cellValue}
-                                           </td>
-                                         );
-                                       })}
-                                     </tr>
-                                   ))}
-                                 </tbody>
-                               </table>
-                             )}
-                           </div>
-                         ))}
-                       </>
-                     ) : (
-                       <p className="text-xl leading-relaxed mb-8">{content}</p>
-                     )}
+                      <>
+                        {sections.map((section, idx) => (
+                          <div key={idx}>
+                            <h4 className="text-white text-2xl font-medium mt-10 mb-6 first:mt-0">{section.title}</h4>
+
+                            {section.subtitle && (
+                              <p className="text-gray-300 italic mb-6">{section.subtitle}</p>
+                            )}
+
+                            {section.content && (
+                              <p className="mb-6">{section.content}</p>
+                            )}
+
+                            {section.subsections && section.subsections.map((sub, subIdx) => (
+                              <div key={subIdx} className="mb-6">
+                                <h5 className="text-white text-lg font-medium mb-2">{sub.heading}</h5>
+                                <p>{sub.content}</p>
+                              </div>
+                            ))}
+
+                            {section.table && (
+                              <table className="w-full mt-6 mb-6 border-collapse">
+                                <thead>
+                                  <tr className="bg-gray-900/50 border-b border-white/10">
+                                    {section.table.headers.map((header, hIdx) => (
+                                      <th key={hIdx} className="text-[#A6F63B] text-left px-4 py-3 font-medium text-sm uppercase tracking-wide">
+                                        {header}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {section.table.rows.map((row, rIdx) => (
+                                    <tr key={rIdx} className="border-b border-white/5 hover:bg-gray-900/30">
+                                      {section.table.headers.map((header, cIdx) => {
+                                        const headerKey = header.toLowerCase().replace(/\s+/g, '');
+                                        let cellValue = '';
+
+                                        if (headerKey === 'layer') cellValue = row.layer;
+                                        else if (headerKey === 'metric') cellValue = row.metric;
+                                        else if (headerKey.includes('technology')) {
+                                          if (headerKey.includes('1')) cellValue = row.tech1 || row.technology;
+                                          else if (headerKey.includes('2')) cellValue = row.tech2;
+                                          else cellValue = row.technology; // Plain 'Technology' header
+                                        }
+                                        else if (headerKey === 'beforepatchbot') cellValue = row.before;
+                                        else if (headerKey === 'afterpatchbot') cellValue = row.after;
+                                        else if (headerKey === 'impact') cellValue = row.impact;
+
+                                        return (
+                                          <td key={cIdx} className="px-4 py-3 text-sm text-gray-300">
+                                            {cellValue}
+                                          </td>
+                                        );
+                                      })}
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            )}
+                          </div>
+                        ))}
+                      </>
+                    ) : (
+                      <p className="text-xl leading-relaxed mb-8">{content}</p>
+                    )}
 
                     <div className="mt-12 pt-8 border-t border-white/10 flex items-center gap-4">
                       <span className="text-sm text-gray-500 uppercase tracking-widest">Share this story</span>
@@ -542,12 +542,12 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
 function AcceleratorsSection() {
   const location = useLocation();
   const [autoOpenId, setAutoOpenId] = useState(null);
-  
+
   // Check if we should auto-open a specific case study
   useEffect(() => {
     if (location.state?.caseStudyId && location.hash === '#case-studies') {
       setAutoOpenId(location.state.caseStudyId);
-      
+
       // Scroll to case studies section
       setTimeout(() => {
         const element = document.getElementById('case-studies');
@@ -555,7 +555,7 @@ function AcceleratorsSection() {
           const headerOffset = 80;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          
+
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
@@ -564,7 +564,7 @@ function AcceleratorsSection() {
       }, 100);
     }
   }, [location.state, location.hash]);
-  
+
   return (
     <section className="accelerators-section">
       <div className="acc-section-glow acc-glow-left" />

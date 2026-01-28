@@ -128,7 +128,9 @@ function ProductsSection() {
                                     <div className="validate-content-left">
                                         <h3 className="validate-title">{slides[currentSlide].title}</h3>
                                         <p className="validate-description">{slides[currentSlide].description}</p>
-                                        <button className="validate-cta">Start a Discovery</button>
+                                        <Link to="/contact">
+                                            <button className="validate-cta">Start a Discovery</button>
+                                        </Link>
                                     </div>
                                     <div className="validate-image-right">
                                         <img

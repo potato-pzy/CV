@@ -167,8 +167,8 @@
 }
 
 .about-image-container:hover .about-image-main {
-    transform: scale(2.2);
-    /* Pronounced zoom on hover */
+    transform: scale(1.2);
+    /* Reduced zoom on hover */
 }
 
 /* Abstract image decoration - responsive positioning */

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Hero.css';
 import Navbar from './Navbar';
-import heroVideo from '../assets/Output_converted(3).mp4';
+import heroVideo from '../assets/Output_converted(3).MP4';
 
 function Hero() {
     return (

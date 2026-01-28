@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './CaseStudiesSection.css';
 import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg';
 import caseStudyLeftBottom from '../assets/homepage-case-study/case-study-left-bottom.jpg';
-import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpg';
+import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpeg';
 
 const leftColumnStudies = [
     {
@@ -430,15 +430,15 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
                                                 transition={{ duration: 0.4, delay: 0.2 + (sectionIndex * 0.1), ease: editorialTransition.ease }}
                                             >
                                                 <h4>{section.title}</h4>
-                                                
+
                                                 {section.subtitle && (
                                                     <p className="case-section-subtitle">{section.subtitle}</p>
                                                 )}
-                                                
+
                                                 {section.content && (
                                                     <p>{section.content}</p>
                                                 )}
-                                                
+
                                                 {section.subsections && section.subsections.map((subsection, subIndex) => (
                                                     <div key={subIndex} className="case-subsection">
                                                         <h5>{subsection.heading}</h5>
@@ -447,39 +447,39 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
                                                 ))}
 
                                                 {section.table && (
-                                                     <table className="case-tech-stack-table">
-                                                         <thead>
-                                                             <tr>
-                                                                 {section.table.headers.map((header, idx) => (
-                                                                     <th key={idx}>{header}</th>
-                                                                 ))}
-                                                             </tr>
-                                                         </thead>
-                                                         <tbody>
-                                                             {section.table.rows.map((row, rowIdx) => (
-                                                                 <tr key={rowIdx}>
-                                                                     {section.table.headers.map((header, colIdx) => {
-                                                                         const headerKey = header.toLowerCase().replace(/\s+/g, '');
-                                                                         let cellValue = '';
-                                                                         
-                                                                         if (headerKey === 'layer') cellValue = row.layer;
-                                                                         else if (headerKey === 'metric') cellValue = row.metric;
-                                                                         else if (headerKey.includes('technology')) {
-                                                                             if (headerKey.includes('1')) cellValue = row.tech1 || row.technology;
-                                                                             else if (headerKey.includes('2')) cellValue = row.tech2;
-                                                                             else cellValue = row.technology; // Plain 'Technology' header
-                                                                         }
-                                                                         else if (headerKey === 'beforepatchbot') cellValue = row.before;
-                                                                         else if (headerKey === 'afterpatchbot') cellValue = row.after;
-                                                                         else if (headerKey === 'impact') cellValue = row.impact;
-                                                                         
-                                                                         return <td key={colIdx}>{cellValue}</td>;
-                                                                     })}
-                                                                 </tr>
-                                                             ))}
-                                                         </tbody>
-                                                     </table>
-                                                 )}
+                                                    <table className="case-tech-stack-table">
+                                                        <thead>
+                                                            <tr>
+                                                                {section.table.headers.map((header, idx) => (
+                                                                    <th key={idx}>{header}</th>
+                                                                ))}
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {section.table.rows.map((row, rowIdx) => (
+                                                                <tr key={rowIdx}>
+                                                                    {section.table.headers.map((header, colIdx) => {
+                                                                        const headerKey = header.toLowerCase().replace(/\s+/g, '');
+                                                                        let cellValue = '';
+
+                                                                        if (headerKey === 'layer') cellValue = row.layer;
+                                                                        else if (headerKey === 'metric') cellValue = row.metric;
+                                                                        else if (headerKey.includes('technology')) {
+                                                                            if (headerKey.includes('1')) cellValue = row.tech1 || row.technology;
+                                                                            else if (headerKey.includes('2')) cellValue = row.tech2;
+                                                                            else cellValue = row.technology; // Plain 'Technology' header
+                                                                        }
+                                                                        else if (headerKey === 'beforepatchbot') cellValue = row.before;
+                                                                        else if (headerKey === 'afterpatchbot') cellValue = row.after;
+                                                                        else if (headerKey === 'impact') cellValue = row.impact;
+
+                                                                        return <td key={colIdx}>{cellValue}</td>;
+                                                                    })}
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                )}
                                             </motion.div>
                                         ))
                                     ) : (
@@ -550,22 +550,22 @@ function CaseStudiesSection() {
 
                 <div className="case-studies-grid">
                     <div className="case-studies-column case-studies-column-left">
-                         {leftColumnStudies.map((study, index) => (
-                             <ExpandableCaseStudyCard
-                                 key={study.id}
-                                 id={study.id}
-                                 image={study.image}
-                                 description={study.description}
-                                 company={study.company}
-                                 aspectRatio={study.aspectRatio}
-                                 isStaggered={index === 1}
-                                 content={study.content}
-                                 sections={study.sections}
-                                 selectedId={selectedId}
-                                 setSelectedId={setSelectedId}
-                             />
-                         ))}
-                     </div>
+                        {leftColumnStudies.map((study, index) => (
+                            <ExpandableCaseStudyCard
+                                key={study.id}
+                                id={study.id}
+                                image={study.image}
+                                description={study.description}
+                                company={study.company}
+                                aspectRatio={study.aspectRatio}
+                                isStaggered={index === 1}
+                                content={study.content}
+                                sections={study.sections}
+                                selectedId={selectedId}
+                                setSelectedId={setSelectedId}
+                            />
+                        ))}
+                    </div>
 
                     <div className="case-studies-column case-studies-column-right">
                         {rightColumnStudies.map((study) => (
