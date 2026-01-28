@@ -6,7 +6,6 @@ function Navbar() {
     const location = useLocation();
     const currentPath = location.pathname;
     const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
 
     const isActive = (path) => {
         if (path === '/' && currentPath === '/') return true;
@@ -17,32 +16,21 @@ function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            const isHomePage = currentPath === '/';
-            const scrollDifference = currentScrollY - lastScrollY;
 
-            // At top, always show
-            if (currentScrollY < 10) {
+            // Only show navbar if we are at the very top (within 20px)
+            if (currentScrollY < 20) {
                 setIsVisible(true);
+            } else {
+                setIsVisible(false);
             }
-            // Scrolling down with some threshold to prevent jitter
-            else if (scrollDifference > 5) {
-                if (isHomePage) {
-                    setIsVisible(false);
-                } else {
-                    setIsVisible(false);
-                }
-            }
-            // Scrolling up - show immediately
-            else if (scrollDifference < -5) {
-                setIsVisible(true);
-            }
-
-            setLastScrollY(currentScrollY);
         };
+
+        // Run once on mount to handle page reloads at non-zero scroll
+        handleScroll();
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY, currentPath]);
+    }, []);
 
     return (
         <nav className={`navbar ${!isVisible ? 'navbar-hidden' : ''}`}>
@@ -97,4 +85,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

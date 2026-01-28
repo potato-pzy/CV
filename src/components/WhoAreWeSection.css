@@ -265,19 +265,20 @@
 
 .whoarewe-hero-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.2;
     text-transform: none;
     max-width: 740px;
     margin: 0 auto 48px auto;
-    letter-spacing: 0.02em;
+    letter-spacing: normal;
     text-align: center;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 @media (min-width: 768px) {
     .whoarewe-hero-subtitle {
-        font-size: 12px;
+        font-size: 20px;
     }
 }
 

@@ -83,12 +83,12 @@
 }
 
 .what-we-do-subtitle {
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 1rem;
+    font-family: "Blauer Nue", sans-serif;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 48px 0;
-    line-height: 1.6;
-    max-width: 513px;
+    line-height: 1.2;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     text-transform: none;
