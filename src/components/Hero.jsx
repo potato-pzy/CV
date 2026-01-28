@@ -25,7 +25,7 @@ function Hero() {
                         Engineering Intelligence. Creating Value.
                     </h1>
                     <p className="hero-subtitle blauer-neue">
-                        AI-native. Embedded. Strategy to production
+                        AI-native. Embedded. Strategy to production.
                     </p>
                     <Link to="/contact">
                         <button className="btn-primary">
