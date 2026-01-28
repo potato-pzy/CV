@@ -95,9 +95,10 @@
   margin-top: 46px;
 }
 
+/* INTRO TEXT - INCREASED SIZE */
 .roles-intro-text {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 18px;
+  font-size: 24px; /* Increased from 18px */
   font-weight: 500;
   color: #ffffff;
   line-height: 1.4;
@@ -117,23 +118,25 @@
   gap: 16px;
 }
 
+/* ROLE TITLE - INCREASED SIZE */
 .roles-content-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 32px; /* Increased from 20px */
   font-weight: 500;
   color: #ffffff;
   margin: 0;
   line-height: 1.2;
 }
 
+/* ROLE DESCRIPTION - INCREASED SIZE */
 .roles-content-description {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 16px;
+  font-size: 20px; /* Increased from 16px */
   font-weight: 400;
   color: #ffffff;
-  line-height: 1.4;
+  line-height: 1.5;
   margin: 0;
-  max-width: 480px;
+  max-width: 520px;
 }
 
 /* Responsive Design */
@@ -179,15 +182,15 @@
   }
 
   .roles-intro-text {
-    font-size: 18px;
+    font-size: 20px; /* Adjusted for mobile */
   }
 
   .roles-content-title {
-    font-size: 18px;
+    font-size: 24px; /* Adjusted for mobile */
   }
 
   .roles-content-description {
-    font-size: 15px;
+    font-size: 16px; /* Adjusted for mobile */
   }
 }
 
@@ -205,15 +208,15 @@
   }
 
   .roles-intro-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .roles-content-title {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .roles-content-description {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
