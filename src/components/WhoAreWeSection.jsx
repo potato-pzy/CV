@@ -190,16 +190,17 @@ function WhoAreWeSection() {
                     <div className="whoarewe-continuation-grid">
                         {/* Left Column: Main Headline */}
                         <div className="whoarewe-continuation-left">
-                            <img src={leftImage} alt="" className="whoarewe-left-image" />
-                            <div className="whoarewe-continuation-sticky">
-                                <h1 className="whoarewe-continuation-headline">
-                                    Small by design.<br />
-                                    Fast by conviction.<br />
-                                    Built for companies{' '}
-                                    <span className="whoarewe-highlight">ready to move.</span>
-                                </h1>
-                            </div>
-                        </div>
+                            <div className="whoarewe-left-image-glow"></div>
+                                <img src={leftImage} alt="" className="whoarewe-left-image" />
+                                    <div className="whoarewe-continuation-sticky">
+                                        <h1 className="whoarewe-continuation-headline">
+                                        Small by design.<br />
+                                        Fast by conviction.<br />
+                                        Built for companies{' '}
+                                        <span className="whoarewe-highlight">ready to move.</span>
+                                        </h1>
+                                    </div>
+                                </div>
 
                         {/* Right Column: Content Grid */}
                         <div className="whoarewe-continuation-right">
