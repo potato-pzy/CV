@@ -1,15 +1,26 @@
 import React from 'react';
 import BlogPost from './BlogPost';
 import image from '../assets/blog_blueprint.png';
-import image1 from '../assets/ Images/blog/1stone.webp';
-import image2 from '../assets/ Images/blog/2ndone.webp';
-import image3 from '../assets/ Images/blog/3rdone.webp';
-import image4 from '../assets/ Images/blog/4thone.webp';
-import image5 from '../assets/ Images/blog/5thone.webp';
-import image6 from '../assets/ Images/blog/6thone.webp';
+import image1 from '../assets/ Images/blog/S1.png';
+import image2 from '../assets/ Images/blog/S2.png';
+import image3 from '../assets/ Images/blog/S3.png';
+import image4 from '../assets/ Images/blog/S4.png';
+import image5 from '../assets/ Images/blog/S5.png';
+import image6 from '../assets/ Images/blog/S6.png';
 
 const BlogAgenticBlueprint = () => {
-    const imgStyle = { width: '100%', height: 'auto', margin: '32px 0', borderRadius: '4px' };
+    const imgStyle = {
+        width: '100%',
+        height: 'auto',
+        borderRadius: '4px',
+        transform: 'scale(1.06) translateX(-11px)',
+        display: 'block'
+    };
+    const imgWrapperStyle = {
+        overflow: 'hidden',
+        borderRadius: '4px',
+        margin: '32px 0'
+    };
     const content = (
         <>
             <p className="lead">
@@ -30,7 +41,9 @@ const BlogAgenticBlueprint = () => {
                 When we talk about “Agentic AI,” it’s important to understand how it differs from traditional Robotic Process Automation (RPA).
             </p>
 
-            <img src={image1} alt="RPA vs Agentic AI" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={image1} alt="RPA vs Agentic AI" style={imgStyle} />
+            </div>
 
             <p>
                 RPA bots are often used to handle repetitive, routine tasks by following a strict set of pre-defined rules. They don’t “think” in the way Agentic AI does, they simply execute the same sequence of actions every time, without considering changes in the environment or learning from past results.
@@ -50,7 +63,9 @@ const BlogAgenticBlueprint = () => {
                 Autonomy, Adaptation, and Action.
             </blockquote>
 
-            <img src={image2} alt="Autonomy, Adaptation, and Action" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={image2} alt="Autonomy, Adaptation, and Action" style={imgStyle} />
+            </div>
 
             <p>
                 These attributes define what it means for an agent to be truly “agentic” rather than merely responsive or rules-bound. Each of these characteristics- Autonomy, Adaptation, and Action, plays a distinct yet complementary role in shaping an agent’s behaviour, decision-making capabilities, and ultimate effectiveness.
@@ -74,7 +89,9 @@ const BlogAgenticBlueprint = () => {
                 A component is a fundamental building block of an agent that handles a specific aspect of functionality.
             </blockquote>
 
-            <img src={image3} alt="Agent Components" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={image3} alt="Agent Components" style={imgStyle} />
+            </div>
 
             <p>As shown in the diagram, there are three key components of an agentic AI:</p>
 
@@ -88,7 +105,9 @@ const BlogAgenticBlueprint = () => {
 
             <h3><strong>Component 1: Perception Modalities (Input Channels)</strong></h3>
 
-            <img src={image4} alt="Perception Modalities" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={image4} alt="Perception Modalities" style={imgStyle} />
+            </div>
 
             <p>
                 Imagine you're a person walking down the street. How do you understand what's happening around you? You use your eyes to see, your ears to hear, your nose to smell, and maybe even your hands to feel things. Well, an AI agent is similar - it needs ways to "sense" its environment to understand what's going on.
@@ -126,7 +145,9 @@ const BlogAgenticBlueprint = () => {
 
             <p>Here's how we can break down these mental capabilities in simple terms:</p>
 
-            <img src={image5} alt="Cognitive Skillset" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={image5} alt="Cognitive Skillset" style={imgStyle} />
+            </div>
 
             <ol>
                 <li><strong>Memory and Understanding (Knowledge Processing):</strong> Store information neatly, find and use information when needed, and spot patterns and connections.</li>
@@ -146,7 +167,9 @@ const BlogAgenticBlueprint = () => {
                 Here's how an AI agent can act in different ways. Each category of action mirrors a human-like capability, making the agent's work seamless and efficient.
             </p>
 
-            <img src={image6} alt="Action Toolkit" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={image6} alt="Action Toolkit" style={imgStyle} />
+            </div>
 
             <p>Let’s break these actions down further:</p>
 

@@ -506,7 +506,7 @@
     margin: 0;
     max-width: 423px;
     position: relative;
-    text-align: end;
+    text-align: left;
     top: 40px;
 }
 
@@ -707,7 +707,8 @@
     margin-bottom: 24px;
     border-radius: 8px;
     position: relative;
-    top: -60px; /* Moves image up to align with text column */
+    top: -60px;
+    /* Moves image up to align with text column */
 }
 
 @media (max-width: 1024px) {
@@ -719,7 +720,8 @@
 
 .whoarewe-continuation-sticky {
     position: relative;
-    top: 20px; /* Adjusted since image moved up */
+    top: 20px;
+    /* Adjusted since image moved up */
     width: 231%;
 }
 

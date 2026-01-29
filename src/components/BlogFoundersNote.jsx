@@ -13,7 +13,25 @@ import s6_1 from '../assets/ Images/blog/Section_6.1.webp';
 import s6 from '../assets/ Images/blog/Section_6.webp';
 
 const BlogFoundersNote = () => {
-    const imgStyle = { width: '100%', height: 'auto', margin: '32px 0', borderRadius: '4px' };
+    const imgStyle = {
+        width: '100%',
+        height: 'auto',
+        borderRadius: '4px',
+        transform: 'scale(1.06) translateX(-11px)',
+        display: 'block'
+    };
+    const imgStyleNoTransform = {
+        width: '100%',
+        height: 'auto',
+        borderRadius: '4px',
+        objectFit: 'cover',
+        display: 'block'
+    };
+    const imgWrapperStyle = {
+        overflow: 'hidden',
+        borderRadius: '4px',
+        margin: '32px 0'
+    };
     const content = (
         <>
 
@@ -28,7 +46,9 @@ const BlogFoundersNote = () => {
                 This wasn't incompetence. It was structural. The model assumed that thinking and doing were separate disciplines, performed by separate people, in separate phases. That assumption held for a long time. It no longer does.
             </p>
 
-            <img src={s2} alt="Section 2" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s2} alt="Section 2" style={imgStyle} />
+            </div>
 
             <p>
                 What changed wasn't just the arrival of new tools. It was where intelligence began to sit.
@@ -45,7 +65,9 @@ const BlogFoundersNote = () => {
             </p>
             <p>The implications are structural, not incremental.</p>
 
-            <img src={s3} alt="Section 3" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s3} alt="Section 3" style={imgStyle} />
+            </div>
 
             <p>I want to be precise about what is happening, because the language we use shapes how we respond.</p>
             <p>
@@ -61,14 +83,18 @@ const BlogFoundersNote = () => {
                 It creates tremendous opportunity. Small teams can now operate with leverage that previously required institutional scale. Expertise can compound across systems rather than depleting with each engagement. Organisations can build intelligence into their operations, not just hire it temporarily.
             </p>
 
-            <img src={s3_1} alt="Section 3.1" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s3_1} alt="Section 3.1" style={imgStyle} />
+            </div>
 
             <p>
                 But it also introduces real threats. Business models built on information asymmetry erode. Competitive moats based on accumulated knowledge narrow. Organisations that treat this as another technology upgrade, something to adopt rather than something to become, will find themselves structurally disadvantaged.
             </p>
             <p>The core fabric of how businesses operate needs to be rewritten. Not optimised. Rewritten.</p>
 
-            <img src={s4_1} alt="Section 4.1" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s4_1} alt="Section 4.1" style={imgStyle} />
+            </div>
 
             <p>This is why the timing matters.</p>
             <p>
@@ -78,14 +104,18 @@ const BlogFoundersNote = () => {
                 The window for building such a firm is now. Not because AI is trendy, but because the organisations that will define the next decade are being shaped in this moment, and they need partners who already operate the way they aspire to.
             </p>
 
-            <img src={s4} alt="Section 4" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s4} alt="Section 4" style={imgStyle} />
+            </div>
 
             <p>I spent a long time looking for a firm that understood this.</p>
             <p>
                 One where strategy didn't end at a slide deck. Where the people who advised were the same people who built. Where AI wasn't a service offering bolted onto existing methods, but the operating system through which the firm itself worked.
             </p>
 
-            <img src={s5_1} alt="Section 5.1" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s5_1} alt="Section 5.1" style={imgStyle} />
+            </div>
 
             <p>
                 A firm that could bring enterprise-grade AI capabilities to organisations regardless of size. The traditional playbook was built for giants, long timelines, large teams, budgets that only the largest institutions could absorb. That left an entire category of ambitious companies underserved: organisations large enough to need real transformation, but priced out of the conventional approach. I wanted to build a firm where the quality of thinking and the rigour of execution didn't depend on the size of the engagement. Where a growing asset manager could access the same firepower as a global bank. Where success was measured not by what was proposed, but by what was running in production.
@@ -93,7 +123,9 @@ const BlogFoundersNote = () => {
             <p>I couldn't find it.</p>
             <p>So I built it.</p>
 
-            <img src={s5_f} alt="Founder's notes s5" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s5_f} alt="Founder's notes s5" style={imgStyleNoTransform} />
+            </div>
 
             <p>Chartered Vectorial exists because I believe the gap between thinking and doing no longer needs to exist.</p>
             <p>
@@ -103,7 +135,9 @@ const BlogFoundersNote = () => {
                 Consulting and engineering are not separate disciplines here. The same team that shapes strategy is the team that ships it. There are no handoffs. No translation layers. No "implementation partners." Intent travels directly into production.
             </p>
 
-            <img src={s6_1} alt="Section 6.1" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s6_1} alt="Section 6.1" style={imgStyle} />
+            </div>
 
             <p>
                 Governance is not an afterthought here, it is how we build. Every system we design carries audit trails, accountability, and explainability from the beginning. Not because regulation demands it, but because intelligence without governance is fragile. Whether the work is in financial services, insurance, or any industry where decisions carry consequence, the discipline remains the same: if it cannot be explained, it should not be deployed.
@@ -112,7 +146,9 @@ const BlogFoundersNote = () => {
                 And we move fast. Not recklessly, but deliberately. Production in 60 to 90 days, not 6 to 12 months. Because strategy that doesn't ship isn't strategy. It's theatre.
             </p>
 
-            <img src={s6} alt="Section 6" style={imgStyle} />
+            <div style={imgWrapperStyle}>
+                <img src={s6} alt="Section 6" style={imgStyle} />
+            </div>
 
             <p>This is not a manifesto. It is an observation made operational.
             </p>
@@ -138,7 +174,7 @@ const BlogFoundersNote = () => {
             subtitle="Reflections from inside the work of building an AI-native future."
             author={{
                 name: "Pradeep Menon",
-                title: "Co-Founder, Chartered Vectorial"
+                title: "Founder & CEO Chartered Vectorial"
             }}
             content={content}
             image={s1}

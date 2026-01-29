@@ -364,7 +364,7 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-    z-index: 100;
+    z-index: 9999;
     pointer-events: auto;
 }
 
@@ -374,7 +374,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 101;
+    z-index: 10000;
     pointer-events: none;
     padding: 20px;
 }
@@ -392,7 +392,7 @@
     pointer-events: auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    z-index: 110;
+    z-index: 10001;
 }
 
 .case-expanded-image-container {

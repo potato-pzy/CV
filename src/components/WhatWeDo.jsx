@@ -200,7 +200,7 @@ function WhatWeDo() {
 
             {/* Header */}
             <div className="ai-discovery-header">
-              <h2 className="ai-discovery-section-title">AI-Native Delivery</h2>
+              <h2 className="ai-discovery-section-title">AI-native Delivery</h2>
               <p className="ai-discovery-section-subtitle">We use AI to deliver AI transformation</p>
             </div>
 

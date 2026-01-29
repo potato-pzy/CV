@@ -326,6 +326,11 @@ const lightCards = [
             { layer: 'Doc Handling', tech1: 'Not Specified', tech2: 'python-docx, OnlyOffice' }
           ]
         }
+      },
+      {
+        type: 'outcome',
+        title: 'Outcome',
+        content: 'PatchBot replaces high effort, manual document comparison with an AI-assisted, knowledge-driven patching workflow. The solution reduced update cycles from hours to minutes, improved consistency across documents, and provided a scalable foundation for managing complex legal documentation without the overhead of custom model training.'
       }
     ]
   },
@@ -387,14 +392,14 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-md h-full w-full z-[100]"
+            className="fixed inset-0 bg-black/50 backdrop-blur-md h-full w-full z-[9999]"
           />
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {active && (
-          <div className="fixed inset-0 grid place-items-center z-[101]" style={{}}>
+          <div className="fixed inset-0 grid place-items-center z-[10000]" style={{}}>
             <motion.div
               layoutId={`card-${title}-${id}`}
               ref={cardRef}

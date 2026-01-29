@@ -28,7 +28,7 @@ function Footer() {
               className="footer-logo-image"
             />
           </div>
-          <p className="footer-copyright">© 2025 Chartered Vectorial.<br />All rights reserved.</p>
+          <p className="footer-copyright">© 2026 Chartered Vectorial.<br />All rights reserved.</p>
           <div className="footer-social-icons">
             <a href="https://www.instagram.com/charteredvectorial?igsh=MXB5N21wZmM2bzVjbg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <img src={instagramIcon} alt="Instagram" className="footer-social-icon-img" />
@@ -54,7 +54,7 @@ function Footer() {
         </div>
 
         <div className="footer-right">
-          <p className="footer-section-title" style={{ fontWeight: 'normal' }}>Get Connected</p>
+          <p className="footer-section-title">Get Connected</p>
           <nav className="footer-nav">
             <Link to="/insights" className="footer-link footer-link-underline">Blog</Link>
             <Link to="/contact" className="footer-link footer-link-underline">Contact</Link>
