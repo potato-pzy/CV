@@ -109,20 +109,20 @@
 }
 
 .pagination-dot {
-  width: 4.3125rem;
-  /* 69px */
+  width: 3.5rem;
   height: 0.3125rem;
-  /* 5px */
   border: none;
-  border-radius: 2px;
+  border-radius: 999px;
+  /* Rounded pill shape */
   background-color: #1b2823;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   padding: 0;
 }
 
 .pagination-dot.active {
-  background-color: #41f33b;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 10px rgba(166, 246, 59, 0.4);
 }
 
 .pagination-dot:hover {
@@ -141,12 +141,10 @@
     max-width: 60rem;
   }
 
-  .testimonial-card.active {
-    width: 35rem;
-  }
-
+  .testimonial-card.active,
   .testimonial-card:not(.active) {
-    width: 20rem;
+    width: 35rem;
+    height: 100%;
   }
 }
 
@@ -163,13 +161,11 @@
     height: 22rem;
   }
 
-  .testimonial-card.active {
+  .testimonial-card.active,
+  .testimonial-card:not(.active) {
     width: 26rem;
     padding: 2.5rem;
-  }
-
-  .testimonial-card:not(.active) {
-    width: 18rem;
+    height: 100%;
   }
 }
 
@@ -177,32 +173,63 @@
 
   /* 768px */
   .testimonials-section {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: 8rem var(--spacing-md) var(--spacing-2xl);
+    min-height: auto;
+    justify-content: flex-start;
   }
 
   .testimonials-heading {
     font-size: 2rem;
     /* 32px */
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
   }
 
   .testimonials-carousel {
-    height: auto;
-    min-height: 20rem;
+    height: 20rem;
+    /* Reduced to match smaller cards */
+    margin-bottom: var(--spacing-2xl);
   }
 
-  .testimonial-card.active {
+  .testimonial-card.active,
+  .testimonial-card:not(.active) {
     width: 90%;
     max-width: 28rem;
+    height: 18rem;
+    /* Compact height */
+    top: 0 !important;
+    gap: 1.5rem;
+    /* Tighter content */
+    padding: 2rem;
   }
 
   .testimonial-card:not(.active) {
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0.4;
+    pointer-events: auto;
+    /* Enable switching by clicking side cards */
+    cursor: pointer;
+  }
+
+  .carousel-pagination {
+    margin-top: 2rem;
+    padding-bottom: var(--spacing-3xl);
+    z-index: 20;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .pagination-dot {
-    width: 3rem;
+    width: 4rem;
+    /* Slightly wider bars on mobile */
+    height: 0.4rem;
+    background-color: #1b2823;
+    border-radius: 999px;
+  }
+
+  .pagination-dot.active {
+    background-color: var(--accent-green);
+    box-shadow: 0 0 15px rgba(166, 246, 59, 0.6);
   }
 }
 
@@ -214,9 +241,14 @@
     /* 24px */
   }
 
-  .testimonial-card.active {
+  .testimonial-card.active,
+  .testimonial-card:not(.active) {
     width: 95%;
     padding: 1.5rem;
+    gap: 1.25rem;
+    height: 18rem;
+    /* Reduced from 22rem */
+    top: 0 !important;
   }
 
   .testimonial-quote {

@@ -1,7 +1,7 @@
 /* ============================================
-   NAVBAR - RESPONSIVE & ACCESSIBLE
-   Uses position: sticky instead of fixed to work with document flow
-   All units converted to rem/em for scalability
+   NAVBAR - MOBILE-FIRST RESPONSIVE
+   Baseline: Smartphones (360px - 430px)
+   Progressive Enhancement: Tablet, Desktop, L-Screens
    ============================================ */
 
 .navbar {
@@ -13,7 +13,8 @@
     background: transparent;
     border-bottom: none;
     height: auto;
-    padding: var(--spacing-xl) var(--spacing-2xl);
+    /* Reduced padding for mobile baseline */
+    padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
     align-items: center;
     transform: translateY(0);
@@ -22,73 +23,110 @@
     will-change: transform;
 }
 
+/* Progressive enhancement for padding */
+@media (min-width: 48rem) {
+
+    /* 768px */
+    .navbar {
+        padding: var(--spacing-xl) var(--spacing-2xl);
+    }
+}
+
 /* Hide navbar on scroll down - improves UX */
 .navbar-hidden {
     transform: translateY(-100%) !important;
 }
 
-/* Container uses responsive max-width, not fixed values */
 .navbar-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Left section with logo and menu */
 .navbar-left {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
-    /* 24px - reduced space */
+    gap: var(--spacing-md);
 }
 
-/* Logo styling - responsive sizing */
+@media (min-width: 48rem) {
+    .navbar-left {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Logo styling */
 .navbar-logo {
     display: flex;
     align-items: center;
     color: var(--text-white);
-    opacity: 1.9;
+    opacity: 1;
     transition: opacity 0.3s ease;
     text-decoration: none;
     flex-shrink: 0;
-    /* Prevents logo from shrinking */
 }
 
 .navbar-logo:hover {
-    opacity: 1;
+    opacity: 0.8;
 }
 
-/* SVG sizing uses rem for scalability across zoom levels */
+/* Logo SVG - Scaled for mobile-first */
 .navbar-logo-svg {
-    width: 38.622px;
-    height: 29.312px;
+    width: 2.25rem;
+    /* ~36px */
+    height: auto;
+}
+
+@media (min-width: 48rem) {
+
+    /* 768px */
+    .navbar-logo-svg {
+        width: 3.5rem;
+        /* ~56px */
+    }
+}
+
+@media (min-width: 80rem) {
+
+    /* 1280px */
+    .navbar-logo-svg {
+        width: 4.85rem;
+        /* ~77px to match designer specs */
+    }
 }
 
 /* Menu - hidden on mobile, flex on desktop */
 .navbar-menu {
     display: none;
-    gap: 2.5rem;
-    /* 40px - spacing between links */
     list-style: none;
     align-items: center;
     margin: 0;
     padding: 0;
 }
 
-/* Desktop menu visibility breakpoint */
 @media (min-width: 48rem) {
 
     /* 768px */
     .navbar-menu {
         display: flex;
+        gap: 1.5rem;
     }
 }
 
-/* Menu link styling - uses rem for font size */
+@media (min-width: 80rem) {
+
+    /* 1280px */
+    .navbar-menu {
+        gap: 2.5rem;
+    }
+}
+
+/* Menu link styling */
 .navbar-link {
     color: var(--text-white) !important;
     text-decoration: none !important;
@@ -96,10 +134,9 @@
     font-size: 0.875rem !important;
     font-weight: 400 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.01em !important;
+    letter-spacing: 0.05em !important;
     transition: color 0.3s ease !important;
     white-space: nowrap !important;
-    /* Prevents link text wrapping */
 }
 
 .navbar-link:hover,
@@ -112,19 +149,19 @@
     display: none !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0.5rem 0.75rem !important;
+    padding: 0.5rem 1rem !important;
     border: 1.2px solid var(--accent-green) !important;
     border-radius: 0.125rem !important;
     font-family: "Stage Grotesk", sans-serif !important;
-    font-size: var(--font-size-sm) !important;
-    font-weight: 400 !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.01em !important;
+    letter-spacing: 0.05em !important;
     color: var(--accent-green) !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     white-space: nowrap !important;
-    box-shadow: 0 0 0.28125rem 0 var(--accent-green) !important;
+    box-shadow: 0 0 0.25rem 0 var(--accent-green) !important;
     background: transparent !important;
 }
 
@@ -144,15 +181,18 @@
 
 /* Mobile menu toggle button */
 .navbar-mobile-menu {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     color: var(--text-white);
     cursor: pointer;
-    padding: 0;
-    width: 1.5rem;
-    /* 24px */
-    height: 1.5rem;
+    padding: var(--spacing-xs);
+    width: 2.75rem;
+    /* Larger touch target for mobile */
+    height: 2.75rem;
+    z-index: 10001;
 }
 
 @media (min-width: 48rem) {
@@ -163,192 +203,145 @@
     }
 }
 
+.hamburger-icon {
+    width: 1.5rem;
+    height: 1.25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-mobile-menu.active .hamburger-icon span:nth-child(1) {
+    transform: translateY(0.55rem) rotate(45deg);
+}
+
+.navbar-mobile-menu.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-mobile-menu.active .hamburger-icon span:nth-child(3) {
+    transform: translateY(-0.55rem) rotate(-45deg);
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-dark);
+    z-index: 9999;
+    padding-top: 6rem;
+    /* Slightly reduced */
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-20px);
+}
+
+.mobile-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-menu-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+    overflow-y: auto;
+}
+
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    /* Reduced gap */
+}
+
+.mobile-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 1.25rem;
+    /* Reduced from 2rem */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.mobile-link.active {
+    color: var(--accent-green);
+}
+
+.mobile-menu-footer {
+    margin-top: auto;
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    /* Slightly reduced */
+    background: var(--accent-green);
+    color: var(--bg-dark);
+    text-decoration: none;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 0.875rem;
+    /* Reduced from 1rem */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1rem rgba(166, 246, 59, 0.3);
+}
+
+/* Ensure navbar stays visible when open */
+.navbar-open {
+    background-color: var(--bg-dark) !important;
+    transform: translateY(0) !important;
+}
+
 /* ============================================
-   HERO PAGE NAVBAR OVERRIDES
-   Transparent navbar for hero sections
-   ============================================ */
-/* Hero navbar overrides handled by base .navbar styles with !important */
-
-
-/* ============================================
-   RESPONSIVE BREAKPOINTS
-   Tailored for different screen sizes and laptops
+   ENHANCEMENTS FOR LARGE SCREENS
    ============================================ */
 
-/* Small laptops and tablets landscape (≤1366px) */
-@media (max-width: 85.375rem) {
+@media (min-width: 80rem) {
 
-    /* 1366px */
-    .navbar-container {
-        max-width: 75rem;
-        /* 1200px */
-        padding: 0 var(--spacing-lg);
-        /* 24px */
-    }
-
-    .navbar-left {
-        gap: var(--spacing-md);
-        /* 16px - reduced gap */
-    }
-
-    .navbar-menu {
-        gap: 1.875rem;
-        /* 30px */
-    }
-}
-
-/* Standard laptops (≤1440px) */
-@media (max-width: 90rem) {
-
-    /* 1440px */
-    .navbar-logo-svg {
-        width: 38.622px;
-        height: 29.312px;
-    }
-}
-
-/* Tablet breakpoint */
-@media (max-width: 64rem) {
-
-    /* 1024px */
+    /* 1280px - MacBook Air */
     .navbar {
-        height: 4rem;
-        /* 64px - shorter on tablets */
-    }
-
-    .navbar-container {
-        padding: 0 var(--spacing-md);
-        /* 16px */
-    }
-
-    .navbar-left {
-        gap: var(--spacing-md);
-        /* 16px */
-    }
-}
-
-/* Large screens (≥1920px) - More breathing room */
-@media (min-width: 120rem) {
-
-    /* 1920px */
-    .navbar {
-        height: 5rem;
-        /* 80px - taller navbar */
-    }
-
-    .navbar-container {
-        max-width: var(--container-2xl);
-        /* 1400px */
-        padding: 0 var(--spacing-3xl);
-        /* 64px */
-    }
-
-    .navbar-logo-svg {
-        width: 78.622px;
-        height: 60.312px;
-    }
-
-    .navbar-link {
-        font-size: 0.875rem;
-        /* 14px */
-    }
-
-    .navbar-cta {
-        font-size: 0.8125rem;
-        /* 13px */
-        padding: 0.625rem 1.5rem;
-        /* 10px 24px */
-    }
-}
-
-/* Ultra-wide screens (≥2560px) */
-@media (min-width: 160rem) {
-
-    /* 2560px */
-    .navbar-container {
-        max-width: 100rem;
-        /* 1600px */
-    }
-}
-
-/* ============================================
-   MAC DEVICE SPECIFIC STYLES (1280px - MacBook Air)
-   Matches Figma design specifications
-   ============================================ */
-@media (min-width: 80rem) and (max-width: 85rem) {
-    /* 1280px - 1360px - MacBook Air and similar */
-
-    .navbar {
-        height: 7.0625rem;
-        /* 113px - matches design */
+        height: 7rem;
     }
 
     .navbar-container {
         max-width: 80rem;
-        /* 1280px */
-        padding: 0 2.8125rem;
-        /* 45px - matches Figma left spacing */
-    }
-
-    .navbar-logo-svg {
-        width: 4.0625rem;
-        /* 65px - exact from design */
-        height: 2.5625rem;
-        /* 41px - exact from design */
-    }
-
-    .navbar-link {
-        font-size: 0.75rem;
-        /* 12px - exact Figma spec */
-        letter-spacing: 0.05em;
-    }
-
-    .navbar-menu {
-        gap: 2rem;
-        /* Spacing between links */
-    }
-
-    .navbar-cta {
-        font-size: 0.75rem;
-        /* 12px */
-        padding: 0.5rem 1rem;
-        /* 8px 16px */
-        letter-spacing: 0.05em;
-    }
-
-    .hero .navbar {
-        padding: 2.1875rem 2.8125rem;
-        /* 35px 45px - matches design */
+        padding: 0 var(--spacing-2xl);
     }
 }
 
-/* MacBook Air / Pro 13" and up */
-@media (min-width: 1280px) {
-    .navbar-logo-svg {
-        width: 77.622px;
-        height: 61.312px;
-    }
+@media (min-width: 120rem) {
 
-    .navbar-link {
-        color: var(--text-white);
-        text-decoration: none;
-        font-family: "Stage Grotesk", sans-serif;
-        font-size: 1rem;
-    }
-}
-
-/* MacBook Pro 14" / 16" */
-@media (min-width: 1512px) {
-    .navbar-logo-svg {
-        width: 77.622px;
-        height: 61.312px;
-    }
-}
-
-/* iMac / External Monitor */
-@media (min-width: 1920px) {
-    .navbar-logo-svg {
-        width: 77.622px;
-        height: 61.312px;
+    /* 1920px - Desktop */
+    .navbar-container {
+        max-width: var(--container-2xl);
     }
 }

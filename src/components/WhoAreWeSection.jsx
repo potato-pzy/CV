@@ -194,7 +194,7 @@ function WhoAreWeSection() {
                             <div className="whoarewe-left-image-glow"></div>
                             <img src={leftImage} alt="" className="whoarewe-left-image" />
                             <div className="whoarewe-continuation-sticky">
-                                <h1 className="whoarewe-continuation-headline">
+                                <h1 className="whoarewe-continuation-headline whoarewe-headline-desktop">
                                     Small by design.<br />
                                     Fast by conviction.<br />
                                     Built for companies{' '}
@@ -246,6 +246,12 @@ function WhoAreWeSection() {
 
                             {/* Bottom Wide Text */}
                             <div className="whoarewe-continuation-bottom">
+                                <h1 className="whoarewe-continuation-headline whoarewe-headline-mobile">
+                                    Small by design.<br />
+                                    Fast by conviction.<br />
+                                    Built for companies{' '}
+                                    <span className="whoarewe-highlight">ready to move.</span>
+                                </h1>
                                 <p className="whoarewe-continuation-bottom-text">
                                     We embed with client teams from strategy through production. No handoffs. No abandoned pilots. No reports that gather dust. We think with you. We build with you. We stay until it works.
                                 </p>

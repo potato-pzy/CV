@@ -95,8 +95,10 @@
 .careers-hero-content {
     max-width: 900px;
     text-align: left;
-    left: -196px;
-    top: 63px;
+    left: 0;
+    /* Reset desktop offset */
+    top: 0;
+    /* Reset desktop offset */
     position: relative;
 }
 
@@ -134,9 +136,10 @@
 
 .careers-hero-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 19px;
+    font-size: 1.25rem;
+    /* Standardized desktop size */
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.6;
     max-width: 944px;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
@@ -156,7 +159,84 @@
     z-index: 20;
 }
 
+@media (max-width: 768px) {
+    .careers-hero {
+        min-height: 60vh;
+        /* Reduced from 100vh */
+    }
+
+    .careers-hero-container {
+        min-height: 60vh;
+        /* Match hero height */
+        padding: 100px 20px 0;
+        align-items: center;
+        /* Center content on mobile */
+    }
+
+    .careers-hero-content {
+        text-align: center;
+    }
+
+    .careers-hero-subtitle {
+        font-size: 1.125rem;
+        /* Standardized mobile size */
+        text-align: center;
+    }
+
+    .careers-statement {
+        height: auto;
+        min-height: 50vh;
+        padding: 80px 0;
+    }
+
+    .careers-statement-title {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .careers-statement-text {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .careers-who-thrives {
+        padding: 60px 20px;
+    }
+
+    .careers-who-thrives-title {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .careers-who-thrives-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .careers-who-thrives-card {
+        padding: 24px;
+        min-height: auto;
+    }
+
+    .careers-roles {
+        padding-bottom: 100px;
+    }
+}
+
 @media (min-width: 768px) {
+    .careers-hero-container {
+        padding: 128px 72px 0;
+    }
+
+    .careers-hero-content {
+        left: -196px;
+        /* Restore desktop offset */
+        top: 63px;
+        /* Restore desktop offset */
+        padding-left: 65px;
+    }
+
     .careers-statement {
         padding: 192px 0;
     }

@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 function Insights() {
   return (
-    <div className="insights-page">
+    <div className="insights-page" style={{ display: 'flex', flexDirection: 'column' }}>
       <InsightsHero />
       <InsightsSection />
       <Footer />

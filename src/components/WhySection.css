@@ -127,18 +127,18 @@
 
 /* Section header */
 .why-header {
-  /* margin-bottom: var(--spacing-4xl); */
-  text-align: left;
+  text-align: center;
   position: relative;
-  left: 5%;
+  width: 100%;
 }
 
 @media (min-width: 48rem) {
 
   /* 768px */
   .why-header {
-    /* margin-bottom: 8rem; */
     text-align: left;
+    width: auto;
+    left: 5%;
   }
 }
 
@@ -390,9 +390,11 @@
   }
 
   .why-title {
-    font-size: 1.75rem;
-    /* 28px */
+    font-size: 1.5rem;
+    /* ~24px */
     text-align: center;
+    max-width: 90vw;
+    margin: 0 auto;
   }
 
   .why-card {

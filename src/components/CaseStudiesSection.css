@@ -238,6 +238,7 @@
     line-height: 1.1;
     color: var(--text-white);
     margin: 0;
+    text-align: inherit;
 }
 
 /* ============================================
@@ -249,8 +250,8 @@
 
     /* 640px */
     .case-studies-section {
-        padding: var(--spacing-2xl) var(--spacing-md);
-        /* 48px 16px */
+        padding: var(--spacing-2xl) var(--spacing-md) 0;
+        /* 48px 16px 0 - Reduced bottom padding */
     }
 
     .case-studies-header {
@@ -274,8 +275,9 @@
     }
 
     .case-studies-quote {
-        min-height: 12.5rem;
-        /* 200px */
+        min-height: auto;
+        padding: var(--spacing-xl) 0 var(--spacing-2xl);
+        text-align: center;
     }
 }
 

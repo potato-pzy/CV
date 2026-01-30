@@ -65,7 +65,7 @@ function InsightsSection({
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }, 200);
     }
   }, [location]);
 
@@ -83,7 +83,7 @@ function InsightsSection({
       <div className="insights-container">
         {/* Featured Section */}
         <Link to={featuredPost.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div className="insights-why-exists" style={{ aspectRatio: '1046 / 600' }}>
+          <div className="insights-why-exists">
             <div className="insights-image-cropper">
               <img
                 src={featuredPost.backgroundImage || featuredImage}
@@ -97,8 +97,8 @@ function InsightsSection({
             </div>
           </div>
 
-          <div style={{ marginTop: '20px', maxWidth: '1046px', margin: '20px auto 80px' }}>
-            <div className="insights-why-exists-content" style={{ marginTop: '16px' }}>
+          <div className="insights-why-exists-content-wrapper">
+            <div className="insights-why-exists-content">
               <h2 className="insights-why-exists-title">{featuredPost.title}</h2>
               <p className="insights-why-exists-date">{featuredPost.date}</p>
             </div>

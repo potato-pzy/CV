@@ -1,13 +1,17 @@
 .insights-section {
   position: relative;
   width: 100%;
-  height: 170vh;
+  min-height: 100vh;
+  /* Changed from 170vh */
   background-color: #000000;
   background-image: url('/insights-background.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0 0 100px 0;
+  z-index: 20;
+  position: relative;
+  /* Ensure it stays above hero background */
+  /* Massively increased to 200px to guarantee clearance (was 100px) */
   overflow: hidden;
 }
 
@@ -40,14 +44,19 @@
 .insights-why-exists {
   width: 100%;
   max-width: 1046px;
-  aspect-ratio: 1046 / 698;
+  aspect-ratio: 1046 / 600;
   background-size: cover;
   background-position: center;
   position: relative;
-  margin: 40px auto 80px;
+  margin: 120px auto 16px;
+  /* Massively increased to 120px for maximum clearance (was 60px) */
   border-radius: 4px;
   overflow: hidden;
-  position: relative;
+}
+
+.insights-why-exists-content-wrapper {
+  max-width: 1046px;
+  margin: 0 auto 80px;
 }
 
 .insights-image-cropper {
@@ -62,7 +71,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center 10%;
+  /* Shifted from top to prevent edge clipping */
   /* This crops the bottom if aspect ratio differs */
 }
 
@@ -88,12 +98,15 @@
   position: relative;
 }
 
+
+
 .insights-why-exists-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
   position: relative;
-  bottom: 45px !important;
+  bottom: 0 !important;
+  /* Reset to 0 to move text fully down and create a gap */
 }
 
 .insights-why-exists-title {
@@ -151,8 +164,10 @@
 }
 
 .insights-main-content {
-  left: 125px;
   position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .insights-featured {
@@ -231,12 +246,57 @@
 
 .insights-articles-grid {
   display: grid;
-  grid-template-columns: repeat(3, 370px);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Fluid grid */
   gap: 27px;
-  justify-content: start;
+  width: 100%;
 }
 
 /* Responsive Design */
+/* Responsive Design Cleanup */
+@media (max-width: 768px) {
+  .insights-section {
+    padding-top: 80px;
+    margin-top: 0 !important;
+    /* Reset forced margin as padding handles it now */
+    z-index: 20;
+    position: relative;
+    padding-bottom: 60px;
+  }
+
+  .insights-why-exists {
+    aspect-ratio: 343 / 240;
+    margin: 40px auto 12px;
+  }
+
+  .insights-why-exists-title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .insights-why-exists-content-wrapper {
+    margin-bottom: 48px;
+    padding: 0 4px;
+  }
+
+  .insights-why-exists-content {
+    bottom: 0 !important;
+    gap: 8px;
+  }
+
+  .insights-articles-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .insights-main-content {
+    padding: 0 40px;
+  }
+}
+
 @media (max-width: 1400px) {
   .insights-articles-grid {
     grid-template-columns: repeat(auto-fit, 370px);
@@ -283,10 +343,7 @@
     padding: 6px 10px;
   }
 
-  .insights-articles-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  /* The grid-template-columns for insights-articles-grid is now handled by the new media query block */
 
   .insights-cta-button {
     font-size: 10px;
@@ -309,21 +366,6 @@
 /* MacBook Air / Pro 13" and up */
 @media (min-width: 1280px) {
   .insights-main-content {
-    left: 125px;
-    position: relative;
-  }
-}
-
-/* MacBook Pro 14" / 16" */
-@media (min-width: 1512px) {
-  .insights-main-content {
-    left: 125px;
-  }
-}
-
-/* iMac / External Monitor */
-@media (min-width: 1920px) {
-  .insights-main-content {
-    left: 125px;
+    padding: 0;
   }
 }

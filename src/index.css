@@ -224,30 +224,46 @@ body {
   font-family: "Stage Grotesk", sans-serif;
 }
 
-/* Responsive container utility */
+/* Base container: Mobile-first (360px-430px baseline) */
 .container {
   width: 100%;
-  max-width: var(--container-xl);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-md);
+  padding-left: var(--spacing-md);  /* 16px */
   padding-right: var(--spacing-md);
 }
 
-@media (min-width: 48rem) {
-
-  /* 768px */
+/* Progressive enhancement for larger screens */
+@media (min-width: 40rem) { /* 640px */
   .container {
+    max-width: var(--container-sm);
+  }
+}
+
+@media (min-width: 48rem) { /* 768px */
+  .container {
+    max-width: var(--container-md);
     padding-left: var(--spacing-xl);
     padding-right: var(--spacing-xl);
   }
 }
 
-@media (min-width: 64rem) {
-
-  /* 1024px */
+@media (min-width: 64rem) { /* 1024px */
   .container {
+    max-width: var(--container-lg);
     padding-left: var(--spacing-2xl);
     padding-right: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 80rem) { /* 1280px */
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+@media (min-width: 87.5rem) { /* 1400px */
+  .container {
+    max-width: var(--container-2xl);
   }
 }

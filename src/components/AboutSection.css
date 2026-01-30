@@ -76,14 +76,16 @@
     left: 23vw;
     position: relative;
     flex-direction: column;
-    gap: 2rem; /* Increased spacing */
+    gap: 2rem;
+    /* Increased spacing */
     max-width: 100%;
 }
 
 /* Description text - INCREASED SIZE */
 .about-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 1.35rem; /* Increased from 1rem to ~21.6px */
+    font-size: 1.35rem;
+    /* Increased from 1rem to ~21.6px */
     font-weight: 400;
     line-height: 1.5;
     color: var(--text-gray);
@@ -95,13 +97,15 @@
 .btn-see-how {
     display: inline-block;
     text-decoration: none;
-    padding: 0.75rem 1.5rem; /* Increased padding */
+    padding: 0.75rem 1.5rem;
+    /* Increased padding */
     background: var(--primary-green);
     color: var(--bg-dark);
     border: none;
     border-radius: 0.125rem;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 0.875rem; /* Increased from 12px to 14px */
+    font-size: 0.875rem;
+    /* Increased from 12px to 14px */
     font-weight: 600;
     line-height: normal;
     text-transform: uppercase;
@@ -244,6 +248,10 @@
         width: 100%;
     }
 
+    .about-image-abstract {
+        margin-top: var(--spacing-xl);
+    }
+
     .btn-see-how {
         width: 100%;
         max-width: 18.75rem;
@@ -305,7 +313,8 @@
     }
 
     .about-description {
-        font-size: 1.25rem; /* Keep readable on laptops */
+        font-size: 1.25rem;
+        /* Keep readable on laptops */
     }
 }
 
@@ -341,7 +350,8 @@
     }
 
     .about-description {
-        font-size: 1.5rem; /* Larger on big screens */
+        font-size: 1.5rem;
+        /* Larger on big screens */
         line-height: 1.6;
     }
 
@@ -415,13 +425,15 @@
 
     /* Updated for visibility */
     .about-description {
-        font-size: 1.25rem; /* 20px */
+        font-size: 1.25rem;
+        /* 20px */
         line-height: 1.5;
         color: #d9d9d9;
     }
 
     .btn-see-how {
-        font-size: 0.875rem; /* 14px */
+        font-size: 0.875rem;
+        /* 14px */
         padding: 0.75rem 1.5rem;
         letter-spacing: 0.05em;
     }

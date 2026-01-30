@@ -174,8 +174,26 @@
     gap: 40px;
   }
 
+  .roles-left {
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
   .roles-main-title {
     font-size: 28px;
+    text-align: center;
+    bottom: 0px;
+    /* Reset awkward offset */
+  }
+
+  .roles-tabs {
+    align-items: center;
+  }
+
+  .roles-tab {
+    align-items: center;
+    text-align: center;
   }
 
   .roles-tab-text {
@@ -188,6 +206,8 @@
 
   .roles-intro-text {
     font-size: 20px;
+    bottom: 0px;
+    /* Reset awkward offset */
     /* Adjusted for mobile */
   }
 

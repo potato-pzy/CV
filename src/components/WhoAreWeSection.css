@@ -235,13 +235,13 @@
 
 .whoarewe-hero-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 36px;
+    font-size: clamp(2rem, 8vw, 2.5rem);
     font-weight: 500;
-    line-height: normal;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: white;
     max-width: 1200px;
-    margin: 0 0 32px 0;
+    margin: 0 0 48px 0;
     text-align: center;
     text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
     text-transform: capitalize;
@@ -251,6 +251,17 @@
     .whoarewe-hero-title {
         font-size: 55px;
         line-height: normal;
+        margin-bottom: 24px;
+    }
+
+    .whoarewe-content-text {
+        align-items: flex-start;
+        /* Restore left alignment for desktop */
+    }
+
+    .whoarewe-para {
+        justify-content: flex-start;
+        /* Restore left alignment for desktop */
     }
 }
 
@@ -266,12 +277,12 @@
 
 .whoarewe-hero-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 20px;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.4;
     text-transform: none;
     max-width: 740px;
-    margin: 0 auto 48px auto;
+    margin: 0 auto 32px auto;
     letter-spacing: normal;
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
@@ -309,23 +320,24 @@
 
 /* Content Section */
 .whoarewe-content {
-    height: 39vh;
-    width: 160%;
-    max-width: 831px;
-    /* right: 30px; */
+    width: 100%;
+    /* Fixed from 160% which caused horizontal scroll */
+    max-width: 100%;
     position: relative;
     text-align: center;
-    margin-top: calc(100vh + 267px);
+    margin-top: calc(100vh + 250px);
+    /* Reduced gap */
+    padding: 0 var(--spacing-md);
     font-family: "Stage Grotesk", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.6;
     color: #C7C7C7;
 }
 
 @media (min-width: 768px) {
     .whoarewe-content {
-        text-align: left;
+        text-align: center;
         font-size: 24px;
     }
 }
@@ -333,10 +345,18 @@
 .whoarewe-content-text {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    align-items: flex-start;
+    /* Shared left edge for all blocks */
+    text-align: left;
+    gap: 40px;
     position: relative;
-    bottom: 100px;
+    bottom: 0px;
     z-index: 20;
+    width: fit-content;
+    /* Shrink to contents */
+    max-width: 900px;
+    margin: 0 auto;
+    /* Center the resulting block */
 }
 
 .whoarewe-content-text p {
@@ -345,6 +365,10 @@
 
 .whoarewe-para {
     margin: 0 !important;
+    justify-content: flex-start;
+    /* Ensure left-alignment for the flex-wrapped text component */
+    line-height: 1.4;
+    max-width: 100%;
 }
 
 .whoarewe-highlight {
@@ -502,13 +526,14 @@
     font-family: "Stage Grotesk", sans-serif;
     font-size: 15px;
     font-weight: 300;
-    line-height: normal;
+    line-height: 1.5;
     color: #ffffff;
     margin: 0;
     max-width: 423px;
     position: relative;
     text-align: left;
-    top: 40px;
+    top: 0;
+    /* Removed 40px offset for mobile */
 }
 
 .whoarewe-founders-grid {
@@ -528,8 +553,9 @@
 
 .whoarewe-founder-card {
     position: relative;
-    width: 460px;
-    height: 460px;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 0;
     cursor: pointer;
@@ -723,25 +749,42 @@
 
 .whoarewe-continuation-sticky {
     position: relative;
-    top: 20px;
-    /* Adjusted since image moved up */
-    width: 231%;
+    top: 0;
+    width: 100%;
+    /* Fixed from 231% which caused extreme horizontal scroll */
 }
 
 .whoarewe-continuation-headline {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 30px;
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
     font-weight: 500;
-    line-height: normal;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: #ffffff;
     margin: 0;
+}
+
+.whoarewe-headline-mobile {
+    display: block;
+    margin-bottom: 24px;
+}
+
+.whoarewe-headline-desktop {
+    display: none;
 }
 
 @media (min-width: 768px) {
     .whoarewe-continuation-headline {
         font-size: 50px;
         line-height: normal;
+    }
+
+    .whoarewe-headline-mobile {
+        display: none;
+    }
+
+    .whoarewe-headline-desktop {
+        display: block;
     }
 }
 
@@ -758,7 +801,8 @@
 .whoarewe-continuation-right {
     display: flex;
     flex-direction: column;
-    gap: 179px;
+    gap: 64px;
+    /* Reduced from 179px for mobile flow */
     width: 100% !important;
 }
 
@@ -846,11 +890,12 @@
     font-family: "Stage Grotesk", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.6;
     color: #C7C7C7;
-    max-width: 468px;
+    max-width: 100%;
     margin: 0;
-    right: -197px;
+    right: 0;
+    /* Fixed from -197px */
 }
 
 @media (min-width: 768px) {
@@ -1667,18 +1712,18 @@
 /* Image Cards Grid Section */
 .whoarewe-image-cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 400px);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    width: 100%;
     max-width: 1320px;
     justify-content: center;
 }
 
 .whoarewe-image-card {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 100%;
     max-width: 400px;
-    max-height: 400px;
+    aspect-ratio: 1 / 1;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -1785,27 +1830,20 @@
 
 @media (max-width: 1320px) {
     .whoarewe-image-cards-grid {
-        grid-template-columns: repeat(2, 400px);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 900px) {
     .whoarewe-image-cards-grid {
-        grid-template-columns: 400px;
-        gap: 32px;
-    }
-}
-
-@media (max-width: 450px) {
-    .whoarewe-image-card {
-        width: 90vw;
-        height: 90vw;
-        max-width: 90vw;
-        max-height: 90vw;
-    }
-
-    .whoarewe-image-cards-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 20px;
+    }
+
+    .whoarewe-image-card {
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
 
