@@ -377,11 +377,12 @@
   }
 
   .contact-title {
-    font-size: 32px;
+    font-size: 24px;
+    margin-bottom: 24px;
   }
 
   .contact-description {
-    font-size: 14px;
+    font-size: 1rem;
   }
 
   .contact-form {

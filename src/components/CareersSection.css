@@ -104,7 +104,8 @@
 
 .careers-hero-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 38px;
+    font-size: 42px;
+    /* Increased from 24px */
     font-weight: 500;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -161,12 +162,12 @@
 
 @media (max-width: 768px) {
     .careers-hero {
-        min-height: 60vh;
-        /* Reduced from 100vh */
+        min-height: 100vh;
+        /* Restored to 100vh as requested */
     }
 
     .careers-hero-container {
-        min-height: 60vh;
+        min-height: 100vh;
         /* Match hero height */
         padding: 100px 20px 0;
         align-items: center;
@@ -178,10 +179,12 @@
     }
 
     .careers-hero-subtitle {
-        font-size: 1.125rem;
+        font-size: 0.9rem;
+        /* Reduced from 1rem for mobile hierarchy */
         /* Standardized mobile size */
         text-align: center;
     }
+
 
     .careers-statement {
         height: auto;

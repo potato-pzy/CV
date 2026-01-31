@@ -195,10 +195,7 @@ function WhatWeDo() {
 
           {/* AI Discovery card */}
           <div id="blog" className="ai-discovery-section">
-            {/* Radial glow effect */}
-            <div className="ai-discovery-ellipse-glow" />
-
-            {/* Header */}
+            {/* Header - Restored to top for baseline alignment */}
             <div className="ai-discovery-header">
               <h2 className="ai-discovery-section-title">AI-native Delivery</h2>
               <p className="ai-discovery-section-subtitle">We use AI to deliver AI transformation</p>
@@ -271,7 +268,7 @@ function WhatWeDo() {
               ))}
             </div>
 
-            {/* Arrow buttons - outside card */}
+            {/* Arrow buttons - moved to bottom */}
             <div className="ai-discovery-controls">
               <button className="ai-discovery-btn ai-discovery-btn-prev" onClick={prevSlide} aria-label="Previous">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

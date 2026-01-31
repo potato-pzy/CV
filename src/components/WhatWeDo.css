@@ -49,10 +49,11 @@
 
 .what-we-do-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    font-size: clamp(2.25rem, 10vw, 3.4375rem);
+    /* Increased for mobile baseline */
     font-weight: 500;
     color: #ffffff;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
     line-height: 1.2;
     text-transform: uppercase;
 }
@@ -66,7 +67,8 @@
 
 .what-we-do-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    /* Reduced from 1rem */
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.4;
     max-width: 90%;
@@ -168,16 +170,20 @@
     .ai-discovery-header {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: baseline;
+        /* Same x-axis / baseline alignment */
         text-align: left;
     }
 }
+
+/* Removed footer styling as header is at top */
 
 .ai-discovery-section-title {
     font-family: "Stage Grotesk", sans-serif;
     font-size: 2rem;
     color: #ffffff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    /* Removed for baseline alignment */
 }
 
 .ai-discovery-section-subtitle {
@@ -273,10 +279,10 @@
 
 @media (min-width: 48rem) {
     .ai-discovery-controls {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin-top: 0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 2rem;
     }
 }
 

@@ -127,7 +127,7 @@ function WhoAreWeSection() {
                     <div className="whoarewe-hero-inner">
                         <h1 className="whoarewe-hero-title">
                             AI CHANGES THE <br className="whoarewe-hero-break" />
-                            EQUATION IN HOW VALUE IS CREATED.
+                            EQUATION IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED.</span>
                         </h1>
 
                         <p className="whoarewe-hero-subtitle">
@@ -314,7 +314,7 @@ function WhoAreWeSection() {
                     {/* Meet the Founders Section */}
                     <div className="whoarewe-founders">
                         <div className="whoarewe-founders-header">
-                            <h2 className="whoarewe-founders-title">Meet<br /> <span className="whoarewe-highlight">the Founders</span></h2>
+                            <h2 className="whoarewe-founders-title">Meet<br /> <span className="whoarewe-highlight">the founders</span></h2>
                             <p className="whoarewe-founders-description">
                                 The Founders of Chartered Vectorial bring experience across engineering, operations, and large-scale system delivery.
                             </p>
@@ -322,7 +322,7 @@ function WhoAreWeSection() {
                         <div className="whoarewe-founders-grid">
                             <div className="whoarewe-founder-card">
                                 <div className="whoarewe-founder-front">
-                                    <img src={founderEyalImage} alt="Eyal Agmoni" className="whoarewe-founder-image" style={{ transform: 'translateY(-10px)' }} />
+                                    <img src={founderEyalImage} alt="Pradeep Menon" className="whoarewe-founder-image" />
                                     <div className="whoarewe-founder-gradient"></div>
                                     <h3 className="whoarewe-founder-name">Pradeep Menon</h3>
                                 </div>
@@ -337,7 +337,7 @@ function WhoAreWeSection() {
                             </div>
                             <div className="whoarewe-founder-card">
                                 <div className="whoarewe-founder-front">
-                                    <img src={founderPradeepImage} alt="Pradeep Menon" className="whoarewe-founder-image" style={{ height: '130%', transform: 'translateY(-15px)' }} />
+                                    <img src={founderPradeepImage} alt="Eyal Agmoni" className="whoarewe-founder-image" />
                                     <div className="whoarewe-founder-gradient"></div>
                                     <h3 className="whoarewe-founder-name">Eyal Agmoni</h3>
                                 </div>

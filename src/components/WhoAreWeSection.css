@@ -235,13 +235,14 @@
 
 .whoarewe-hero-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2rem, 8vw, 2.5rem);
+    font-size: clamp(2.25rem, 10vw, 3.4375rem);
+    /* Increased for mobile baseline */
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: white;
     max-width: 1200px;
-    margin: 0 0 48px 0;
+    margin: 0 0 40px 0;
     text-align: center;
     text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
     text-transform: capitalize;
@@ -277,7 +278,8 @@
 
 .whoarewe-hero-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 1.125rem;
+    font-size: 0.9rem;
+    /* Reduced from 1rem */
     font-weight: 400;
     line-height: 1.4;
     text-transform: none;
@@ -475,16 +477,19 @@
 /* Meet the Founders Section */
 .whoarewe-founders {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 128px auto 0;
-    padding: 0;
+    padding: 0 20px;
     position: relative;
     z-index: 10;
 }
 
 @media (min-width: 768px) {
     .whoarewe-founders {
-        margin: 192px 0px 0px 70px;
+        margin: 192px auto 0;
+        padding: 0;
+        max-width: 974px;
+        /* (460px * 2) + 54px gap */
     }
 }
 
@@ -497,11 +502,13 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-header {
-        grid-template-columns: 1fr 1fr;
-        gap: 0px;
-        align-items: start;
-        position: relative;
-        right: 20px;
+        grid-template-columns: 460px 460px;
+        /* Match card widths */
+        gap: 54px;
+        /* Match card gap */
+        align-items: end;
+        /* Align to the bottom of the header row */
+        margin-bottom: 40px;
     }
 }
 
@@ -509,31 +516,47 @@
     font-family: "Stage Grotesk", sans-serif;
     font-size: 36px;
     font-weight: 500;
-    line-height: normal;
+    line-height: 1.1;
     color: #ffffff;
     margin: 0;
+    text-align: center;
+    /* Centered on mobile */
+}
+
+.whoarewe-founders-title .whoarewe-highlight {
+    display: block;
+    color: #A6F63B;
+    /* Fresh green from reference */
 }
 
 @media (min-width: 768px) {
     .whoarewe-founders-title {
-        font-size: 36px;
-        right: -69px;
-        position: relative;
+        font-size: 42px;
+        line-height: 1.1;
+        text-align: left;
     }
 }
 
 .whoarewe-founders-description {
     font-family: "Stage Grotesk", sans-serif;
     font-size: 15px;
-    font-weight: 300;
-    line-height: 1.5;
-    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    /* Slightly dimmed like reference */
     margin: 0;
-    max-width: 423px;
+    max-width: 460px;
+    /* Matching card width for 2-line wrap */
     position: relative;
-    text-align: left;
-    top: 0;
-    /* Removed 40px offset for mobile */
+    text-align: right;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .whoarewe-founders-description {
+        text-align: center;
+        margin: 0 auto;
+    }
 }
 
 .whoarewe-founders-grid {
@@ -545,16 +568,22 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-grid {
-        grid-template-columns: repeat(5, auto);
+        grid-template-columns: 460px 460px;
+        /* Exact card widths */
         gap: 54px;
-        justify-content: center;
+        /* Exact gap */
+        justify-content: space-between;
+        justify-items: start;
+        max-width: none;
+        margin: 0;
     }
 }
 
 .whoarewe-founder-card {
     position: relative;
-    width: 100%;
-    max-width: 460px;
+    width: 460px;
+    /* Fixed width for stability */
+    max-width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 0;
@@ -573,14 +602,37 @@
 .whoarewe-founder-front {
     opacity: 1;
     z-index: 1;
+    background: #d1d1d1;
+    /* Better match for portrait backgrounds */
+}
+
+.whoarewe-founder-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 60px 24px 20px;
+    font-family: "Stage Grotesk", sans-serif;
+    font-size: 32px;
+    /* Slightly larger like reference */
+    font-weight: 400;
+    color: white;
+    background: linear-gradient(to top,
+            rgba(0, 176, 104, 1) 0%,
+            rgba(0, 176, 104, 0.8) 40%,
+            rgba(0, 176, 104, 0.4) 70%,
+            transparent 100%);
+    z-index: 5;
+    text-align: left;
 }
 
 .whoarewe-founder-back {
     opacity: 0;
-    z-index: 2;
+    z-index: 10;
     display: flex;
     flex-direction: column;
-    padding: 22px 28px 24px;
+    padding: 32px;
     text-align: left;
 }
 
@@ -636,8 +688,7 @@
     font-weight: 400;
     line-height: 20px;
     color: #ffffff;
-    position: absolute;
-    bottom: 24px;
+    margin-top: 16px;
 }
 
 @media (max-width: 480px) {
@@ -646,37 +697,44 @@
         height: auto;
         aspect-ratio: 1 / 1;
     }
+
+    .whoarewe-founder-back {
+        padding: 22px 28px 40px;
+        /* Increased bottom padding */
+    }
+
+    .whoarewe-founder-back-bio {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .whoarewe-founder-back-designation {
+        font-size: 11px;
+    }
+
+    .whoarewe-founder-back-name {
+        font-size: 24px;
+    }
 }
 
 .whoarewe-founder-image {
     width: 100%;
-    height: 122%;
+    height: 100%;
     object-fit: cover;
+    /* Back to cover to fill side bars */
+    object-position: center 20%;
+    /* Keep heads in frame */
     display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .whoarewe-founder-gradient {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(166, 246, 59, 0) 82.05%, rgba(32, 190, 95, 0.5) 88.87%, rgba(0, 176, 104, 1) 98.36%);
-    pointer-events: none;
+    display: none;
+    /* Handled by name background */
 }
 
-.whoarewe-founder-name {
-    position: absolute;
-    bottom: 28px;
-    left: 28px;
-    font-family: "Stage Grotesk", sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: normal;
-    color: #ffffff;
-    margin: 0;
-    z-index: 1;
-}
+
 
 /* Continuation Section */
 .whoarewe-continuation {

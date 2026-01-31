@@ -554,6 +554,18 @@
   .case-hero {
     padding: 0 20px;
   }
+
+  .accelerators-hero h2,
+  .case-hero h2 {
+    font-size: 36px;
+    /* Increased for mobile visibility */
+  }
+
+  .accelerators-hero p,
+  .case-hero p {
+    font-size: 0.9rem;
+    /* Reduced for mobile */
+  }
 }
 
 /* ============================================

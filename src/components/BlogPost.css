@@ -333,8 +333,9 @@
     }
 
     .blog-title {
-        font-size: 32px;
-        /* Reduced from 40px */
+        font-size: 36px;
+        /* Increased from 24px */
+        margin-bottom: 24px;
     }
 
     .blog-subtitle {

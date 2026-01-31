@@ -222,7 +222,8 @@
     }
 
     .about-heading {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
+        /* Increased from 1.75rem */
         /* 28px */
         width: 100%;
         margin-left: 0;
@@ -233,7 +234,8 @@
     }
 
     .about-description {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        /* Reduced from 1rem */
         /* 16px on mobile */
     }
 
