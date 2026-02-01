@@ -217,7 +217,7 @@
 
 .whoarewe-hero .items-center {
     align-items: center;
-    left: 183px !important;
+    left: 0 !important;
 }
 
 .whoarewe-hero-inner {
@@ -386,7 +386,8 @@
     z-index: 5;
     pointer-events: none;
     left: 0;
-    top: -400px;
+    top: -25rem;
+    /* ~400px, but scalable */
     overflow: visible;
 }
 
@@ -395,8 +396,10 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 1200px;
-    height: 800px;
+    width: clamp(20rem, 80vw, 75rem);
+    /* ~320px to 1200px */
+    height: clamp(15rem, 50vw, 50rem);
+    /* ~240px to 800px */
     border-radius: 50%;
     overflow: hidden;
     filter: blur(60px);
@@ -415,9 +418,12 @@
 /* Radial Blur Oval */
 .whoarewe-radial-blur-oval {
     position: absolute;
-    width: 1658px;
-    height: 777px;
-    border-radius: 1658px;
+    width: clamp(20rem, 100vw, 103.625rem);
+    /* ~320px to 1658px */
+    height: clamp(15rem, 50vw, 48.5625rem);
+    /* ~240px to 777px */
+    border-radius: 50%;
+    /* Simplified from 1658px */
     background: #001D26;
     filter: blur(200px);
     left: 50%;
@@ -502,13 +508,10 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-header {
-        grid-template-columns: 460px 460px;
-        /* Match card widths */
-        gap: 54px;
-        /* Match card gap */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--spacing-3xl);
         align-items: end;
-        /* Align to the bottom of the header row */
-        margin-bottom: 40px;
+        margin-bottom: var(--spacing-2xl);
     }
 }
 
@@ -568,10 +571,8 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-grid {
-        grid-template-columns: 460px 460px;
-        /* Exact card widths */
-        gap: 54px;
-        /* Exact gap */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--spacing-3xl);
         justify-content: space-between;
         justify-items: start;
         max-width: none;
@@ -581,8 +582,9 @@
 
 .whoarewe-founder-card {
     position: relative;
-    width: 460px;
-    /* Fixed width for stability */
+    width: 100%;
+    max-width: 28.75rem;
+    /* 460px */
     max-width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -793,7 +795,8 @@
     margin-bottom: 24px;
     border-radius: 8px;
     position: relative;
-    top: -60px;
+    margin-top: -3.75rem;
+    /* ~-60px, scalable */
     filter: drop-shadow(0 0 50px rgba(166, 246, 59, 0.3));
     /* Moves image up to align with text column */
 }
@@ -849,8 +852,6 @@
 @media (min-width: 1024px) {
     .whoarewe-continuation-headline {
         font-size: 50px;
-        position: relative;
-        right: 15px;
         line-height: normal;
     }
 }
@@ -958,10 +959,11 @@
 
 @media (min-width: 768px) {
     .whoarewe-continuation-bottom-text {
-        top: 45px;
-        font-size: 18px;
-        left: 290px;
-        width: 64%;
+        position: relative;
+        top: var(--spacing-2xl);
+        font-size: var(--font-size-lg);
+        margin-left: auto;
+        width: 65%;
     }
 }
 
@@ -1080,12 +1082,13 @@
 
 /* We Think Card Special Styling */
 .whoarewe-card-think-special {
-    width: 300px;
-    height: 300px;
-    max-width: 300px;
-    max-height: 300px;
-    background-color: transparent;
+    width: 100%;
+    max-width: 18.75rem;
+    /* 300px */
     aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .whoarewe-card-think-special .whoarewe-card-think-front {
@@ -1175,7 +1178,7 @@
 
 .whoarewe-card-think-layer1 {
     position: absolute;
-    inset: 0;
+    inset: 0.41% 0.38%;
 }
 
 .whoarewe-card-think-clip-group {
@@ -1276,12 +1279,13 @@
 
 /* We Build Card Special Styling */
 .whoarewe-card-build-special {
-    width: 300px;
-    height: 300px;
-    max-width: 300px;
-    max-height: 300px;
-    background-color: transparent;
+    width: 100%;
+    max-width: 18.75rem;
+    /* 300px */
     aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .whoarewe-card-build-special .whoarewe-card-build-front {
@@ -1444,12 +1448,13 @@
 
 /* We Stay Card Special Styling */
 .whoarewe-card-stay-special {
-    width: 300px;
-    height: 300px;
-    max-width: 300px;
-    max-height: 300px;
-    background-color: transparent;
+    width: 100%;
+    max-width: 18.75rem;
+    /* 300px */
     aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .whoarewe-card-stay-special .whoarewe-card-stay-front {
@@ -1780,7 +1785,8 @@
 .whoarewe-image-card {
     position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
+    /* 400px */
     aspect-ratio: 1 / 1;
     border-radius: 24px;
     overflow: hidden;
@@ -1953,5 +1959,17 @@
 @media (max-width: 768px) {
     .whoarewe-hero .scroll-to-explore {
         bottom: 15vh;
+    }
+}
+
+/* Ultra-wide support */
+@media (min-width: 120rem) {
+
+    .whoarewe-hero-inner,
+    .whoarewe-continuation,
+    .whoarewe-founders,
+    .whoarewe-image-cards-grid {
+        max-width: 100rem;
+        /* 1600px */
     }
 }

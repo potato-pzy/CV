@@ -47,6 +47,8 @@
     .products-left {
         text-align: left;
         align-items: flex-start;
+        /* Shifted upward to align better with product card */
+        transform: translateY(-1.5rem);
     }
 }
 
