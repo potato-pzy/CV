@@ -25,18 +25,6 @@ function TestimonialsCarousel() {
                             <div
                                 key={testimonial.id}
                                 className={`testimonial-card ${isActive ? 'active' : ''} position-${position}`}
-                                style={{
-                                    transform: isActive
-                                        ? 'translateX(0)'
-                                        : position < 0
-                                            ? 'translateX(-105%)'
-                                            : 'translateX(105%)',
-                                    top: isActive ? '0' : '-21px',
-                                    opacity: Math.abs(position) > 1 ? 0 : 1,
-                                    zIndex: isActive ? 10 : 1,
-                                    filter: isActive ? 'blur(0)' : 'blur(3px)',
-                                    cursor: isActive ? 'default' : 'pointer'
-                                }}
                                 onClick={() => handleDotClick(index)}
                             >
                                 <p className="testimonial-quote">{testimonial.quote}</p>

@@ -536,6 +536,48 @@
   }
 }
 
+/* Tablet-specific adjustments for 768px-1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .accelerators-section {
+    padding: 100px 0 80px 0;
+  }
+
+  .accelerators-grid,
+  .case-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    padding: 0 24px;
+  }
+
+  .accelerators-hero h2,
+  .case-hero h2 {
+    font-size: 40px;
+  }
+
+  .acc-card {
+    min-height: 320px;
+  }
+
+  .acc-card-content {
+    padding: 24px;
+  }
+
+  .acc-title {
+    font-size: 20px;
+  }
+
+  .acc-desc p {
+    font-size: 15px;
+  }
+
+  .case-hero {
+    max-width: 700px;
+    margin-top: 120px;
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 640px) {
   .accelerators-section {
     padding: 96px 0 120px 0;

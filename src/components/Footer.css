@@ -91,6 +91,36 @@
   }
 }
 
+/* Tablet-specific adjustments for 768px-1024px */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .footer {
+    padding: 4rem 0;
+    min-height: auto;
+  }
+
+  .footer-container {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+  }
+
+  .footer-left {
+    grid-column: 1 / -1;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .footer-center,
+  .footer-right {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-logo-image {
+    height: 3.5rem;
+  }
+}
+
 /* Left Section */
 .footer-left {
   display: flex;

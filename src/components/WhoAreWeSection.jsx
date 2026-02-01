@@ -126,8 +126,9 @@ function WhoAreWeSection() {
 
                     <div className="whoarewe-hero-inner">
                         <h1 className="whoarewe-hero-title">
-                            AI CHANGES THE <br className="whoarewe-hero-break" />
-                            EQUATION IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED.</span>
+                            AI CHANGES THE <br className="whoarewe-hero-break-desktop" />
+                            EQUATION <br className="whoarewe-hero-break-tablet" />
+                            IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED.</span>
                         </h1>
 
                         <p className="whoarewe-hero-subtitle">
@@ -188,42 +189,27 @@ function WhoAreWeSection() {
                 {/* Continuation Section */}
                 <section className="whoarewe-continuation">
                     {/* Top Section: Grid Layout */}
-                    <div className="whoarewe-continuation-grid">
-                        {/* Left Column: Main Headline */}
+                    {/* Top Row: Image and Features Grid */}
+                    <div className="whoarewe-continuation-top-row">
                         <div className="whoarewe-continuation-left">
                             <div className="whoarewe-left-image-glow"></div>
                             <img src={leftImage} alt="" className="whoarewe-left-image" />
-                            <div className="whoarewe-continuation-sticky">
-                                <h1 className="whoarewe-continuation-headline whoarewe-headline-desktop">
-                                    Small by design.<br />
-                                    Fast by conviction.<br />
-                                    Built for companies{' '}
-                                    <span className="whoarewe-highlight">ready to move.</span>
-                                </h1>
-                            </div>
                         </div>
 
-                        {/* Right Column: Content Grid */}
                         <div className="whoarewe-continuation-right">
-                            {/* 2x2 Feature Grid */}
                             <div ref={featuresGridRef} className={`whoarewe-features-grid ${featuresVisible ? 'features-visible' : ''}`}>
-                                {/* Feature 1 */}
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">Leverage over headcount</h3>
                                     <p className="whoarewe-feature-text">
                                         A small team with the right systems can out-deliver large teams. Our AI agents multiply what each person can move.
                                     </p>
                                 </div>
-
-                                {/* Feature 2 */}
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">Strategy that ships</h3>
                                     <p className="whoarewe-feature-text">
                                         Slide decks don't create value. AI systems in production do. We stay until the work delivers.
                                     </p>
                                 </div>
-
-                                {/* Feature 3 */}
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">
                                         Built by agents, <br className="whoarewe-feature-break" />governed by humans
@@ -232,8 +218,6 @@ function WhoAreWeSection() {
                                         AI agents do the heavy lifting- validating, building, reviewing. Humans approve what matters.
                                     </p>
                                 </div>
-
-                                {/* Feature 4 */}
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">
                                         Access, not <br className="whoarewe-feature-break" />exclusivity
@@ -243,15 +227,20 @@ function WhoAreWeSection() {
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            {/* Bottom Wide Text */}
-                            <div className="whoarewe-continuation-bottom">
-                                <h1 className="whoarewe-continuation-headline whoarewe-headline-mobile">
-                                    Small by design.<br />
-                                    Fast by conviction.<br />
-                                    Built for companies{' '}
-                                    <span className="whoarewe-highlight">ready to move.</span>
-                                </h1>
+                    {/* Bottom Row: Headline and Description aligned by baseline */}
+                    <div className="whoarewe-continuation-bottom-row">
+                        <div className="whoarewe-continuation-left">
+                            <h1 className="whoarewe-continuation-headline">
+                                Small by design.<br />
+                                Fast by conviction.<br />
+                                Built for companies <span className="whoarewe-highlight">ready to move.</span>
+                            </h1>
+                        </div>
+                        <div className="whoarewe-continuation-right">
+                            <div className="whoarewe-continuation-description-wrapper">
                                 <p className="whoarewe-continuation-bottom-text">
                                     We embed with client teams from strategy through production. No handoffs. No abandoned pilots. No reports that gather dust. We think with you. We build with you. We stay until it works.
                                 </p>

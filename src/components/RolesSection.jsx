@@ -30,10 +30,11 @@ function RolesSection({ roles = rolesData }) {
   return (
     <section className="roles-section">
       <div className="roles-container">
-        {/* Left Side - Title and Tabs */}
-        <div className="roles-left">
-          <h2 className="roles-main-title">Types of <br /> Roles</h2>
+        <div className="roles-title-area">
+          <h2 className="roles-main-title">Types of Roles</h2>
+        </div>
 
+        <div className="roles-tabs-area">
           <div className="roles-tabs">
             {roles.map((role) => (
               <button
@@ -48,16 +49,17 @@ function RolesSection({ roles = rolesData }) {
           </div>
         </div>
 
-        {/* Right Side - Content */}
-        <div className="roles-right">
+        <div className="roles-intro-area">
           <div className="roles-intro">
             <p className="roles-intro-text">
-              Three roles. One mission.{'\n'}
-              <span className="roles-highlight">Vectors deploy. Forgers build. Pathfinders discover.</span>{'\n'}
+              Three roles. One mission.
+              <span className="roles-highlight">Vectors deploy. Forgers build. Pathfinders discover.</span>
               <span className="roles-highlight">Together, they move clients from vision to production.</span>
             </p>
           </div>
+        </div>
 
+        <div className="roles-content-area">
           <div className="roles-content">
             <h3 className="roles-content-title">{currentRole.title}</h3>
             <p className="roles-content-description">{currentRole.description}</p>

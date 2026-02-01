@@ -34,6 +34,33 @@
     }
 }
 
+/* Tablet-specific adjustments for 768px-1024px */
+@media (min-width: 48rem) and (max-width: 64rem) {
+    .products-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding: 0 var(--spacing-xl);
+        max-width: 40rem;
+    }
+
+    .products-left {
+        text-align: center;
+        align-items: center;
+    }
+
+    .products-title {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+    }
+
+    .validate-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .validate-image-right {
+        height: 12rem;
+    }
+}
+
 /* LEFT CONTENT */
 .products-left {
     display: flex;
@@ -247,4 +274,68 @@
     opacity: 0.15;
     z-index: -1;
     pointer-events: none;
+}
+
+/* ============================================
+   TABLET ORIENTATION SPECIFIC STYLES
+   ============================================ */
+
+/* Tablet Portrait - Full-width stacked layout */
+@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+    .products-section {
+        padding: var(--spacing-4xl) 0;
+    }
+
+    .products-container {
+        max-width: 90%;
+        padding: 0 var(--spacing-lg);
+        gap: 60px;
+        /* Increased for better separation */
+    }
+
+    .products-left {
+        text-align: center;
+        align-items: center;
+    }
+
+    .products-title {
+        font-size: 2rem;
+        max-width: 100%;
+    }
+
+    .validate-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .validate-image-right {
+        height: 12rem;
+        /* Reduced for better framing */
+    }
+}
+
+/* Tablet Landscape - Side-by-side when space allows */
+@media (min-height: 37.5rem) and (max-height: 56.25rem) and (orientation: landscape) {
+    .products-container {
+        grid-template-columns: 1fr 1.1fr;
+        gap: var(--spacing-xl);
+        max-width: 100%;
+        padding: 0 var(--spacing-xl);
+    }
+
+    .products-left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .products-title {
+        font-size: 1.875rem;
+    }
+
+    .validate-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .validate-image-right {
+        height: 100%;
+    }
 }
