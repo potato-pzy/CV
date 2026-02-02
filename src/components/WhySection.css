@@ -79,7 +79,6 @@
   object-fit: cover;
   opacity: 0.6;
   max-width: 100rem;
-  /* Prevents graphic from being too large */
 }
 
 /* Main content container */
@@ -90,32 +89,15 @@
   position: relative;
   z-index: 10;
   padding: 0 var(--spacing-md);
-  /* 16px */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xl);
-  /* 64px */
 }
 
 @media (min-width: 48rem) {
-
-  /* 768px - Tablet Portrait */
   .why-main {
     padding: 0 var(--spacing-xl);
-    /* 32px */
-  }
-}
-
-@media (min-width: 64rem) {
-
-  /* 1024px - Tablet Landscape & Desktop */
-  .why-main {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--spacing-4xl);
-    /* 80px */
   }
 }
 
@@ -138,15 +120,13 @@
   filter: drop-shadow(0 0 20px rgba(166, 246, 59, 0.3));
 }
 
-/* Section header */
+/* Section header base styles */
 .why-header {
   text-align: center;
   width: 100%;
 }
 
-@media (min-width: 48rem) {
-
-  /* 768px */
+@media (min-width: 64rem) {
   .why-header {
     text-align: left;
   }
@@ -154,19 +134,52 @@
 
 @media (min-width: 64rem) {
 
-  /* 1024px */
+  /* 1024px Laptop/Desktop */
   .why-header {
-    width: 40%;
-    position: sticky;
-    top: var(--spacing-4xl);
+    width: 48%;
+    /* Slightly adjusted for better balance with grid */
+    position: relative;
+    top: 3rem;
+    /* Moved sticky position higher */
+    left: 5%;
+    /* Shift to the right by 5% */
+    margin-top: -6rem;
+    /* Increased upward shift as requested */
+    padding-bottom: 2rem;
+  }
+
+  .why-main {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-4xl);
   }
 }
 
+@media (min-width: 48rem) and (max-width: 80rem) and (orientation: landscape) {
 
+  /* Tablet/Small Laptop Landscape */
+  .why-header {
+    width: 55%;
+    /* More width in landscape to prevent title wrap */
+    left: 14%;
+    /* Shift to the right by 5% */
+    margin-top: -6rem;
+    /* Slightly higher for better alignment */
+    padding-bottom: 3rem;
+    text-align: left;
+  }
+
+  .why-main {
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* Main title - responsive typography */
 /* Main title - responsive typography */
 .why-title {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   /* 32px to 60px fluid */
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -193,21 +206,16 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
-  /* 24px */
   width: 100%;
 }
 
 @media (min-width: 40rem) {
-
-  /* 640px - Tablets */
   .why-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 64rem) {
-
-  /* 1024px */
   .why-grid {
     width: 55%;
     gap: var(--spacing-xl);
@@ -219,15 +227,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
-  /* 24px */
 }
 
 @media (min-width: 48rem) {
-
-  /* 768px */
   .why-column {
     gap: var(--spacing-2xl);
-    /* 48px */
   }
 }
 
@@ -235,14 +239,12 @@
 @media (min-width: 40rem) {
   .why-column-left {
     margin-top: 4rem;
-    /* 64px - creates staggered effect */
   }
 }
 
 @media (min-width: 64rem) {
   .why-column-left {
     margin-top: 8rem;
-    /* 128px - more pronounced on desktop */
   }
 }
 
@@ -251,9 +253,7 @@
   position: relative;
   background: rgba(2, 15, 20, 0.4);
   border-radius: 0.75rem;
-  /* 12px */
   padding: var(--spacing-xl);
-  /* 32px */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -347,8 +347,6 @@
    ============================================ */
 
 @media (max-width: 32rem) {
-
-  /* Mobile Portrait */
   .why-section {
     padding: var(--spacing-3xl) 0;
   }

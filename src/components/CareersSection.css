@@ -290,7 +290,7 @@
 
     .careers-who-thrives-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 66px;
     }
 
     .careers-who-thrives-card {
@@ -478,6 +478,11 @@
     text-align: center;
 }
 
+.careers-who-thrives-grid {
+    display: grid;
+    width: 100%;
+}
+
 @media (min-width: 768px) {
     .careers-who-thrives-title {
         font-size: 48px;
@@ -486,8 +491,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .careers-who-thrives-grid {
-        gap: 32px;
-        /* Reduced from 66px for better portrait fit */
+        gap: 66px;
     }
 }
 
@@ -501,6 +505,7 @@
 @media (min-width: 768px) {
     .careers-who-thrives-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 66px;
     }
 }
 
@@ -536,8 +541,8 @@
     z-index: 10;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .careers-thrives-icon {
@@ -558,7 +563,7 @@
     font-weight: 400;
     letter-spacing: -0.02em;
     color: #A6F63B;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -583,6 +588,7 @@
     position: relative;
     z-index: 10;
     margin: 0;
+    text-align: left;
 }
 
 @media (min-width: 768px) {

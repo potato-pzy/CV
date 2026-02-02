@@ -91,6 +91,7 @@ function ProductsSection() {
     return (
         <>
             <section className="products-section">
+                <div className="products-bg-glow"></div>
                 <div className="products-container">
                     {/* Left Side - Text Content */}
                     <div className="products-left">
@@ -137,13 +138,7 @@ function ProductsSection() {
                                             className="validate-image"
                                         />
                                     </div>
-                                    <div
-                                        className="validate-gradient-overlay"
-                                        style={{
-                                            background: 'linear-gradient(90deg, #001119 36.54%, rgba(0, 28, 30, 0.97) 59%, rgba(0, 72, 49, 0.65) 81%, rgba(0, 147, 82, 0.18) 96%, rgba(0, 177, 95, 0.00) 100%)',
-                                            border: '1px solid rgba(0, 0, 0, 0.00)'
-                                        }}
-                                    ></div>
+                                    <div className="validate-gradient-overlay"></div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>

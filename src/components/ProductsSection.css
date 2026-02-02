@@ -8,8 +8,30 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-5xl) 0;
     background: var(--bg-dark);
+    overflow: hidden;
+}
+
+@media (min-width: 48rem) and (orientation: landscape),
+(min-width: 64rem) {
+    .products-section {
+        padding-bottom: var(--spacing-4xl);
+        /* Adding extra breathing room at the bottom */
+    }
+}
+
+.products-bg-glow {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    width: 60rem;
+    height: 40rem;
+    background: radial-gradient(circle, rgba(166, 246, 59, 0.08) 0%, rgba(0, 147, 82, 0.03) 40%, transparent 70%);
+    filter: blur(8rem);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .products-container {
@@ -24,40 +46,26 @@
     align-items: center;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 60rem),
+(min-width: 48rem) and (orientation: landscape) {
 
-    /* 1024px+ */
+    /* 960px+ or Tablet Landscape */
     .products-container {
         grid-template-columns: 1fr 1.2fr;
-        gap: 4vw;
+        gap: 6vw;
         padding: 0 var(--spacing-2xl);
-    }
-}
-
-/* Tablet-specific adjustments for 768px-1024px */
-@media (min-width: 48rem) and (max-width: 64rem) {
-    .products-container {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-        padding: 0 var(--spacing-xl);
-        max-width: 40rem;
+        max-width: var(--container-2xl);
+        align-items: center;
+        /* Ensure vertical centering */
     }
 
     .products-left {
-        text-align: center;
-        align-items: center;
-    }
-
-    .products-title {
-        font-size: clamp(1.75rem, 4vw, 2.25rem);
-    }
-
-    .validate-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .validate-image-right {
-        height: 12rem;
+        text-align: left;
+        align-items: flex-start;
+        /* Balanced vertical positioning relative to the slide card */
+        margin-top: -2rem;
+        transform: none;
+        /* Reset individual transforms for cleaner alignment */
     }
 }
 
@@ -68,6 +76,8 @@
     gap: var(--spacing-md);
     text-align: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 @media (min-width: 64rem) {
@@ -131,130 +141,238 @@
 
 /* RIGHT CONTENT - CAROUSEL */
 .products-right {
-    width: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
+
+    /* 1280px+ only - avoid clipping on smaller desktops/tablets */
     .products-right {
-        align-items: flex-end;
+        left: 80px;
     }
 }
 
 .validate-card {
     width: 100%;
+    max-width: 100%;
     background: #020F14;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
 }
 
+@media (min-width: 48rem) {
+    .validate-card {
+        border-radius: 33px;
+        min-height: 320px;
+    }
+}
+
 .validate-inner {
+    position: relative;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
-    /* Stack content and image on mobile */
+    grid-template-columns: 1.4fr 1fr;
 }
 
 @media (min-width: 48rem) {
-
-    /* 768px+ */
     .validate-inner {
-        grid-template-columns: 1.2fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        min-height: 320px;
+    }
+}
+
+.carousel-btn {
+    width: 54px;
+    /* Slightly smaller for mobile */
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 48rem) {
+    .carousel-btn {
+        width: 62px;
+        height: 52px;
+    }
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.carousel-btn svg {
+    width: 20px;
+    /* Smaller svg for mobile */
+    height: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+@media (min-width: 48rem) {
+    .carousel-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.carousel-btn:hover svg {
+    color: rgba(255, 255, 255, 1);
+}
+
+.carousel-controls {
+    position: relative;
+    margin-top: 24px;
+    align-self: center;
+    /* Centered on mobile */
+    display: flex;
+    gap: 12px;
+}
+
+@media (min-width: 48rem) {
+    .carousel-controls {
+        margin-top: 32px;
+        align-self: flex-end;
+        /* Align right on desktop */
     }
 }
 
 .validate-content-left {
-    padding: var(--spacing-xl);
+    padding: 20px 16px;
+    /* Reduced for side-by-side mobile */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 2;
+    background: transparent;
+    position: relative;
+    z-index: 3;
+}
+
+@media (min-width: 48rem) {
+    .validate-content-left {
+        padding: 48px 40px;
+    }
 }
 
 .validate-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 1.5rem;
+    font-size: 20px;
+    /* Reduced for mobile */
     font-weight: 500;
-    color: var(--accent-green);
-    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    color: #A6F63B;
+    margin: 0 0 12px 0;
+    white-space: pre-wrap;
+}
+
+@media (min-width: 48rem) {
+    .validate-title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
 }
 
 .validate-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 1rem;
+    font-size: 13px;
+    /* Smaller for mobile */
     font-weight: 300;
-    line-height: 1.5;
-    color: var(--text-white);
+    line-height: 1.4;
+    color: #ffffff;
+    margin: 0;
+    white-space: pre-wrap;
     opacity: 0.9;
 }
 
+@media (min-width: 48rem) {
+    .validate-description {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
 .validate-cta {
-    margin-top: var(--spacing-lg);
-    background: none;
+    margin-top: 20px;
+    /* Reduced for mobile */
+    padding: 0;
     border: none;
-    color: var(--accent-green);
+    background: none;
+    color: #A6F63B;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 0.9375rem;
+    font-size: 13px;
+    /* Smaller for mobile */
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
     text-decoration: underline;
     cursor: pointer;
+    position: relative;
     width: fit-content;
+    text-decoration-skip-ink: auto;
+    text-underline-offset: auto;
+}
+
+@media (min-width: 48rem) {
+    .validate-cta {
+        margin-top: 32px;
+        font-size: 15px;
+    }
+}
+
+.validate-cta:hover {
+    color: #d0ff7a;
 }
 
 .validate-image-right {
-    height: 15rem;
-    /* Fixed height for image area on mobile stack */
     position: relative;
     overflow: hidden;
+    background: #020F14;
+    height: auto;
+    /* Allow side-by-side to determine height */
 }
 
 @media (min-width: 48rem) {
     .validate-image-right {
         height: auto;
-        min-height: 20rem;
     }
 }
 
 .validate-image {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
 
-/* Overlay gradient for desktop blending */
-@media (min-width: 48rem) {
-    .validate-image-right::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(90deg, #020F14 0%, transparent 100%);
-    }
-}
-
-.carousel-controls {
-    display: flex;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-lg);
-}
-
-.carousel-btn {
-    width: 3.25rem;
-    height: 2.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-white);
-    transition: all 0.3s ease;
-}
-
-.carousel-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--accent-green);
+.validate-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            #020F14 0%,
+            #020F14 25%,
+            rgba(0, 72, 49, 0.4) 60%,
+            rgba(0, 147, 82, 0.2) 85%,
+            transparent 100%);
 }
 
 /* ACCELERATORS - HIDDEN SECTION FOR NOW BASED ON Jsx */
@@ -274,68 +392,4 @@
     opacity: 0.15;
     z-index: -1;
     pointer-events: none;
-}
-
-/* ============================================
-   TABLET ORIENTATION SPECIFIC STYLES
-   ============================================ */
-
-/* Tablet Portrait - Full-width stacked layout */
-@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
-    .products-section {
-        padding: var(--spacing-4xl) 0;
-    }
-
-    .products-container {
-        max-width: 90%;
-        padding: 0 var(--spacing-lg);
-        gap: 60px;
-        /* Increased for better separation */
-    }
-
-    .products-left {
-        text-align: center;
-        align-items: center;
-    }
-
-    .products-title {
-        font-size: 2rem;
-        max-width: 100%;
-    }
-
-    .validate-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .validate-image-right {
-        height: 12rem;
-        /* Reduced for better framing */
-    }
-}
-
-/* Tablet Landscape - Side-by-side when space allows */
-@media (min-height: 37.5rem) and (max-height: 56.25rem) and (orientation: landscape) {
-    .products-container {
-        grid-template-columns: 1fr 1.1fr;
-        gap: var(--spacing-xl);
-        max-width: 100%;
-        padding: 0 var(--spacing-xl);
-    }
-
-    .products-left {
-        text-align: left;
-        align-items: flex-start;
-    }
-
-    .products-title {
-        font-size: 1.875rem;
-    }
-
-    .validate-inner {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .validate-image-right {
-        height: 100%;
-    }
 }

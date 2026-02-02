@@ -13,6 +13,7 @@
   /* Ensure it stays above hero background */
   /* Massively increased to 200px to guarantee clearance (was 100px) */
   overflow: hidden;
+
 }
 
 .insights-bottom-glow {
@@ -398,6 +399,20 @@
 }
 
 /* MacBook Air / Pro 13" and up */
+@media (min-width: 1025px) {
+  .insights-section {
+    padding-bottom: 100px;
+  }
+
+  .insights-filters {
+    margin-bottom: 100px;
+  }
+
+  .insights-main-content {
+    padding: 0;
+  }
+}
+
 @media (min-width: 1280px) {
   .insights-main-content {
     padding: 0;

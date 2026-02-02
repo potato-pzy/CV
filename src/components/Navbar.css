@@ -347,27 +347,157 @@
 }
 
 /* ============================================
-   ENHANCEMENTS FOR LARGE SCREENS
+   LAPTOP & DESKTOP RESPONSIVENESS ONLY
    ============================================ */
 
-@media (min-width: 80rem) {
+/* Small laptops and tablets landscape (≤1366px) */
+@media (max-width: 85.375rem) {
 
-    /* 1280px - MacBook Air */
+    /* 1366px */
+    .navbar-container {
+        max-width: 75rem;
+        /* 1200px */
+        padding: 0 var(--spacing-lg);
+        /* 24px */
+    }
+
+    .navbar-left {
+        gap: var(--spacing-md);
+        /* 16px */
+    }
+
+    .navbar-menu {
+        gap: 1.875rem;
+        /* 30px */
+    }
+}
+
+/* Standard laptops (≤1440px) */
+@media (max-width: 90rem) {
+
+    /* 1440px */
+    .navbar-logo-svg {
+        width: 38.622px;
+        height: 29.312px;
+    }
+}
+
+/* Large screens (≥1920px) */
+@media (min-width: 120rem) {
+
+    /* 1920px */
     .navbar {
-        height: 7rem;
+        height: 5rem;
+        /* 80px */
+    }
+
+    .navbar-container {
+        max-width: var(--container-2xl);
+        /* 1400px */
+        padding: 0 var(--spacing-3xl);
+        /* 64px */
+    }
+
+    .navbar-logo-svg {
+        width: 78.622px;
+        height: 60.312px;
+    }
+
+    .navbar-link {
+        font-size: 0.875rem;
+        /* 14px */
+    }
+
+    .navbar-cta {
+        font-size: 0.8125rem;
+        /* 13px */
+        padding: 0.625rem 1.5rem;
+        /* 10px 24px */
+    }
+}
+
+/* Ultra-wide screens (≥2560px) */
+@media (min-width: 160rem) {
+
+    /* 2560px */
+    .navbar-container {
+        max-width: 100rem;
+        /* 1600px */
+    }
+}
+
+/* ============================================
+   MACBOOK-SPECIFIC (DESKTOP CLASS DEVICES)
+   ============================================ */
+
+/* MacBook Air (1280px–1360px) */
+@media (min-width: 80rem) and (max-width: 85rem) {
+    .navbar {
+        height: 7.0625rem;
+        /* 113px */
     }
 
     .navbar-container {
         max-width: 80rem;
-        padding: 0 var(--spacing-2xl);
+        /* 1280px */
+        padding: 0 2.8125rem;
+        /* 45px */
+    }
+
+    .navbar-logo-svg {
+        width: 4.0625rem;
+        /* 65px */
+        height: 2.5625rem;
+        /* 41px */
+    }
+
+    .navbar-link {
+        font-size: 0.75rem;
+        /* 12px */
+        letter-spacing: 0.05em;
+    }
+
+    .navbar-menu {
+        gap: 2rem;
+    }
+
+    .navbar-cta {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+        letter-spacing: 0.05em;
+    }
+
+    .hero .navbar {
+        padding: 2.1875rem 2.8125rem;
+        /* 35px 45px */
     }
 }
 
-@media (min-width: 120rem) {
+/* MacBook Air / Pro 13"+ */
+@media (min-width: 1280px) {
+    .navbar-logo-svg {
+        width: 77.622px;
+        height: 61.312px;
+    }
 
-    /* 1920px - Desktop */
-    .navbar-container {
-        max-width: var(--container-2xl);
+    .navbar-link {
+        font-size: 1rem;
+    }
+}
+
+/* MacBook Pro 14" / 16" */
+@media (min-width: 1512px) {
+    .navbar-logo-svg {
+        width: 77.622px;
+        height: 61.312px;
+    }
+}
+
+/* iMac / External Monitor */
+@media (min-width: 1920px) {
+    .navbar-logo-svg {
+        width: 77.622px;
+        height: 61.312px;
     }
 }
 
