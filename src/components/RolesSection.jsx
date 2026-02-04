@@ -6,7 +6,7 @@ const rolesData = [
     id: 'vectors',
     name: 'Vectors',
     title: 'Vectors Deploy',
-    description: 'You embed with clients, ship AI to production, and stay until adoption is complete. In a world of prototypes and pilots, you deliver outcomes. Vectors are adaptable, client-facing, and own the last mile.'
+    description: 'You deliver AI products to clients, ship to production, and stay until adoption is complete.In a world of prototypes and pilots, you deliver outcomes.Vectors are adaptable, client- facing, and own the last mile.'
   },
   {
     id: 'forgers',

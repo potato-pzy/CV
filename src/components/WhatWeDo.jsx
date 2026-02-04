@@ -66,23 +66,23 @@ function WhatWeDo() {
 
   const frameworks = [
     {
-      title: 'Envision',
-      description: 'Discover AI transformation opportunities with quantified ROI — so you invest where it matters most.',
+      title: 'Learn',
+      description: 'We embed with your team to understand how you actually work.',
       icon: envisionLogo
     },
     {
-      title: 'Prove',
-      description: 'Validate feasibility fast. Agentic prototypes in weeks — with real ROI data before you commit to scale.',
+      title: 'Shape',
+      description: 'We identify where AI creates leverage, and configure products to fit.',
       icon: proveLogo
     },
     {
       title: 'Build',
-      description: 'Production-grade AI at scale. Architected for governance, resilience, and measurable business outcomes.',
+      description: 'Pre-built products, customised to your context.Deployed in weeks, not months.',
       icon: buildLogo
     },
     {
-      title: 'Adopt',
-      description: 'Enterprise-wide adoption. Continuous enhancement. AI that scales across teams, functions, and markets.',
+      title: 'Run',
+      description: 'We stay until it runs. Governance built-in. Audit-ready.',
       icon: adaptLogo
     }
   ];
@@ -153,10 +153,9 @@ function WhatWeDo() {
         </div>
         <div className="hero-content-overlay">
           <div className="what-we-do-hero">
-            <h1 className="what-we-do-title">FROM STRATEGY TO PRODUCTION</h1>
+            <h1 className="what-we-do-title">The VectorEdge Suite</h1>
             <p className="what-we-do-subtitle">
-              We embed with your team to validate where AI fits, build production-grade agents, and stay until adoption is complete.
-            </p>
+              Five forms of intelligence — built to fit how you work.            </p>
           </div>
           <div className="scroll-to-explore">
             <span>Scroll to explore</span>
@@ -287,7 +286,10 @@ function WhatWeDo() {
       </section>
 
       <AcceleratorsSection />
-      <CTASection />
+      <CTASection
+        title="What comes next is worth building together."
+        buttonText="BOOK A DISCOVERY CALL"
+      />
       <Footer />
     </div>
   );

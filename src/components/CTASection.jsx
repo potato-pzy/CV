@@ -16,13 +16,13 @@ function CTASection({ title, subtitle, buttonText }) {
         <h2 className="cta-title">
           {title || (
             <>
-              What comes next is worth <br className="cta-title-break" /> building together.
+              Ready to see it in action? <br className="cta-title-break" />
             </>
           )}
         </h2>
         {subtitle && <p className="cta-subtitle">{subtitle}</p>}
         <Link to="/contact">
-          <button className="cta-button">{buttonText || "BOOK A DISCOVERY CALL"}</button>
+          <button className="cta-button">{buttonText || "SEE IT IN ACTION"}</button>
         </Link>
       </div>
     </section>

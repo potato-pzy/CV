@@ -68,6 +68,10 @@
     margin-left: 3.6vw;
 }
 
+.about-heading-green {
+    color: #A6F63B;
+}
+
 
 
 /* Text container - FIXED weird positioning */
@@ -128,7 +132,7 @@
 /* Right column with images - FIXED positioning issues */
 .about-right {
     position: relative;
-    left: 120px;
+    left: 11px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +146,7 @@
 .about-image-container {
     position: relative;
     top: 135px;
-    left: 156px;
+    left: 250px;
     width: 72%;
     aspect-ratio: 355 / 402;
     overflow: hidden;

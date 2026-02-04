@@ -26,8 +26,9 @@ function ProductsSection() {
 
     const slides = [
         {
-            title: "Validate",
-            description: "Not sure where AI fits? A 1-week sprint to identify high-value opportunities and build the business case, before you commit budget.",
+            title: "4 Weeks to Production",
+            description: "AI generates. Humans steer. Products ship",
+            cta: "See What Can Ship",
             images: {
                 base: imgVector1,
                 mask: imgVector,
@@ -36,8 +37,9 @@ function ProductsSection() {
             }
         },
         {
-            title: "Transform",
-            description: "Strategy and engineering in the same room. We deliver production-grade AI systems in 60–90 days- not decks, not pilots.",
+            title: "Consulting DNA",
+            description: "We embed. We learn. We shape products to how you actually work.",
+            cta: "Discuss Your Workflow",
             images: {
                 base: imgValidate2,
                 mask: imgValidate2,
@@ -46,8 +48,9 @@ function ProductsSection() {
             }
         },
         {
-            title: "Embed",
-            description: "Adoption is the key to transformation. We embed with your teams to turn deployed systems into organizational capability, and identify what's next.",
+            title: "Five Intelligences",
+            description: "Strategic. Document. Research.\nProcess. Functional. Configured\nto fit.",
+            cta: "See Where Intelligence Fits",
             images: {
                 base: imgValidate3,
                 mask: imgValidate3,
@@ -95,9 +98,9 @@ function ProductsSection() {
                 <div className="products-container">
                     {/* Left Side - Text Content */}
                     <div className="products-left">
-                        <p className="products-label">PRODUCTS & SOLUTIONS</p>
+                        <p className="products-label">THE VECTOREDGE SUITE</p>
                         <h2 className="products-title">
-                            Turn manual, rule-driven processes into fast, consistent agentic workflows.
+                            Consulting insight. Product speed.
                         </h2>
                         <Link to="/whatwedo" className="btn-explore">
                             EXPLORE MORE
@@ -128,7 +131,7 @@ function ProductsSection() {
                                         <h3 className="validate-title">{slides[currentSlide].title}</h3>
                                         <p className="validate-description">{slides[currentSlide].description}</p>
                                         <Link to="/contact">
-                                            <button className="validate-cta">Explore Partnership</button>
+                                            <button className="validate-cta">{slides[currentSlide].cta}</button>
                                         </Link>
                                     </div>
                                     <div className="validate-image-right">

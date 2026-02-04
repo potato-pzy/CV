@@ -132,7 +132,9 @@ function WhoAreWeSection() {
                         </h1>
 
                         <p className="whoarewe-hero-subtitle">
-                            Chartered Vectorial is an AI-native, applied AI firm. We use AI to accelerate how we consult and how we engineer, so clients get to production faster.
+                            Chartered Vectorial is an AI-native, applied AI firm. We build AI products
+                            shaped by consulting insight, configured to your workflows and user experience,
+                            deployed in weeks.
                         </p>
 
                     </div>
@@ -145,10 +147,10 @@ function WhoAreWeSection() {
                 <section className="whoarewe-content">
                     <div className="whoarewe-content-text">
                         {[
-                            "The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall.",
-                            "We built Chartered Vectorial to close that gap, and we did it with AI.",
-                            "Our AI agents validate transformation hypotheses with consulting-grade rigor. Our AI agents debate approaches, write code, and review each other's work before anything ships. Humans stay in control at every gate.",
-                            "We're an AI-native consulting firm focused on AI transformation. We don't just advise on AI, we use it to deliver."
+                            "The traditional model separates thinking from doing. Consultants advise.Engineers build. Handoffs create gaps. Pilots stall.",
+                            "We built Chartered Vectorial to fix that, by fusing consulting depth with AIpowered product delivery.",
+                            "Our AI agents validate transformation hypotheses, debate approaches, and writeproduction-grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
+                            "We're an AI-native product studio. We don't just advise on AI, we deliver it."
                         ].map((text, index) => (
                             <motion.div
                                 key={index}
@@ -201,30 +203,31 @@ function WhoAreWeSection() {
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">Leverage over headcount</h3>
                                     <p className="whoarewe-feature-text">
-                                        A small team with the right systems can out-deliver large teams. Our AI agents multiply what each person can move.
-                                    </p>
+                                        A small team with the right products can out-deliver large
+                                        teams. Our AI agents multiply what each person can ship.                                    </p>
                                 </div>
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">Strategy that ships</h3>
                                     <p className="whoarewe-feature-text">
-                                        Slide decks don't create value. AI systems in production do. We stay until the work delivers.
-                                    </p>
+                                        Slide decks don't create value. AI products in production do.
+                                        We stay until our products delivers.                                    </p>
                                 </div>
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">
                                         Built by agents, <br className="whoarewe-feature-break" />governed by humans
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        AI agents do the heavy lifting- validating, building, reviewing. Humans approve what matters.
-                                    </p>
+                                        AI agents do the heavy lifting — validating, building, reviewing.
+                                        You get customised products for your workflows, governed by
+                                        humans at every gate.                                    </p>
                                 </div>
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">
                                         Access, not <br className="whoarewe-feature-break" />exclusivity
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        World-class capability shouldn't be reserved for giants. The barrier dropped. We're here to prove it.
-                                    </p>
+                                        World-class AI products shouldn't be reserved for giants. We
+                                        build them for companies ready to move.                                     </p>
                                 </div>
                             </div>
                         </div>
@@ -242,8 +245,8 @@ function WhoAreWeSection() {
                         <div className="whoarewe-continuation-right">
                             <div className="whoarewe-continuation-description-wrapper">
                                 <p className="whoarewe-continuation-bottom-text">
-                                    We embed with client teams from strategy through production. No handoffs. No abandoned pilots. No reports that gather dust. We think with you. We build with you. We stay until it works.
-                                </p>
+                                    We learn how you work. We shape what changes. We build what fits. We
+                                    stay until it runs.                                </p>
                             </div>
                         </div>
                     </div>
@@ -274,8 +277,8 @@ function WhoAreWeSection() {
                             <div className="whoarewe-image-card-back">
 
                                 <div className="whoarewe-card-body">
-                                    Production-grade AI agents- tested, governed, audit-ready. Delivered in weeks, not months.
-                                </div>
+                                    Production-grade AI products — configured to your workflows,
+                                    governed, audit-ready. Delivered in weeks, not months.                                 </div>
 
                             </div>
                         </div>

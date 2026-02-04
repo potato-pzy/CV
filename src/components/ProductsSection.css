@@ -181,7 +181,7 @@
 
 @media (min-width: 48rem) {
     .validate-inner {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
         min-height: 320px;
     }
 }
@@ -260,7 +260,7 @@
 
 @media (min-width: 48rem) {
     .validate-content-left {
-        padding: 48px 40px;
+        padding: 48px 32px;
     }
 }
 
@@ -287,17 +287,19 @@
     font-size: 13px;
     /* Smaller for mobile */
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.5;
     color: #ffffff;
     margin: 0;
     white-space: pre-wrap;
     opacity: 0.9;
+    max-width: 100%;
 }
 
 @media (min-width: 48rem) {
     .validate-description {
         font-size: 16px;
-        line-height: 1.5;
+        line-height: 1.6;
+        max-width: 440px;
     }
 }
 

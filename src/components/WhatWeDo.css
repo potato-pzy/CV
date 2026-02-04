@@ -85,7 +85,7 @@
 
 .what-we-do-subtitle {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 48px 0;
     line-height: 1.2;
@@ -226,7 +226,6 @@
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
-    margin-top: auto;
 }
 
 /* Glowing effect overlay for framework cards */

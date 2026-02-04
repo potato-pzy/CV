@@ -115,7 +115,7 @@ function Navbar() {
                         </li>
                         <li>
                             <Link to="/whatwedo" className={`mobile-link ${isActive('/whatwedo') ? 'active' : ''}`}>
-                                What we do
+                                How it works
                             </Link>
                         </li>
                         <li>

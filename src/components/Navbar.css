@@ -351,26 +351,7 @@
    ============================================ */
 
 /* Small laptops and tablets landscape (≤1366px) */
-@media (max-width: 85.375rem) {
 
-    /* 1366px */
-    .navbar-container {
-        max-width: 75rem;
-        /* 1200px */
-        padding: 0 var(--spacing-lg);
-        /* 24px */
-    }
-
-    .navbar-left {
-        gap: var(--spacing-md);
-        /* 16px */
-    }
-
-    .navbar-menu {
-        gap: 1.875rem;
-        /* 30px */
-    }
-}
 
 /* Standard laptops (≤1440px) */
 @media (max-width: 90rem) {
@@ -383,38 +364,7 @@
 }
 
 /* Large screens (≥1920px) */
-@media (min-width: 120rem) {
 
-    /* 1920px */
-    .navbar {
-        height: 5rem;
-        /* 80px */
-    }
-
-    .navbar-container {
-        max-width: var(--container-2xl);
-        /* 1400px */
-        padding: 0 var(--spacing-3xl);
-        /* 64px */
-    }
-
-    .navbar-logo-svg {
-        width: 78.622px;
-        height: 60.312px;
-    }
-
-    .navbar-link {
-        font-size: 0.875rem;
-        /* 14px */
-    }
-
-    .navbar-cta {
-        font-size: 0.8125rem;
-        /* 13px */
-        padding: 0.625rem 1.5rem;
-        /* 10px 24px */
-    }
-}
 
 /* Ultra-wide screens (≥2560px) */
 @media (min-width: 160rem) {

@@ -25,11 +25,11 @@ function Hero() {
                         ENGINEERING INTELLIGENCE. CREATING VALUE.
                     </h1>
                     <p className="hero-subtitle blauer-neue">
-                        AI-native. Embedded. Strategy To Production.
+                        AI-native. AI products that fit your business. Configured to your workflows.
                     </p>
                     <Link to="/contact">
                         <button className="btn-primary">
-                            <div className="btn-primary-text">BOOK A DISCOVERY CALL</div>
+                            <div className="btn-primary-text">SEE IT IN ACTION</div>
                         </button>
                     </Link>
                 </div>
