@@ -11,26 +11,28 @@ function ProductsSection() {
     // 1. Define the Data (Slides)
     const slides = [
         {
-            title: "Validate",
-            description: "Not sure where AI fits? A 1-week sprint to identify high-value opportunities and build the business case, before you commit budget.",
-            images: {
-                base: imgValidateFive, // Mapped to Validate/Five Intelligences
-            }
-        },
-        {
-            title: "Transform",
-            description: "Strategy and engineering in the same room. We deliver production-grade AI systems in 60–90 days- not decks, not pilots.",
-            images: {
-                base: imgValidate4Weeks, // Mapped to Transform/4 Weeks
-            }
-        },
-        {
-            title: <>Consulting<br />DNA</>,
+            title: <>Consulting DNA</>,
             description: "We embed. We learn. We shape products to how you actually work.",
             cta: "Discuss Your Workflow",
             images: {
                 base: imgValidateDNA, // Mapped to Embed/DNA
                 style: { objectPosition: '75% center' }
+            }
+        },
+        {
+            title: "Five Intelligences",
+            description: "Strategic. Document. Research. Process. Functional. Configured to fit.",
+            cta: "See Where Intelligence Fits",
+            images: {
+                base: imgValidateFive, // Mapped to Validate/Five Intelligences
+            }
+        },
+        {
+            title: "4 Weeks to Production",
+            description: "AI generates. Humans steer. Products ship.",
+            cta: "See What Can Ship",
+            images: {
+                base: imgValidate4Weeks, // Mapped to Transform/4 Weeks
             }
         }
     ];

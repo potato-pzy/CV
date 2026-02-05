@@ -514,8 +514,8 @@
         margin: 200px auto 0;
         /* Standardized gap (Desktop: 200px) */
         padding: 0;
-        max-width: 974px;
-        /* (460px * 2) + 54px gap */
+        max-width: 1280px;
+        /* Unify with site-wide container width */
     }
 }
 
@@ -528,10 +528,10 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-header {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--spacing-3xl);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
         align-items: end;
-        margin-bottom: var(--spacing-2xl);
+        margin-bottom: 80px;
     }
 }
 
@@ -554,12 +554,9 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-title {
-        text-align: end;
-
-        max-width: 400px;
+        text-align: left;
         font-size: 42px;
         line-height: 1.1;
-        text-align: left;
     }
 }
 
@@ -595,17 +592,18 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--spacing-3xl);
-        /*justify-content: space-between;
-        justify-items: start;
-        max-width: none;*/
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+        /* Increased gap for better 1280px distribution */
         margin: 0;
     }
 
     .whoarewe-founders-description {
-        text-align: end;
-        margin-left: 41px;
+        text-align: right;
+    }
+
+    .whoarewe-founders-title {
+        text-align: left;
         max-width: 500px;
     }
 }
@@ -661,7 +659,7 @@
     }
 
     .whoarewe-continuation-headline {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .whoarewe-headline-desktop {
@@ -752,20 +750,17 @@
 
 @media (min-width: 1920px) {
     .whoarewe-founder-card {
-        max-width: 24rem;
-        /* Reduced from 28.75rem for large screens */
+        max-width: 100%;
+        /* Allow grid to control width */
     }
 
     .whoarewe-founders-title {
-        position: relative;
-        left: 307px;
+        position: static;
+        left: auto;
     }
 
     .whoarewe-founders-description {
-
-        /* text-align: left; */
-        margin-left: 164px;
-        max-width: 400px;
+        margin-left: auto;
     }
 }
 
@@ -933,8 +928,8 @@
 
 @media (min-width: 1024px) {
     .whoarewe-continuation {
-        padding: 300px 24px 0;
-        /* Standardized gap (Desktop: 300px) */
+        padding: 300px 0 0;
+        /* Standardized gap (Desktop: 300px), removed horizontal padding for grid alignment */
     }
 }
 
@@ -965,14 +960,16 @@
         gap: 160px;
     }
 
+    .whoarewe-continuation-bottom-row {
+        grid-template-columns: 5fr 7fr;
+        gap: 80px;
+        align-items: end;
+        /* Bottom-align headline and 4-line description */
+    }
+
     .whoarewe-continuation-top-row {
         margin-bottom: 120px;
         align-items: start;
-    }
-
-    .whoarewe-continuation-bottom-row {
-        align-items: end;
-        /* Bottom-align headline and 4-line description */
     }
 }
 
@@ -1053,12 +1050,14 @@
 
 .whoarewe-continuation-headline {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: #ffffff;
     margin: 0;
+    text-align: center;
+    /* Center on mobile */
 }
 
 .whoarewe-headline-mobile {
@@ -1072,9 +1071,11 @@
 
 @media (min-width: 1024px) {
     .whoarewe-continuation-headline {
-        font-size: 52px;
+        font-size: 44px;
         line-height: 1.1;
         white-space: nowrap;
+        text-align: left;
+        /* Restore left alignment on desktop */
         /* Keep exactly 3 lines as defined by <br /> */
     }
 
@@ -1088,8 +1089,10 @@
     display: flex;
     flex-direction: column;
     gap: 64px;
-    width: 100% !important;
+    width: 100%;
     justify-content: flex-start;
+    align-items: flex-end;
+    /* Align contents to the right */
 }
 
 /* Features Grid */
@@ -1185,8 +1188,18 @@
 }
 
 .whoarewe-continuation-description-wrapper {
-    max-width: 460px;
+    width: 100%;
     margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    /* Center on mobile */
+}
+
+@media (min-width: 768px) {
+    .whoarewe-continuation-description-wrapper {
+        justify-content: flex-end;
+        /* Align right on larger screens */
+    }
 }
 
 @media (min-width: 1024px) {
@@ -1208,27 +1221,29 @@
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
-    text-align: right;
+    text-align: center;
+    /* Center on mobile */
+    white-space: normal;
+    /* Allow wrapping on small mobile screens */
 }
 
 @media (min-width: 768px) {
     .whoarewe-continuation-bottom-text {
-        width: 128%;
-        right: 200px;
-        position: relative;
+        width: 100%;
         font-size: 19px;
         line-height: 1.5;
-        max-width: 800px;
         color: rgba(255, 255, 255, 0.7);
-        margin-left: 0;
-        /* Reset margin for portrait stacking */
+        text-align: right;
+        margin: 0;
+        white-space: nowrap;
+        /* Prevent "changes." from wrapping */
     }
 }
 
 @media (min-width: 1024px) {
     .whoarewe-continuation-bottom-text {
-        margin-left: 100px;
-        /* Restore margin for side-by-side desktop layout */
+        margin-left: 0;
+        /* Removed margin to allow full-width alignment */
     }
 }
 
@@ -2043,10 +2058,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     width: 100%;
-    max-width: 1320px;
+    max-width: 1280px;
+    /* Fixed width to match cards+gaps */
     justify-content: center;
-    margin-top: 120px;
-    /* Standardized gap (Mobile: 120px) */
+    margin: 120px auto 0;
+    /* Center the grid block */
 }
 
 @media (min-width: 768px) {
@@ -2240,11 +2256,8 @@
 @media (min-width: 120rem) {
 
     .whoarewe-hero-inner,
-    .whoarewe-continuation,
-    .whoarewe-founders,
-    .whoarewe-image-cards-grid {
-        max-width: 100rem;
-        /* 1600px */
+    .whoarewe-founders {
+        max-width: 1280px;
     }
 }
 

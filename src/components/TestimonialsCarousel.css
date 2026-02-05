@@ -12,7 +12,7 @@
 
 .testimonials-heading {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 500;
   color: var(--text-white);
   text-align: center;
@@ -190,7 +190,7 @@
 
   /* Tablet Landscape */
   .testimonials-heading {
-    font-size: 3rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
   }
 
   .testimonial-card {
@@ -310,7 +310,7 @@
 
   /* Small Mobile */
   .testimonials-heading {
-    font-size: 1.875rem;
+    font-size: 2.25rem;
   }
 
   .testimonial-card {

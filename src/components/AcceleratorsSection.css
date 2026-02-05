@@ -26,8 +26,12 @@
   font-family: 'Stage Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 400;
-  margin: 0 0 16px 0;
+  margin: 0;
   line-height: 1.1;
+}
+
+.accelerators-hero h2 {
+  margin-bottom: 16px;
 }
 
 .accelerators-hero p,
@@ -45,18 +49,16 @@
 }
 
 .accelerators-text-section p {
-  margin-bottom: 40px;
-  line-height: 0.5;
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 30px;
+  font-size: 39px;
   font-weight: 400;
-  margin: 0 0 24px 0;
-  line-height: 1.2;
+  margin: 0 0 4px 0;
+  line-height: 1.0;
   color: #ffffff;
 }
 
-.accelerators-text-section p:nth-child(-n+2) {
-  font-size: 39px;
+.accelerators-text-section p:nth-child(2) {
+  margin-bottom: 40px;
 }
 
 .accelerators-text-section p:last-child {
@@ -118,7 +120,8 @@
   text-align: left;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
+  width: 100%;
   max-width: 1280px;
   position: relative;
   z-index: 1;
@@ -141,12 +144,15 @@
 
 .case-hero p {
   color: #ffffff;
-  position: relative;
-  top: 15px;
+  margin: 0;
 }
 
 .case-hero .highlight {
   color: #a6f63b;
+}
+
+.case-br-tablet {
+  display: none;
 }
 
 .accelerators-grid {
@@ -588,7 +594,8 @@
   .case-hero {
     flex-direction: column;
     gap: 12px;
-    text-align: left;
+    text-align: center;
+    align-items: center;
   }
 }
 
@@ -628,9 +635,20 @@
   }
 
   .case-hero {
+    width: 100%;
     max-width: 700px;
-    margin-top: 120px;
+    margin: 120px auto 0 auto;
+    /* Centered to match grid */
     padding: 0 24px;
+    /* Match case-grid padding */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .case-hero p {
+    text-align: center;
   }
 }
 
@@ -647,6 +665,9 @@
   .accelerators-hero,
   .case-hero {
     padding: 0 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .accelerators-hero h2,
@@ -658,6 +679,7 @@
   .accelerators-hero p,
   .case-hero p {
     font-size: 10px !important;
+    text-align: center;
   }
 
 
@@ -670,9 +692,15 @@
 
 
   .case-hero {
-    gap: 660px;
-    margin-right: 8px;
-    margin-left: 0px;
+    width: 100%;
+    gap: 0;
+    margin: 160px auto 0 auto;
+    padding: 0 32px;
+    /* Match case-grid desktop padding */
+  }
+
+  .case-hero h2 {
+    white-space: nowrap;
   }
 }
 
@@ -702,13 +730,13 @@
   }
 
   .accelerators-text-section p {
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 1.0;
+    margin-bottom: 2px;
   }
 
-  .accelerators-text-section p:nth-child(-n+2) {
-    font-size: 24px;
-    line-height: 1.4;
-
+  .accelerators-text-section p:nth-child(2) {
+    margin-bottom: 20px;
   }
 
   .case-grid {

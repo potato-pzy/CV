@@ -622,7 +622,13 @@ function AcceleratorsSection() {
           className="accelerators-reveal-text justify-center"
         />
         <TextGradientScroll
-          text="AI generates. Humans steer. Products ship."
+          text="AI generates. Humans steer."
+          type="letter"
+          textOpacity="soft"
+          className="accelerators-reveal-text green-text justify-center"
+        />
+        <TextGradientScroll
+          text="Products ship."
           type="letter"
           textOpacity="soft"
           className="accelerators-reveal-text green-text justify-center"
@@ -632,7 +638,7 @@ function AcceleratorsSection() {
       <div className="case-hero" id="case-studies">
         <h2>Case Studies</h2>
         <p>
-          What happens <span className="highlight">when AI actually ships.</span>
+          What happens <span className="highlight">when <br className="case-br-tablet" /> AI actually ships.</span>
         </p>
       </div>
 

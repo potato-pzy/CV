@@ -53,11 +53,10 @@
 /* Main title - fluid typography */
 .case-studies-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2.25rem, 5vw, 4.375rem);
-    /* 36px to 70px fluid */
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.04em;
-    line-height: 1.25;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     color: var(--text-white);
     margin: 0;
 }
@@ -231,10 +230,9 @@
 /* Quote text */
 .quote-text {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2rem, 4vw, 3.75rem);
-    /* 32px to 60px fluid */
-    font-weight: 400;
-    letter-spacing: -0.04em;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
     line-height: 1.1;
     color: var(--text-white);
     margin: 0;
@@ -256,7 +254,11 @@
 
     .case-studies-header {
         margin-bottom: var(--spacing-2xl);
-        /* 48px */
+    }
+
+    .case-studies-title,
+    .quote-text {
+        font-size: 2.25rem;
     }
 
     .case-studies-grid {

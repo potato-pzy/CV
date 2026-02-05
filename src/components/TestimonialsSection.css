@@ -98,15 +98,12 @@
 /* Main title - fluid typography */
 .testimonials-title {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.125rem);
-  /* 32px to 50px fluid */
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--text-white);
   margin: 0;
-  text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.1);
-  /* 30px */
 }
 
 /* Line break control */
@@ -442,7 +439,10 @@
 
   .testimonials-header {
     margin-bottom: var(--spacing-2xl);
-    /* 48px */
+  }
+
+  .testimonials-title {
+    font-size: 2.25rem;
   }
 
   .testimonials-carousel {

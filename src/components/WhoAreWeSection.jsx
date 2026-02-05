@@ -135,7 +135,7 @@ function WhoAreWeSection() {
                         <h1 className="whoarewe-hero-title">
                             AI CHANGES THE <br className="whoarewe-hero-break-desktop" />
                             EQUATION <br className="whoarewe-hero-break-tablet" />
-                            IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED.</span>
+                            IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED</span>
                         </h1>
 
                         <p className="whoarewe-hero-subtitle">
@@ -154,8 +154,8 @@ function WhoAreWeSection() {
                 <section className="whoarewe-content">
                     <div className="whoarewe-content-text">
                         {[
-                            "The traditional model separates thinking from doing. Consultants advise.Engineers build. Handoffs create gaps. Pilots stall.",
-                            "We built Chartered Vectorial to fix that, by fusing consulting depth with AIpowered product delivery.",
+                            "The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall.",
+                            "We built Chartered Vectorial to fix that, by fusing consulting depth with AI-powered product delivery.",
                             "Our AI agents validate transformation hypotheses, debate approaches, and writeproduction-grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
                             "We're an AI-native product studio. We don't just advise on AI, we deliver it."
                         ].map((text, index) => (
@@ -208,13 +208,13 @@ function WhoAreWeSection() {
                         <div className="whoarewe-continuation-right">
                             <div ref={featuresGridRef} className={`whoarewe-features-grid ${featuresVisible ? 'features-visible' : ''}`}>
                                 <div className="whoarewe-feature-item">
-                                    <h3 className="whoarewe-feature-title">Leverage over headcount</h3>
+                                    <h3 className="whoarewe-feature-title">Leverage over <br />headcount</h3>
                                     <p className="whoarewe-feature-text">
                                         A small team with the right products can out-deliver large
                                         teams. Our AI agents multiply what each person can ship.                                    </p>
                                 </div>
                                 <div className="whoarewe-feature-item">
-                                    <h3 className="whoarewe-feature-title whoarewe-feature-title-strategy">Strategy that ships</h3>
+                                    <h3 className="whoarewe-feature-title whoarewe-feature-title-strategy">Strategy that <br />ships</h3>
                                     <p className="whoarewe-feature-text">
                                         Slide decks don't create value. AI products in production do.
                                         We stay until our products delivers.                                    </p>
@@ -252,8 +252,9 @@ function WhoAreWeSection() {
                         <div className="whoarewe-continuation-right">
                             <div className="whoarewe-continuation-description-wrapper">
                                 <p className="whoarewe-continuation-bottom-text">
-                                    We learn how you work. We shape what changes. We build what fits. We
-                                    stay until it runs.                                </p>
+                                    <span style={{ display: 'block' }}>We learn how you work. We shape what changes.</span>
+                                    <span style={{ display: 'block' }}>We build what fits. We stay until it runs.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
