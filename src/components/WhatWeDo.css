@@ -464,6 +464,12 @@
     gap: 16px;
 }
 
+@media (min-width: 1024px) {
+    .ai-discovery-text-overlay {
+        height: 160px;
+    }
+}
+
 .ai-discovery-text {
     font-family: "Stage Grotesk", sans-serif;
     font-size: 27px;

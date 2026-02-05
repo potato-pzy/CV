@@ -45,8 +45,8 @@ function Footer() {
         <div className="footer-center">
           <p className="footer-section-title">Chartered Vectorial</p>
           <nav className="footer-nav">
-            <Link to="/whoweare" className="footer-link">About</Link>
-            <Link to="/whatwedo" className="footer-link">Products & Solutions</Link>
+            <Link to="/whoweare" className="footer-link">Who We Are</Link>
+            <Link to="/whatwedo" className="footer-link">What We Do</Link>
             <Link to="/careers" className="footer-link">Careers</Link>
             <Link to="/terms" className="footer-link">Terms of Use</Link>
             <Link to="/privacy" className="footer-link">Privacy Policy</Link>
@@ -56,7 +56,7 @@ function Footer() {
         <div className="footer-right">
           <p className="footer-section-title">Get Connected</p>
           <nav className="footer-nav">
-            <Link to="/insights" className="footer-link footer-link-underline">Blog</Link>
+            <Link to="/insights" className="footer-link footer-link-underline">Insights</Link>
             <Link to="/contact" className="footer-link footer-link-underline">Contact</Link>
           </nav>
         </div>
