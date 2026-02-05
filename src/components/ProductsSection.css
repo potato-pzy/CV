@@ -402,7 +402,7 @@
 .validate-card {
     width: 272px;
     max-width: 100%;
-    height: 400px;
+    height: 342px;
     background: #01141b;
     border: 0.7px solid rgba(166, 246, 59, 0.2);
     border-radius: 7px;
@@ -466,12 +466,14 @@
     color: #A6F63B;
     margin: 0 0 15px 0;
     white-space: pre-wrap;
+    max-width: 140px;
 }
 
 @media (min-width: 48rem) {
     .validate-title {
         font-size: 30px;
         margin-bottom: 20px;
+        max-width: 180px;
     }
 }
 
@@ -492,8 +494,28 @@
     .validate-description {
         font-size: 16px;
         line-height: 1.6;
-        max-width: 440px;
+        max-width: 280px;
         white-space: pre-wrap;
+    }
+}
+
+.consulting-dna-description {
+    width: 60%;
+}
+
+@media (max-width: 48rem) {
+    .consulting-dna-description {
+        width: 80%;
+    }
+}
+
+.ai-generates-description {
+    max-width: 140px;
+}
+
+@media (min-width: 48rem) {
+    .ai-generates-description {
+        max-width: 220px !important;
     }
 }
 

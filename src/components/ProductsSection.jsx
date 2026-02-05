@@ -11,8 +11,9 @@ function ProductsSection() {
     // 1. Define the Data (Slides)
     const slides = [
         {
-            title: <>Consulting DNA</>,
+            title: <>Consulting<br />DNA</>,
             description: "We embed. We learn. We shape products to how you actually work.",
+            descriptionClass: "consulting-dna-description",
             cta: "Discuss Your Workflow",
             images: {
                 base: imgValidateDNA, // Mapped to Embed/DNA
@@ -30,6 +31,7 @@ function ProductsSection() {
         {
             title: "4 Weeks to Production",
             description: "AI generates. Humans steer. Products ship.",
+            descriptionClass: "ai-generates-description",
             cta: "See What Can Ship",
             images: {
                 base: imgValidate4Weeks, // Mapped to Transform/4 Weeks
@@ -127,7 +129,7 @@ function ProductsSection() {
                                 {/* Text Content */}
                                 <div className="validate-content-left">
                                     <h3 className="validate-title">{slides[currentSlide].title}</h3>
-                                    <p className="validate-description">{slides[currentSlide].description}</p>
+                                    <p className={`validate-description ${slides[currentSlide].descriptionClass || ''}`}>{slides[currentSlide].description}</p>
                                     <Link to="/contact">
                                         <button className="validate-cta">{slides[currentSlide].cta || "Explore Partnership"}</button>
                                     </Link>
@@ -181,7 +183,7 @@ function ProductsSection() {
                                         </div>
                                         <div className="validate-content-left">
                                             <h3 className="validate-title">{slide.title}</h3>
-                                            <p className="validate-description">{slide.description}</p>
+                                            <p className={`validate-description ${slide.descriptionClass || ''}`}>{slide.description}</p>
                                             <Link to="/contact">
                                                 <button className="validate-cta">{slide.cta || "Explore Partnership"}</button>
                                             </Link>
