@@ -240,7 +240,7 @@ const lightCards = [
     id: 1,
     image: caseStudyLeftBottom,
     label: 'PatchBot',
-    title: 'PatchBot — Intelligent Document Creation',
+    title: 'PatchBot: Intelligent Document Creation',
     company: 'Chartered Investment Germany',
     content: 'Automated legal document updates with semantic accuracy and full traceability, reducing manual review time by 90%.',
     sections: [

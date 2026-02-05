@@ -58,7 +58,7 @@ function App() {
       }>
         <Routes>
           <Route path="/" element={<NewPage />} />
-          <Route path="/whoarewe" element={<WhoAreWeSection />} />
+          <Route path="/whoweare" element={<WhoAreWeSection />} />
           <Route path="/whatwedo" element={<WhatWeDo />} />
           <Route path="/careers" element={<CareersSection />} />
           <Route path="/insights" element={<Insights />} />

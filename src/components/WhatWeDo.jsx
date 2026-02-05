@@ -116,7 +116,7 @@ function WhatWeDo() {
     },
     {
       title: 'Build',
-      description: 'Pre-built products, customised to your context. Deployed in weeks, not months.',
+      description: 'You ship. Prototypes, production systems, client demos, you\'d rather show than tell.',
       icon: buildLogo
     },
     {

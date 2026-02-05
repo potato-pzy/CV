@@ -63,8 +63,8 @@ function Navbar() {
                         </Link>
                         <ul className="navbar-menu">
                             <li>
-                                <Link to="/whoarewe" className={`navbar-link ${isActive('/whoarewe') ? 'active' : ''}`}>
-                                    Who we are
+                                <Link to="/whoweare" className={`navbar-link ${isActive('/whoweare') ? 'active' : ''}`}>
+                                    Who We Are
                                 </Link>
                             </li>
                             <li>
@@ -111,8 +111,8 @@ function Navbar() {
                 <div className="mobile-menu-content">
                     <ul className="mobile-nav-list">
                         <li>
-                            <Link to="/whoarewe" className={`mobile-link ${isActive('/whoarewe') ? 'active' : ''}`}>
-                                Who we are
+                            <Link to="/whoweare" className={`mobile-link ${isActive('/whoweare') ? 'active' : ''}`}>
+                                Who We Are
                             </Link>
                         </li>
                         <li>

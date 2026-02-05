@@ -45,7 +45,7 @@ function Footer() {
         <div className="footer-center">
           <p className="footer-section-title">Chartered Vectorial</p>
           <nav className="footer-nav">
-            <Link to="/whoarewe" className="footer-link">About</Link>
+            <Link to="/whoweare" className="footer-link">About</Link>
             <Link to="/whatwedo" className="footer-link">Products & Solutions</Link>
             <Link to="/careers" className="footer-link">Careers</Link>
             <Link to="/terms" className="footer-link">Terms of Use</Link>
