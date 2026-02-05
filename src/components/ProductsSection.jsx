@@ -99,7 +99,7 @@ function ProductsSection() {
                 <div className="products-left">
                     <p className="products-label">THE VECTOREDGE SUITE</p>
                     <h2 className="products-title">
-                        Consulting insight. Product speed.
+                        Consulting insight. <br className="title-break" />Product speed.
                     </h2>
                     <Link to="/whatwedo" className="btn-explore hide-mobile">
                         See it in Action

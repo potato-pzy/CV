@@ -167,6 +167,12 @@
     }
 }
 
+@media (min-width: 64rem) {
+    .framework-grid {
+        gap: 40px;
+    }
+}
+
 .framework-card {
     background: #0D0D0D;
     border: 1.1px solid #1e1e1e;
