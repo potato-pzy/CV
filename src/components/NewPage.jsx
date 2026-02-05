@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import './NewPage.css'
 import './AboutSection.css'
 import './ProductsSection.css'
 import Hero from './Hero'
-import ProductsSection from './ProductsSection'
-import WhySection from './WhySection'
-import CaseStudiesSection from './CaseStudiesSection'
-import TestimonialsCarousel from './TestimonialsCarousel'
-import CTASection from './CTASection'
-import Footer from './Footer'
 import aboutLogo from '../assets/about logo .png'
 import aboutLeft from '../assets/ Images/Web Images/HOMEPAGE/Top Right.jpg'
+
+// Lazy load below-the-fold sections
+const ProductsSection = lazy(() => import('./ProductsSection'));
+const WhySection = lazy(() => import('./WhySection'));
+const CaseStudiesSection = lazy(() => import('./CaseStudiesSection'));
+const TestimonialsCarousel = lazy(() => import('./TestimonialsCarousel'));
+const CTASection = lazy(() => import('./CTASection'));
+const Footer = lazy(() => import('./Footer'));
+
+// Lightweight loader for sections
+const SectionLoader = () => (
+  <div style={{ minHeight: '50vh', background: 'transparent' }} />
+);
 
 function AboutGlow() {
   return (
@@ -51,12 +59,30 @@ function NewPage() {
           </div>
         </div>
       </section>
-      <ProductsSection />
-      <WhySection variant="embedded" />
-      <CaseStudiesSection />
-      <TestimonialsCarousel />
-      <CTASection />
-      <Footer />
+
+      <Suspense fallback={<SectionLoader />}>
+        <ProductsSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <WhySection variant="embedded" />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <CaseStudiesSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <TestimonialsCarousel />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <CTASection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }

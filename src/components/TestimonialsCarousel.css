@@ -242,7 +242,7 @@
   }
 
   .testimonial-card.active {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(.8);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     display: flex;
     /* Ensure active is visible */
@@ -285,13 +285,24 @@
 
   /* Mobile Portrait */
   .testimonial-card {
-    width: 85%;
+    width: 75%;
+    /* Reduced to show side cards */
   }
 
   .testimonial-card.position--1,
   .testimonial-card.position-1 {
-    display: none;
-    /* Hide side cards on small mobile */
+    display: flex;
+    /* Show side cards on mobile */
+    opacity: 0.15;
+    filter: blur(4px);
+  }
+
+  .testimonial-card.position--1 {
+    transform: translate(-120%, -50%) scale(0.7);
+  }
+
+  .testimonial-card.position-1 {
+    transform: translate(20%, -50%) scale(0.7);
   }
 }
 

@@ -286,9 +286,42 @@
   }
 
   .insights-articles-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 0 20px;
+
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 0 20px 20px 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    scroll-padding-left: 20px;
+  }
+
+  .insights-articles-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .insights-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .insights-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .insights-dot.active {
+    background: #A6F63B;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(166, 246, 59, 0.5);
   }
 }
 
@@ -355,6 +388,10 @@
     padding: 0 20px;
   }
 
+  .insights-main-content {
+    padding: 0;
+  }
+
   .insights-featured {
     margin: 40px 0 40px 0;
   }
@@ -371,6 +408,25 @@
   .insights-filters {
     margin-bottom: 30px;
     gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-left: -20px;
+    width: calc(100% + 40px);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .insights-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .insights-filter-btn {
+    font-size: 7px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .insights-filter-btn {
@@ -379,6 +435,10 @@
   }
 
   /* The grid-template-columns for insights-articles-grid is now handled by the new media query block */
+  .insights-articles-grid {
+
+    justify-content: flex-start;
+  }
 
   .insights-cta-button {
     font-size: 10px;
@@ -416,5 +476,13 @@
 @media (min-width: 1280px) {
   .insights-main-content {
     padding: 0;
+  }
+}
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .insights-section {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }

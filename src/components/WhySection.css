@@ -360,3 +360,56 @@
     padding: var(--spacing-lg);
   }
 }
+
+@media (max-width: 40rem) {
+  .why-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--spacing-md);
+    padding-bottom: 2rem;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    margin: 0 -var(--spacing-md);
+    width: calc(100% + var(--spacing-md) * 2);
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    /* Momentum scrolling for iOS */
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .why-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .why-column {
+    display: contents;
+  }
+
+  .why-card {
+    min-width: 85vw;
+    width: 85vw;
+    /* Explicit width */
+    flex: 0 0 auto;
+    /* No shrink, no grow, auto basis */
+    scroll-snap-align: center;
+  }
+
+  /* Ensure last card has spacing at the end */
+  .why-grid::after {
+    content: '';
+    min-width: var(--spacing-md);
+    height: 1px;
+    display: block;
+  }
+}
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .why-section {
+    padding-right: 40px;
+  }
+}

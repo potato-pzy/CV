@@ -1131,9 +1131,12 @@ const Hyperspeed = ({
             const options = { ...effectOptions };
             options.distortion = distortions[options.distortion];
 
-            const myApp = new App(container, options);
-            appRef.current = myApp;
-            myApp.loadAssets().then(myApp.init);
+            // Defer heavy Three.js initialization to allow the loader animation to start smoothly
+            setTimeout(() => {
+                const myApp = new App(container, options);
+                appRef.current = myApp;
+                myApp.loadAssets().then(myApp.init);
+            }, 100);
         })();
 
         return () => {

@@ -1,6 +1,8 @@
 .what-we-do-page {
     background: #020F14;
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Navbar overrides handled by global Navbar.css */
@@ -37,13 +39,13 @@
 
 .what-we-do-glow {
     position: absolute;
-    top: -466px;
+    top: 184px;
     left: 50%;
     transform: translateX(-50%);
     width: 1706px;
     height: 730px;
     border-radius: 50%;
-    background: rgba(0, 151, 91, 0.10);
+    background: linear-gradient(180deg, #001117 0%, #013445 100%);
     filter: blur(200px);
     opacity: 0.77;
     pointer-events: none;
@@ -56,6 +58,7 @@
     min-height: 100vh;
     padding: 120px 0 80px 0;
     background: #000;
+    overflow: hidden;
 }
 
 .what-we-do-container {
@@ -93,6 +96,18 @@
     margin-left: auto;
     margin-right: auto;
     text-transform: none;
+}
+
+@media (max-width: 48rem) {
+    .what-we-do-glow {
+        top: -2px;
+        width: 506px;
+        height: 730px;
+    }
+
+    .what-we-do-subtitle {
+        font-size: 12px !important;
+    }
 }
 
 .scroll-to-explore {
@@ -228,6 +243,12 @@
     margin: 0;
 }
 
+@media (min-width: 1024px) {
+    .framework-description {
+        font-size: 20px;
+    }
+}
+
 /* Glowing effect overlay for framework cards */
 .glowing-effect-overlay {
     position: absolute;
@@ -273,9 +294,34 @@
 /* AI Discovery card */
 .ai-discovery-section {
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 180px;
     position: relative;
-    /* overflow: hidden; */
+    overflow: visible;
+    z-index: 1;
+    /* Establish stacking context */
+}
+
+/* Green background glow reused from Why section */
+.ai-discovery-bg-green-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 165rem;
+    height: 65rem;
+    background: radial-gradient(circle, rgba(0, 110, 65, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(7rem);
+    z-index: -1;
+    pointer-events: none;
+}
+
+@media (max-width: 48rem) {
+    .ai-discovery-bg-green-glow {
+        width: 10rem;
+        height: 3rem;
+        filter: blur(2rem);
+        /* Reduced blur for smaller size */
+    }
 }
 
 .ai-discovery-ellipse-glow {
@@ -335,6 +381,7 @@
     position: relative;
     width: 100%;
     z-index: 1;
+    padding-bottom: 80px;
 }
 
 .ai-discovery-card {
@@ -347,6 +394,7 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     overflow: visible;
     width: 100%;
+    z-index: 1;
 }
 
 .ai-discovery-image-link {
@@ -417,7 +465,7 @@
 
 .ai-discovery-text {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 1rem;
+    font-size: 2rem;
     color: #ffffff;
     line-height: 1.4;
     margin: 0;
@@ -427,29 +475,27 @@
 .ai-discovery-blog-link {
     display: inline-block;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     color: #a6f63b;
     text-decoration: none;
     padding: 8px 0;
-    border-bottom: 1px solid #a6f63b;
     transition: all 0.3s ease;
     width: fit-content;
 }
 
 .ai-discovery-blog-link:hover {
     color: #ffffff;
-    border-bottom-color: #ffffff;
     padding-left: 8px;
 }
 
 .ai-discovery-pagination {
     position: absolute;
     bottom: -50px;
-    left: 0;
+    left: 10px;
     display: flex;
     gap: 10px;
-    z-index: 3;
+    z-index: 10;
 }
 
 .ai-discovery-dot {
@@ -471,7 +517,7 @@
     right: 0;
     display: flex;
     gap: 12px;
-    z-index: 3;
+    z-index: 10;
 }
 
 .ai-discovery-btn {
@@ -505,7 +551,7 @@
     }
 
     .what-we-do-container {
-        padding: 0 20px;
+        padding: 0 40px;
     }
 
     .what-we-do-title {
@@ -528,6 +574,10 @@
         font-size: 28px;
     }
 
+    .ai-discovery-section-subtitle {
+        right: 0px;
+    }
+
     .ai-discovery-image-container {
         height: 420px;
     }
@@ -544,7 +594,7 @@
     }
 
     .ai-discovery-text {
-        font-size: 18px;
+        font-size: 1rem;
     }
 
     .ai-discovery-blog-link {
@@ -570,7 +620,7 @@
 
 @media screen and (max-width: 480px) {
     .what-we-do-title {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .framework-card {
@@ -621,5 +671,178 @@
     .ai-discovery-btn {
         width: 45px;
         height: 36px;
+    }
+}
+
+/* Mobile Scroll Container (New Implementation) */
+.ai-discovery-mobile-scroll {
+    display: none;
+    /* Hidden on desktop by default */
+}
+
+.ai-discovery-desktop-carousel {
+    display: block;
+    /* Visible on desktop by default */
+    position: relative;
+}
+
+.ai-discovery-carousel-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 800px;
+    background: radial-gradient(ellipse at center, rgba(0, 150, 150, 0.6) 0%, rgba(0, 100, 120, 0.3) 40%, transparent 70%);
+    filter: blur(100px);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .ai-discovery-desktop-carousel {
+        display: none !important;
+    }
+
+    .ai-discovery-mobile-scroll {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 20px;
+        width: 100%;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .ai-discovery-mobile-scroll::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .ai-discovery-mobile-card {
+        flex: 0 0 85%;
+        /* Card width */
+        scroll-snap-align: center;
+        background: #0D0D0D;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .ai-discovery-mobile-image-container {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ai-discovery-mobile-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ai-discovery-mobile-image-container .ai-discovery-title {
+        font-size: 20px;
+        top: 16px;
+        left: 16px;
+    }
+
+    .ai-discovery-text-overlay {
+        background: #0D0D0D;
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .ai-discovery-controls {
+        display: none !important;
+        /* Hide arrows on mobile */
+    }
+
+    /* Mobile Pagination - Rectangular Bars */
+    .ai-discovery-pagination {
+        position: relative;
+        bottom: 0;
+        margin-top: 24px;
+        width: 100%;
+        justify-content: center;
+        gap: 6px;
+        padding-left: 0;
+    }
+
+    .ai-discovery-dot {
+        width: 32px;
+        height: 3px;
+        border-radius: 2px;
+        background: #1B2823;
+        transition: background-color 0.3s ease;
+    }
+
+    .ai-discovery-dot.active {
+        background: #41F33B;
+        width: 32px;
+        /* Keep same width */
+    }
+
+
+
+
+    @media (max-width: 40rem) {
+
+        @media (max-width: 64rem) and (orientation: portrait) {
+            .what-we-do-container {
+                padding: 0 20px;
+            }
+
+            .accelerators-section {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+    }
+}
+
+.what-we-do-animated-text {
+    font-family: "Blauer Nue", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 944px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 auto 48px auto;
+    /* Centered with bottom margin */
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .what-we-do-animated-text {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 1025px) {
+    .what-we-do-animated-text {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 48rem) {
+    .what-we-do-animated-text {
+        font-size: 12px;
+        line-height: 1.5;
+        max-width: 100%;
     }
 }

@@ -618,3 +618,11 @@
         font-size: 14px;
     }
 }
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+    .case-studies-section {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}

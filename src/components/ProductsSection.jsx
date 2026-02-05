@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductsSection.css';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -16,6 +16,44 @@ import imgAcceleratorRight from '../assets/acceleratorright.png';
 function ProductsSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [direction, setDirection] = useState(1);
+    const scrollContainerRef = useRef(null);
+    const isManualSelection = useRef(false);
+
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        const index = Number(entry.target.getAttribute('data-index'));
+                        setCurrentSlide(index);
+                    }
+                });
+            },
+            {
+                root: container,
+                threshold: 0.5
+            }
+        );
+
+        const cards = container.querySelectorAll('.mobile-card-item');
+        cards.forEach((card) => observer.observe(card));
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Scroll to slide when currentSlide changes explicitly (via click)
+    useEffect(() => {
+        if (isManualSelection.current && scrollContainerRef.current) {
+            const cards = scrollContainerRef.current.querySelectorAll('.mobile-card-item');
+            if (cards[currentSlide]) {
+                cards[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            isManualSelection.current = false;
+        }
+    }, [currentSlide]);
 
 
 
@@ -102,7 +140,8 @@ function ProductsSection() {
                         <h2 className="products-title">
                             Consulting insight. Product speed.
                         </h2>
-                        <Link to="/whatwedo" className="btn-explore">
+                        {/* Button hidden on mobile, shown on desktop */}
+                        <Link to="/whatwedo" className="btn-explore btn-explore-desktop">
                             EXPLORE MORE
                             <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -112,7 +151,8 @@ function ProductsSection() {
 
                     {/* Right Side - Card Carousel */}
                     <div className="products-right">
-                        <div className="validate-card">
+                        {/* Desktop Carousel - Hidden on Mobile */}
+                        <div className="validate-card products-desktop-carousel">
                             <AnimatePresence initial={false} mode="popLayout" custom={direction}>
                                 <motion.div
                                     key={currentSlide}
@@ -146,6 +186,31 @@ function ProductsSection() {
                             </AnimatePresence>
                         </div>
 
+                        {/* Mobile Scroll View - Hidden on Desktop */}
+                        <div className="products-mobile-scroll" ref={scrollContainerRef}>
+                            {slides.map((slide, index) => (
+                                <div key={index} data-index={index} className="validate-card mobile-card-item">
+                                    <div className="validate-inner">
+                                        <div className="validate-content-left">
+                                            <h3 className="validate-title">{slide.title}</h3>
+                                            <p className="validate-description">{slide.description}</p>
+                                            <Link to="/contact">
+                                                <button className="validate-cta">{slide.cta}</button>
+                                            </Link>
+                                        </div>
+                                        <div className="validate-image-right">
+                                            <img
+                                                src={slide.images.base}
+                                                alt=""
+                                                className="validate-image"
+                                            />
+                                        </div>
+                                        <div className="validate-gradient-overlay"></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
                         {/* Navigation Arrows */}
                         <div className="carousel-controls">
                             <button className="carousel-btn carousel-btn-prev" onClick={prevSlide} aria-label="Previous slide">
@@ -158,6 +223,31 @@ function ProductsSection() {
                                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
+                        </div>
+
+                        {/* Mobile Navigation: Indicators + Button */}
+                        <div className="products-mobile-nav">
+                            <div className="products-pagination">
+                                {slides.map((_, index) => (
+                                    <div
+                                        key={index}
+                                        className={`products-pagination-indicator ${index === currentSlide ? 'products-pagination-indicator-active' : ''}`}
+                                        onClick={() => {
+                                            isManualSelection.current = true;
+                                            setDirection(index > currentSlide ? 1 : -1);
+                                            setCurrentSlide(index);
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Button shown on mobile after cards */}
+                            <Link to="/whatwedo" className="btn-explore btn-explore-mobile">
+                                EXPLORE MORE
+                                <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </Link>
                         </div>
                     </div>
                 </div>

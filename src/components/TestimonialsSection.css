@@ -170,6 +170,13 @@
   }
 }
 
+/* CRITICAL: Mobile override - show side cards on smaller screens */
+@media (max-width: 40rem) {
+  .testimonial-card-side {
+    display: block !important;
+  }
+}
+
 /* Left side card positioning */
 .testimonial-card-left {
   left: 0;
@@ -422,11 +429,15 @@
   .testimonials-section {
     padding: var(--spacing-2xl) var(--spacing-md);
     /* 48px 16px */
+    overflow-x: visible;
+    /* Allow side cards to show */
   }
 
   .testimonials-container {
     padding: var(--spacing-2xl) var(--spacing-md);
     /* 48px 16px */
+    overflow-x: visible;
+    /* Ensure side cards are not clipped */
   }
 
   .testimonials-header {
@@ -438,16 +449,51 @@
     height: auto;
     min-height: 21.875rem;
     /* 350px */
+    overflow: visible;
+    /* Allow side cards to show */
+    position: relative;
   }
 
   .testimonial-card-active {
     position: relative;
     transform: none;
     top: auto;
+    width: 75%;
+    /* Slightly narrower to show more of sides */
+    margin: 0 auto;
+    z-index: 20;
   }
 
   .testimonial-card-active:hover {
     transform: scale(1.01);
+  }
+
+  /* Show side cards on mobile - desktop-like carousel */
+  .testimonial-card-side {
+    display: block !important;
+    /* Force show */
+    width: 75%;
+    opacity: 1;
+    /* Full opacity, blur will provide the effect */
+    z-index: 1;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%) scale(0.8);
+    filter: blur(2px);
+    /* Add blur effect */
+    pointer-events: auto;
+    /* Allow clicking */
+    cursor: pointer;
+  }
+
+  .testimonial-card-left {
+    left: -40%;
+    /* Adjusted for better visibility */
+  }
+
+  .testimonial-card-right {
+    right: -40%;
+    /* Adjusted for better visibility */
   }
 
   .testimonial-card-inner {
@@ -499,6 +545,14 @@
   .testimonials-container {
     max-width: 75rem;
     /* 1200px */
+  }
+}
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .testimonials-section {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 

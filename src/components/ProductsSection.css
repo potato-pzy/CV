@@ -13,6 +13,13 @@
     overflow: hidden;
 }
 
+@media (max-width: 48rem) {
+    .products-section {
+        margin-top: 120px;
+        margin-bottom: 120px;
+    }
+}
+
 @media (min-width: 48rem) and (orientation: landscape),
 (min-width: 64rem) {
     .products-section {
@@ -74,8 +81,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    /* Left-aligned for mobile */
+    align-items: flex-start;
+    /* Left-aligned for mobile */
     position: relative;
     z-index: 1;
 }
@@ -98,6 +107,12 @@
     letter-spacing: 0.1em;
 }
 
+@media (max-width: 48rem) {
+    .products-label {
+        font-size: 10px !important;
+    }
+}
+
 .products-title {
     font-family: "Stage Grotesk", sans-serif;
     font-size: clamp(1.75rem, 5vw, 2.5rem);
@@ -105,6 +120,14 @@
     line-height: 1.2;
     color: var(--text-white);
     max-width: 100%;
+}
+
+@media (max-width: 48rem) {
+    .products-title {
+        font-size: 24px !important;
+        margin-top: 1.5rem;
+        /* Added gap between label and title */
+    }
 }
 
 @media (min-width: 64rem) {
@@ -144,7 +167,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    /* Center everything on mobile */
+    gap: var(--spacing-lg);
 }
 
 @media (min-width: 80rem) {
@@ -156,17 +181,31 @@
 }
 
 .validate-card {
-    width: 100%;
+    width: 272px;
+    /* Exact mobiletest width */
     max-width: 100%;
-    background: #020F14;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
+    height: 342px;
+    /* Exact mobiletest height */
+    background: #01141b;
+    /* Exact mobiletest background */
+    border: 0.7px solid rgba(166, 246, 59, 0.2);
+    /* Exact mobiletest border */
+    border-radius: 7px;
+    /* Exact mobiletest border radius */
     overflow: hidden;
     position: relative;
 }
 
 @media (min-width: 48rem) {
+    .products-section {
+        margin-top: 50px;
+    }
+
     .validate-card {
+        width: 100%;
+        height: auto;
+        background: #020F14;
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 33px;
         min-height: 320px;
     }
@@ -176,12 +215,17 @@
     position: relative;
     width: 100%;
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1fr;
+    /* Single column for mobile - image on top */
+    grid-template-rows: 185px auto;
+    /* Exact mobiletest image height */
+    height: 100%;
 }
 
 @media (min-width: 48rem) {
     .validate-inner {
         grid-template-columns: 2fr 1fr;
+        grid-template-rows: unset;
         min-height: 320px;
     }
 }
@@ -235,12 +279,15 @@
     margin-top: 24px;
     align-self: center;
     /* Centered on mobile */
-    display: flex;
+    display: none;
+    /* Hidden on mobile */
     gap: 12px;
 }
 
 @media (min-width: 48rem) {
     .carousel-controls {
+        display: flex;
+        /* Show on desktop */
         margin-top: 32px;
         align-self: flex-end;
         /* Align right on desktop */
@@ -248,30 +295,37 @@
 }
 
 .validate-content-left {
-    padding: 20px 16px;
-    /* Reduced for side-by-side mobile */
+    padding: 28px;
+    /* Exact mobiletest padding */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background: transparent;
     position: relative;
     z-index: 3;
+    order: 2;
+    /* Ensure content comes after image */
+    flex: 1;
 }
 
 @media (min-width: 48rem) {
     .validate-content-left {
         padding: 48px 32px;
+        order: unset;
+        justify-content: center;
     }
 }
 
 .validate-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 20px;
-    /* Reduced for mobile */
-    font-weight: 500;
+    font-size: 21px;
+    /* Exact mobiletest size */
+    font-weight: 400;
+    /* Exact mobiletest weight */
     line-height: 1.2;
     color: #A6F63B;
-    margin: 0 0 12px 0;
+    margin: 0 0 15px 0;
+    /* Exact mobiletest margin */
     white-space: pre-wrap;
 }
 
@@ -284,14 +338,20 @@
 
 .validate-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 13px;
-    /* Smaller for mobile */
-    font-weight: 300;
-    line-height: 1.5;
-    color: #ffffff;
-    margin: 0;
-    white-space: pre-wrap;
-    opacity: 0.9;
+    font-size: 11.2px;
+    /* Exact mobiletest size */
+    font-weight: 400;
+    /* Exact mobiletest weight */
+    line-height: 1.4;
+    /* Exact mobiletest line-height */
+    letter-spacing: 0.3px;
+    /* Exact mobiletest letter-spacing */
+    color: #f5f5f5;
+    /* Exact mobiletest color */
+    margin: 0 0 15px 0;
+    /* Exact mobiletest margin */
+    white-space: normal;
+    opacity: 1;
     max-width: 100%;
 }
 
@@ -300,19 +360,20 @@
         font-size: 16px;
         line-height: 1.6;
         max-width: 440px;
+        white-space: pre-wrap;
     }
 }
 
 .validate-cta {
-    margin-top: 20px;
-    /* Reduced for mobile */
+    margin-top: auto;
+    /* Push to bottom */
     padding: 0;
     border: none;
     background: none;
     color: #A6F63B;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 13px;
-    /* Smaller for mobile */
+    font-size: 10.5px;
+    /* Exact mobiletest size */
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -322,6 +383,7 @@
     width: fit-content;
     text-decoration-skip-ink: auto;
     text-underline-offset: auto;
+    align-self: flex-start;
 }
 
 @media (min-width: 48rem) {
@@ -338,14 +400,17 @@
 .validate-image-right {
     position: relative;
     overflow: hidden;
-    background: #020F14;
-    height: auto;
-    /* Allow side-by-side to determine height */
+    background: transparent;
+    height: 185px;
+    /* Exact mobiletest image height */
+    order: 1;
+    /* Image comes first */
 }
 
 @media (min-width: 48rem) {
     .validate-image-right {
         height: auto;
+        order: unset;
     }
 }
 
@@ -358,8 +423,17 @@
     object-position: center;
     display: block;
     z-index: 0;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
-    mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    /* Mobile: transparent from top */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+}
+
+@media (min-width: 48rem) {
+    .validate-image {
+        /* Desktop: transparent from right */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+        mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    }
 }
 
 .validate-gradient-overlay {
@@ -369,12 +443,25 @@
     height: 100%;
     z-index: 2;
     pointer-events: none;
-    background: linear-gradient(90deg,
-            #020F14 0%,
-            #020F14 25%,
-            rgba(0, 72, 49, 0.4) 60%,
-            rgba(0, 147, 82, 0.2) 85%,
-            transparent 100%);
+    /* Mobile: exact gradient requested */
+    background: linear-gradient(0deg,
+            rgba(0, 19, 26, 1) 0%,
+            rgba(0, 28, 30, 0.97) 9.52%,
+            rgba(0, 72, 49, 0.65) 64%,
+            rgba(0, 147, 82, 0.18) 89%,
+            rgba(0, 177, 95, 0) 103%);
+}
+
+@media (min-width: 48rem) {
+    .validate-gradient-overlay {
+        /* Desktop: gradient from left to right */
+        background: linear-gradient(90deg,
+                #020F14 0%,
+                #020F14 25%,
+                rgba(0, 72, 49, 0.4) 60%,
+                rgba(0, 147, 82, 0.2) 85%,
+                transparent 100%);
+    }
 }
 
 /* ACCELERATORS - HIDDEN SECTION FOR NOW BASED ON Jsx */
@@ -394,4 +481,134 @@
     opacity: 0.15;
     z-index: -1;
     pointer-events: none;
+}
+
+/* Products Right - Desktop alignment */
+@media (min-width: 48rem) {
+    .products-right {
+        align-items: flex-end;
+    }
+}
+
+/* Pagination Indicators - Mobile only */
+.products-pagination {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--spacing-xs);
+}
+
+@media (min-width: 48rem) {
+    .products-pagination {
+        display: none;
+    }
+}
+
+.products-pagination-indicator {
+    height: 0.12rem;
+    width: 2.5rem;
+    border-radius: 0.08rem;
+    background: #1B2823;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.products-pagination-indicator:hover {
+    background: #2A3F35;
+}
+
+.products-pagination-indicator-active {
+    position: relative;
+    background: #41F33B;
+    opacity: 1;
+}
+
+/* Button visibility controls */
+.btn-explore-desktop {
+    display: none;
+}
+
+@media (min-width: 48rem) {
+    .btn-explore-desktop {
+        display: inline-flex;
+    }
+}
+
+.btn-explore-mobile {
+    display: inline-flex;
+    margin-top: 0;
+    /* Margin handled by parent container */
+}
+
+@media (min-width: 48rem) {
+    .btn-explore-mobile {
+        display: none;
+    }
+}
+
+/* Mobile Scroll Container & Visibility Logic */
+.products-desktop-carousel {
+    display: none;
+}
+
+.products-mobile-scroll {
+    display: flex;
+    gap: 16px;
+    width: 100vw;
+    margin-left: -16px;
+    /* Break out of container padding approx */
+    margin-right: -16px;
+    padding: 0 16px;
+    /* Restore edge padding */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.products-mobile-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.mobile-card-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    /* Ensure dimensions are respected */
+}
+
+@media (min-width: 48rem) {
+    .products-desktop-carousel {
+        display: block;
+    }
+
+    .products-mobile-scroll {
+        display: none;
+    }
+}
+
+/* Mobile Navigation Container - Indicators + Button on same line */
+.products-mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: var(--spacing-lg);
+    width: 100%;
+}
+
+@media (min-width: 48rem) {
+    .products-mobile-nav {
+        display: none;
+    }
+}
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+    .products-section {
+
+        padding-right: 40px;
+    }
 }

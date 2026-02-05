@@ -43,7 +43,7 @@ function Contact() {
     };
   }, []);
 
-  const [isCaptchaChecked, setIsCaptchaChecked] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,10 +55,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isCaptchaChecked) {
-      alert('Please verify that you are human');
-      return;
-    }
     console.log('Form submitted:', formData);
     // Handle form submission here
   };
@@ -182,18 +178,7 @@ function Contact() {
                     ></textarea>
                   </div>
 
-                  <div className="form-captcha">
-                    <label className="captcha-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={isCaptchaChecked}
-                        onChange={(e) => setIsCaptchaChecked(e.target.checked)}
-                      />
-                      <span className="captcha-checkmark"></span>
-                      <span className="captcha-label">I'm human</span>
-                    </label>
-                    <img src="/hcaptcha-logo.png" alt="hCaptcha" className="captcha-logo" />
-                  </div>
+
 
                   <button type="submit" className="form-submit">
                     Request an Exploratory Call

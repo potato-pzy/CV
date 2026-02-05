@@ -10,6 +10,8 @@ import salesLine from '../assets/accelerator-sales-line.svg'
 import docLine from '../assets/accelerator-doc-line.svg'
 import complianceLine from '../assets/accelerator-compliance-line.svg'
 
+import { TextGradientScroll } from './ui/text-gradient-scroll';
+
 const darkCards = [
   {
     title: 'Sales Enablement',
@@ -606,52 +608,25 @@ function AcceleratorsSection() {
     <section className="accelerators-section">
       <div className="acc-section-glow acc-glow-left" />
       <div className="acc-section-glow acc-glow-right" />
-      <div className="accelerators-hero">
-        <h2>Accelerators</h2>
-        <p>Proven starting points. Customized for your context.</p>
-      </div>
-
-      <div className="accelerators-grid">
-        {darkCards.map((card) => (
-          <div key={card.title} className="acc-card-wrap">
-            <div className="acc-card">
-              <div className="acc-card-fx" aria-hidden="true">
-                <div className="acc-fx-overlay" />
-                <div className="acc-fx-orb acc-fx-orb-a" />
-                <div className="acc-fx-orb acc-fx-orb-b" />
-                <div className="acc-fx-orb acc-fx-orb-c" />
-                <div className="acc-fx-orb acc-fx-orb-d" />
-                <div className="acc-fx-sweep" />
-              </div>
-
-              <div className="acc-card-content">
-                <div className="acc-content-main">
-                  <div className="acc-icon-wrap">
-                    <div className="acc-icon-ring acc-icon-ring-ping" aria-hidden="true" />
-                    <div className="acc-icon-ring acc-icon-ring-pulse" aria-hidden="true" />
-                    <div className="acc-icon-shell">
-                      <div className="acc-icon-rot">
-                        <img src={card.icon} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="acc-text-swap-container">
-                    <h3 className="acc-title">{card.title}</h3>
-                    <div className="acc-desc">
-                      <p>{card.body}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="acc-bottom-line" />
-              </div>
-
-              <div className="acc-corner acc-corner-tl" aria-hidden="true" />
-              <div className="acc-corner acc-corner-br" aria-hidden="true" />
-            </div>
-          </div>
-        ))}
+      <div className="accelerators-text-section">
+        <TextGradientScroll
+          text="Consulting insight. Product delivery."
+          type="letter"
+          textOpacity="soft"
+          className="accelerators-reveal-text justify-center"
+        />
+        <TextGradientScroll
+          text="Production in 4 weeks."
+          type="letter"
+          textOpacity="soft"
+          className="accelerators-reveal-text justify-center"
+        />
+        <TextGradientScroll
+          text="AI generates. Humans steer. Products ship."
+          type="letter"
+          textOpacity="soft"
+          className="accelerators-reveal-text green-text justify-center"
+        />
       </div>
 
       <div className="case-hero" id="case-studies">

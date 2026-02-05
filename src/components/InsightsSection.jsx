@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ArticleCard from './ArticleCard';
 import './InsightsSection.css';
@@ -56,7 +56,27 @@ function InsightsSection({
   showBookCallButton = true
 }) {
   const [activeCategory, setActiveCategory] = useState('ALL');
+  const [currentScrollIndex, setCurrentScrollIndex] = useState(0);
+  const scrollRef = useRef(null);
   const location = useLocation();
+
+  const filteredArticles = articles.filter(
+    article => activeCategory === 'ALL' || article.category === activeCategory
+  );
+
+  const handleScroll = () => {
+    if (scrollRef.current && window.innerWidth <= 768) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const totalItems = filteredArticles.length;
+      const maxScroll = scrollWidth - clientWidth;
+      const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+      const newIndex = Math.round(progress * (totalItems - 1));
+
+      if (newIndex !== currentScrollIndex && newIndex >= 0 && newIndex < totalItems) {
+        setCurrentScrollIndex(newIndex);
+      }
+    }
+  };
 
   useEffect(() => {
     if (location.hash === '#blogs') {
@@ -113,7 +133,11 @@ function InsightsSection({
               <button
                 key={cat}
                 className={`insights-filter-btn ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setCurrentScrollIndex(0);
+                  if (scrollRef.current) scrollRef.current.scrollLeft = 0;
+                }}
               >
                 {cat}
               </button>
@@ -121,22 +145,34 @@ function InsightsSection({
           </div>
 
           {/* Articles Grid */}
-          <div className="insights-articles-grid">
-            {articles
-              .filter(article => activeCategory === 'ALL' || article.category === activeCategory)
-              .map((article) => (
-                <ArticleCard
-                  key={article.id}
-                  category={article.category}
-                  date={article.date}
-                  title={article.title}
-                  displayTitle={article.displayTitle}
-                  slug={article.slug}
-                  gradient={article.gradient}
-                  backgroundImage={article.backgroundImage}
-                  backgroundBlend={article.backgroundBlend}
-                />
-              ))}
+          <div
+            className="insights-articles-grid"
+            ref={scrollRef}
+            onScroll={handleScroll}
+          >
+            {filteredArticles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                category={article.category}
+                date={article.date}
+                title={article.title}
+                displayTitle={article.displayTitle}
+                slug={article.slug}
+                gradient={article.gradient}
+                backgroundImage={article.backgroundImage}
+                backgroundBlend={article.backgroundBlend}
+              />
+            ))}
+          </div>
+
+          {/* Pagination Indicators (Mobile Only) */}
+          <div className="insights-pagination">
+            {filteredArticles.map((_, index) => (
+              <div
+                key={index}
+                className={`insights-dot ${currentScrollIndex === index ? 'active' : ''}`}
+              />
+            ))}
           </div>
         </div>
       </div>

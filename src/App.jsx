@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { lazy, Suspense, useEffect } from 'react'
 import './index.css'
+import HighVelocityLoader from './components/HighVelocityLoader'
+import GlobalLoader from './components/GlobalLoader'
 
 const Home = lazy(() => import('./components/Home'))
 const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
@@ -20,6 +22,8 @@ const BlogAgenticBlueprint = lazy(() => import('./components/BlogAgenticBlueprin
 const BlogFoundersNote = lazy(() => import('./components/BlogFoundersNote'))
 const TermsOfUsePage = lazy(() => import('./components/TermsOfUsePage'))
 const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'))
+const MobileTestPage = lazy(() => import('./mobiletest/MobileTestPage'))
+const LoaderDemo = lazy(() => import('./components/LoaderDemo'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -37,7 +41,20 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Suspense fallback={<div style={{ background: '#020f14', minHeight: '100vh' }} />}>
+      <GlobalLoader />
+      <Suspense fallback={
+        <div style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9999,
+          background: '#020f14',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <HighVelocityLoader size={64} />
+        </div>
+      }>
         <Routes>
           <Route path="/" element={<NewPage />} />
           <Route path="/whoarewe" element={<WhoAreWeSection />} />
@@ -57,6 +74,8 @@ function App() {
           <Route path="/blog/rise-of-agentic-ai" element={<BlogRiseOfAgenticAI />} />
           <Route path="/blog/agentic-ai-blueprint" element={<BlogAgenticBlueprint />} />
           <Route path="/blog/founders-note" element={<BlogFoundersNote />} />
+          <Route path="/mobiletest" element={<MobileTestPage />} />
+          <Route path="/loader" element={<LoaderDemo />} />
         </Routes>
       </Suspense>
     </Router>

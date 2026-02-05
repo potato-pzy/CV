@@ -89,7 +89,9 @@ function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <Link to="/contact" className="navbar-cta">Book a discovery call</Link>
+                    <Link to="/contact" className="navbar-cta">
+                        {currentPath === '/' ? 'See it in action' : 'Book a discovery call'}
+                    </Link>
                     <button
                         className={`navbar-mobile-menu ${isMenuOpen ? 'active' : ''}`}
                         onClick={toggleMenu}

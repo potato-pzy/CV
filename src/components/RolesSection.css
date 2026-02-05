@@ -298,3 +298,70 @@
     font-size: 14px;
   }
 }
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .roles-section {
+    padding: 60px 20px;
+  }
+
+  .roles-container {
+    padding: 0;
+    grid-template-areas:
+      "title"
+      "intro"
+      "tabs"
+      "content";
+    gap: 40px;
+  }
+
+  .roles-main-title {
+    font-size: 28px;
+  }
+
+  .roles-intro-text {
+    font-size: 16px;
+  }
+
+  .roles-content {
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .roles-content-title {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .roles-content-description {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .roles-section {
+    padding: 50px 16px;
+  }
+
+  .roles-intro-text {
+    font-size: 15px;
+  }
+
+  .roles-content-title {
+    font-size: 18px;
+  }
+
+  .roles-content-description {
+    font-size: 13px;
+  }
+
+  .roles-tabs {
+    gap: 12px;
+  }
+
+  .roles-tab-text {
+    font-size: 15px;
+  }
+}

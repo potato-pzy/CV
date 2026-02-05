@@ -66,3 +66,16 @@
   object-fit: cover;
   display: block;
 }
+
+@media (max-width: 48rem) {
+  .article-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    max-width: none;
+    margin: 0;
+  }
+
+  .article-card-title {
+    font-size: 25px;
+  }
+}

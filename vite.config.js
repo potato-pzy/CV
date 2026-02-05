@@ -13,10 +13,14 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5175,
-    allowedHosts: [
-      '9cda9c74acc140fd-103-183-83-151.serveousercontent.com',
-      '.serveousercontent.com',
-      'language-secretariat-contribute-cam.trycloudflare.com'
-    ]
+    allowedHosts:
+      ['ranging-ultimately-stripes-recordings.trycloudflare.com',
+        'finder-namespace-wish-moms.trycloudflare.com',
+        'terrain-drilling-discussion-kept.trycloudflare.com',
+        'all',
+        '9cda9c74acc140fd-103-183-83-151.serveousercontent.com',
+        '.serveousercontent.com',
+        'language-secretariat-contribute-cam.trycloudflare.com'
+      ]
   },
 })
