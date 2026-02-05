@@ -334,11 +334,11 @@
 
 /* Stat label - small descriptive text */
 .why-card-label {
-  font-family: "Inter", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 200;
   color: #00AF66;
-  text-transform: uppercase;
+
   letter-spacing: 0.1em;
 }
 

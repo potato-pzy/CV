@@ -179,7 +179,7 @@
     border-radius: 0.125rem !important;
     font-family: "Stage Grotesk", sans-serif !important;
     font-size: 0.75rem !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     color: var(--accent-green) !important;
@@ -326,17 +326,23 @@
     justify-content: center;
     width: 100%;
     padding: 1rem;
-    /* Slightly reduced */
-    background: var(--accent-green);
-    color: var(--bg-dark);
+    background: transparent;
+    border: 1.5px solid var(--accent-green);
+    color: var(--accent-green);
+    border-radius: 0.125rem;
     text-decoration: none;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 0.875rem;
-    /* Reduced from 1rem */
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.mobile-cta:hover,
+.mobile-cta:active {
+    background: var(--accent-green);
+    color: var(--bg-dark);
     box-shadow: 0 0 1rem rgba(166, 246, 59, 0.3);
 }
 

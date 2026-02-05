@@ -16,7 +16,7 @@ function CTASection({ title, subtitle, buttonText }) {
         <h2 className="cta-title">
           {title || (
             <>
-              Ready to see it in action? <br className="cta-title-break" />
+              What comes next is worth building together.  <br className="cta-title-break" />
             </>
           )}
         </h2>

@@ -130,21 +130,22 @@
     align-items: center;
     justify-content: center;
     padding: 8px 20px;
-    border: 1px solid rgba(166, 246, 59, 0.3);
+    border: 1.5px solid var(--accent-green);
     border-radius: 2px;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    color: #A6F63B;
+    color: var(--accent-green);
     text-decoration: none;
     transition: all 0.3s ease;
     line-height: normal;
+    background: transparent;
 }
 
 .whoarewe-nav-cta:hover {
-    background: #A6F63B;
+    background: var(--accent-green);
     color: black;
 }
 
@@ -314,13 +315,14 @@
     align-items: center;
     justify-content: center;
     padding: 12px 32px;
-    background: #A6F63B;
-    color: black;
+    background: transparent;
+    color: #A6F63B;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.01em;
+    border: 1.5px solid #A6F63B;
     border-radius: 2px;
     text-decoration: none;
     box-shadow: 0 0 15px rgba(166, 246, 59, 0.4);
@@ -330,7 +332,8 @@
 }
 
 .whoarewe-hero-btn:hover {
-    background: white;
+    background: #A6F63B;
+    color: black;
 }
 
 /* Content Section */
@@ -575,7 +578,7 @@
 
 @media (max-width: 768px) {
     .whoarewe-founders-description {
-        text-align: center;
+        text-align: end;
         margin: 0 auto;
     }
 }
@@ -591,15 +594,15 @@
     .whoarewe-founders-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--spacing-3xl);
-        justify-content: space-between;
+        /*justify-content: space-between;
         justify-items: start;
-        max-width: none;
+        max-width: none;*/
         margin: 0;
     }
 
     .whoarewe-founders-description {
-        text-align: left;
-        margin-left: 0;
+        text-align: end;
+        margin-left: 64px;
         max-width: 400px;
     }
 }
@@ -676,7 +679,7 @@
     .whoarewe-features-grid {
         grid-template-columns: repeat(2, 1fr);
         row-gap: 40px;
-        column-gap: 40px;
+        column-gap: 100px;
     }
 
     .whoarewe-feature-title {
@@ -742,6 +745,24 @@
     overflow: hidden;
     border-radius: 0;
     cursor: pointer;
+}
+
+@media (min-width: 1920px) {
+    .whoarewe-founder-card {
+        max-width: 24rem;
+        /* Reduced from 28.75rem for large screens */
+    }
+
+    .whoarewe-founders-title {
+        position: relative;
+        left: 307px;
+    }
+
+    .whoarewe-founders-description {
+        /* text-align: left; */
+        margin-left: 164px;
+        max-width: 400px;
+    }
 }
 
 .whoarewe-founder-front,
@@ -927,7 +948,8 @@
 }
 
 .whoarewe-continuation-bottom-row {
-    margin-bottom: 200px;
+    margin-top: 120px;
+    margin-bottom: 130px;
     align-items: start;
 }
 
@@ -1071,7 +1093,7 @@
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 64px;
-    column-gap: 80px;
+    column-gap: 100px;
     margin-top: 20px;
     /* Small offset for mobile */
 }
@@ -1122,6 +1144,7 @@
     letter-spacing: -0.01em;
     color: white;
     margin: 0;
+    width: 132%;
 }
 
 .whoarewe-feature-break {
@@ -1181,6 +1204,9 @@
 
 @media (min-width: 768px) {
     .whoarewe-continuation-bottom-text {
+        width: 126%;
+        right: 200px;
+        position: relative;
         font-size: 19px;
         line-height: 1.5;
         max-width: 800px;

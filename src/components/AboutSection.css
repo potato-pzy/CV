@@ -7,8 +7,8 @@
 .about-section {
     position: relative;
     width: 100%;
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+    padding-top: 10vh;
+
     overflow: hidden;
     z-index: 1;
     min-height: 100vh;
@@ -101,16 +101,16 @@
 .btn-see-how {
     display: inline-block;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.75rem;
     /* Increased padding */
-    background: var(--primary-green);
-    color: var(--bg-dark);
-    border: none;
+    background: transparent;
+    color: var(--primary-green);
+    border: 1.5px solid var(--primary-green);
     border-radius: 0.125rem;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 0.875rem;
     /* Increased from 12px to 14px */
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
     text-align: center;
@@ -122,7 +122,8 @@
 }
 
 .btn-see-how:hover {
-    background: var(--accent-green);
+    background: var(--primary-green);
+    color: var(--bg-dark);
     box-shadow: 0 0 0.5rem 0 var(--primary-green);
     /* 8px */
     transform: translateY(-0.125rem);

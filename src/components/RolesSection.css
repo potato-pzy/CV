@@ -65,6 +65,8 @@
   }
 
   .roles-intro-area {
+    position: relative;
+    left: 70px;
     margin-bottom: -40px;
   }
 }
@@ -197,6 +199,8 @@
 
 @media (min-width: 1024px) {
   .roles-content {
+    position: relative;
+    left: 70px;
     align-items: flex-start;
   }
 }

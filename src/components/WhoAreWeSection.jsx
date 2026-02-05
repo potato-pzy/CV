@@ -224,7 +224,7 @@ function WhoAreWeSection() {
                                         Built by agents, <br className="whoarewe-feature-break" />governed by humans
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        AI agents do the heavy lifting — validating, building, reviewing.
+                                        AI agents do the heavy lifting validating, building, reviewing.
                                         You get customised products for your workflows, governed by
                                         humans at every gate.                                    </p>
                                 </div>

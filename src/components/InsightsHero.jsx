@@ -21,7 +21,7 @@ function InsightsHero() {
         saturation={1}
       />
       <div className="insights-hero-content">
-        <h1 className="insights-hero-title">Insights</h1>
+        <h1 className="insights-hero-title">INSIGHTS</h1>
         <p className="insights-hero-subtitle">Practical perspectives on AI transformation, from strategy to production.</p>
       </div>
       <div className="insights-scroll-to-explore">

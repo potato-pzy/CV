@@ -129,10 +129,10 @@
 
     /* 768px */
     .hero-subtitle {
-        font-size: 1.125rem;
+        font-size: 1.2rem;
         /* 18px */
         margin-bottom: var(--spacing-2xl);
-        max-width: 700px;
+        max-width: 900px;
     }
 }
 
@@ -159,9 +159,9 @@
     align-items: center;
     justify-content: center;
     padding: 0.75rem 2rem;
-    background: var(--accent-green);
-    color: var(--bg-dark);
-    border: none;
+    background: transparent;
+    color: var(--accent-green);
+    border: 1.5px solid var(--accent-green);
     border-radius: 0.125rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -182,7 +182,7 @@
 .btn-primary-text {
     font-size: 0.875rem;
     font-family: 'Stage Grotesk', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     white-space: nowrap;
@@ -195,7 +195,8 @@
 }
 
 .btn-primary:hover {
-    background: #95e52a;
+    background: var(--accent-green);
+    color: var(--bg-dark);
     transform: translateY(-0.125rem);
     box-shadow: 0 0 0.75rem 0 var(--accent-green);
 }

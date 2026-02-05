@@ -116,7 +116,7 @@ function WhatWeDo() {
     },
     {
       title: 'Build',
-      description: 'Pre-built products, customised to your context.Deployed in weeks, not months.',
+      description: 'Pre-built products, customised to your context. Deployed in weeks, not months.',
       icon: buildLogo
     },
     {
@@ -378,7 +378,7 @@ function WhatWeDo() {
       <AcceleratorsSection />
       <CTASection
         title="What comes next is worth building together."
-        buttonText="BOOK A DISCOVERY CALL"
+        buttonText="SEE IT IN ACTION"
       />
       <Footer />
     </div>

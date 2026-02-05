@@ -90,7 +90,7 @@ function Navbar() {
                         </ul>
                     </div>
                     <Link to="/contact" className="navbar-cta">
-                        {currentPath === '/' ? 'See it in action' : 'Book a discovery call'}
+                        See it in Action
                     </Link>
                     <button
                         className={`navbar-mobile-menu ${isMenuOpen ? 'active' : ''}`}
@@ -117,7 +117,7 @@ function Navbar() {
                         </li>
                         <li>
                             <Link to="/whatwedo" className={`mobile-link ${isActive('/whatwedo') ? 'active' : ''}`}>
-                                How it works
+                                What we do
                             </Link>
                         </li>
                         <li>
@@ -137,7 +137,7 @@ function Navbar() {
                         </li>
                     </ul>
                     <div className="mobile-menu-footer">
-                        <Link to="/contact" className="mobile-cta">Book a discovery call</Link>
+                        <Link to="/contact" className="mobile-cta">See it in Action</Link>
                     </div>
                 </div>
             </div>

@@ -267,7 +267,9 @@
 
   .insights-why-exists {
     aspect-ratio: 343 / 240;
-    margin: 40px auto 12px;
+    margin: -22px -6px 12px -32px;
+    width: 122%;
+    max-width: 1046px;
   }
 
   .insights-why-exists-title {
@@ -462,6 +464,16 @@
 @media (min-width: 1025px) {
   .insights-section {
     padding-bottom: 100px;
+  }
+
+  .insights-why-exists-content-wrapper {
+    max-width: 1046px;
+    margin: 0 57px 51px;
+  }
+
+  .insights-why-exists {
+    width: 108%;
+    max-width: 1210px;
   }
 
   .insights-filters {

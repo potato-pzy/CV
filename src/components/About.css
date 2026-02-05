@@ -129,7 +129,9 @@
 /* Right Column - Large Image */
 .about-image-container {
     position: relative;
-    width: 100%;
+    top: 235px;
+    left: 150px;
+    width: 39%;
     max-width: 22.625rem;
     aspect-ratio: 346 / 376;
     overflow: hidden;
@@ -242,5 +244,11 @@
         left: 49px;
         position: relative;
         margin-top: 64px;
+    }
+
+    .about-image-container {
+        position: relative;
+        top: 249px;
+        left: 159px;
     }
 }

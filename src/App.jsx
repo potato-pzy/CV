@@ -24,6 +24,7 @@ const TermsOfUsePage = lazy(() => import('./components/TermsOfUsePage'))
 const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'))
 const MobileTestPage = lazy(() => import('./mobiletest/MobileTestPage'))
 const LoaderDemo = lazy(() => import('./components/LoaderDemo'))
+const ValidatePage = lazy(() => import('../validate/ValidatePage'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -76,6 +77,7 @@ function App() {
           <Route path="/blog/founders-note" element={<BlogFoundersNote />} />
           <Route path="/mobiletest" element={<MobileTestPage />} />
           <Route path="/loader" element={<LoaderDemo />} />
+          <Route path="/validate" element={<ValidatePage />} />
         </Routes>
       </Suspense>
     </Router>

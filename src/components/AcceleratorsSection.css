@@ -45,12 +45,18 @@
 }
 
 .accelerators-text-section p {
+  margin-bottom: 40px;
+  line-height: 0.5;
   font-family: 'Stage Grotesk', sans-serif;
   font-size: 30px;
   font-weight: 400;
   margin: 0 0 24px 0;
   line-height: 1.2;
   color: #ffffff;
+}
+
+.accelerators-text-section p:nth-child(-n+2) {
+  font-size: 39px;
 }
 
 .accelerators-text-section p:last-child {
@@ -697,6 +703,12 @@
 
   .accelerators-text-section p {
     font-size: 20px;
+  }
+
+  .accelerators-text-section p:nth-child(-n+2) {
+    font-size: 24px;
+    line-height: 1.4;
+
   }
 
   .case-grid {

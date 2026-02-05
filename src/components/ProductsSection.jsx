@@ -1,103 +1,44 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './ProductsSection.css';
 import { AnimatePresence, motion } from 'framer-motion';
-// import ComplianceIcon from './ComplianceIcon';
-// import SalesEnablementIcon from './SalesEnablementIcon';
-// import DocumentSyncIcon from './DocumentSyncIcon';
-import imgVector from '../assets/Document.png';
-import imgVector1 from '../assets/background.png';
-import imgValidate2 from '../assets/validate 2.png';
-import imgValidate3 from '../assets/validate 3.png';
-import imgAcceleratorLeft from '../assets/acceleratorleft.png';
-import imgAcceleratorCenter from '../assets/acceleratorcenter.png';
-import imgAcceleratorRight from '../assets/acceleratorright.png';
+import './ProductsSection.css';
+
+import imgValidate4Weeks from '../assets/validate_4weeks.png';
+import imgValidateDNA from '../assets/validate_dna.png';
+import imgValidateFive from '../assets/validate_Five.png';
 
 function ProductsSection() {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [direction, setDirection] = useState(1);
-    const scrollContainerRef = useRef(null);
-    const isManualSelection = useRef(false);
-
-    useEffect(() => {
-        const container = scrollContainerRef.current;
-        if (!container) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                        const index = Number(entry.target.getAttribute('data-index'));
-                        setCurrentSlide(index);
-                    }
-                });
-            },
-            {
-                root: container,
-                threshold: 0.5
-            }
-        );
-
-        const cards = container.querySelectorAll('.mobile-card-item');
-        cards.forEach((card) => observer.observe(card));
-
-        return () => observer.disconnect();
-    }, []);
-
-    // Scroll to slide when currentSlide changes explicitly (via click)
-    useEffect(() => {
-        if (isManualSelection.current && scrollContainerRef.current) {
-            const cards = scrollContainerRef.current.querySelectorAll('.mobile-card-item');
-            if (cards[currentSlide]) {
-                cards[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-            isManualSelection.current = false;
-        }
-    }, [currentSlide]);
-
-
-
-    // const imgB9HUcC1 = "https://www.figma.com/api/mcp/asset/22f55e5f-ec3a-4832-8975-84b282fb97b2";
-    // const imgB9HUcC = "https://www.figma.com/api/mcp/asset/8d0bb8df-5091-42e5-937a-02c7a8db3970";
-    // const imgVector = "https://www.figma.com/api/mcp/asset/fdc6a13d-3c7e-4a44-bf35-bec61bd392ad";
-    // const imgVector1 = "https://www.figma.com/api/mcp/asset/800b7d90-1b1c-4d56-a18d-b948de88826f";
-
+    // 1. Define the Data (Slides)
     const slides = [
         {
-            title: "4 Weeks to Production",
-            description: "AI generates. Humans steer. Products ship",
-            cta: "See What Can Ship",
+            title: "Validate",
+            description: "Not sure where AI fits? A 1-week sprint to identify high-value opportunities and build the business case, before you commit budget.",
             images: {
-                base: imgVector1,
-                mask: imgVector,
-                vector: imgVector,
-                border: imgVector1
+                base: imgValidateFive, // Mapped to Validate/Five Intelligences
             }
         },
         {
-            title: "Consulting DNA",
-            description: "We embed. We learn. We shape products to how you actually work.",
-            cta: "Discuss Your Workflow",
+            title: "Transform",
+            description: "Strategy and engineering in the same room. We deliver production-grade AI systems in 60–90 days- not decks, not pilots.",
             images: {
-                base: imgValidate2,
-                mask: imgValidate2,
-                vector: imgValidate2,
-                border: imgValidate2
+                base: imgValidate4Weeks, // Mapped to Transform/4 Weeks
             }
         },
         {
-            title: "Five Intelligences",
-            description: "Strategic. Document. Research.\nProcess. Functional. Configured\nto fit.",
-            cta: "See Where Intelligence Fits",
+            title: "Embed",
+            description: "Adoption is the key to transformation. We embed with your teams to turn deployed systems into organizational capability, and identify what's next.",
             images: {
-                base: imgValidate3,
-                mask: imgValidate3,
-                vector: imgValidate3,
-                border: imgValidate3
+                base: imgValidateDNA, // Mapped to Embed/DNA
+                style: { objectPosition: '75% center' }
             }
         }
     ];
 
+    // 2. Desktop Carousel State
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [direction, setDirection] = useState(1);
+
+    // 3. Animation Variants (Framer Motion)
     const panelVariants = {
         enter: (dir) => ({
             x: dir > 0 ? 80 : -80,
@@ -117,6 +58,7 @@ function ProductsSection() {
         })
     };
 
+    // 4. Navigation Functions
     const nextSlide = () => {
         setDirection(1);
         setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -129,197 +71,147 @@ function ProductsSection() {
 
     const currentImages = slides[currentSlide].images;
 
+    // 5. Mobile Scroll State
+    const [activeMobileIndex, setActiveMobileIndex] = useState(0);
+
+    const handleScroll = (e) => {
+        const scrollLeft = e.target.scrollLeft;
+        const cardStep = 272 + 16; // 272px card width + 16px gap
+        const index = Math.round(scrollLeft / cardStep);
+        if (index !== activeMobileIndex && index >= 0 && index < slides.length) {
+            setActiveMobileIndex(index);
+        }
+    };
+
     return (
-        <>
-            <section className="products-section">
-                <div className="products-bg-glow"></div>
-                <div className="products-container">
-                    {/* Left Side - Text Content */}
-                    <div className="products-left">
-                        <p className="products-label">THE VECTOREDGE SUITE</p>
-                        <h2 className="products-title">
-                            Consulting insight. Product speed.
-                        </h2>
-                        {/* Button hidden on mobile, shown on desktop */}
-                        <Link to="/whatwedo" className="btn-explore btn-explore-desktop">
-                            EXPLORE MORE
-                            <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </Link>
+        <section className="products-section">
+            {/* Background Glow Effect */}
+            <div className="products-bg-glow"></div>
+
+            <div className="products-container">
+
+                {/* --- LEFT SIDE: Static Content --- */}
+                <div className="products-left">
+                    <p className="products-label">THE VECTORAGILE SUITE</p>
+                    <h2 className="products-title">
+                        Consulting insight. Product speed.
+                    </h2>
+                    <Link to="/whatwedo" className="btn-explore hide-mobile">
+                        See it in Action
+                        <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </Link>
+                </div>
+
+                {/* --- RIGHT SIDE: Desktop Carousel --- */}
+                <div className="products-right desktop-view">
+                    <div className="validate-card">
+                        <AnimatePresence initial={false} mode="popLayout" custom={direction}>
+                            <motion.div
+                                key={currentSlide}
+                                custom={direction}
+                                variants={panelVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{
+                                    x: { type: 'spring', stiffness: 260, damping: 34, mass: 0.9 },
+                                    opacity: { duration: 0.25, ease: 'easeOut' }
+                                }}
+                                className="validate-inner"
+                            >
+                                {/* Text Content */}
+                                <div className="validate-content-left">
+                                    <h3 className="validate-title">{slides[currentSlide].title}</h3>
+                                    <p className="validate-description">{slides[currentSlide].description}</p>
+                                    <Link to="/contact">
+                                        <button className="validate-cta">Explore Partnership</button>
+                                    </Link>
+                                </div>
+
+                                {/* Image Content */}
+                                <div className="validate-image-right">
+                                    <img
+                                        src={currentImages.base}
+                                        alt=""
+                                        className="validate-image"
+                                        style={currentImages.style || {}}
+                                    />
+                                </div>
+
+                                {/* Gradient Overlay */}
+                                <div className="validate-gradient-overlay"></div>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
 
-                    {/* Right Side - Card Carousel */}
-                    <div className="products-right">
-                        {/* Desktop Carousel - Hidden on Mobile */}
-                        <div className="validate-card products-desktop-carousel">
-                            <AnimatePresence initial={false} mode="popLayout" custom={direction}>
-                                <motion.div
-                                    key={currentSlide}
-                                    custom={direction}
-                                    variants={panelVariants}
-                                    initial="enter"
-                                    animate="center"
-                                    exit="exit"
-                                    transition={{
-                                        x: { type: 'spring', stiffness: 260, damping: 34, mass: 0.9 },
-                                        opacity: { duration: 0.25, ease: 'easeOut' }
-                                    }}
-                                    className="validate-inner"
-                                >
-                                    <div className="validate-content-left">
-                                        <h3 className="validate-title">{slides[currentSlide].title}</h3>
-                                        <p className="validate-description">{slides[currentSlide].description}</p>
-                                        <Link to="/contact">
-                                            <button className="validate-cta">{slides[currentSlide].cta}</button>
-                                        </Link>
-                                    </div>
-                                    <div className="validate-image-right">
-                                        <img
-                                            src={currentImages.base}
-                                            alt=""
-                                            className="validate-image"
-                                        />
-                                    </div>
-                                    <div className="validate-gradient-overlay"></div>
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
+                    {/* Carousel Controls (Arrows) */}
+                    <div className="carousel-controls">
+                        <button className="carousel-btn carousel-btn-prev" onClick={prevSlide} aria-label="Previous slide">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                        <button className="carousel-btn carousel-btn-next" onClick={nextSlide} aria-label="Next slide">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
-                        {/* Mobile Scroll View - Hidden on Desktop */}
-                        <div className="products-mobile-scroll" ref={scrollContainerRef}>
-                            {slides.map((slide, index) => (
-                                <div key={index} data-index={index} className="validate-card mobile-card-item">
+                {/* --- MOBILE VIEW: Scrollable Cards --- */}
+                <div className="mobile-products-view">
+                    <div className="products-mobile-scroll" onScroll={handleScroll}>
+                        {slides.map((slide, index) => (
+                            <div className="mobile-card-item" key={index}>
+                                <div className="validate-card">
                                     <div className="validate-inner">
-                                        <div className="validate-content-left">
-                                            <h3 className="validate-title">{slide.title}</h3>
-                                            <p className="validate-description">{slide.description}</p>
-                                            <Link to="/contact">
-                                                <button className="validate-cta">{slide.cta}</button>
-                                            </Link>
-                                        </div>
                                         <div className="validate-image-right">
                                             <img
                                                 src={slide.images.base}
                                                 alt=""
                                                 className="validate-image"
+                                                style={slide.images.style || {}}
                                             />
+                                        </div>
+                                        <div className="validate-content-left">
+                                            <h3 className="validate-title">{slide.title}</h3>
+                                            <p className="validate-description">{slide.description}</p>
+                                            <Link to="/contact">
+                                                <button className="validate-cta">Explore Partnership</button>
+                                            </Link>
                                         </div>
                                         <div className="validate-gradient-overlay"></div>
                                     </div>
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="products-mobile-nav">
+                        {/* Mobile Indicators */}
+                        <div className="products-pagination">
+                            {slides.map((_, index) => (
+                                <div
+                                    key={index}
+                                    className={`products-pagination-indicator ${index === activeMobileIndex ? 'products-pagination-indicator-active' : ''}`}
+                                />
                             ))}
                         </div>
 
-                        {/* Navigation Arrows */}
-                        <div className="carousel-controls">
-                            <button className="carousel-btn carousel-btn-prev" onClick={prevSlide} aria-label="Previous slide">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                            <button className="carousel-btn carousel-btn-next" onClick={nextSlide} aria-label="Next slide">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        {/* Mobile Navigation: Indicators + Button */}
-                        <div className="products-mobile-nav">
-                            <div className="products-pagination">
-                                {slides.map((_, index) => (
-                                    <div
-                                        key={index}
-                                        className={`products-pagination-indicator ${index === currentSlide ? 'products-pagination-indicator-active' : ''}`}
-                                        onClick={() => {
-                                            isManualSelection.current = true;
-                                            setDirection(index > currentSlide ? 1 : -1);
-                                            setCurrentSlide(index);
-                                        }}
-                                    />
-                                ))}
-                            </div>
-
-                            {/* Button shown on mobile after cards */}
-                            <Link to="/whatwedo" className="btn-explore btn-explore-mobile">
-                                EXPLORE MORE
-                                <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </Link>
-                        </div>
+                        {/* Mobile Explore Button */}
+                        <Link to="/whatwedo" className="btn-explore show-mobile-inline">
+                            See it in Action
+                            <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </Link>
                     </div>
                 </div>
-            </section>
-
-            {/* Accelerators Section */}
-            {/* <div className="accelerators-section-wrapper">
-                <div className="gradient-circle"></div>
-
-                <div className="accelerators-heading">
-                    <div className="accelerators-bottom-label">
-                        <p className="products-label">ACCELERATORS</p>
-                    </div>
-                    <h2 className="products-title accelerators-heading-text">
-                        Proven. Adaptable. Production-Ready.
-                    </h2>
-                    <p className="accelerators-description">
-                        Positioned as pre-built, battle-tested components (not off-the-shelf SaaS) customized for each client:
-                    </p>
-                </div>
-
-                <div className="accelerator-cards-grid">
-                    <div className="accelerator-card compliance-card">
-                        <div className="accelerator-image-section compliance-image-section">
-                            <img src={imgAcceleratorLeft} alt="Compliance Accelerator" className="compliance-icon" />
-                        </div>
-                        <div className="accelerator-content compliance-content">
-                            <h3 className="accelerator-title compliance-title">Compliance<br />Accelerator</h3>
-                            <p className="accelerator-description compliance-description">
-                                AI-powered document review for regulatory checks. Audit-ready decisions in seconds.
-                            </p>
-                            <div className="accelerator-proof compliance-proof">
-                                <span className="proof-label">PROOF POINT:</span>
-                                <span className="proof-value">97% FASTER (PWM JAPAN)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="accelerator-card sales-enablement-card">
-                        <div className="accelerator-image-section sales-enablement-image-section">
-                            <img src={imgAcceleratorCenter} alt="Sales Enablement Accelerator" className="sales-enablement-icon" />
-                        </div>
-                        <div className="accelerator-content sales-enablement-content">
-                            <h3 className="accelerator-title sales-enablement-title">Sales Enablement Accelerator</h3>
-                            <p className="accelerator-description sales-enablement-description">
-                                Instant answers from product docs, policies, FAQs to help sales teams close faster
-                            </p>
-                            <div className="accelerator-proof sales-enablement-proof">
-                                <span className="proof-label">PROOF POINT:</span>
-                                <span className="proof-value">INSTANT VS. MANUAL LOOKUP (PWM JAPAN)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="accelerator-card document-sync-card">
-                        <div className="accelerator-image-section document-sync-image-section">
-                            <img src={imgAcceleratorRight} alt="Document Sync Accelerator" className="document-sync-icon" />
-                        </div>
-                        <div className="accelerator-content document-sync-content">
-                            <h3 className="accelerator-title document-sync-title">Document Sync Accelerator</h3>
-                            <p className="accelerator-description document-sync-description">
-                                Keep legal and policy documents aligned as regulations change, with automated updates at scale.
-                            </p>
-                            <div className="accelerator-proof document-sync-proof">
-                                <span className="proof-label">PROOF POINT:</span>
-                                <span className="proof-value">2-4 HRS → &lt;20 MIN (CIG)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-        </>
+            </div>
+        </section>
     );
 }
 
