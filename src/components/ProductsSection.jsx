@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './ProductsSection.css';
@@ -73,6 +73,15 @@ function ProductsSection() {
         setDirection(-1);
         setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
     };
+
+    // Auto-scroll every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDirection(1);
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [slides.length]);
 
     const currentImages = slides[currentSlide].images;
 

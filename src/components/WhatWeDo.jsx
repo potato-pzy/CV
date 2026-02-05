@@ -198,6 +198,15 @@ function WhatWeDo() {
     setCurrentSlide(index);
   };
 
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrentSlide((prev) => (prev + 1) % aiSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [aiSlides.length]);
+
   return (
     <div className="what-we-do-page">
       <Navbar />

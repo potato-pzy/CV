@@ -396,13 +396,23 @@
     .desktop-view {
         display: none !important;
     }
+
+    .validate-card {
+        height: 342px;
+        max-width: 1000px;
+        width: 109%;
+        background: #020f14;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 33px;
+        min-height: 320px;
+    }
 }
 
 /* Individual Card - Snippet Values */
 .validate-card {
     width: 272px;
     max-width: 100%;
-    height: 342px;
+    height: 400px;
     background: #01141b;
     border: 0.7px solid rgba(166, 246, 59, 0.2);
     border-radius: 7px;
@@ -418,6 +428,7 @@
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 33px;
         min-height: 320px;
+        height: auto;
     }
 }
 
