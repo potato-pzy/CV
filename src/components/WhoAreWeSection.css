@@ -554,6 +554,9 @@
 
 @media (min-width: 768px) {
     .whoarewe-founders-title {
+        text-align: end;
+
+        max-width: 400px;
         font-size: 42px;
         line-height: 1.1;
         text-align: left;
@@ -602,8 +605,8 @@
 
     .whoarewe-founders-description {
         text-align: end;
-        margin-left: 64px;
-        max-width: 400px;
+        margin-left: 41px;
+        max-width: 500px;
     }
 }
 
@@ -759,6 +762,7 @@
     }
 
     .whoarewe-founders-description {
+
         /* text-align: left; */
         margin-left: 164px;
         max-width: 400px;
@@ -989,7 +993,7 @@
     }
 
     .whoarewe-continuation-bottom-text {
-        text-align: center !important;
+        text-align: right !important;
         margin-left: 0 !important;
         max-width: 800px !important;
     }
@@ -998,7 +1002,7 @@
         margin-top: 0 !important;
         max-width: 100% !important;
         display: flex !important;
-        justify-content: center !important;
+        justify-content: flex-end !important;
         width: 100% !important;
     }
 }
@@ -1147,6 +1151,11 @@
     width: 132%;
 }
 
+.whoarewe-feature-title-strategy {
+    width: 97%;
+    /* Apply styles specifically to 'Strategy that ships' here */
+}
+
 .whoarewe-feature-break {
     display: none;
 }
@@ -1199,12 +1208,12 @@
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
-    text-align: left;
+    text-align: right;
 }
 
 @media (min-width: 768px) {
     .whoarewe-continuation-bottom-text {
-        width: 126%;
+        width: 128%;
         right: 200px;
         position: relative;
         font-size: 19px;
@@ -2364,7 +2373,7 @@
         /* Upgraded from 14px for premium feel */
         width: 100%;
         margin-left: 0;
-        text-align: center;
+        text-align: right;
     }
 
     .whoarewe-left-image {

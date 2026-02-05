@@ -412,8 +412,8 @@
 
 @media(min-width: 48rem) {
     .validate-card {
-        width: 100%;
-        height: auto;
+        max-width: 1000px;
+        width: 109%;
         background: #020f14;
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 33px;

@@ -214,7 +214,7 @@ function WhoAreWeSection() {
                                         teams. Our AI agents multiply what each person can ship.                                    </p>
                                 </div>
                                 <div className="whoarewe-feature-item">
-                                    <h3 className="whoarewe-feature-title">Strategy that ships</h3>
+                                    <h3 className="whoarewe-feature-title whoarewe-feature-title-strategy">Strategy that ships</h3>
                                     <p className="whoarewe-feature-text">
                                         Slide decks don't create value. AI products in production do.
                                         We stay until our products delivers.                                    </p>

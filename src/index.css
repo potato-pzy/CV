@@ -101,6 +101,14 @@ html {
 
 @font-face {
   font-family: 'Stage Grotesk';
+  src: url('./assets/fonts/stage grotsek/StageGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stage Grotesk';
   src: url('./assets/fonts/stage grotsek/StageGrotesk-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;

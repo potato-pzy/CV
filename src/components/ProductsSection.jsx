@@ -25,8 +25,9 @@ function ProductsSection() {
             }
         },
         {
-            title: "Embed",
-            description: "Adoption is the key to transformation. We embed with your teams to turn deployed systems into organizational capability, and identify what's next.",
+            title: <>Consulting<br />DNA</>,
+            description: "We embed. We learn. We shape products to how you actually work.",
+            cta: "Discuss Your Workflow",
             images: {
                 base: imgValidateDNA, // Mapped to Embed/DNA
                 style: { objectPosition: '75% center' }
@@ -92,7 +93,7 @@ function ProductsSection() {
 
                 {/* --- LEFT SIDE: Static Content --- */}
                 <div className="products-left">
-                    <p className="products-label">THE VECTORAGILE SUITE</p>
+                    <p className="products-label">THE VECTOREDGE SUITE</p>
                     <h2 className="products-title">
                         Consulting insight. Product speed.
                     </h2>
@@ -126,7 +127,7 @@ function ProductsSection() {
                                     <h3 className="validate-title">{slides[currentSlide].title}</h3>
                                     <p className="validate-description">{slides[currentSlide].description}</p>
                                     <Link to="/contact">
-                                        <button className="validate-cta">Explore Partnership</button>
+                                        <button className="validate-cta">{slides[currentSlide].cta || "Explore Partnership"}</button>
                                     </Link>
                                 </div>
 
@@ -180,7 +181,7 @@ function ProductsSection() {
                                             <h3 className="validate-title">{slide.title}</h3>
                                             <p className="validate-description">{slide.description}</p>
                                             <Link to="/contact">
-                                                <button className="validate-cta">Explore Partnership</button>
+                                                <button className="validate-cta">{slide.cta || "Explore Partnership"}</button>
                                             </Link>
                                         </div>
                                         <div className="validate-gradient-overlay"></div>
