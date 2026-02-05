@@ -87,8 +87,19 @@ function ProductsSection() {
 
     // 5. Mobile Scroll State
     const [activeMobileIndex, setActiveMobileIndex] = useState(0);
+    const mobileScrollRef = useRef(null);
+    const isUserScrolling = useRef(false);
+    const scrollTimeout = useRef(null);
 
     const handleScroll = (e) => {
+        isUserScrolling.current = true;
+        clearTimeout(scrollTimeout.current);
+
+        // Reset user scrolling flag after 100ms of no scroll events
+        scrollTimeout.current = setTimeout(() => {
+            isUserScrolling.current = false;
+        }, 1000);
+
         const scrollLeft = e.target.scrollLeft;
         const cardStep = 272 + 16; // 272px card width + 16px gap
         const index = Math.round(scrollLeft / cardStep);
@@ -96,6 +107,28 @@ function ProductsSection() {
             setActiveMobileIndex(index);
         }
     };
+
+    // Auto-scroll mobile view
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!isUserScrolling.current && mobileScrollRef.current) {
+                const nextIndex = (activeMobileIndex + 1) % slides.length;
+                const cardStep = 272 + 16;
+
+                // If wrapping back to 0, or just moving to next
+                const targetScroll = nextIndex * cardStep;
+
+                mobileScrollRef.current.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+
+                // We update state here to keep it in sync, though onScroll will also fire
+                setActiveMobileIndex(nextIndex);
+            }
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [activeMobileIndex, slides.length]);
 
     return (
         <section className="products-section">
@@ -177,7 +210,7 @@ function ProductsSection() {
 
                 {/* --- MOBILE VIEW: Scrollable Cards --- */}
                 <div className="mobile-products-view">
-                    <div className="products-mobile-scroll" onScroll={handleScroll}>
+                    <div className="products-mobile-scroll" ref={mobileScrollRef} onScroll={handleScroll}>
                         {slides.map((slide, index) => (
                             <div className="mobile-card-item" key={index}>
                                 <div className="validate-card">
