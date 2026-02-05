@@ -880,9 +880,9 @@
     }
 
     .whoarewe-founder-back-bio {
-        font-size: 9px;
+        font-size: 7px;
         line-height: 1;
-        margin-top: 16px;
+        margin-top: auto;
         /* Reset for mobile */
     }
 

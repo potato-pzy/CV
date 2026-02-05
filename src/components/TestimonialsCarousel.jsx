@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './TestimonialsCarousel.css';
 import { testimonials } from '../data/testimonials';
 
@@ -8,6 +8,14 @@ function TestimonialsCarousel() {
     const handleDotClick = (index) => {
         setActiveIndex(index);
     };
+
+    // Auto-scroll every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % testimonials.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <section className="testimonials-section">

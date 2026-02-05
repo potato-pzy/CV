@@ -25,9 +25,19 @@ function WhatWeDo() {
   const location = useLocation();
 
   const mobileScrollRef = useRef(null);
+  const isUserScrolling = useRef(false);
+  const scrollTimeout = useRef(null);
 
   // Handle mobile scroll sync
   const handleMobileScroll = () => {
+    isUserScrolling.current = true;
+    clearTimeout(scrollTimeout.current);
+
+    // Reset user scrolling flag after 100ms of no scroll events
+    scrollTimeout.current = setTimeout(() => {
+      isUserScrolling.current = false;
+    }, 1000); // Increased buffer to prevent fighting
+
     if (mobileScrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = mobileScrollRef.current;
       const totalSlides = aiSlides.length;
@@ -46,15 +56,17 @@ function WhatWeDo() {
 
   // Sync scroll when slide changes (if not from scroll)
   useEffect(() => {
-    if (mobileScrollRef.current) {
+    if (mobileScrollRef.current && !isUserScrolling.current) {
       const width = mobileScrollRef.current.offsetWidth;
-      const currentScroll = mobileScrollRef.current.scrollLeft;
-      const targetScroll = currentSlide * width;
-
-      // Only scroll if significantly different to avoid fighting user scroll
-      if (Math.abs(currentScroll - targetScroll) > 10) {
+      // We need to calculate based on card width + gap for more precision if needed, 
+      // but here we are using the simple ratio assumption from before or just offsetWidth if 1 card per view.
+      // Based on CSS, mobile card is 85% width. The scroll snap point is centered.
+      // A more robust way is to query the specific child element.
+      const card = mobileScrollRef.current.children[currentSlide];
+      if (card) {
+        const scrollLeft = card.offsetLeft - (mobileScrollRef.current.offsetWidth - card.offsetWidth) / 2;
         mobileScrollRef.current.scrollTo({
-          left: targetScroll,
+          left: scrollLeft,
           behavior: 'smooth'
         });
       }
@@ -197,6 +209,18 @@ function WhatWeDo() {
     setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
   };
+
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Don't auto-advance if user is interacting
+      if (!isUserScrolling.current) {
+        setDirection(1);
+        setCurrentSlide((prev) => (prev + 1) % aiSlides.length);
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [aiSlides.length]);
 
   return (
     <div className="what-we-do-page">
