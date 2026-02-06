@@ -16,19 +16,19 @@
 
 .about-glow-top-right {
     position: absolute;
-    top: -200px;
-    right: -400px;
+    top: -12.5rem;
+    right: -25rem;
     pointer-events: none;
     z-index: 0;
 }
 
 .about-glow-ellipse {
-    width: 1303.363px;
-    height: 823.699px;
+    width: 81.4601875rem;
+    height: 51.4811875rem;
     transform: rotate(86.339deg);
-    border-radius: 1303.363px;
+    border-radius: 81.4601875rem;
     background: #001D26;
-    filter: blur(200px);
+    filter: blur(12.5rem);
 }
 
 /* Grid layout - collapses to single column on mobile */
@@ -45,7 +45,7 @@
 /* Left column with text content */
 .about-left {
     position: relative;
-    left: 50px;
+    left: 3.125rem;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2xl);
@@ -55,17 +55,26 @@
 /* Main heading - responsive typography */
 .about-heading {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 4.1rem;
-    width: 200%;
-    font-weight: 500;
-    line-height: 1.2;
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.1;
     /* Relative line-height instead of fixed 60px */
     color: #FFFFFF;
-    margin: 0;
     white-space: pre-line;
     margin-top: 9vh;
     position: relative;
     margin-left: 3.6vw;
+}
+
+.about-mob-break {
+    display: none;
+}
+
+@media (max-width: 40rem) {
+    .about-mob-break {
+        display: block;
+    }
 }
 
 .about-heading-green {
@@ -105,7 +114,7 @@
     /* Increased padding */
     background: transparent;
     color: var(--primary-green);
-    border: 1.5px solid var(--primary-green);
+    border: 0.09375rem solid var(--primary-green);
     border-radius: 0.125rem;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 0.875rem;
@@ -133,7 +142,7 @@
 /* Right column with images - FIXED positioning issues */
 .about-right {
     position: relative;
-    left: 11px;
+    left: 0.6875rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -146,8 +155,8 @@
 /* Image container - responsive sizing */
 .about-image-container {
     position: relative;
-    top: 135px;
-    left: 250px;
+    top: 8.4375rem;
+    left: 15.625rem;
     width: 72%;
     aspect-ratio: 355 / 402;
     overflow: hidden;
@@ -156,7 +165,7 @@
 /* Main image - proper object-fit */
 .about-image-main {
     position: relative;
-    top: -61px;
+    top: -3.8125rem;
     width: 112%;
     height: 102%;
     -o-object-fit: cover;
@@ -208,8 +217,8 @@
 
     @media (max-width: 64rem) and (orientation: portrait) {
         .about-section {
-            padding-top: 100px;
-            padding-bottom: 100px;
+            padding-top: 6.25rem;
+            padding-bottom: 6.25rem;
             min-height: auto;
         }
     }
@@ -229,15 +238,22 @@
 
     .about-heading {
         font-size: 1.75rem;
-        width: 89%;
+        width: 100%;
         margin-left: 0;
+        text-align: center;
         order: 1;
+        margin-top: 0;
     }
 
     .about-text-container {
         left: 0;
-        order: 4;
-        margin-top: -340px;
+        order: 3;
+        margin-top: 0.75rem;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .about-description {
@@ -255,27 +271,30 @@
     }
 
     .about-image-abstract {
-        bottom: 120px;
-        margin-top: var(--spacing-xl);
+        margin-top: 0.75rem;
         order: 2;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+        left: 0;
+        align-self: center;
+        display: flex;
+        justify-content: center;
     }
 
     .abstract-image {
-        margin-bottom: -16px;
+        margin-bottom: 0;
         z-index: 14;
         position: relative;
-        left: 148px;
-        width: 49%;
-        height: 31%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        max-height: 20rem;
+        object-fit: contain;
     }
 
     .btn-see-how {
-        font-size: 0.65rem;
-        width: 53%;
-        max-width: 9.75rem;
-
-        /* 300px */
+        font-size: 0.75rem;
+        width: fit-content;
+        padding: 0.75rem 1.5rem;
     }
 }
 
@@ -289,7 +308,7 @@
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 3.75rem;
         /* Standardized gap */
         padding: 0 var(--spacing-xl);
     }
@@ -323,7 +342,7 @@
         left: 0;
         top: 0;
         width: 100%;
-        max-width: 500px;
+        max-width: 31.25rem;
         /* Capped for portrait */
         margin: 0 auto;
     }
@@ -441,13 +460,13 @@
 @media (min-width: 110rem) {
     .about-image-container {
         position: relative;
-        top: 235px;
-        left: 141px;
+        top: 14.6875rem;
+        left: 8.8125rem;
     }
 
     .about-right {
         position: relative;
-        left: 4px;
+        left: 0.25rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -457,7 +476,7 @@
 
     .about-image-main {
         position: relative;
-        top: -10px;
+        top: -0.625rem;
         width: 50%;
         height: 48%;
         -o-object-fit: cover;
@@ -533,7 +552,7 @@
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
     .about-section {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
     }
 }

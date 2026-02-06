@@ -58,8 +58,8 @@
   line-height: 1.2;
   color: var(--text-white);
   margin: 0;
-  max-width: 50rem;
-  /* 800px - prevents too long lines */
+  max-width: 38.9375rem;
+  /* 623px - matches Figma width */
 }
 
 .cta-title-break {
@@ -95,7 +95,7 @@
   letter-spacing: 0.01em;
   padding: 0.75rem 1.25rem;
   /* 12px 20px */
-  border: 1.5px solid var(--accent-green);
+  border: 0.09375rem solid #a6f63b;
   border-radius: 0.125rem;
   /* 2px */
   cursor: pointer;
@@ -186,7 +186,7 @@
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
   .cta-section {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }

@@ -1,7 +1,7 @@
 .accelerators-section {
   width: 100%;
   background: #080808;
-  padding: 143px 0 120px 0;
+  padding: 8.9375rem 0 7.5rem 0;
   color: #ffffff;
   position: relative;
   z-index: 2;
@@ -15,23 +15,23 @@
 
 .accelerators-hero,
 .case-hero {
-  max-width: 960px;
+  max-width: 60rem;
   margin: 0 auto;
   text-align: center;
-  padding: 0 32px;
+  padding: 0 2rem;
 }
 
 .accelerators-hero h2,
 .case-hero h2 {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 400;
   margin: 0;
   line-height: 1.1;
 }
 
 .accelerators-hero h2 {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .accelerators-hero p,
@@ -42,23 +42,23 @@
 }
 
 .accelerators-text-section {
-  max-width: 960px;
+  max-width: 60rem;
   margin: 0 auto;
   text-align: center;
-  padding: 0 32px;
+  padding: 0 2rem;
 }
 
 .accelerators-text-section p {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 39px;
+  font-size: 2.4375rem;
   font-weight: 400;
-  margin: 0 0 4px 0;
+  margin: 0 0 0.25rem 0;
   line-height: 1.0;
   color: #ffffff;
 }
 
 .accelerators-text-section p:nth-child(2) {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .accelerators-text-section p:last-child {
@@ -93,50 +93,50 @@
 
 .acc-section-glow {
   position: absolute;
-  width: 600px;
-  height: 623px;
-  border-radius: 878px;
+  width: 37.5rem;
+  height: 38.9375rem;
+  border-radius: 54.875rem;
   opacity: 0.77;
   background: linear-gradient(180deg, #001117 0%, #013445 100%);
-  filter: blur(200px);
+  filter: blur(12.5rem);
   pointer-events: none;
   z-index: 0;
 }
 
 .acc-glow-left {
   top: 25%;
-  left: -388px;
+  left: -24.25rem;
   transform: translateY(-50%);
 }
 
 .acc-glow-right {
   top: 25%;
-  right: -388px;
+  right: -24.25rem;
   transform: translateY(-50%);
 }
 
 .case-hero {
-  margin-top: 160px;
+  margin-top: 10rem;
   text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
-  max-width: 1280px;
+  max-width: 80rem;
   position: relative;
   z-index: 1;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 7.5rem;
 }
 
 .case-glow {
   position: absolute;
-  bottom: -400px;
-  right: -1100px;
-  width: 1612px;
-  height: 956px;
-  border-radius: 1212px;
+  bottom: -25rem;
+  right: -68.75rem;
+  width: 100.75rem;
+  height: 59.75rem;
+  border-radius: 75.75rem;
   background: linear-gradient(180deg, #001117 0%, #013445 100%);
-  filter: blur(200px);
+  filter: blur(12.5rem);
   opacity: 0.77;
   pointer-events: none;
   z-index: 0;
@@ -156,12 +156,12 @@
 }
 
 .accelerators-grid {
-  max-width: 1280px;
-  margin: 72px auto 0 auto;
-  padding: 0 32px;
+  max-width: 80rem;
+  margin: 4.5rem auto 0 auto;
+  padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+  gap: 1.5rem;
   position: relative;
   z-index: 2;
 }
@@ -181,14 +181,14 @@
 .acc-card {
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
   background: rgba(2, 15, 20, 0);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1.125rem);
+  box-shadow: 0 1.875rem 5rem rgba(0, 0, 0, 0.6);
   color: #ffffff;
   height: 100%;
-  min-height: 380px;
+  min-height: 23.75rem;
   /* Reduced from 450px */
   display: flex;
   flex-direction: column;
@@ -196,7 +196,7 @@
 
 .acc-card-wrap:hover .acc-card {
   border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1.875rem 5.625rem rgba(0, 0, 0, 0.6), 0 0 0 0.0625rem rgba(255, 255, 255, 0.05);
 }
 
 .acc-card-fx {
@@ -223,16 +223,16 @@
   position: absolute;
   border-radius: 999px;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
-  filter: blur(48px);
+  filter: blur(3rem);
   opacity: 0.3;
   transition: transform 700ms ease, opacity 700ms ease;
 }
 
 .acc-fx-orb-a {
-  width: 192px;
-  height: 192px;
-  left: -80px;
-  bottom: -80px;
+  width: 12rem;
+  height: 12rem;
+  left: -5rem;
+  bottom: -5rem;
   animation: accBounce 2.2s ease-in-out infinite;
 }
 
@@ -242,32 +242,32 @@
 }
 
 .acc-fx-orb-b {
-  width: 64px;
-  height: 64px;
-  top: 40px;
-  left: 40px;
+  width: 4rem;
+  height: 4rem;
+  top: 2.5rem;
+  left: 2.5rem;
   background: rgba(255, 255, 255, 0.05);
-  filter: blur(18px);
+  filter: blur(1.125rem);
   animation: accPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .acc-fx-orb-c {
-  width: 48px;
-  height: 48px;
-  bottom: 64px;
-  right: 64px;
+  width: 3rem;
+  height: 3rem;
+  bottom: 4rem;
+  right: 4rem;
   background: rgba(255, 255, 255, 0.05);
-  filter: blur(14px);
+  filter: blur(0.875rem);
   animation: accPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .acc-fx-orb-d {
-  width: 48px;
-  height: 48px;
-  top: 28px;
-  right: 28px;
+  width: 3rem;
+  height: 3rem;
+  top: 1.75rem;
+  right: 1.75rem;
   background: rgba(255, 255, 255, 0.04);
-  filter: blur(22px);
+  filter: blur(1.375rem);
   opacity: 0.25;
 }
 
@@ -286,7 +286,7 @@
 .acc-card-content {
   position: relative;
   z-index: 1;
-  padding: 32px 32px 32px 32px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -306,9 +306,9 @@
 /* Icon + beam (beam ONLY on logo circle) */
 .acc-icon-wrap {
   position: relative;
-  margin-bottom: 24px;
-  width: 96px;
-  height: 96px;
+  margin-bottom: 1.5rem;
+  width: 6rem;
+  height: 6rem;
   display: grid;
   place-items: center;
 }
@@ -320,7 +320,7 @@
 }
 
 .acc-icon-ring-ping {
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 0.125rem solid rgba(255, 255, 255, 0.2);
   animation: accPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -331,13 +331,13 @@
 
 .acc-icon-shell {
   position: relative;
-  width: 84px;
-  height: 84px;
+  width: 5.25rem;
+  height: 5.25rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.15);
 
-  backdrop-filter: blur(14px);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(0.875rem);
+  box-shadow: 0 1.125rem 3.75rem rgba(0, 0, 0, 0.6);
   display: grid;
   place-items: center;
   transition: transform 500ms ease, box-shadow 500ms ease;
@@ -346,20 +346,25 @@
 
 .acc-card-wrap:hover .acc-icon-shell {
   transform: scale(1.05);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1.125rem 3.75rem rgba(0, 0, 0, 0.6), 0 0 0 0.0625rem rgba(255, 255, 255, 0.2);
+}
+
+.acc-card-wrap:hover .article-card:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.2), 0 0 0 0.0625rem rgba(255, 255, 255, 0.2);
 }
 
 .acc-icon-rot {
-  width: 56px;
-  height: 56px;
+  width: 3.5rem;
+  height: 3.5rem;
   display: grid;
   place-items: center;
   transition: transform 700ms ease;
 }
 
 .acc-icon-rot img {
-  width: 56px;
-  height: 56px;
+  width: 3.5rem;
+  height: 3.5rem;
   object-fit: contain;
 }
 
@@ -371,13 +376,13 @@
   display: grid;
   place-items: center;
   width: 100%;
-  margin-bottom: 24px;
-  min-height: 100px;
+  margin-bottom: 1.5rem;
+  min-height: 6.25rem;
 }
 
 .acc-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #ffffff;
   margin: 0;
@@ -393,15 +398,15 @@
 /* Hide Title on Hover */
 .acc-card-wrap:hover .acc-title {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-0.625rem);
 }
 
 .acc-desc {
-  max-width: 380px;
+  max-width: 23.75rem;
   grid-area: 1 / 1;
   /* Stack on top */
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(0.625rem);
   transition: opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
 }
@@ -415,23 +420,23 @@
 .acc-desc p {
   margin: 0;
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: rgba(229, 231, 235, 1);
   /* Brighter on hover by default now */
 }
 
 .acc-bottom-line {
-  width: 230px;
-  height: 1px;
+  width: 14.375rem;
+  height: 0.0625rem;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
   margin: 0 auto;
 }
 
 .acc-corner {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 5rem;
+  height: 5rem;
   opacity: 0;
   transition: opacity 500ms ease;
   pointer-events: none;
@@ -445,14 +450,14 @@
 .acc-corner-tl {
   top: 0;
   left: 0;
-  border-bottom-right-radius: 24px;
+  border-bottom-right-radius: 1.5rem;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .acc-corner-br {
   bottom: 0;
   right: 0;
-  border-top-left-radius: 24px;
+  border-top-left-radius: 1.5rem;
   background: linear-gradient(315deg, rgba(255, 255, 255, 0.1), transparent);
 }
 
@@ -489,7 +494,7 @@
   }
 
   50% {
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
   }
 }
 
@@ -500,19 +505,19 @@
 }
 
 .case-grid {
-  max-width: 1280px;
-  margin: 48px auto 0 auto;
-  padding: 0 32px;
+  max-width: 80rem;
+  margin: 3.5rem auto 0 auto;
+  padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+  gap: 1.5rem;
 }
 
 .case-card {
   background: rgba(2, 15, 20, 0);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 24px;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
   cursor: pointer;
   transition: all -0.3s ease;
   position: relative;
@@ -520,16 +525,16 @@
 }
 
 .case-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
 .case-image-placeholder {
-  height: 276px;
+  height: 17.25rem;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: rgba(200, 200, 200, 0.9);
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
   overflow: hidden;
 }
 
@@ -554,28 +559,28 @@
   font-family: 'Stage Grotesk', sans-serif;
   font-size: 1rem;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 }
 
 .case-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #ffffff;
   line-height: 1.3;
   font-weight: 500;
-  padding-right: 40px;
+  padding-right: 2.5rem;
 }
 
 .case-icon {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 300;
   color: #ffffff;
   transition: all -0.3s ease;
@@ -593,7 +598,7 @@
 @media (max-width: 900px) {
   .case-hero {
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
     text-align: center;
     align-items: center;
   }
@@ -602,49 +607,54 @@
 /* Tablet-specific adjustments for 768px-1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
   .accelerators-section {
-    padding: 100px 0 80px 0;
+    padding: 6.25rem 0 5rem 0;
   }
 
   .accelerators-grid,
   .case-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 700px;
-    padding: 0 24px;
+    gap: 1.25rem;
+    max-width: 43.75rem;
+    padding: 0 1.5rem;
   }
 
   .accelerators-hero h2,
   .case-hero h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .acc-card {
-    min-height: 320px;
+    min-height: 20rem;
   }
 
   .acc-card-content {
-    padding: 24px;
+    padding: 1.5rem;
   }
 
   .acc-title {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .acc-desc p {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .case-hero {
     width: 100%;
-    max-width: 700px;
-    margin: 120px auto 0 auto;
+    max-width: 43.75rem;
+    margin: 7.5rem auto 0 auto;
     /* Centered to match grid */
-    padding: 0 24px;
+    padding: 0 1.5rem;
     /* Match case-grid padding */
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 12px;
+    gap: 0.75rem;
+    left: -12.25rem;
+    /* Restore desktop offset */
+    top: 6.125rem;
+    /* Restore desktop offset */
+    padding-left: 4.0625rem;
   }
 
   .case-hero p {
@@ -654,17 +664,17 @@
 
 @media (max-width: 640px) {
   .accelerators-section {
-    padding: 96px 0 120px 0;
+    padding: 6rem 0 7.5rem 0;
   }
 
 
   .accelerator-card {
-    padding: 36px 24px 24px 24px;
+    padding: 2.25rem 1.5rem 1.5rem 1.5rem;
   }
 
   .accelerators-hero,
   .case-hero {
-    padding: 0 20px;
+    padding: 0 1.25rem;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -672,13 +682,13 @@
 
   .accelerators-hero h2,
   .case-hero h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     /* Increased for mobile visibility */
   }
 
   .accelerators-hero p,
   .case-hero p {
-    font-size: 10px !important;
+    font-size: 0.625rem !important;
     text-align: center;
   }
 
@@ -694,8 +704,8 @@
   .case-hero {
     width: 100%;
     gap: 0;
-    margin: 160px auto 0 auto;
-    padding: 0 32px;
+    margin: 10rem auto 0 auto;
+    padding: 0 2rem;
     /* Match case-grid desktop padding */
   }
 
@@ -714,37 +724,41 @@
   .accelerators-section {
     width: 100%;
     background: #080808;
-    padding: 101px 0 0px 0;
+    padding: 6.3125rem 0 0 0;
   }
 }
 
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
   .accelerators-section {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .accelerators-text-section {
-    max-width: 270px;
+    max-width: 100%;
+    /* Allow breadcrumb to take more space */
+    width: 100%;
   }
 
   .accelerators-text-section p {
-    font-size: 24px;
+    font-size: 1.15rem;
     line-height: 1.0;
-    margin-bottom: 2px;
+    margin-bottom: 0.125rem;
+    white-space: nowrap;
+    flex-wrap: nowrap !important;
   }
 
   .accelerators-text-section p:nth-child(2) {
-    margin-bottom: 20px;
+    margin-bottom: 3.5rem;
   }
 
   .case-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding: 0 0 20px 0;
+    gap: 1rem;
+    padding: 0 0 1.25rem 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
     width: 100%;
@@ -767,11 +781,11 @@
 
   .accelerators-hero h2,
   .case-hero h2 {
-    font-size: 34px;
+    font-size: 2.125rem;
   }
 
   .accelerators-hero p,
   .case-hero p {
-    font-size: 12px !important;
+    font-size: 0.75rem !important;
   }
 }

@@ -84,7 +84,7 @@
   letter-spacing: 0.01em;
   padding: 0.5rem 1.25rem;
   /* 8px 12px */
-  border: 1.5px solid #a6f63b;
+  border: 0.09375rem solid #a6f63b;
   border-radius: 0.125rem;
   /* 2px */
   cursor: pointer;
@@ -156,7 +156,7 @@
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
   .careers-cta-section {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 }

@@ -25,11 +25,11 @@
 .team-bg-masked {
   position: absolute;
   inset: -11.35% -0.9% -35.87% -0.72%;
-  mask-size: 1029px 474px;
-  mask-position: 7.373px 53.806px;
+  mask-size: 64.3125rem 29.625rem;
+  mask-position: 0.4608125rem 3.362875rem;
   mask-repeat: no-repeat;
-  -webkit-mask-size: 1029px 474px;
-  -webkit-mask-position: 7.373px 53.806px;
+  -webkit-mask-size: 64.3125rem 29.625rem;
+  -webkit-mask-position: 0.4608125rem 3.362875rem;
   -webkit-mask-repeat: no-repeat;
 }
 
@@ -52,11 +52,11 @@
 .team-bg-gradient {
   position: absolute;
   inset: 0;
-  mask-size: 1029px 474px;
-  mask-position: 0px 0px;
+  mask-size: 64.3125rem 29.625rem;
+  mask-position: 0rem 0rem;
   mask-repeat: no-repeat;
   mix-blend-mode: multiply;
-  -webkit-mask-size: 1029px 474px;
-  -webkit-mask-position: 0px 0px;
+  -webkit-mask-size: 64.3125rem 29.625rem;
+  -webkit-mask-position: 0rem 0rem;
   -webkit-mask-repeat: no-repeat;
 }

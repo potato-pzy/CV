@@ -23,6 +23,13 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 48rem) {
+  html {
+    font-size: 108%;
+    /* Scales all rem based typography up by 8% on mobile */
+  }
+}
+
 /* CSS Custom Properties for consistent theming and easy maintenance */
 :root {
   --primary-green: #B8FF57;
