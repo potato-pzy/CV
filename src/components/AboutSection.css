@@ -389,6 +389,8 @@
     }
 
     .about-description {
+
+        width: 80%;
         font-size: 1.5rem;
         /* Larger on big screens */
         line-height: 1.6;
@@ -397,6 +399,19 @@
     .btn-see-how {
         padding: 0.75rem 1.5rem;
         font-size: 1rem;
+    }
+
+    .about-image-main {
+        /* USE THIS TO ADJUST IMAGE CONTENT POSITION:
+           Format: horizontal vertical
+           Values: center, top, bottom, left, right, or px/%
+           
+           Examples:
+           object-position: center top;    (Top aligned)
+           object-position: center 20px;   (20px from top)
+           object-position: center bottom; (Bottom aligned)
+        */
+        object-position: center top;
     }
 }
 
@@ -420,6 +435,36 @@
     .about-content {
         gap: var(--spacing-xl);
         /* 32px */
+    }
+}
+
+@media (min-width: 110rem) {
+    .about-image-container {
+        position: relative;
+        top: 235px;
+        left: 141px;
+    }
+
+    .about-right {
+        position: relative;
+        left: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+
+    .about-image-main {
+        position: relative;
+        top: -10px;
+        width: 50%;
+        height: 48%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center top;
+        object-position: 111% 12%;
+        transform: scale(1.5);
     }
 }
 
