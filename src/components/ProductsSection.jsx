@@ -15,6 +15,7 @@ function ProductsSection() {
             description: "We embed. We learn. We shape products to how you actually work.",
             descriptionClass: "consulting-dna-description",
             cta: "Discuss Your Workflow",
+            link: "/whatwedo",
             images: {
                 base: imgValidateDNA, // Mapped to Embed/DNA
                 style: { objectPosition: '75% center' }
@@ -24,6 +25,7 @@ function ProductsSection() {
             title: "Five Intelligences",
             description: "Strategic. Document. Research. Process. Functional. Configured to fit.",
             cta: "See Where Intelligence Fits",
+            link: "/whatwedo#blog",
             images: {
                 base: imgValidateFive, // Mapped to Validate/Five Intelligences
             }
@@ -33,6 +35,7 @@ function ProductsSection() {
             description: "AI generates. Humans steer. Products ship.",
             descriptionClass: "ai-generates-description",
             cta: "See What Can Ship",
+            link: "/whatwedo",
             images: {
                 base: imgValidate4Weeks, // Mapped to Transform/4 Weeks
             }
@@ -172,7 +175,7 @@ function ProductsSection() {
                                 <div className="validate-content-left">
                                     <h3 className="validate-title">{slides[currentSlide].title}</h3>
                                     <p className={`validate-description ${slides[currentSlide].descriptionClass || ''}`}>{slides[currentSlide].description}</p>
-                                    <Link to="/contact">
+                                    <Link to={slides[currentSlide].link || "/contact"}>
                                         <button className="validate-cta">{slides[currentSlide].cta || "Explore Partnership"}</button>
                                     </Link>
                                 </div>
@@ -226,7 +229,7 @@ function ProductsSection() {
                                         <div className="validate-content-left">
                                             <h3 className="validate-title">{slide.title}</h3>
                                             <p className={`validate-description ${slide.descriptionClass || ''}`}>{slide.description}</p>
-                                            <Link to="/contact">
+                                            <Link to={slide.link || "/contact"}>
                                                 <button className="validate-cta">{slide.cta || "Explore Partnership"}</button>
                                             </Link>
                                         </div>
