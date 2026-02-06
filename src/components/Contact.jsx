@@ -45,6 +45,9 @@ function Contact() {
 
 
 
+  const [result, setResult] = useState("");
+  const isFormValid = formData.name && formData.email && formData.phone && formData.message;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -53,10 +56,43 @@ function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    setResult("Sending....");
+
+    // Create new formData from state instead of just e.target to be safe, 
+    // though e.target works if inputs have names. 
+    // The snippet used new FormData(event.target). Let's stick closer to that 
+    // or just use our state. Using FormData(e.target) is standard for Web3Forms.
+    const formPayload = new FormData(e.target);
+    formPayload.append("access_key", "9eaea009-c1dc-4575-9754-e63ce3d2ad35");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formPayload
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          role: '',
+          message: ''
+        });
+      } else {
+        console.error("Error submitting form", data);
+        setResult(data.message || "Error submitting form");
+      }
+    } catch (error) {
+      console.error("Network error", error);
+      setResult("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -140,7 +176,7 @@ function Contact() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="company" className="form-label">Company/Organization</label>
+                    <label htmlFor="company" className="form-label">Company/Organization (optional)</label>
                     <input
                       type="text"
                       id="company"
@@ -148,7 +184,6 @@ function Contact() {
                       value={formData.company}
                       onChange={handleChange}
                       className="form-input"
-                      required
                     />
                   </div>
 
@@ -178,9 +213,12 @@ function Contact() {
                     ></textarea>
                   </div>
 
-
-
-                  <button type="submit" className="form-submit">
+                  <button
+                    type="submit"
+                    className="form-submit"
+                    disabled={!isFormValid}
+                    style={{ opacity: isFormValid ? 1 : 0.5, cursor: isFormValid ? 'pointer' : 'not-allowed' }}
+                  >
                     Request an Exploratory Call
                   </button>
                 </div>

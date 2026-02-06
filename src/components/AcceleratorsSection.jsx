@@ -140,7 +140,7 @@ const lightCards = [
     label: 'Compliance',
     title: (<>Intelligent<br />Compliance</>),
     company: 'PWM Japan Securities',
-    content: 'Reduced regulatory compliance reviews from days to minutes using production-grade AI agents that understand complex financial regulations.',
+    content: 'Reduced regulatory compliance reviews from days to minutes using production grade AI agents that understand complex financial regulations.',
     sections: [
       {
         type: 'overview',
@@ -188,7 +188,7 @@ const lightCards = [
           },
           {
             heading: 'Zero-Shot Compliance Engine',
-            content: 'Achieved 90% accuracy without fine-tuning or custom model training—reducing deployment timeline from months to weeks while maintaining production-grade reliability.'
+            content: 'Achieved 90% accuracy without fine-tuning or custom model training—reducing deployment timeline from months to weeks while maintaining production grade reliability.'
           },
           {
             heading: 'Rule-Based Intelligence',

@@ -49,7 +49,7 @@ function CareersSection() {
                         <div className="careers-statement-content">
                             <h2 className="careers-statement-title">How we work</h2>
                             <TextGradientScroll
-                                text="Most companies talk about AI. We run on it. Our agents validate hypotheses, debate architecture, review code, and flag risks—before humans make the call. Fewer meetings. More shipping. Real accountability."
+                                text="Most companies talk about AI. We run on it. Our agents validate hypotheses, debate architecture, review code, and flag risks before humans make the call. Fewer meetings. More shipping. Real accountability."
                                 type="letter"
                                 textOpacity="soft"
                                 className="careers-statement-text"
@@ -139,7 +139,7 @@ function CareersSection() {
                                 <h3 className="careers-who-thrives-card-title">Builders</h3>
                             </div>
                             <p className="careers-who-thrives-card-text">
-                                You ship. Prototypes, production systems, client demos — you'd rather show than tell.
+                                You ship. Prototypes, production systems, client demos, you'd rather show than tell.
                             </p>
                         </div>
 
