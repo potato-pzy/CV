@@ -25,7 +25,7 @@ function ProductsSection() {
             title: "Five Intelligences",
             description: "Strategic. Document. Research. Process. Functional. Configured to fit.",
             cta: "See Where Intelligence Fits",
-            link: "/whatwedo#blog",
+            link: "/whatwedo",
             images: {
                 base: imgValidateFive, // Mapped to Validate/Five Intelligences
             }
