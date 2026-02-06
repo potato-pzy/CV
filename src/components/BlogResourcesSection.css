@@ -227,3 +227,11 @@
     font-size: 24px;
   }
 }
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .blog-resources-section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

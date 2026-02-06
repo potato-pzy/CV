@@ -97,13 +97,14 @@
 
 .blog-featured-image {
     width: 100%;
-    height: 70vh;
-    -o-object-fit: cover;
-    object-fit: cover;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: scale(1.09) translateX(-25px);
     display: block;
+    background: #000;
+    /* Backdrop for contain */
 }
 
 /* Content Layout */
@@ -323,20 +324,129 @@
 }
 
 @media (max-width: 768px) {
+    .blog-hero {
+        margin-bottom: 20px;
+    }
+
     .blog-hero-container {
-        padding: 60px 20px;
+        padding: 40px 20px 20px;
     }
 
     .blog-title {
-        font-size: 40px;
+        font-size: 36px;
+        /* Increased from 24px */
+        margin-bottom: 24px;
+    }
+
+    .blog-subtitle {
+        font-size: 0.9rem;
+        /* Reduced from 1rem */
     }
 
     .blog-image-wrapper {
         padding: 0 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        overflow: visible;
+        /* Ensure hero isn't clipped */
     }
 
     .blog-featured-image {
-        height: 40vh;
+        height: auto;
+        max-height: 60vh;
+        object-fit: contain;
+        /* Full visibility */
+        background: #000;
+        /* Backdrop for contain */
+    }
+
+    .blog-post-body {
+        padding: 0 20px;
+    }
+
+    /* Reduce body font sizes on mobile */
+    .blog-post-body p {
+        font-size: 0.9375rem;
+        /* ~15px */
+    }
+
+    .blog-post-body .lead {
+        font-size: 1rem;
+        /* Reduced from 1.125rem */
+        margin-bottom: 30px;
+    }
+
+    .blog-post-body h1 {
+        font-size: 28px;
+    }
+
+    .blog-post-body h2 {
+        font-size: 24px;
+    }
+
+    .blog-post-body h3 {
+        font-size: 20px;
+    }
+
+    /* Mobile Footer Nav Improvements */
+    .blog-footer-nav {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 20px;
+        text-align: center;
+        /* Changed from left to center */
+    }
+
+    .blog-nav-item[style*="text-align: right"] {
+        text-align: center !important;
+        /* Changed from left to center */
+    }
+
+    .nav-title {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+}
+
+/* Content Images */
+.blog-content-image-wrapper {
+    overflow: visible;
+    /* Allow transforms to show fully */
+    border-radius: 4px;
+    margin: 32px 0;
+}
+
+.blog-content-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Apply transforms only on desktop layout */
+@media (min-width: 1024px) {
+    .blog-featured-image {
+        transform: scale(1.09) translateX(-25px);
+    }
+
+    .blog-content-image.transform-image {
+        transform: scale(1.06) translateX(-11px);
+    }
+}
+
+/* Ensure full visibility on all non-desktop screens */
+@media (max-width: 1023px) {
+    .blog-content-image.transform-image {
+        transform: none !important;
+    }
+
+    .blog-content-image-wrapper {
+        overflow: visible !important;
+        margin: 24px 0;
+    }
+
+    .blog-content-image {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
     }
 }

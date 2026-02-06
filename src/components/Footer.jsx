@@ -2,6 +2,7 @@ import './Footer.css';
 import { Link } from 'react-router-dom';
 import footerLogo from '../assets/footer_logo.png';
 import footerBg from '../assets/footer-bg.svg';
+import footerSubLogo from '../assets/footer sub.svg';
 import instagramIcon from '../assets/social_instagram.svg';
 import twitterIcon from '../assets/social_twitter.svg';
 import linkedinIcon from '../assets/social_linkedin.svg';
@@ -28,6 +29,14 @@ function Footer() {
               className="footer-logo-image"
             />
           </div>
+          <div className="footer-part-of-section">
+            <span className="footer-part-of-text">a part of</span>
+            <img
+              src={footerSubLogo}
+              alt="Footer Sub Logo"
+              className="footer-sub-logo"
+            />
+          </div>
           <p className="footer-copyright">© 2026 Chartered Vectorial.<br />All rights reserved.</p>
           <div className="footer-social-icons">
             <a href="https://www.instagram.com/charteredvectorial?igsh=MXB5N21wZmM2bzVjbg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="footer-social-link">
@@ -45,8 +54,8 @@ function Footer() {
         <div className="footer-center">
           <p className="footer-section-title">Chartered Vectorial</p>
           <nav className="footer-nav">
-            <Link to="/whoarewe" className="footer-link">About</Link>
-            <Link to="/whatwedo" className="footer-link">Products & Solutions</Link>
+            <Link to="/whoweare" className="footer-link">Who We Are</Link>
+            <Link to="/whatwedo" className="footer-link">What We Do</Link>
             <Link to="/careers" className="footer-link">Careers</Link>
             <Link to="/terms" className="footer-link">Terms of Use</Link>
             <Link to="/privacy" className="footer-link">Privacy Policy</Link>
@@ -56,7 +65,7 @@ function Footer() {
         <div className="footer-right">
           <p className="footer-section-title">Get Connected</p>
           <nav className="footer-nav">
-            <Link to="/insights" className="footer-link footer-link-underline">Blog</Link>
+            <Link to="/insights" className="footer-link footer-link-underline">Insights</Link>
             <Link to="/contact" className="footer-link footer-link-underline">Contact</Link>
           </nav>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './TestimonialsCarousel.css';
 import { testimonials } from '../data/testimonials';
 
@@ -8,6 +8,14 @@ function TestimonialsCarousel() {
     const handleDotClick = (index) => {
         setActiveIndex(index);
     };
+
+    // Auto-scroll every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % testimonials.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <section className="testimonials-section">
@@ -25,18 +33,6 @@ function TestimonialsCarousel() {
                             <div
                                 key={testimonial.id}
                                 className={`testimonial-card ${isActive ? 'active' : ''} position-${position}`}
-                                style={{
-                                    transform: isActive
-                                        ? 'translateX(0)'
-                                        : position < 0
-                                            ? 'translateX(-105%)'
-                                            : 'translateX(105%)',
-                                    top: isActive ? '0' : '-21px',
-                                    opacity: Math.abs(position) > 1 ? 0 : 1,
-                                    zIndex: isActive ? 10 : 1,
-                                    filter: isActive ? 'blur(0)' : 'blur(3px)',
-                                    cursor: isActive ? 'default' : 'pointer'
-                                }}
                                 onClick={() => handleDotClick(index)}
                             >
                                 <p className="testimonial-quote">{testimonial.quote}</p>

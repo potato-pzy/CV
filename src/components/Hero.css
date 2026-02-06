@@ -1,21 +1,19 @@
 /* ============================================
-   HERO SECTION - RESPONSIVE & SCALABLE
-   Uses viewport units and flexbox for proper layout
-   No fixed positioning or hard-coded pixels
+   HERO SECTION - MOBILE-FIRST
+   Baseline: Smartphones (360px - 430px)
    ============================================ */
 
 .hero {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    /* min-height instead of height - allows content to expand */
     display: flex;
     flex-direction: column;
     color: var(--text-white);
     overflow: hidden;
 }
 
-/* Video background - covers entire hero section */
+/* Video background */
 .hero-video {
     position: absolute;
     top: 0;
@@ -26,7 +24,6 @@
     z-index: 0;
 }
 
-/* Overlay for better text readability - uses CSS variable */
 .hero::before {
     content: '';
     position: absolute;
@@ -35,7 +32,7 @@
     z-index: 1;
 }
 
-/* Top black gradient - pro UI enhancement */
+/* Top black gradient */
 .hero::after {
     content: '';
     position: absolute;
@@ -48,19 +45,16 @@
     pointer-events: none;
 }
 
-/* Content wrapper - ensures proper stacking above overlay */
 .hero-content {
     position: relative;
     z-index: 3;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Fills viewport */
 }
 
 /* ============================================
-   HERO MAIN CONTENT AREA
-   Centered using flexbox, responsive typography
+   HERO MAIN CONTENT - MOBILE-FIRST BASELINE
    ============================================ */
 
 .hero-main {
@@ -70,86 +64,156 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: var(--spacing-xl);
-    /* 32px - responsive padding */
+    padding: var(--spacing-lg);
+    /* 24px default mobile */
 }
 
-/* Main hero title - scales with viewport, no white-space:nowrap to prevent overflow */
+@media (min-width: 48rem) {
+
+    /* 768px */
+    .hero-main {
+        padding: var(--spacing-2xl);
+    }
+}
+
+/* Main hero title - Fluid but starting smaller for mobile */
 .hero-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.375rem);
-    /* Fluid typography: min 40px, scales, max 54px */
+    /* Scales from 32px at 360px wide to 54px at 1440px wide */
+    font-size: clamp(2rem, 8vw, 3.375rem);
     font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: var(--spacing-md);
-    /* 16px */
-    max-width: 75rem;
-    /* 1200px - prevents line too long on ultra-wide */
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-    text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    line-height: 1.15;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     text-transform: capitalize;
+    max-width: 100%;
+}
+
+@media (max-width: 48rem) {
+    .hero-title {
+        font-size: 24px !important;
+    }
+}
+
+@media (min-width: 48rem) {
+
+    /* 768px */
+    .hero-title {
+        line-height: 1.2;
+        max-width: 85rem;
+        letter-spacing: -0.02em;
+    }
 }
 
 .hero-subtitle {
     color: var(--accent-green);
     text-align: center;
     font-family: "Blauer Nue", sans-serif;
-    font-size: 20px;
-    font-style: normal;
+    font-size: 0.9rem;
+    /* Reduced from 16px to 14.4px for mobile visibility hierarchy */
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.3;
     text-transform: none;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    max-width: 90%;
 }
 
-/* Primary CTA button - fully responsive */
+@media (max-width: 48rem) {
+    .hero-subtitle {
+        font-size: 12px !important;
+    }
+}
+
+@media (min-width: 48rem) {
+
+    /* 768px */
+    .hero-subtitle {
+        font-size: 1.2rem;
+        /* 18px */
+        margin-bottom: var(--spacing-2xl);
+        max-width: 900px;
+    }
+}
+
+/* Tablet-specific adjustments for 768px-1024px */
+@media (min-width: 48rem) and (max-width: 64rem) {
+    .hero-main {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+
+    .hero-title {
+        font-size: 3.125rem;
+        max-width: 90%;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+        max-width: 85%;
+    }
+}
+
+/* Primary CTA button */
 .btn-primary {
-    padding: 0.5rem 1rem;
-    /* 8px 16px */
-    background: var(--accent-green);
-    color: var(--bg-dark);
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--accent-green);
+    border: 1.5px solid var(--accent-green);
     border-radius: 0.125rem;
-    /* 2px */
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 0.28125rem 0 var(--accent-green);
-    /* 4.5px */
+    box-shadow: 0 0 0.5rem 0 rgba(166, 246, 59, 0.4);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+@media (min-width: 48rem) {
+
+    /* 768px */
+    .btn-primary {
+        width: auto;
+        padding: 0.875rem 3.5rem;
+    }
 }
 
 .btn-primary-text {
-    font-size: var(--font-size-base);
-    /* 16px */
+    font-size: 0.875rem;
     font-family: 'Stage Grotesk', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+@media (min-width: 48rem) {
+    .btn-primary-text {
+        font-size: 1rem;
+    }
 }
 
 .btn-primary:hover {
-    background: #95e52a;
+    background: var(--accent-green);
+    color: var(--bg-dark);
     transform: translateY(-0.125rem);
-    /* 2px - subtle lift effect */
     box-shadow: 0 0 0.75rem 0 var(--accent-green);
-    /* 12px */
 }
 
 .scroll-to-explore-hero {
     position: absolute;
-    bottom: 15vh;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 0.875rem;
     color: #A6F63B;
-    text-align: center;
-    text-shadow: 0 0 4px #FFF;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
     z-index: 30;
     animation: bounce 2s infinite;
 }
@@ -174,196 +238,91 @@
 }
 
 /* ============================================
-   RESPONSIVE BREAKPOINTS - HERO SECTION
-   Optimized for different screen sizes and zoom levels
+   ENHANCEMENTS FOR LARGE SCREENS
    ============================================ */
 
-/* Mobile devices (≤640px) */
-@media (max-width: 40rem) {
-
-    /* 640px */
-    .hero-main {
-        padding: var(--spacing-lg);
-        /* 24px */
-    }
-
-    .hero-title {
-        font-size: 1.875rem;
-        /* 30px - readable on small screens */
-        line-height: 1.15;
-        white-space: normal;
-    }
-
-    .hero-subtitle {
-        font-size: 20px;
-        margin-bottom: var(--spacing-md);
-        /* 16px */
-    }
-
-    .btn-primary {
-        padding: 0.625rem 1.25rem;
-        /* 10px 20px */
-        width: 100%;
-        /* Full-width CTA on mobile */
-        max-width: 18.75rem;
-        /* 300px */
-    }
-
-    .btn-primary-text {
-        font-size: 0.875rem;
-        /* 14px */
-    }
-}
-
-/* Tablets (641px to 1024px) */
-@media (min-width: 40.0625rem) and (max-width: 64rem) {
-
-    /* 641px - 1024px */
-    .hero-title {
-        font-size: 3.375rem;
-        /* 54px */
-    }
-
-    .hero-subtitle {
-        font-size: 20px;
-    }
-}
-
-/* Small laptops (≤1366px) */
-@media (max-width: 85.375rem) {
-
-    /* 1366px */
-    .hero-title {
-        font-size: 3.875rem;
-        /* 62px */
-        max-width: 68.75rem;
-        /* 1100px */
-    }
-
-    .hero-main {
-        padding: var(--spacing-2xl);
-        /* 48px */
-    }
-}
-
-/* Standard laptops (≤1440px) */
-@media (max-width: 90rem) {
-
-    /* 1440px */
-    .hero-title {
-        max-width: 71.875rem;
-        /* 1150px */
-    }
-}
-
-/* Large screens (≥1920px) */
 @media (min-width: 120rem) {
 
     /* 1920px */
-    .hero-main {
-        padding: var(--spacing-4xl);
-        /* 80px */
-    }
-
     .hero-title {
         font-size: 4.875rem;
-        /* 78px - larger on big screens */
-        max-width: 87.5rem;
-        /* 1400px */
+        max-width: 100%;
     }
 
     .hero-subtitle {
-        font-size: 20px;
-        margin-bottom: var(--spacing-2xl);
-        /* 48px */
-    }
-
-    .btn-primary {
-        padding: 0.75rem 1.5rem;
-        /* 12px 24px */
-    }
-
-    .btn-primary-text {
-        font-size: 1.125rem;
-        /* 18px */
+        font-size: 1.25rem;
     }
 }
 
-/* Ultra-wide screens (≥2560px) */
-@media (min-width: 160rem) {
-
-    /* 2560px */
+/* MacBook Special Adjustments */
+@media (min-width: 80rem) and (max-width: 85rem) {
     .hero-title {
-        font-size: 5.375rem;
-        /* 86px */
-    }
-}
-
-/* Landscape orientation on mobile/tablet */
-@media (max-height: 37.5rem) and (orientation: landscape) {
-
-    /* 600px height */
-    .hero {
-        min-height: 37.5rem;
-        /* 600px - prevents too short on landscape */
-    }
-
-    .hero-main {
-        padding: var(--spacing-md);
-        /* 16px - reduced padding */
-    }
-
-    .hero-title {
-        font-size: 2.375rem;
-        /* 38px */
-        margin-bottom: var(--spacing-sm);
-        /* 12px */
-        white-space: normal;
-    }
-
-    .hero-subtitle {
-        margin-bottom: var(--spacing-sm);
-        /* 12px */
+        font-size: 3.125rem;
+        max-width: none;
+        white-space: nowrap;
+        /* If space allows on Mac screens */
     }
 }
 
 /* ============================================
-   MAC DEVICE SPECIFIC STYLES (1280px - MacBook Air)
-   Matches Figma design specifications
+   TABLET ORIENTATION SPECIFIC STYLES
    ============================================ */
-@media (min-width: 80rem) and (max-width: 85rem) {
-    /* 1280px - 1360px - MacBook Air and similar */
 
-    .hero-title {
-        font-size: 3.125rem;
-        /* 50px - exact Figma spec */
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        max-width: 55rem;
-        /* 880px - matches design width */
-        white-space: nowrap;
-    }
-
-    .hero-subtitle {
-        font-size: 20px;
-        margin-bottom: 1.5rem;
-        /* 24px */
-        letter-spacing: 0.05em;
+/* Tablet Portrait (768px-1024px, height > width) */
+@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+    .hero {
+        min-height: 80vh;
+        /* Slightly increased for better framing */
     }
 
     .hero-main {
-        padding: var(--spacing-2xl);
-        /* 48px */
+        padding: var(--spacing-4xl) var(--spacing-lg);
     }
 
-    .btn-primary {
-        padding: 0.5rem 1rem;
-        /* 8px 16px */
+    .hero-title {
+        font-size: clamp(2.25rem, 6vw, 3rem);
+        /* Smaller for portrait impact */
+        line-height: 1.1;
+        max-width: 100%;
     }
 
-    .btn-primary-text {
+    .hero-subtitle {
+        font-size: 1.125rem;
+        max-width: 90%;
+        margin-bottom: var(--spacing-2xl);
+    }
+
+
+    .scroll-to-explore-hero {
+        bottom: 1.5rem;
+    }
+}
+
+/* Tablet Landscape (height 600-900px, width > height) */
+@media (min-height: 37.5rem) and (max-height: 56.25rem) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-main {
+        padding: var(--spacing-xl) 5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.25;
+        padding-top: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 70%;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .scroll-to-explore-hero {
+        bottom: 1rem;
         font-size: 0.75rem;
-        /* 12px - exact Figma spec */
-        letter-spacing: 0.05em;
     }
 }

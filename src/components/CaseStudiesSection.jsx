@@ -98,7 +98,7 @@ const leftColumnStudies = [
     {
         id: 1,
         image: caseStudyLeftBottom,
-        description: 'PatchBot — Intelligent Document Creation',
+        description: 'PatchBot: Intelligent Document Creation',
         company: 'Chartered Investment Germany',
         aspectRatio: '4/5',
         content: 'Automated legal document updates with semantic accuracy and full traceability, reducing manual review time by 90%.',

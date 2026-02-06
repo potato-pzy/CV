@@ -1,15 +1,21 @@
 /* ============================================
-   FOOTER - RESPONSIVE MULTI-COLUMN
-   Clean, accessible footer with proper sizing
+   FOOTER - MOBILE-FIRST RESPONSIVE
+   Baseline: Smartphones (360px - 430px)
    ============================================ */
 
 .footer {
-  height: 699px !important;
-  width: 100% !important;
-  position: relative !important;
-  overflow: hidden !important;
-  padding: 17.375rem 0 8.25rem !important;
-  background: linear-gradient(to bottom, #01070A 0%, #021014 55%, #010A0E 100%) !important;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #01070A 0%, #021014 55%, #010A0E 100%);
+  padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+}
+
+@media (min-width: 48rem) {
+  .footer {
+    padding: 8.25rem 0;
+    min-height: 400px;
+  }
 }
 
 /* Background layer */
@@ -18,457 +24,244 @@
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .footer-bg-mask {
   position: absolute;
   inset: 0;
+  opacity: 0.5;
 }
 
 .footer-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  -o-object-fit: cover;
-  -o-object-position: center;
 }
 
-/* Radial glow at right bottom */
-.footer-glow-right-bottom {
-  position: absolute;
-  bottom: -200px;
-  right: -1034px;
-  width: 133rem;
-  height: 35rem;
-  background: radial-gradient(circle, rgba(0, 196, 123, 0.15) 0%, rgba(2, 50, 42, 0.08) 30%, transparent 70%);
-  filter: blur(3rem);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Radial glow at left top */
+/* Glow effects - adjusted for mobile */
+.footer-glow-right-bottom,
 .footer-glow-left-top {
   position: absolute;
-  top: -200px;
-  left: -1034px;
-  width: 133rem;
-  height: 35rem;
-  background: radial-gradient(circle, rgba(0, 29, 38, 0.15) 0%, rgba(0, 29, 38, 0.08) 30%, transparent 70%);
-  filter: blur(3rem);
+  width: 100vw;
+  height: 50vh;
+  filter: blur(5rem);
   pointer-events: none;
   z-index: 1;
+  opacity: 0.5;
 }
 
-/* Main container */
+.footer-glow-right-bottom {
+  bottom: -10%;
+  right: -20%;
+  background: radial-gradient(circle, rgba(0, 196, 123, 0.15) 0%, transparent 70%);
+}
+
+.footer-glow-left-top {
+  top: -10%;
+  left: -20%;
+  background: radial-gradient(circle, rgba(0, 29, 38, 0.2) 0%, transparent 70%);
+}
+
+/* Main container - Mobile-First Stack */
 .footer-container {
   position: relative;
-  top: 70px;
   z-index: 10;
+  width: 100%;
   max-width: var(--container-2xl);
-  /* 1400px */
   margin: 0 auto;
-  padding: 0 var(--spacing-4xl) 0 var(--spacing-lg);
-  /* Reduced left padding */
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: var(--spacing-4xl) var(--spacing-md);
-  /* 80px horizontal, 16px between center and right */
-  align-items: start;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  text-align: center;
 }
 
-/* Left column */
+@media (min-width: 48rem) {
+
+  /* 768px+ */
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: var(--spacing-xl);
+    text-align: left;
+    align-items: start;
+    padding: 0 var(--spacing-2xl);
+  }
+}
+
+/* Tablet-specific adjustments for 768px-1024px */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .footer {
+    padding: 4rem 0;
+    min-height: auto;
+  }
+
+  .footer-container {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+  }
+
+  .footer-left {
+    grid-column: 1 / -1;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .footer-center,
+  .footer-right {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-logo-image {
+    height: 3.5rem;
+  }
+}
+
+/* Left Section */
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  align-items: flex-start;
-  position: relative;
-  right: 148px;
+  gap: var(--spacing-md);
+  align-items: center;
 }
 
-/* Logo section */
-.footer-logo-section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  /* 16px */
-  align-items: flex-start;
+@media (min-width: 48rem) {
+  .footer-left {
+    align-items: flex-start;
+  }
 }
 
 .footer-logo-image {
-  max-width: 266%;
-  max-height: 13.5rem;
-  height: 93px;
-  width: 234px;
-  -o-object-fit: contain;
+  height: 3.5rem;
+  /* ~56px */
+  width: auto;
+  object-fit: contain;
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (min-width: 48rem) {
+  .footer-logo-image {
+    height: 4.5rem;
+  }
+}
+
+.footer-part-of-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  max-width: 20rem;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-part-of-text {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-dark-gray);
+  text-align: left;
+}
+
+.footer-sub-logo {
+  height: 2rem;
+  width: auto;
   object-fit: contain;
 }
 
-/* Copyright text */
+@media (min-width: 48rem) {
+  .footer-part-of-section {
+    justify-content: left;
+  }
+
+  .footer-sub-logo {
+    height: 2.5rem;
+  }
+}
+
 .footer-copyright {
-  font-family: "Stage Grotesk", sans-serif;
-  font-size: var(--font-size-base);
-  /* 16px */
+  font-size: 0.875rem;
   font-weight: 300;
-  color: #737373;
-  margin: 0;
-  line-height: normal;
-}
-
-/* Center and right columns */
-.footer-center,
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-  align-items: flex-end;
-  right: 188px;
-  position: relative;
-}
-
-/* Section titles */
-.footer-section-title {
-  font-family: "Stage Grotesk", sans-serif;
-  font-size: var(--font-size-base);
-  /* 16px */
-  font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-dark-gray);
+  line-height: 1.6;
   margin: 0;
 }
 
-/* Navigation links */
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  /* 16px */
-}
-
-.footer-link {
-  font-family: "Stage Grotesk", sans-serif;
-  font-size: var(--font-size-base);
-  /* 16px */
-  font-weight: 300;
-  color: var(--text-white);
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.footer-link:hover {
-  opacity: 0.7;
-}
-
-.footer-link-underline {
-  position: relative;
-  left: -45px;
-}
-
-/* Social links */
+/* Social Icons */
 .footer-social-icons {
   display: flex;
-  gap: var(--spacing-md);
-  /* 16px */
-  margin-top: var(--spacing-lg);
-  /* 24px */
-}
-
-.footer-left .footer-social-icons {
-  align-self: flex-start;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .footer-social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 1.5rem;
-  /* 24px */
   height: 1.5rem;
-  color: #737373;
-  transition: color 0.3s ease, opacity 0.3s ease;
+  opacity: 0.6;
+  transition: all 0.3s ease;
 }
 
 .footer-social-link:hover {
-  color: var(--text-white);
   opacity: 1;
-}
-
-.footer-social-link svg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  transform: translateY(-2px);
 }
 
 .footer-social-icon-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
   filter: brightness(0) invert(1);
 }
 
-/* ============================================
-   RESPONSIVE BREAKPOINTS - FOOTER
-   ============================================ */
-
-/* Mobile devices (≤640px) */
-@media (max-width: 40rem) {
-
-  /* 640px */
-  .footer {
-    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
-    /* 64px 0 48px */
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-    /* 32px */
-    padding: 0 var(--spacing-md);
-    /* 16px */
-  }
-
-  .footer-left {
-    order: 1;
-  }
-
-  .footer-center {
-    order: 2;
-  }
-
-  .footer-right {
-    order: 3;
-  }
-
-  .footer-link,
-  .footer-section-title,
-  .footer-copyright {
-    font-size: 0.875rem;
-    /* 14px */
-  }
+/* Center & Right Sections */
+.footer-center,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  width: 100%;
 }
 
-/* Tablets (641px to 968px) */
-@media (min-width: 40.0625rem) and (max-width: 60.5rem) {
-
-  /* 641px - 968px */
-  .footer {
-    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
-    /* 80px 0 48px */
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
-    /* 48px */
-    padding: 0 var(--spacing-xl);
-    /* 32px */
-  }
-
-  .footer-left {
-    order: 1;
-  }
-
-  .footer-center {
-    order: 2;
-  }
-
-  .footer-right {
-    order: 3;
-  }
-}
-
-/* Small laptops (≤1366px) */
-@media (max-width: 85.375rem) {
-
-  /* 1366px */
-  .footer-container {
-    max-width: 75rem;
-    /* 1200px */
-    padding: 0 var(--spacing-2xl);
-    /* 48px */
-    gap: var(--spacing-2xl);
-    /* 48px */
-  }
-}
-
-/* Large screens (≥1920px) */
-@media (min-width: 120rem) {
-
-  /* 1920px */
-  .footer {
-    padding: 9.375rem 0 6.25rem;
-    /* 150px 0 100px */
-  }
-
-  .footer-container {
-    gap: 6.25rem;
-    /* 100px */
-  }
-
-  .footer-copyright,
-  .footer-section-title,
-  .footer-link {
-    font-size: 1.125rem;
-    /* 18px */
-  }
-
-  .footer-logo {
-    width: 4.875rem;
-    /* 78px */
-    height: 3.0625rem;
-    /* 49px */
-  }
-
-  .footer-social-link {
-    width: 1.875rem;
-    /* 30px */
-    height: 1.875rem;
-  }
-}
-
-/* Overrides with !important per request */
-@media (max-width: 40rem) {
-
-  /* 640px */
-  .footer {
-    padding: var(--spacing-3xl) 0 var(--spacing-2xl) !important;
-  }
-}
-
-@media (min-width: 40.0625rem) and (max-width: 60.5rem) {
-
-  /* 641px - 968px */
-  .footer {
-    padding: var(--spacing-4xl) 0 var(--spacing-2xl) !important;
-  }
-}
-
-@media (min-width: 120rem) {
-
-  /* 1920px */
-  .footer {
-    padding: 9.375rem 0 6.25rem !important;
-  }
-}
-
-/* Ultra-wide screens (≥2560px) */
-@media (min-width: 160rem) {
-
-  /* 2560px */
-  .footer-container {
-    max-width: 100rem;
-    /* 1600px */
-  }
-}
-
-/* MacBook Air / Pro 13" and up */
-@media (min-width: 1280px) {
-  .footer {
-    height: 624px !important;
-  }
-
-  .footer-container {
-    position: relative;
-    bottom: 70px;
-    z-index: 10;
-    max-width: var(--container-2xl);
-    margin: 0px 0px 0px 90px;
-  }
-
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
-    position: relative;
-    bottom: 130px;
-    right: 20px;
-  }
+@media (min-width: 48rem) {
 
   .footer-center,
   .footer-right {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: flex-end;
-    right: 70px;
-    position: relative;
-    bottom: 120px;
-    margin-right: 120px;
+    align-items: flex-start;
+    width: auto;
   }
 }
 
-/* MacBook Pro 14" / 16" */
-@media (min-width: 1512px) {
-  .footer {
-    height: 624px !important;
-  }
-
-  .footer-container {
-    position: relative;
-    bottom: 70px;
-    z-index: 10;
-    max-width: var(--container-2xl);
-    margin: 0px 0px 0px 90px;
-  }
-
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
-    position: relative;
-    bottom: 130px;
-    right: 20px;
-  }
-
-  .footer-center,
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: flex-end;
-    right: 70px;
-    position: relative;
-    bottom: 120px;
-    margin-right: 120px;
-  }
+.footer-section-title {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-white);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-xs);
 }
 
-/* iMac / External Monitor */
-@media (min-width: 1920px) {
-  .footer {
-    height: 624px !important;
-  }
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
 
-  .footer-container {
-    position: relative;
-    bottom: 70px;
-    z-index: 10;
-    max-width: var(--container-2xl);
-    margin: 0px 0px 0px 90px;
-  }
+.footer-link {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
-    position: relative;
-    bottom: 130px;
-    right: 20px;
-  }
+.footer-link:hover {
+  color: var(--accent-green);
+}
 
-  .footer-center,
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    align-items: flex-end;
-    right: 70px;
-    position: relative;
-    bottom: 120px;
-    margin-right: 120px;
-  }
+.footer-link-underline {
+  /* Resetting the problematic desktop offset */
+  position: static;
 }

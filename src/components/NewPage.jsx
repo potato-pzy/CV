@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import './NewPage.css'
 import './AboutSection.css'
 import './ProductsSection.css'
 import Hero from './Hero'
-import ProductsSection from './ProductsSection'
-import WhySection from './WhySection'
-import CaseStudiesSection from './CaseStudiesSection'
-import TestimonialsCarousel from './TestimonialsCarousel'
-import CTASection from './CTASection'
-import Footer from './Footer'
 import aboutLogo from '../assets/about logo .png'
 import aboutLeft from '../assets/ Images/Web Images/HOMEPAGE/Top Right.jpg'
+
+// Lazy load below-the-fold sections
+const ProductsSection = lazy(() => import('./ProductsSection'));
+const WhySection = lazy(() => import('./WhySection'));
+const CaseStudiesSection = lazy(() => import('./CaseStudiesSection'));
+const TestimonialsCarousel = lazy(() => import('./TestimonialsCarousel'));
+const CTASection = lazy(() => import('./CTASection'));
+const Footer = lazy(() => import('./Footer'));
+
+// Lightweight loader for sections
+const SectionLoader = () => (
+  <div style={{ minHeight: '50vh', background: 'transparent' }} />
+);
 
 function AboutGlow() {
   return (
@@ -29,15 +37,16 @@ function NewPage() {
         <div className="about-content">
           <div className="about-left">
             <h2 className="about-heading">
-              <span className="about-heading-green">We think</span>. We build.<br />We stay.
+              <span className="about-heading-green">AI products</span> built for<br />
+              how you work.
             </h2>
             <div className="about-text-container">
               <p className="about-description">
-                We make AI adoption real.<br /><br />
-                By embedding with your teams, we turn high-value opportunities into production-grade AI agents and stay until they deliver.<br /><br />
-                Not a report. Not a promise. Transformation you can see.
+                A new model for AI adoption.<br /><br />
+                Production-ready AI products, configured to how you work. From our library or built for you, deployed in weeks.<br /><br />
+                No adaptation. No compromise. Just results.
               </p>
-              <Link to="/whatwedo" className="btn-see-how">SEE HOW WE WORK</Link>
+              <Link to="/whatwedo" className="btn-see-how">See it in Action</Link>
             </div>
             <div className="about-image-abstract">
               <img src={aboutLogo} alt="" className="abstract-image" />
@@ -50,12 +59,30 @@ function NewPage() {
           </div>
         </div>
       </section>
-      <ProductsSection />
-      <WhySection variant="embedded" />
-      <CaseStudiesSection />
-      <TestimonialsCarousel />
-      <CTASection />
-      <Footer />
+
+      <Suspense fallback={<SectionLoader />}>
+        <ProductsSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <WhySection variant="embedded" />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <CaseStudiesSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <TestimonialsCarousel />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <CTASection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }

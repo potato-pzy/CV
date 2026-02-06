@@ -9,18 +9,6 @@ import image5 from '../assets/ Images/blog/S5.png';
 import image6 from '../assets/ Images/blog/S6.png';
 
 const BlogAgenticBlueprint = () => {
-    const imgStyle = {
-        width: '100%',
-        height: 'auto',
-        borderRadius: '4px',
-        transform: 'scale(1.06) translateX(-11px)',
-        display: 'block'
-    };
-    const imgWrapperStyle = {
-        overflow: 'hidden',
-        borderRadius: '4px',
-        margin: '32px 0'
-    };
     const content = (
         <>
             <p className="lead">
@@ -41,8 +29,8 @@ const BlogAgenticBlueprint = () => {
                 When we talk about “Agentic AI,” it’s important to understand how it differs from traditional Robotic Process Automation (RPA).
             </p>
 
-            <div style={imgWrapperStyle}>
-                <img src={image1} alt="RPA vs Agentic AI" style={imgStyle} />
+            <div className="blog-content-image-wrapper">
+                <img src={image1} alt="RPA vs Agentic AI" className="blog-content-image transform-image" />
             </div>
 
             <p>
@@ -63,8 +51,8 @@ const BlogAgenticBlueprint = () => {
                 Autonomy, Adaptation, and Action.
             </blockquote>
 
-            <div style={imgWrapperStyle}>
-                <img src={image2} alt="Autonomy, Adaptation, and Action" style={imgStyle} />
+            <div className="blog-content-image-wrapper">
+                <img src={image2} alt="Autonomy, Adaptation, and Action" className="blog-content-image transform-image" />
             </div>
 
             <p>
@@ -89,8 +77,8 @@ const BlogAgenticBlueprint = () => {
                 A component is a fundamental building block of an agent that handles a specific aspect of functionality.
             </blockquote>
 
-            <div style={imgWrapperStyle}>
-                <img src={image3} alt="Agent Components" style={imgStyle} />
+            <div className="blog-content-image-wrapper">
+                <img src={image3} alt="Agent Components" className="blog-content-image transform-image" />
             </div>
 
             <p>As shown in the diagram, there are three key components of an agentic AI:</p>
@@ -105,8 +93,8 @@ const BlogAgenticBlueprint = () => {
 
             <h3><strong>Component 1: Perception Modalities (Input Channels)</strong></h3>
 
-            <div style={imgWrapperStyle}>
-                <img src={image4} alt="Perception Modalities" style={imgStyle} />
+            <div className="blog-content-image-wrapper">
+                <img src={image4} alt="Perception Modalities" className="blog-content-image transform-image" />
             </div>
 
             <p>
@@ -145,8 +133,8 @@ const BlogAgenticBlueprint = () => {
 
             <p>Here's how we can break down these mental capabilities in simple terms:</p>
 
-            <div style={imgWrapperStyle}>
-                <img src={image5} alt="Cognitive Skillset" style={imgStyle} />
+            <div className="blog-content-image-wrapper">
+                <img src={image5} alt="Cognitive Skillset" className="blog-content-image transform-image" />
             </div>
 
             <ol>
@@ -167,8 +155,8 @@ const BlogAgenticBlueprint = () => {
                 Here's how an AI agent can act in different ways. Each category of action mirrors a human-like capability, making the agent's work seamless and efficient.
             </p>
 
-            <div style={imgWrapperStyle}>
-                <img src={image6} alt="Action Toolkit" style={imgStyle} />
+            <div className="blog-content-image-wrapper">
+                <img src={image6} alt="Action Toolkit" className="blog-content-image transform-image" />
             </div>
 
             <p>Let’s break these actions down further:</p>
@@ -240,3 +228,4 @@ const BlogAgenticBlueprint = () => {
 };
 
 export default BlogAgenticBlueprint;
+

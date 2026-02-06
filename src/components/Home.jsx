@@ -3,7 +3,7 @@ import AboutSection from './AboutSection'
 import ProductsSection from './ProductsSection'
 import WhySection from './WhySection'
 import CaseStudiesSection from './CaseStudiesSection'
-import TestimonialsSection from './TestimonialsSection'
+import TestimonialsCarousel from './TestimonialsCarousel'
 import CTASection from './CTASection'
 import Footer from './Footer'
 import BackgroundClipPath from './BackgroundClipPath'
@@ -19,7 +19,7 @@ function Home() {
         <ProductsSection />
         <WhySection variant="embedded" />
         <CaseStudiesSection />
-        <TestimonialsSection />
+        <TestimonialsCarousel />
         <CTASection />
       </div>
       <Footer />

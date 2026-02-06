@@ -79,7 +79,6 @@
   object-fit: cover;
   opacity: 0.6;
   max-width: 100rem;
-  /* Prevents graphic from being too large */
 }
 
 /* Main content container */
@@ -90,9 +89,19 @@
   position: relative;
   z-index: 10;
   padding: 0 var(--spacing-md);
-  /* 16px */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
 }
 
+@media (min-width: 48rem) {
+  .why-main {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Background graphic - decorative SVG */
 .why-figma-bg-wrapper {
   position: absolute;
   inset: 0;
@@ -109,44 +118,68 @@
   object-fit: cover;
   opacity: 0.6;
   filter: drop-shadow(0 0 20px rgba(166, 246, 59, 0.3));
-  position: relative;
-  left: -82px;
 }
 
-/* Large screens media query removed */
-/* Ultra-wide screens media query removed */
-
-@media (min-width: 48rem) {
-
-  /* 768px */
-  .why-main {
-    padding: 0 var(--spacing-xl);
-    /* 32px */
-  }
-}
-
-/* Section header */
+/* Section header base styles */
 .why-header {
-  /* margin-bottom: var(--spacing-4xl); */
-  text-align: left;
-  position: relative;
-  left: 5%;
+  text-align: center;
+  width: 100%;
 }
 
-@media (min-width: 48rem) {
-
-  /* 768px */
+@media (min-width: 64rem) {
   .why-header {
-    /* margin-bottom: 8rem; */
     text-align: left;
   }
 }
 
+@media (min-width: 64rem) {
 
+  /* 1024px Laptop/Desktop */
+  .why-header {
+    width: 48%;
+    /* Slightly adjusted for better balance with grid */
+    position: relative;
+    top: 3rem;
+    /* Moved sticky position higher */
+    left: 5%;
+    /* Shift to the right by 5% */
+    margin-top: -6rem;
+    /* Increased upward shift as requested */
+    padding-bottom: 2rem;
+  }
+
+  .why-main {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-4xl);
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 80rem) and (orientation: landscape) {
+
+  /* Tablet/Small Laptop Landscape */
+  .why-header {
+    width: 55%;
+    /* More width in landscape to prevent title wrap */
+    left: 14%;
+    /* Shift to the right by 5% */
+    margin-top: -6rem;
+    /* Slightly higher for better alignment */
+    padding-bottom: 3rem;
+    text-align: left;
+  }
+
+  .why-main {
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* Main title - responsive typography */
 /* Main title - responsive typography */
 .why-title {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-size: clamp(2rem, 4vw, 2.75rem);
   /* 32px to 60px fluid */
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -160,33 +193,32 @@
   display: none;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 64rem) {
 
-  /* 768px */
+  /* 1024px+ */
   .why-title-break {
     display: block;
   }
 }
 
-/* Card grid - FIXED broken positioning */
+/* Card grid - CLEAN layout */
 .why-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
-  /* 24px */
   width: 100%;
-  /* REMOVED: All absolute positioning, left: 543px, bottom: 220px, width: 65% */
 }
 
-@media (min-width: 48rem) {
-
-  /* 768px */
+@media (min-width: 40rem) {
   .why-grid {
-    position: relative;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-    max-width: 45%;
-    left: 45%;
+  }
+}
+
+@media (min-width: 64rem) {
+  .why-grid {
+    width: 55%;
+    gap: var(--spacing-xl);
   }
 }
 
@@ -195,88 +227,50 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
-  /* 24px */
 }
 
 @media (min-width: 48rem) {
-
-  /* 768px */
   .why-column {
     gap: var(--spacing-2xl);
-    /* 48px */
   }
 }
 
-/* Column ordering for staggered layout */
-.why-column-left {
-  order: 2;
-}
-
-@media (min-width: 48rem) {
-
-  /* 768px */
+/* Staggered effect on larger screens */
+@media (min-width: 40rem) {
   .why-column-left {
-    order: 1;
-    margin-top: 6rem;
-    /* 96px - creates staggered effect */
+    margin-top: 4rem;
   }
 }
 
-.why-column-right {
-  order: 1;
-}
-
-@media (min-width: 48rem) {
-
-  /* 768px */
-  .why-column-right {
-    order: 2;
+@media (min-width: 64rem) {
+  .why-column-left {
+    margin-top: 8rem;
   }
 }
 
 /* Card styling - responsive and fluid */
 .why-card {
   position: relative;
-  background: rgba(2, 15, 20, 0);
+  background: rgba(2, 15, 20, 0.4);
   border-radius: 0.75rem;
-  /* 12px */
   padding: var(--spacing-xl);
-  /* 32px */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 21.25rem;
-  min-width: 330px;
-  /* 340px - allows content to expand */
+  min-height: 20rem;
   backdrop-filter: blur(8px);
-  transition: background-color 0.5s ease, border-color 0.3s ease, transform 0.3s ease;
-  opacity: 0.8;
-  box-shadow: 0 0.25rem 1.5rem -0.0625rem rgba(0, 0, 0, 0.4), 0 0 20px rgba(166, 246, 59, 0.08);
-  /* 4px 24px -1px */
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  /* REMOVED: Fixed width/height - cards are now fluid */
-}
-
-/* Special production card variant - also made responsive */
-.why-card-production {
-  /* REMOVED: width: 303px, height: 306px - fixed dimensions */
-  border-radius: 0.75rem;
-  /* 12px - match standard cards */
-  background: rgba(2, 15, 20, 0);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background-blend-mode: screen;
-  backdrop-filter: blur(8px);
-  padding: var(--spacing-xl);
-  /* 32px - match standard cards */
 }
 
 /* Card hover effect */
 .why-card:hover {
-  background: rgba(2, 15, 20, 0.15);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-0.25rem);
-  /* 4px lift */
-  box-shadow: 0 0.25rem 1.5rem -0.0625rem rgba(0, 0, 0, 0.4), 0 0 25px rgba(166, 246, 59, 0.12);
+  background: rgba(2, 15, 20, 0.6);
+  border-color: rgba(166, 246, 59, 0.3);
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.5), 0 0 20px rgba(166, 246, 59, 0.1);
 }
 
 .why-card::before {
@@ -285,38 +279,26 @@
   inset: -1px;
   border-radius: 0.8rem;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.08) 30%, rgba(166, 246, 59, 0.15) 50%, rgba(255, 255, 255, 0.05) 70%, rgba(255, 255, 255, 0.2));
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 40%, rgba(166, 246, 59, 0.1) 60%, rgba(255, 255, 255, 0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   z-index: 2;
-  animation: border-reflection 6s ease-in-out infinite;
-}
-
-.why-card-production::before {
-  border-radius: 0.8rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.08) 30%, rgba(166, 246, 59, 0.15) 50%, rgba(255, 255, 255, 0.05) 70%, rgba(255, 255, 255, 0.2));
-  background-size: 200% 200%;
-  animation: border-reflection 6s ease-in-out infinite;
 }
 
 /* Card content area */
 .why-card-content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
-  /* 24px */
+  gap: var(--spacing-md);
 }
 
 /* Card title - responsive typography */
 .why-card-title {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  /* 24px to 32px fluid */
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 500;
-  letter-spacing: 0;
   line-height: 1.25;
   color: var(--text-white);
   margin: 0;
@@ -325,10 +307,9 @@
 /* Card body text */
 .why-card-body {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  /* 16px to 19.2px fluid */
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.5;
   color: #C7C7C7;
   margin: 0;
 }
@@ -336,122 +317,99 @@
 /* Card footer with stats */
 .why-card-footer {
   margin-top: var(--spacing-xl);
-  /* 32px */
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  /* 12px */
+  gap: var(--spacing-xs);
 }
 
 /* Stat number - prominent display */
 .why-card-stat {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
-  /* 24px to 30px fluid */
-  font-weight: 500;
-  line-height: normal;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
   color: var(--accent-green);
-  text-shadow:
-    0 0 10px rgba(166, 246, 59, 0.6),
-    0 0 20px rgba(166, 246, 59, 0.4),
-    0 0 30px rgba(166, 246, 59, 0.3),
-    0 0 40px rgba(166, 246, 59, 0.2),
-    0 0 50px rgba(166, 246, 59, 0.1);
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(166, 246, 59, 0.4);
 }
 
 /* Stat label - small descriptive text */
 .why-card-label {
-  font-family: "Inter", sans-serif;
-  font-size: var(--font-size-xs);
-  /* 10px */
-  font-weight: 600;
-  line-height: normal;
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 13.2px;
+  font-weight: 200;
   color: #00AF66;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.1em;
 }
 
 /* ============================================
-   RESPONSIVE BREAKPOINTS - WHY SECTION
+   RESPONSIVE OVERRIDES
    ============================================ */
 
-/* Mobile devices (≤640px) */
-@media (max-width: 40rem) {
-
-  /* 640px */
+@media (max-width: 32rem) {
   .why-section {
-    padding: var(--spacing-2xl) 0;
-    /* 48px */
-  }
-
-  .why-header {
-    margin-bottom: var(--spacing-2xl);
-    /* 48px */
+    padding: var(--spacing-3xl) 0;
   }
 
   .why-title {
-    font-size: 1.75rem;
-    /* 28px */
-    text-align: center;
+    font-size: 2.25rem;
   }
 
   .why-card {
-    padding: var(--spacing-lg);
-    /* 24px */
     min-height: auto;
-  }
-
-  .why-card-title {
-    font-size: 1.5rem;
-    /* 24px */
-  }
-
-  .why-card-body {
-    font-size: 0.875rem;
-    /* 14px */
+    padding: var(--spacing-lg);
   }
 }
 
-/* Tablets (641px to 1024px) */
-@media (min-width: 40.0625rem) and (max-width: 64rem) {
+@media (max-width: 40rem) {
+  .why-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--spacing-md);
+    padding-bottom: 2rem;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    margin: 0 -var(--spacing-md);
+    width: calc(100% + var(--spacing-md) * 2);
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    /* Momentum scrolling for iOS */
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-  /* 641px - 1024px */
-  .why-column-left {
-    margin-top: var(--spacing-2xl);
-    /* 48px - less stagger on tablets */
+  .why-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .why-column {
+    display: contents;
+  }
+
+  .why-card {
+    min-width: 85vw;
+    width: 85vw;
+    /* Explicit width */
+    flex: 0 0 auto;
+    /* No shrink, no grow, auto basis */
+    scroll-snap-align: center;
+  }
+
+  /* Ensure last card has spacing at the end */
+  .why-grid::after {
+    content: '';
+    min-width: var(--spacing-md);
+    height: 1px;
+    display: block;
   }
 }
 
-/* Small laptops (≤1366px) */
-@media (max-width: 85.375rem) {
-
-  /* 1366px */
-  .why-main {
-    max-width: 75rem;
-    /* 1200px */
-  }
-
-  .why-title {
-    font-size: 3.25rem;
-    /* 52px */
-  }
-
-  .why-column-left {
-    margin-top: var(--spacing-3xl);
-    /* 64px */
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .why-section {
+    padding-right: 40px;
   }
 }
-
-/* Standard laptops (≤1440px) */
-@media (max-width: 90rem) {
-
-  /* 1440px */
-  .why-title {
-    font-size: 3.5rem;
-    /* 56px */
-  }
-}
-
-/* Large screens (≥1920px) */
-/* Large screens media query removed */
-/* Ultra-wide screens media query removed */

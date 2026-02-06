@@ -1,10 +1,8 @@
 import './WhoAreWeSection.css';
-import CTASection from './CTASection';
-import Footer from './Footer';
 import Navbar from './Navbar';
 import { TextGradientScroll } from './ui/text-gradient-scroll';
 import { FlickeringGrid } from './ui/flickering-grid';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import logoSvg from '../assets/Asset 1.svg';
 import layer1Image from '../assets/Layer 1.png';
@@ -16,6 +14,15 @@ import founderPradeepImage from '../assets/founder_pradeep.jpg';
 import founderEyalImage from '../assets/founder_eyal.jpg';
 import founderCardBg from '../assets/founder_card_bg.svg';
 import leftImage from '../assets/left 1.png';
+
+// Lazy load below-the-fold sections
+const CTASection = lazy(() => import('./CTASection'));
+const Footer = lazy(() => import('./Footer'));
+
+// Lightweight loader
+const SectionLoader = () => (
+    <div style={{ minHeight: '30vh', background: 'transparent' }} />
+);
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
 
@@ -107,7 +114,7 @@ function WhoAreWeSection() {
                 {/* Hero Section */}
                 <section className="whoarewe-hero">
                     {/* Flickering Grid Effects */}
-                    <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
+                    <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none hero-canvas-container">
                         <FlickeringGrid
                             className="absolute inset-0 z-0 motion-safe:animate-pulse"
                             {...GRID_CONFIG.background}
@@ -126,12 +133,15 @@ function WhoAreWeSection() {
 
                     <div className="whoarewe-hero-inner">
                         <h1 className="whoarewe-hero-title">
-                            AI CHANGES THE <br className="whoarewe-hero-break" />
-                            EQUATION IN HOW VALUE IS CREATED.
+                            AI CHANGES THE <br className="whoarewe-hero-break-desktop" />
+                            EQUATION <br className="whoarewe-hero-break-tablet" />
+                            IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED</span>
                         </h1>
 
                         <p className="whoarewe-hero-subtitle">
-                            Chartered Vectorial is an AI-native, applied AI firm. We use AI to accelerate how we consult and how we engineer, so clients get to production faster.
+                            Chartered Vectorial is an AI-native, applied AI firm. We build AI products
+                            shaped by consulting insight, configured to your workflows and user experience,
+                            deployed in weeks.
                         </p>
 
                     </div>
@@ -145,9 +155,9 @@ function WhoAreWeSection() {
                     <div className="whoarewe-content-text">
                         {[
                             "The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall.",
-                            "We built Chartered Vectorial to close that gap, and we did it with AI.",
-                            "Our AI agents validate transformation hypotheses with consulting-grade rigor. Our AI agents debate approaches, write code, and review each other's work before anything ships. Humans stay in control at every gate.",
-                            "We're an AI-native consulting firm focused on AI transformation. We don't just advise on AI, we use it to deliver."
+                            "We built Chartered Vectorial to fix that, by fusing consulting depth with AI-powered product delivery.",
+                            "Our AI agents validate transformation hypotheses, debate approaches, and writeproduction-grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
+                            "We're an AI-native product studio. We don't just advise on AI, we deliver it."
                         ].map((text, index) => (
                             <motion.div
                                 key={index}
@@ -188,66 +198,62 @@ function WhoAreWeSection() {
                 {/* Continuation Section */}
                 <section className="whoarewe-continuation">
                     {/* Top Section: Grid Layout */}
-                    <div className="whoarewe-continuation-grid">
-                        {/* Left Column: Main Headline */}
+                    {/* Top Row: Image and Features Grid */}
+                    <div className="whoarewe-continuation-top-row">
                         <div className="whoarewe-continuation-left">
                             <div className="whoarewe-left-image-glow"></div>
                             <img src={leftImage} alt="" className="whoarewe-left-image" />
-                            <div className="whoarewe-continuation-sticky">
-                                <h1 className="whoarewe-continuation-headline">
-                                    Small by design.<br />
-                                    Fast by conviction.<br />
-                                    Built for companies{' '}
-                                    <span className="whoarewe-highlight">ready to move.</span>
-                                </h1>
-                            </div>
                         </div>
 
-                        {/* Right Column: Content Grid */}
                         <div className="whoarewe-continuation-right">
-                            {/* 2x2 Feature Grid */}
                             <div ref={featuresGridRef} className={`whoarewe-features-grid ${featuresVisible ? 'features-visible' : ''}`}>
-                                {/* Feature 1 */}
                                 <div className="whoarewe-feature-item">
-                                    <h3 className="whoarewe-feature-title">Leverage over headcount</h3>
+                                    <h3 className="whoarewe-feature-title">Leverage over <br />headcount</h3>
                                     <p className="whoarewe-feature-text">
-                                        A small team with the right systems can out-deliver large teams. Our AI agents multiply what each person can move.
-                                    </p>
+                                        A small team with the right products can out-deliver large
+                                        teams. Our AI agents multiply what each person can ship.                                    </p>
                                 </div>
-
-                                {/* Feature 2 */}
                                 <div className="whoarewe-feature-item">
-                                    <h3 className="whoarewe-feature-title">Strategy that ships</h3>
+                                    <h3 className="whoarewe-feature-title whoarewe-feature-title-strategy">Strategy that <br />ships</h3>
                                     <p className="whoarewe-feature-text">
-                                        Slide decks don't create value. AI systems in production do. We stay until the work delivers.
-                                    </p>
+                                        Slide decks don't create value. AI products in production do.
+                                        We stay until our products delivers.                                    </p>
                                 </div>
-
-                                {/* Feature 3 */}
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">
                                         Built by agents, <br className="whoarewe-feature-break" />governed by humans
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        AI agents do the heavy lifting- validating, building, reviewing. Humans approve what matters.
-                                    </p>
+                                        AI agents do the heavy lifting validating, building, reviewing.
+                                        You get customised products for your workflows, governed by
+                                        humans at every gate.                                    </p>
                                 </div>
-
-                                {/* Feature 4 */}
                                 <div className="whoarewe-feature-item">
                                     <h3 className="whoarewe-feature-title">
                                         Access, not <br className="whoarewe-feature-break" />exclusivity
                                     </h3>
                                     <p className="whoarewe-feature-text">
-                                        World-class capability shouldn't be reserved for giants. The barrier dropped. We're here to prove it.
-                                    </p>
+                                        World-class AI products shouldn't be reserved for giants. We
+                                        build them for companies ready to move.                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            {/* Bottom Wide Text */}
-                            <div className="whoarewe-continuation-bottom">
+                    {/* Bottom Row: Headline and Description aligned by baseline */}
+                    <div className="whoarewe-continuation-bottom-row">
+                        <div className="whoarewe-continuation-left">
+                            <h1 className="whoarewe-continuation-headline">
+                                Small by design.<br />
+                                Fast by conviction.<br />
+                                Built for companies <span className="whoarewe-highlight">ready to move.</span>
+                            </h1>
+                        </div>
+                        <div className="whoarewe-continuation-right">
+                            <div className="whoarewe-continuation-description-wrapper">
                                 <p className="whoarewe-continuation-bottom-text">
-                                    We embed with client teams from strategy through production. No handoffs. No abandoned pilots. No reports that gather dust. We think with you. We build with you. We stay until it works.
+                                    <span style={{ display: 'block' }}>We learn how you work. We shape what changes.</span>
+                                    <span style={{ display: 'block' }}>We build what fits. We stay until it runs.</span>
                                 </p>
                             </div>
                         </div>
@@ -279,8 +285,8 @@ function WhoAreWeSection() {
                             <div className="whoarewe-image-card-back">
 
                                 <div className="whoarewe-card-body">
-                                    Production-grade AI agents- tested, governed, audit-ready. Delivered in weeks, not months.
-                                </div>
+                                    Production-grade AI products — configured to your workflows,
+                                    governed, audit-ready. Delivered in weeks, not months.                                 </div>
 
                             </div>
                         </div>
@@ -308,7 +314,7 @@ function WhoAreWeSection() {
                     {/* Meet the Founders Section */}
                     <div className="whoarewe-founders">
                         <div className="whoarewe-founders-header">
-                            <h2 className="whoarewe-founders-title">Meet<br /> <span className="whoarewe-highlight">the Founders</span></h2>
+                            <h2 className="whoarewe-founders-title">Meet <br className="founder-br" /><span className="whoarewe-highlight">the Founders</span></h2>
                             <p className="whoarewe-founders-description">
                                 The Founders of Chartered Vectorial bring experience across engineering, operations, and large-scale system delivery.
                             </p>
@@ -316,7 +322,7 @@ function WhoAreWeSection() {
                         <div className="whoarewe-founders-grid">
                             <div className="whoarewe-founder-card">
                                 <div className="whoarewe-founder-front">
-                                    <img src={founderEyalImage} alt="Eyal Agmoni" className="whoarewe-founder-image" style={{ transform: 'translateY(-10px)' }} />
+                                    <img src={founderEyalImage} alt="Pradeep Menon" className="whoarewe-founder-image" />
                                     <div className="whoarewe-founder-gradient"></div>
                                     <h3 className="whoarewe-founder-name">Pradeep Menon</h3>
                                 </div>
@@ -325,13 +331,13 @@ function WhoAreWeSection() {
                                     <div className="whoarewe-founder-back-content">
                                         <h3 className="whoarewe-founder-back-name">Pradeep Menon</h3>
                                         <p className="whoarewe-founder-back-designation">Founder & CEO, Chartered Vectorial</p>
-                                        <p className="whoarewe-founder-back-bio">Pradeep Menon is the Founder and CEO of Chartered Vectorial. He started CV to build the AI firm he wished existed, one that ships production-grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO—Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia. He's a published author and keynote speaker on AI transformation.</p>
+                                        <p className="whoarewe-founder-back-bio">Pradeep Menon is the founder and CEO of Chartered Vectorial. He started CV to build the AI firm he wished existed, one that ships production-grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia. He's a published author and keynote speaker on AI transformation, strategy, and business case development. Know where AI fits before you commit budget.</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="whoarewe-founder-card">
                                 <div className="whoarewe-founder-front">
-                                    <img src={founderPradeepImage} alt="Pradeep Menon" className="whoarewe-founder-image" style={{ height: '130%', transform: 'translateY(-15px)' }} />
+                                    <img src={founderPradeepImage} alt="Eyal Agmoni" className="whoarewe-founder-image" />
                                     <div className="whoarewe-founder-gradient"></div>
                                     <h3 className="whoarewe-founder-name">Eyal Agmoni</h3>
                                 </div>
@@ -356,10 +362,14 @@ function WhoAreWeSection() {
             </div>
 
             {/* CTA Section */}
-            <CTASection />
+            <Suspense fallback={<SectionLoader />}>
+                <CTASection />
+            </Suspense>
 
             {/* Footer */}
-            <Footer />
+            <Suspense fallback={<SectionLoader />}>
+                <Footer />
+            </Suspense>
         </div>
     );
 }

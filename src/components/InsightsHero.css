@@ -4,6 +4,7 @@
   position: relative;
   background: #020F14;
   overflow: hidden;
+  z-index: 10;
 }
 
 .insights-hero .light-rays-container {
@@ -34,37 +35,43 @@
 
 .insights-hero-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
+  /* Shifted up from 50% */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 5;
   pointer-events: auto;
+  width: 90%;
+  /* Added width for mobile scaling */
+  max-width: 800px;
 }
 
 .insights-hero-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 50px;
+  font-size: clamp(2.5rem, 10vw, 3.125rem);
+  /* Fluid sizing */
   font-weight: 500;
   color: white;
-  margin: 0 0 21px 0;
-  line-height: normal;
-  text-transform: capitalize;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
 }
 
 .insights-hero-subtitle {
   font-family: 'Blauer Nue', sans-serif;
-  font-size: 20px;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #fafafc;
-  margin: 0;
+  margin: 0 auto;
   max-width: 720px;
-  line-height: 1.1;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .insights-scroll-to-explore {
   position: absolute;
-  bottom: 15vh;
+  bottom: 25vh;
+  /* Shifted up from 15vh */
   left: 50%;
   transform: translateX(-50%);
   font-family: "Stage Grotesk", sans-serif;
@@ -97,14 +104,34 @@
 
 @media (max-width: 768px) {
   .insights-hero {
-    height: 400px;
+    height: 100vh;
+  }
+
+  .insights-hero-content {
+    width: 95%;
+    /* Maximum expansion on mobile */
+    padding: 0 10px;
   }
 
   .insights-hero-title {
-    font-size: 48px;
+    font-size: 2.25rem;
+    /* Increased for mobile */
+    margin-bottom: 24px;
   }
 
   .insights-hero-subtitle {
-    font-size: 16px;
+    width: 80%;
+    font-size: 12px;
+    /* Reduced for mobile */
+    padding: 0;
+    max-width: 100%;
+    /* Allow full width of parent */
+    line-height: 1.5;
+  }
+
+  .insights-scroll-to-explore {
+    bottom: 80px;
+    /* Shifted up from 40px */
+    /* Moved to bottom as requested */
   }
 }

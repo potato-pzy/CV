@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './WhatWeDo.css';
 import Navbar from './Navbar';
@@ -13,14 +13,65 @@ import envisionLogo from '../assets/envision 1.png';
 import proveLogo from '../assets/prove 1.png';
 import buildLogo from '../assets/build 1.png';
 import adaptLogo from '../assets/Adopt 1.png';
-import blog1 from '../assets/discovery_native.jpg';
-import blog2 from '../assets/agent_built.jpg';
-import blog3 from '../assets/accelerators_native.jpg';
+import strategicIntelligence from '../assets/carousal/strategicintelligence.jpg.jpeg';
+import documentIntelligence from '../assets/carousal/documentintelligence.jpg.jpeg';
+import researchIntelligence from '../assets/carousal/research_intelligence.jpg.jpeg';
+import processIntelligence from '../assets/carousal/Processintelligence.jpg.jpeg';
+import functionalIntelligence from '../assets/carousal/functionalintelligence.jpg.jpeg';
 
 function WhatWeDo() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
   const location = useLocation();
+
+  const mobileScrollRef = useRef(null);
+  const isUserScrolling = useRef(false);
+  const scrollTimeout = useRef(null);
+
+  // Handle mobile scroll sync
+  const handleMobileScroll = () => {
+    isUserScrolling.current = true;
+    clearTimeout(scrollTimeout.current);
+
+    // Reset user scrolling flag after 100ms of no scroll events
+    scrollTimeout.current = setTimeout(() => {
+      isUserScrolling.current = false;
+    }, 1000); // Increased buffer to prevent fighting
+
+    if (mobileScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = mobileScrollRef.current;
+      const totalSlides = aiSlides.length;
+
+      // Calculate index based on scroll progress
+      // (scrollWidth - clientWidth) is the maximum possible scrollLeft
+      const maxScroll = scrollWidth - clientWidth;
+      const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+      const newIndex = Math.round(progress * (totalSlides - 1));
+
+      if (newIndex !== currentSlide && newIndex >= 0 && newIndex < totalSlides) {
+        setCurrentSlide(newIndex);
+      }
+    }
+  };
+
+  // Sync scroll when slide changes (if not from scroll)
+  useEffect(() => {
+    if (mobileScrollRef.current && !isUserScrolling.current) {
+      const width = mobileScrollRef.current.offsetWidth;
+      // We need to calculate based on card width + gap for more precision if needed, 
+      // but here we are using the simple ratio assumption from before or just offsetWidth if 1 card per view.
+      // Based on CSS, mobile card is 85% width. The scroll snap point is centered.
+      // A more robust way is to query the specific child element.
+      const card = mobileScrollRef.current.children[currentSlide];
+      if (card) {
+        const scrollLeft = card.offsetLeft - (mobileScrollRef.current.offsetWidth - card.offsetWidth) / 2;
+        mobileScrollRef.current.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [currentSlide]);
 
   // Scroll to section if hash is present
   useEffect(() => {
@@ -66,44 +117,61 @@ function WhatWeDo() {
 
   const frameworks = [
     {
-      title: 'Envision',
-      description: 'Discover AI transformation opportunities with quantified ROI — so you invest where it matters most.',
+      title: 'Learn',
+      description: 'We embed with your team to understand how you actually work.',
       icon: envisionLogo
     },
     {
-      title: 'Prove',
-      description: 'Validate feasibility fast. Agentic prototypes in weeks — with real ROI data before you commit to scale.',
+      title: 'Shape',
+      description: 'We identify where AI creates leverage, and configure products to fit.',
       icon: proveLogo
     },
     {
       title: 'Build',
-      description: 'Production-grade AI at scale. Architected for governance, resilience, and measurable business outcomes.',
+      description: 'You ship. Prototypes, production systems, client demos, you\'d rather show than tell.',
       icon: buildLogo
     },
     {
-      title: 'Adopt',
-      description: 'Enterprise-wide adoption. Continuous enhancement. AI that scales across teams, functions, and markets.',
+      title: 'Run',
+      description: 'We stay until it runs. Governance built-in. Audit-ready.',
       icon: adaptLogo
     }
   ];
 
   const aiSlides = [
     {
-      title: 'AI-POWERED DISCOVERY',
-      image: blog1,
-      text: 'Our AI agents validate transformation hypotheses with consulting-grade rigor, identifying opportunities and quantifying ROI in days, not weeks.',
+      title: 'Strategic Intelligence',
+      image: strategicIntelligence,
+      text: 'Where should AI go?',
+      linkText: 'Where should AI go?',
       blogLink: '/contact'
     },
     {
-      title: 'Agent built solutions',
-      image: blog2,
-      text: 'AI agents analyze, architect, code, and review together. Humans approve what matters. Production-grade output, accelerated timelines.',
+      title: 'Document Intelligence',
+      image: documentIntelligence,
+      text: "What's trapped in your documents?",
+      linkText: "What's trapped in your documents?",
       blogLink: '/contact'
     },
     {
-      title: 'Pre-built Accelerators',
-      image: blog3,
-      text: 'Battle-tested components for compliance, document intelligence, and sales enablement. Proven starting points, customized for your context.',
+      title: 'Research Intelligence',
+      image: researchIntelligence,
+      text: 'What are you missing?',
+      linkText: 'What are you missing?',
+      blogLink: '/contact'
+    },
+    {
+      title: 'Process Intelligence',
+      image: processIntelligence,
+      text: "What's slowing you down?",
+      linkText: "What's slowing you down?",
+      blogLink: '/contact'
+    },
+    {
+      title: 'Functional Intelligence',
+      image: functionalIntelligence,
+      text: 'What could run itself?',
+      linkText: 'What could run itself?',
       blogLink: '/contact'
     }
   ];
@@ -142,6 +210,18 @@ function WhatWeDo() {
     setCurrentSlide(index);
   };
 
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Don't auto-advance if user is interacting
+      if (!isUserScrolling.current) {
+        setDirection(1);
+        setCurrentSlide((prev) => (prev + 1) % aiSlides.length);
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [aiSlides.length]);
+
   return (
     <div className="what-we-do-page">
       <Navbar />
@@ -153,10 +233,14 @@ function WhatWeDo() {
         </div>
         <div className="hero-content-overlay">
           <div className="what-we-do-hero">
-            <h1 className="what-we-do-title">FROM STRATEGY TO PRODUCTION</h1>
+            <h1 className="what-we-do-title">The VectorEdge Suite</h1>
+
             <p className="what-we-do-subtitle">
-              We embed with your team to validate where AI fits, build production-grade agents, and stay until adoption is complete.
+              Five forms of intelligence — built to fit how you work.
             </p>
+
+
+
           </div>
           <div className="scroll-to-explore">
             <span>Scroll to explore</span>
@@ -167,6 +251,125 @@ function WhatWeDo() {
       <section className="what-we-do-section" id="what-we-do-section">
         <div className="what-we-do-glow"></div>
         <div className="what-we-do-container">
+
+          {/* AI Discovery card */}
+          <div id="blog" className="ai-discovery-section">
+            <div className="ai-discovery-bg-green-glow" />
+            {/* Header - Restored to top for baseline alignment */}
+            <div className="ai-discovery-header">
+              <h2 className="ai-discovery-section-title">The Five Intelligences</h2>
+              <p className="ai-discovery-section-subtitle">Intelligence, applied where it matters.</p>
+            </div>
+
+            <div className="ai-discovery-carousel-wrapper">
+              {/* Mobile Scroll Setup */}
+              <div
+                className="ai-discovery-mobile-scroll"
+                ref={mobileScrollRef}
+                onScroll={handleMobileScroll}
+              >
+                {aiSlides.map((slide, index) => (
+                  <div key={index} className="ai-discovery-mobile-card">
+                    <Link to={slide.blogLink || '#'} className="ai-discovery-mobile-link">
+                      <div className="ai-discovery-mobile-image-container">
+                        <img src={slide.image} alt="" className="ai-discovery-bg-image" />
+                        <div className="ai-discovery-gradient-overlay" />
+                      </div>
+                    </Link>
+                    <div className="ai-discovery-text-overlay">
+                      <p className="ai-discovery-text">{slide.title}</p>
+                      {slide.blogLink && (
+                        <Link to={slide.blogLink} className="ai-discovery-blog-link">
+                          {slide.linkText || 'Learn More →'}
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Carousel */}
+              <div className="ai-discovery-desktop-carousel">
+                <div className="ai-discovery-carousel-glow" />
+                <AnimatePresence initial={false} mode="popLayout" custom={direction}>
+                  <motion.div
+                    key={currentSlide}
+                    custom={direction}
+                    variants={cardVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: { type: 'spring', stiffness: 260, damping: 34, mass: 0.9 },
+                      opacity: { duration: 0.25, ease: 'easeOut' }
+                    }}
+                    className="ai-discovery-card"
+                  >
+                    {/* Image Link Wrapper */}
+                    <Link
+                      to={aiSlides[currentSlide].blogLink || '#'}
+                      className="ai-discovery-image-link"
+                      style={{ textDecoration: 'none', display: 'block' }}
+                    >
+                      {/* Background with image */}
+                      <div className="ai-discovery-image-container">
+                        <img
+                          src={aiSlides[currentSlide].image}
+                          alt=""
+                          className="ai-discovery-bg-image"
+                        />
+                        <div className="ai-discovery-gradient-overlay" />
+                      </div>
+                    </Link>
+
+                    {/* Text overlay at bottom */}
+                    <div className="ai-discovery-text-overlay">
+                      <p className="ai-discovery-text">
+                        {aiSlides[currentSlide].title}
+                      </p>
+                      {aiSlides[currentSlide].blogLink && (
+                        <Link
+                          to={aiSlides[currentSlide].blogLink}
+                          className="ai-discovery-blog-link"
+                        >
+                          {aiSlides[currentSlide].linkText || 'Learn More →'}
+                        </Link>
+                      )}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Pagination dots - outside card */}
+            <div className="ai-discovery-pagination">
+              {aiSlides.map((_, index) => (
+                <span
+                  key={index}
+                  className={`ai-discovery-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => goToSlide(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+
+            {/* Arrow buttons - moved to bottom */}
+            <div className="ai-discovery-controls">
+              <button className="ai-discovery-btn ai-discovery-btn-prev" onClick={prevSlide} aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button className="ai-discovery-btn ai-discovery-btn-next" onClick={nextSlide} aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
           {/* Framework Cards Grid */}
           <div className="framework-grid">
@@ -193,104 +396,14 @@ function WhatWeDo() {
             ))}
           </div>
 
-          {/* AI Discovery card */}
-          <div id="blog" className="ai-discovery-section">
-            {/* Radial glow effect */}
-            <div className="ai-discovery-ellipse-glow" />
-
-            {/* Header */}
-            <div className="ai-discovery-header">
-              <h2 className="ai-discovery-section-title">AI-native Delivery</h2>
-              <p className="ai-discovery-section-subtitle">We use AI to deliver AI transformation</p>
-            </div>
-
-            <div className="ai-discovery-carousel-wrapper">
-              <AnimatePresence initial={false} mode="popLayout" custom={direction}>
-                <motion.div
-                  key={currentSlide}
-                  custom={direction}
-                  variants={cardVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: 'spring', stiffness: 260, damping: 34, mass: 0.9 },
-                    opacity: { duration: 0.25, ease: 'easeOut' }
-                  }}
-                  className="ai-discovery-card"
-                >
-                  {/* Image Link Wrapper */}
-                  <Link
-                    to={aiSlides[currentSlide].blogLink || '#'}
-                    className="ai-discovery-image-link"
-                    style={{ textDecoration: 'none', display: 'block' }}
-                  >
-                    {/* Background with image */}
-                    <div className="ai-discovery-image-container">
-                      <img
-                        src={aiSlides[currentSlide].image}
-                        alt=""
-                        className="ai-discovery-bg-image"
-                      />
-                      <div className="ai-discovery-gradient-overlay" />
-
-                      {/* Title inside image */}
-                      <h3 className="ai-discovery-title">{aiSlides[currentSlide].title}</h3>
-                    </div>
-                  </Link>
-
-                  {/* Text overlay at bottom */}
-                  <div className="ai-discovery-text-overlay">
-                    <p className="ai-discovery-text">
-                      {aiSlides[currentSlide].text}
-                    </p>
-                    {aiSlides[currentSlide].blogLink && (
-                      <Link
-                        to={aiSlides[currentSlide].blogLink}
-                        className="ai-discovery-blog-link"
-                      >
-                        Learn More →
-                      </Link>
-                    )}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Pagination dots - outside card */}
-            <div className="ai-discovery-pagination">
-              {aiSlides.map((_, index) => (
-                <span
-                  key={index}
-                  className={`ai-discovery-dot ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => goToSlide(index)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Arrow buttons - outside card */}
-            <div className="ai-discovery-controls">
-              <button className="ai-discovery-btn ai-discovery-btn-prev" onClick={prevSlide} aria-label="Previous">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button className="ai-discovery-btn ai-discovery-btn-next" onClick={nextSlide} aria-label="Next">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
         </div>
       </section>
 
       <AcceleratorsSection />
-      <CTASection />
+      <CTASection
+        title="What comes next is worth building together."
+        buttonText="SEE IT IN ACTION"
+      />
       <Footer />
     </div>
   );

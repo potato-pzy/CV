@@ -47,6 +47,22 @@ const Hyperspeed = ({
     const appRef = useRef(null);
 
     useEffect(() => {
+        // Mobile detection - optimize for performance on small screens
+        const isMobile = typeof window !== 'undefined' &&
+            (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768);
+
+        // Adjust settings for mobile to ensure 60fps
+        const optimizedOptions = {
+            ...effectOptions,
+            ...(isMobile ? {
+                lanesPerRoad: 2,
+                lightPairsPerRoadWay: 15,
+                totalSideLightSticks: 8,
+                length: 300,
+                fov: 100, // Wider FOV for mobile
+            } : {})
+        };
+
         if (appRef.current) {
             appRef.current.dispose();
             const container = document.getElementById('lights');
@@ -343,6 +359,7 @@ const Hyperspeed = ({
         class App {
             constructor(container, options = {}) {
                 this.options = options;
+                this.isMobile = isMobile; // Pass mobile status
                 if (this.options.distortion == null) {
                     this.options.distortion = {
                         uniforms: distortion_uniforms,
@@ -351,11 +368,12 @@ const Hyperspeed = ({
                 }
                 this.container = container;
                 this.renderer = new THREE.WebGLRenderer({
-                    antialias: false,
-                    alpha: true
+                    antialias: !isMobile, // Disable fixed AA on mobile for performance
+                    alpha: true,
+                    powerPreference: "high-performance"
                 });
                 this.renderer.setSize(container.offsetWidth, container.offsetHeight, false);
-                this.renderer.setPixelRatio(window.devicePixelRatio);
+                this.renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
                 this.composer = new EffectComposer(this.renderer);
                 container.append(this.renderer.domElement);
 
@@ -429,29 +447,37 @@ const Hyperspeed = ({
 
             initPasses() {
                 this.renderPass = new RenderPass(this.scene, this.camera);
-                this.bloomPass = new EffectPass(
-                    this.camera,
-                    new BloomEffect({
-                        luminanceThreshold: 0.2,
-                        luminanceSmoothing: 0,
-                        resolutionScale: 1
-                    })
-                );
-
-                const smaaPass = new EffectPass(
-                    this.camera,
-                    new SMAAEffect({
-                        preset: SMAAPreset.MEDIUM,
-                        searchImage: SMAAEffect.searchImageDataURL,
-                        areaImage: SMAAEffect.areaImageDataURL
-                    })
-                );
-                this.renderPass.renderToScreen = false;
-                this.bloomPass.renderToScreen = false;
-                smaaPass.renderToScreen = true;
                 this.composer.addPass(this.renderPass);
-                this.composer.addPass(this.bloomPass);
-                this.composer.addPass(smaaPass);
+
+                // PERFORMANCE: Disable post-processing on mobile
+                if (!this.isMobile) {
+                    this.bloomPass = new EffectPass(
+                        this.camera,
+                        new BloomEffect({
+                            luminanceThreshold: 0.2,
+                            luminanceSmoothing: 0,
+                            resolutionScale: 1
+                        })
+                    );
+
+                    const smaaPass = new EffectPass(
+                        this.camera,
+                        new SMAAEffect({
+                            preset: SMAAPreset.MEDIUM,
+                            searchImage: SMAAEffect.searchImageDataURL,
+                            areaImage: SMAAEffect.areaImageDataURL
+                        })
+                    );
+
+                    this.renderPass.renderToScreen = false;
+                    this.bloomPass.renderToScreen = false;
+                    smaaPass.renderToScreen = true;
+
+                    this.composer.addPass(this.bloomPass);
+                    this.composer.addPass(smaaPass);
+                } else {
+                    this.renderPass.renderToScreen = true;
+                }
             }
 
             loadAssets() {
@@ -1105,9 +1131,12 @@ const Hyperspeed = ({
             const options = { ...effectOptions };
             options.distortion = distortions[options.distortion];
 
-            const myApp = new App(container, options);
-            appRef.current = myApp;
-            myApp.loadAssets().then(myApp.init);
+            // Defer heavy Three.js initialization to allow the loader animation to start smoothly
+            setTimeout(() => {
+                const myApp = new App(container, options);
+                appRef.current = myApp;
+                myApp.loadAssets().then(myApp.init);
+            }, 100);
         })();
 
         return () => {

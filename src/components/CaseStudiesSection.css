@@ -53,11 +53,10 @@
 /* Main title - fluid typography */
 .case-studies-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2.25rem, 5vw, 4.375rem);
-    /* 36px to 70px fluid */
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.04em;
-    line-height: 1.25;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     color: var(--text-white);
     margin: 0;
 }
@@ -231,13 +230,13 @@
 /* Quote text */
 .quote-text {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(2rem, 4vw, 3.75rem);
-    /* 32px to 60px fluid */
-    font-weight: 400;
-    letter-spacing: -0.04em;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
     line-height: 1.1;
     color: var(--text-white);
     margin: 0;
+    text-align: inherit;
 }
 
 /* ============================================
@@ -249,13 +248,17 @@
 
     /* 640px */
     .case-studies-section {
-        padding: var(--spacing-2xl) var(--spacing-md);
-        /* 48px 16px */
+        padding: var(--spacing-2xl) var(--spacing-md) 0;
+        /* 48px 16px 0 - Reduced bottom padding */
     }
 
     .case-studies-header {
         margin-bottom: var(--spacing-2xl);
-        /* 48px */
+    }
+
+    .case-studies-title,
+    .quote-text {
+        font-size: 2.25rem;
     }
 
     .case-studies-grid {
@@ -274,8 +277,9 @@
     }
 
     .case-studies-quote {
-        min-height: 12.5rem;
-        /* 200px */
+        min-height: auto;
+        padding: var(--spacing-xl) 0 var(--spacing-2xl);
+        text-align: center;
     }
 }
 
@@ -284,8 +288,12 @@
 
     /* 641px - 1024px */
     .case-studies-column-right {
-        padding-top: var(--spacing-3xl);
-        /* 64px */
+        padding-top: 40px;
+        /* Reduced stagge for portrait */
+    }
+
+    .case-study-card {
+        max-width: 100%;
     }
 }
 
@@ -610,5 +618,13 @@
     .case-tech-stack-table td {
         padding: 12px;
         font-size: 14px;
+    }
+}
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+    .case-studies-section {
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }

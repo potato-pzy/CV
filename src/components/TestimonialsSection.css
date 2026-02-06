@@ -98,15 +98,12 @@
 /* Main title - fluid typography */
 .testimonials-title {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.125rem);
-  /* 32px to 50px fluid */
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--text-white);
   margin: 0;
-  text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.1);
-  /* 30px */
 }
 
 /* Line break control */
@@ -167,6 +164,13 @@
   /* 1024px */
   .testimonial-card-side {
     display: block;
+  }
+}
+
+/* CRITICAL: Mobile override - show side cards on smaller screens */
+@media (max-width: 40rem) {
+  .testimonial-card-side {
+    display: block !important;
   }
 }
 
@@ -422,32 +426,74 @@
   .testimonials-section {
     padding: var(--spacing-2xl) var(--spacing-md);
     /* 48px 16px */
+    overflow-x: visible;
+    /* Allow side cards to show */
   }
 
   .testimonials-container {
     padding: var(--spacing-2xl) var(--spacing-md);
     /* 48px 16px */
+    overflow-x: visible;
+    /* Ensure side cards are not clipped */
   }
 
   .testimonials-header {
     margin-bottom: var(--spacing-2xl);
-    /* 48px */
+  }
+
+  .testimonials-title {
+    font-size: 2.25rem;
   }
 
   .testimonials-carousel {
     height: auto;
     min-height: 21.875rem;
     /* 350px */
+    overflow: visible;
+    /* Allow side cards to show */
+    position: relative;
   }
 
   .testimonial-card-active {
     position: relative;
     transform: none;
     top: auto;
+    width: 75%;
+    /* Slightly narrower to show more of sides */
+    margin: 0 auto;
+    z-index: 20;
   }
 
   .testimonial-card-active:hover {
     transform: scale(1.01);
+  }
+
+  /* Show side cards on mobile - desktop-like carousel */
+  .testimonial-card-side {
+    display: block !important;
+    /* Force show */
+    width: 75%;
+    opacity: 1;
+    /* Full opacity, blur will provide the effect */
+    z-index: 1;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%) scale(0.8);
+    filter: blur(2px);
+    /* Add blur effect */
+    pointer-events: auto;
+    /* Allow clicking */
+    cursor: pointer;
+  }
+
+  .testimonial-card-left {
+    left: -40%;
+    /* Adjusted for better visibility */
+  }
+
+  .testimonial-card-right {
+    right: -40%;
+    /* Adjusted for better visibility */
   }
 
   .testimonial-card-inner {
@@ -499,6 +545,14 @@
   .testimonials-container {
     max-width: 75rem;
     /* 1200px */
+  }
+}
+
+/* Mobile horizontal padding */
+@media (max-width: 48rem) {
+  .testimonials-section {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
