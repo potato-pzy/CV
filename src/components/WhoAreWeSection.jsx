@@ -285,7 +285,7 @@ function WhoAreWeSection() {
                             <div className="whoarewe-image-card-back">
 
                                 <div className="whoarewe-card-body">
-                                    Production grade AI products — configured to your workflows,
+                                    Production grade AI products  configured to your workflows,
                                     governed, audit-ready. Delivered in weeks, not months.                                 </div>
 
                             </div>
