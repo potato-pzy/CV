@@ -155,7 +155,7 @@ function WhoAreWeSection() {
                     <div className="whoarewe-content-text">
                         {[
                             "The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall.",
-                            "We built Chartered Vectorial to fix that, by fusing consulting depth with AI-powered product delivery.",
+                            "We built Chartered Vectorial to fix that, by fusing consulting depth with AI powered product delivery.",
                             "Our AI agents validate transformation hypotheses, debate approaches, and writeproduction grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
                             "We're an AI-native product studio. We don't just advise on AI, we deliver it."
                         ].map((text, index) => (

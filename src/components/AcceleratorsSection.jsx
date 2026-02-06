@@ -27,7 +27,7 @@ const darkCards = [
   },
   {
     title: 'Compliance Checks',
-    body: 'AI-powered document review for regulatory checks. Audit-ready decisions in seconds.',
+    body: 'AI powered document review for regulatory checks. Audit-ready decisions in seconds.',
     icon: complianceIcon,
     underline: complianceLine,
   },
@@ -90,7 +90,7 @@ const lightCards = [
         title: 'The Solution',
         subsections: [
           {
-            heading: 'AI-Powered Sales Copilot',
+            heading: 'AI Powered Sales Copilot',
             content: 'Team Chartered Vectorial built an intelligent, chat-based assistant that gives sales teams instant, accurate answers to IFA operational and compliance questions, directly from approved documents.'
           },
           {
@@ -114,7 +114,7 @@ const lightCards = [
       {
         type: 'outcomes',
         title: 'Projected Outcomes and Platform Capabilities',
-        content: 'The IFA Sales Co-Pilot is designed to transform how sales teams respond to advisor queries. Where responses previously required hours of manual research across fragmented PDF documentation, the platform enables instant, citation-backed answers in seconds, representing a potential 95%+ reduction in query response time.\n\nBy eliminating manual document lookup, the solution is expected to significantly improve sales productivity, allowing representatives to redirect time from research toward strategic IFA engagement and relationship building. The AI-powered retrieval system consolidates 12+ Japanese PDF manuals into a unified conversational interface, creating a single source of truth for operational and compliance knowledge.\n\nEarly testing demonstrates the platform\'s ability to deliver consistent, document-grounded responses with source citations, reducing the risk of inconsistent or inaccurate guidance that can arise from manual interpretation. These capabilities position the sales team to support IFAs with greater speed, accuracy, and confidence as advisory complexity continues to grow.'
+        content: 'The IFA Sales Co-Pilot is designed to transform how sales teams respond to advisor queries. Where responses previously required hours of manual research across fragmented PDF documentation, the platform enables instant, citation-backed answers in seconds, representing a potential 95%+ reduction in query response time.\n\nBy eliminating manual document lookup, the solution is expected to significantly improve sales productivity, allowing representatives to redirect time from research toward strategic IFA engagement and relationship building. The AI powered retrieval system consolidates 12+ Japanese PDF manuals into a unified conversational interface, creating a single source of truth for operational and compliance knowledge.\n\nEarly testing demonstrates the platform\'s ability to deliver consistent, document-grounded responses with source citations, reducing the risk of inconsistent or inaccurate guidance that can arise from manual interpretation. These capabilities position the sales team to support IFAs with greater speed, accuracy, and confidence as advisory complexity continues to grow.'
       },
       {
         type: 'stack',
