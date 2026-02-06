@@ -83,11 +83,21 @@
     z-index: 1;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 48rem) and (orientation: landscape),
+(min-width: 64rem) {
     .products-left {
         text-align: left;
         align-items: flex-start;
-        transform: translateY(-1.5rem);
+        transform: translateY(-3.5rem);
+        gap: 0;
+    }
+
+    .products-label {
+        margin-bottom: 2rem;
+    }
+
+    .products-title {
+        margin-bottom: 2.5rem;
     }
 }
 

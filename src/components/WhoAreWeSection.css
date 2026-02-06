@@ -830,11 +830,13 @@
 }
 
 .whoarewe-founder-back-content {
-    height: 100%;
+    position: absolute;
+    inset: 0;
+    padding: 32px;
     display: flex;
     flex-direction: column;
+    z-index: 5;
     filter: blur(0) !important;
-    /* Ensure text remains sharp */
 }
 
 .whoarewe-founder-back-name {
@@ -844,6 +846,7 @@
     color: #ffffff;
     margin: 0 0 4px 0;
 }
+
 
 .whoarewe-founder-back-designation {
     font-family: "Blauer Nue", sans-serif;
@@ -859,11 +862,19 @@
     width: 95%;
     font-family: "Stage Grotesk", sans-serif;
     font-size: 16px;
-    line-height: 1.7 !important;
+    line-height: 1.8 !important;
     font-weight: 400;
     color: #ffffff;
     margin-top: auto;
     /* Pushes to bottom on desktop */
+}
+
+@media (min-width: 100rem) {
+
+    /* Larger than MacBook (1600px+) */
+    .whoarewe-founder-back-bio {
+        line-height: 1.3 !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -990,7 +1001,7 @@
     }
 
     .whoarewe-continuation-bottom-text {
-        text-align: right !important;
+        text-align: center !important;
         margin-left: 0 !important;
         max-width: 800px !important;
     }
@@ -999,8 +1010,20 @@
         margin-top: 0 !important;
         max-width: 100% !important;
         display: flex !important;
-        justify-content: flex-end !important;
+        justify-content: center !important;
         width: 100% !important;
+    }
+
+    .whoarewe-founder-back-name {
+        margin-bottom: 2px !important;
+    }
+
+    .whoarewe-founder-back-designation {
+        margin-top: 0 !important;
+    }
+
+    .whoarewe-founder-back-bio {
+        line-height: 1.1 !important;
     }
 }
 

@@ -203,8 +203,8 @@
 }
 
 .framework-icon {
-    width: 84px;
-    height: 84px;
+    width: 92.4px;
+    height: 92.4px;
     background: radial-gradient(circle, rgba(166, 246, 59, 0.4) 0%, rgba(166, 246, 59, 0.1) 40%, transparent 70%);
     border-radius: 50%;
     display: flex;
@@ -213,6 +213,7 @@
     position: relative;
     flex-shrink: 0;
     margin-bottom: 24px;
+    margin-left: -8px;
 }
 
 .framework-icon::after {
@@ -478,7 +479,7 @@
 
 .ai-discovery-text {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 27px;
+    font-size: 35.71px;
     color: #ffffff;
     line-height: 1.4;
     margin: 0;
@@ -488,7 +489,7 @@
 .ai-discovery-blog-link {
     display: inline-block;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 17px;
+    font-size: 19.55px;
     font-weight: 400;
     font-style: italic;
     color: #a6f63b;
@@ -637,9 +638,10 @@
     }
 
     .framework-icon {
-        width: 72px;
-        height: 72px;
+        width: 79.2px;
+        height: 79.2px;
         margin-bottom: 20px;
+        margin-left: -4px;
     }
 
     .framework-icon::after {

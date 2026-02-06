@@ -335,10 +335,10 @@
 /* Stat label - small descriptive text */
 .why-card-label {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: 12px;
+  font-size: 13.2px;
   font-weight: 200;
   color: #00AF66;
-
+  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
