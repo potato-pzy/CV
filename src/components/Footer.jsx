@@ -31,11 +31,13 @@ function Footer() {
           </div>
           <div className="footer-part-of-section">
             <span className="footer-part-of-text">a part of</span>
-            <img
-              src={footerSubLogo}
-              alt="Footer Sub Logo"
-              className="footer-sub-logo"
-            />
+            <a href="https://charteredgroup.com" target="_blank" rel="noopener noreferrer">
+              <img
+                src={footerSubLogo}
+                alt="Footer Sub Logo"
+                className="footer-sub-logo"
+              />
+            </a>
           </div>
           <p className="footer-copyright">© 2026 Chartered Vectorial.<br />All rights reserved.</p>
           <div className="footer-social-icons">
