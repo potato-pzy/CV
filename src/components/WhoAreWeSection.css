@@ -884,6 +884,14 @@
     }
 }
 
+/* Fix for MacBook zoomed (approx 1281px - 1600px) */
+@media (min-width: 1281px) and (max-width: 1600px) {
+    .whoarewe-founder-back-bio {
+        font-size: 13.5px;
+        line-height: 1.5 !important;
+    }
+}
+
 @media (max-width: 480px) {
     .whoarewe-founder-card {
         right: 16px;
