@@ -149,6 +149,39 @@
   }
 }
 
+.footer-part-of-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  max-width: 20rem;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-part-of-text {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-dark-gray);
+  text-align: left;
+}
+
+.footer-sub-logo {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 48rem) {
+  .footer-part-of-section {
+    justify-content: left;
+  }
+
+  .footer-sub-logo {
+    height: 2.5rem;
+  }
+}
+
 .footer-copyright {
   font-size: 0.875rem;
   font-weight: 300;

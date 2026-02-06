@@ -2,6 +2,7 @@ import './Footer.css';
 import { Link } from 'react-router-dom';
 import footerLogo from '../assets/footer_logo.png';
 import footerBg from '../assets/footer-bg.svg';
+import footerSubLogo from '../assets/footer sub.svg';
 import instagramIcon from '../assets/social_instagram.svg';
 import twitterIcon from '../assets/social_twitter.svg';
 import linkedinIcon from '../assets/social_linkedin.svg';
@@ -26,6 +27,14 @@ function Footer() {
             <img
               src={footerLogo}
               className="footer-logo-image"
+            />
+          </div>
+          <div className="footer-part-of-section">
+            <span className="footer-part-of-text">a part of</span>
+            <img
+              src={footerSubLogo}
+              alt="Footer Sub Logo"
+              className="footer-sub-logo"
             />
           </div>
           <p className="footer-copyright">© 2026 Chartered Vectorial.<br />All rights reserved.</p>
