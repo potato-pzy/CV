@@ -895,6 +895,16 @@
     }
 }
 
+/* Fix for gap ranges requested (12px) */
+@media (min-width: 1151px) and (max-width: 1280px),
+(min-width: 1025px) and (max-width: 1099px),
+(min-width: 481px) and (max-width: 767px) {
+    .whoarewe-founder-back-bio {
+        font-size: 12px;
+        line-height: 1.4 !important;
+    }
+}
+
 @media (max-width: 480px) {
     .whoarewe-founder-card {
         right: 16px;
