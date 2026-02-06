@@ -30,7 +30,7 @@ function Footer() {
             />
           </div>
           <div className="footer-part-of-section">
-            <span className="footer-part-of-text">a part of</span>
+            <span className="footer-part-of-text">A part of</span>
             <a href="https://charteredgroup.com" target="_blank" rel="noopener noreferrer">
               <img
                 src={footerSubLogo}

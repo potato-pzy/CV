@@ -4,8 +4,8 @@ import whySectionBg from '../assets/why-section-background.svg';
 
 const leftColumnCards = [
   {
-    title: 'Production-Grade Engineering',
-    titleParts: ['Production-Grade', 'Engineering'],
+    title: 'Production Grade Engineering',
+    titleParts: ['Production Grade', 'Engineering'],
     stat: '30–60%',
     body: "AI products engineered with enterprise rigor, tested, governed, audit-ready. Built by engineers who've shipped at scale.",
     label: 'Reduction in manual effort',

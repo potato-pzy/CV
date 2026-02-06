@@ -233,10 +233,10 @@ function WhatWeDo() {
         </div>
         <div className="hero-content-overlay">
           <div className="what-we-do-hero">
-            <h1 className="what-we-do-title">The VectorEdge Suite</h1>
+            <h1 className="what-we-do-title">THE VECTOREDGE SUITE</h1>
 
             <p className="what-we-do-subtitle">
-              Five forms of intelligence — built to fit how you work.
+              Five forms of intelligence built to fit how you work.
             </p>
 
 
