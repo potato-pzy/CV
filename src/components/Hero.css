@@ -259,8 +259,6 @@
     .hero-title {
         font-size: 3.125rem;
         max-width: none;
-        white-space: nowrap;
-        /* If space allows on Mac screens */
     }
 }
 

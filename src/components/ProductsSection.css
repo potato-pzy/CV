@@ -28,15 +28,6 @@
     }
 }
 
-@media (min-width: 48rem) and (orientation: landscape),
-(min-width: 64rem) {
-    .about-image-container {
-        position: relative;
-        top: 8.4375rem;
-        left: 15.625rem;
-    }
-}
-
 .products-bg-glow {
     position: absolute;
     top: 50%;
@@ -54,11 +45,17 @@
     width: 100%;
     max-width: var(--container-2xl);
     margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+    padding: 0;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-2xl);
     align-items: center;
+}
+
+@media (max-width: 48rem) {
+    .products-container {
+        padding-left: var(--spacing-lg);
+    }
 }
 
 @media (min-width: 60rem),
@@ -396,6 +393,10 @@
         /* Reduced from 7.5rem */
         margin-bottom: 1.5rem;
         padding-right: 0;
+        
+    }
+    .products-container{
+        margin-left: 1rem;   
     }
 
     .products-left {

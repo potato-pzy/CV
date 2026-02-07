@@ -153,10 +153,9 @@
 }
 
 /* Large screens media query removed */
-/* Mobile horizontal padding */
 @media (max-width: 48rem) {
   .careers-cta-section {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
   }
 }

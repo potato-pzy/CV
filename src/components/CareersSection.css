@@ -5,6 +5,7 @@
     color: white;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
 }
 
 .careers-background {
@@ -76,7 +77,7 @@
     max-width: 82.5rem;
     width: 100%;
     margin: 0 auto;
-    padding: 8rem 2rem 0;
+    padding: 8rem var(--spacing-lg) 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -84,22 +85,21 @@
     min-height: 100vh;
     position: relative;
     z-index: 3;
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .careers-hero-container {
-        padding: 8rem 4.5rem 0;
+        padding: 8rem var(--spacing-2xl) 0;
     }
 }
 
 .careers-hero-content {
     max-width: 56.25rem;
+    width: 100%;
     text-align: left;
-    left: 0;
-    /* Reset desktop offset */
-    top: 0;
-    /* Reset desktop offset */
     position: relative;
+    min-width: 0;
 }
 
 .careers-hero-title {
@@ -127,10 +127,9 @@
     color: #A6F63B;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 64rem) {
     .careers-hero-title {
         font-size: 3rem;
-        /* Optimized for tablet portrait/landscape */
         line-height: 1.15;
     }
 
@@ -143,49 +142,13 @@
 
     .careers-hero-subtitle {
         font-size: 0.75rem;
-        /* Standardized mobile size */
     }
 }
 
-/* Tablet Landscape Optimizations */
-@media (min-width: 1025px) and (max-width: 1366px) {
-    .careers-hero-title {
-        font-size: 3rem;
-        line-height: 1.1;
-    }
-
-    .careers-hero-content {
-        padding-left: 2.5rem !important;
-        max-width: 50rem;
-        left: 0 !important;
-        top: 0 !important;
-    }
-
-    .careers-hero-subtitle {
-        max-width: 100%;
-    }
-
-    .careers-hero-subtitle {
-        font-size: 0.75rem !important;
-    }
-
-    .careers-statement-text {
-        font-size: 1.625rem !important;
-    }
-
-    .careers-who-thrives {
-        padding: 5rem 2.5rem !important;
-    }
-}
-
-@media (min-width: 1025px) {
+@media (min-width: 64rem) {
     .careers-hero-title {
         font-size: 3.75rem;
         line-height: 1.15;
-    }
-
-    .careers-hero-content {
-        padding-left: 4.0625rem;
     }
 }
 
@@ -206,7 +169,7 @@
     text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.1);
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 64rem) {
     .careers-hero-subtitle {
         max-width: 80%;
         margin: 0;
@@ -221,12 +184,10 @@
 
     .careers-hero {
         min-height: 100vh;
-        /* Restored to 100vh for full-page hero */
     }
 
     .careers-hero-container {
         min-height: 100vh;
-        /* Match hero height */
         padding-bottom: 0;
     }
 }
@@ -244,18 +205,15 @@
     z-index: 20;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
     .careers-hero {
         min-height: 100vh;
-        /* Restored to 100vh as requested */
     }
 
     .careers-hero-container {
         min-height: 100vh;
-        /* Match hero height */
-        padding: 6.25rem 1.25rem 0;
+        padding: 6.25rem var(--spacing-lg) 0;
         align-items: flex-start;
-        /* Left-align content on mobile */
     }
 
     .careers-hero-content {
@@ -264,12 +222,10 @@
 
     .careers-hero-subtitle {
         font-size: 0.75rem;
-        /* Standardized mobile size */
         text-align: left;
         max-width: 83%;
         line-height: 1.5;
     }
-
 
     .careers-statement {
         height: auto;
@@ -284,13 +240,13 @@
     }
 
     .careers-statement-text {
-        font-size: 1.25rem !important;
-        line-height: 1.6 !important;
+        font-size: 1.25rem;
+        line-height: 1.6;
         text-align: center;
     }
 
     .careers-who-thrives {
-        padding: 3.75rem 1.25rem;
+        padding: 3.75rem var(--spacing-lg);
     }
 
     .careers-who-thrives-title {
@@ -307,6 +263,7 @@
     .careers-who-thrives-card {
         padding: 1.5rem;
         min-height: auto;
+        min-width: 0;
     }
 
     .careers-roles {
@@ -314,39 +271,34 @@
     }
 }
 
-@media (min-width: 768px) {
-    .careers-hero-container {
-        padding: 8rem 4.5rem 0;
-    }
-
+@media (min-width: 48rem) {
     .careers-hero-content {
-        left: -12.25rem;
-        /* Restore desktop offset */
-        top: 6.125rem;
-        /* Restore desktop offset */
-        padding-left: 4.0625rem;
+        padding-left: 2rem;
     }
+}
 
-    @media (max-width: 1024px) {
-        .careers-hero-content {
-            left: 0;
-            top: 0;
-            padding-left: 2rem;
-        }
+@media (min-width: 64rem) {
+    .careers-hero-content {
+       right:6rem;
     }
 
     .careers-statement {
         padding: 7.5rem 0;
-        /* Reduced from 192px for better tablet flow */
     }
+}
 
-    @media (max-width: 1024px) and (orientation: portrait) {
-        .careers-statement {
-            padding-top: 1.25rem;
-            /* Further reduced from 40px */
-            padding-bottom: 0px;
-            /* Reduced to 0 for tighter vertical rhythm */
-        }
+@media (min-width: 120rem) {
+    .careers-hero-content {
+        max-width: 62rem;
+        right:12rem;
+
+    }
+}
+
+@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+    .careers-statement {
+        padding-top: 1.25rem;
+        padding-bottom: 0;
     }
 }
 
@@ -354,9 +306,10 @@
     max-width: 82.5rem;
     width: 100%;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0;
     position: relative;
     z-index: 10;
+    box-sizing: border-box;
 }
 
 .careers-statement-content {
@@ -386,23 +339,20 @@
     letter-spacing: normal;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .careers-statement-text {
+
         font-size: 1.625rem;
-        /* Slightly reduced for tablet balance */
         line-height: 1.4;
-        /* Fixed from 0.2 which was breaking layout */
         height: auto;
-        /* Removed hardcoded height */
         min-height: 15vh;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 64rem) {
     .careers-statement-text {
         font-size: 1.9375rem;
         line-height: 1.25;
-        /* Improved from 0.2 */
         height: auto;
         min-height: 22vh;
     }
@@ -440,25 +390,25 @@
     width: 100%;
     max-width: 82.5rem;
     margin: 0 auto;
-    padding: 5rem 1.5rem;
+    padding: 5rem var(--spacing-lg);
     position: relative;
     z-index: 2;
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 64rem) {
     .careers-who-thrives {
-        padding: 5rem 2rem 6.25rem;
-    }
-
-    @media (orientation: portrait) {
-        .careers-who-thrives {
-            padding-top: 0px;
-            /* Removed padding to move section upward */
-        }
+        padding: 5rem var(--spacing-xl) 6.25rem;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+    .careers-who-thrives {
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 64rem) {
     .careers-who-thrives {
         padding: 0 3rem 10.625rem 0.625rem;
     }
@@ -491,31 +441,19 @@
 
 .careers-who-thrives-grid {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 4.125rem;
     width: 100%;
+    min-width: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .careers-who-thrives-title {
         font-size: 3rem;
     }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
     .careers-who-thrives-grid {
-        gap: 4.125rem;
-    }
-}
-
-@media (min-width: 1025px) {
-    .careers-who-thrives-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4.125rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .careers-who-thrives-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 4.125rem;
     }
 }
@@ -529,6 +467,7 @@
     flex-direction: column;
     justify-content: flex-start;
     min-height: 18.75rem;
+    min-width: 0;
     backdrop-filter: blur(0.5rem);
     transition: background-color 0.5s ease, transform 0.3s ease;
     border: 0.0625rem solid rgba(255, 255, 255, 0.1);
@@ -577,14 +516,13 @@
     margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
     .careers-who-thrives-card-title {
         font-size: 1.75rem;
-        /* Slightly smaller for portrait */
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 64rem) {
     .careers-who-thrives-card-title {
         font-size: 2.25rem;
     }
@@ -602,7 +540,7 @@
     text-align: left;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .careers-who-thrives-card-text {
         font-size: 1.125rem;
     }
@@ -612,21 +550,21 @@
     width: 100%;
     max-width: 82.5rem;
     margin: 0 auto;
-    padding: 0 1.5rem 12.5rem;
+    padding: 0 0 12.5rem;
     display: flex;
     flex-direction: column;
     gap: 4rem;
     position: relative;
+    box-sizing: border-box;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 64rem) {
     .careers-roles {
-        padding: 0 2rem 8.75rem;
-        /* Reduced from 280px for tablet flow */
+        padding: 0 var(--spacing-xl) 8.75rem;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 64rem) {
     .careers-roles {
         padding: 0 3rem 17.5rem;
     }
@@ -651,17 +589,16 @@
     gap: 2.5rem;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
     .careers-roles-header {
         grid-template-columns: 1fr;
-        /* Stack on tablets */
         gap: 1.5rem;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 64rem) {
     .careers-roles-header {
-        grid-template-columns: 4fr 8fr;
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
     }
 }
 
@@ -714,10 +651,9 @@
 
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
-
     .careers-statement-container,
     .careers-who-thrives {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
     }
 }

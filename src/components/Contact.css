@@ -6,6 +6,8 @@
   min-height: 100vh;
   background: #000000;
   position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Navbar overrides handled by global Navbar.css */
@@ -37,18 +39,21 @@
 
 .contact-container {
   max-width: 80rem;
+  width: 100%;
   margin: 7.1875rem auto;
-  padding: 0 2rem;
+  padding: 0 var(--spacing-xl);
   position: relative;
   z-index: 12;
+  box-sizing: border-box;
 }
 
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: start;
   margin-bottom: 8rem;
+  min-width: 0;
 }
 
 /* ============================================
@@ -57,6 +62,7 @@
 
 .contact-left {
   padding-top: 2rem;
+  min-width: 0;
 }
 
 .contact-label {
@@ -108,6 +114,7 @@
 
 .contact-right {
   position: relative;
+  min-width: 0;
 }
 
 .contact-form {
@@ -212,69 +219,6 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Captcha Section */
-.form-captcha {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(15.12deg, rgba(6, 36, 32, 1) 18.72%, rgba(33, 38, 33, 1) 223.85%);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.captcha-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  position: relative;
-}
-
-.captcha-checkbox input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  width: 0;
-  height: 0;
-}
-
-.captcha-checkmark {
-  width: 2.125rem;
-  height: 2.125rem;
-  background: linear-gradient(147.85deg, rgba(217, 217, 217, 1) 23.3%, rgba(137, 225, 134, 1) 83.36%);
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.captcha-checkbox input[type="checkbox"]:checked~.captcha-checkmark::after {
-  content: '';
-  position: absolute;
-  left: 0.6875rem;
-  top: 0.375rem;
-  width: 0.5rem;
-  height: 0.875rem;
-  border: solid #000000;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.captcha-label {
-  font-family: 'SF Pro Display', -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #ffffff;
-}
-
-.captcha-logo {
-  width: 2.6875rem;
-  height: 2.5625rem;
-  object-fit: contain;
-}
-
 /* Submit Button */
 .form-submit {
   width: 100%;
@@ -306,6 +250,16 @@
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+}
+
+.form-submit--success {
+  opacity: 1;
+  color: #ffffff !important;
+  cursor: default;
+  background: rgba(0, 100, 60, 0.9);
+  border: 0.0625rem solid rgba(166, 246, 59, 0.5);
+  box-shadow: 0 0 1.25rem rgba(166, 246, 59, 0.25), inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.4), 0 0 1rem rgba(255, 255, 255, 0.2);
 }
 
 /* ============================================
@@ -344,10 +298,10 @@
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (48 / 64 / 90 / 120rem)
    ============================================ */
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .contact-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -366,14 +320,14 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .contact-main {
     padding-top: 4rem;
     padding-bottom: 3rem;
   }
 
   .contact-container {
-    padding: 0 1.5rem;
+    padding: 0 var(--spacing-lg);
   }
 
   .contact-title {
@@ -386,7 +340,7 @@
   }
 
   .contact-form {
-    padding: 2rem 1.5rem;
+    padding: 2rem var(--spacing-lg);
   }
 
   .form-group {
@@ -403,7 +357,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .contact-title {
     font-size: 1.75rem;
   }
@@ -413,13 +367,7 @@
   }
 
   .contact-form {
-    padding: 1.5rem 1rem;
-  }
-
-  .form-captcha {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+    padding: 1.5rem var(--spacing-lg);
   }
 
   .contact-email {
@@ -427,24 +375,7 @@
   }
 }
 
-/* MacBook Air / Pro 13" and up */
-@media (min-width: 1280px) {
-  .contact-container {
-    max-width: 80rem;
-    margin: 7.1875rem auto;
-  }
-}
-
-/* MacBook Pro 14" / 16" */
-@media (min-width: 1512px) {
-  .contact-container {
-    max-width: 80rem;
-    margin: 7.1875rem auto;
-  }
-}
-
-/* iMac / External Monitor */
-@media (min-width: 1920px) {
+@media (min-width: 120rem) {
   .contact-container {
     max-width: 80rem;
     margin: 7.1875rem auto;

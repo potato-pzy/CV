@@ -23,7 +23,7 @@
 
 .testimonials-carousel {
   width: 100%;
-  max-width: 1440px;
+  max-width: 90rem;
   height: 31.25rem;
   position: relative;
   display: flex;
@@ -281,7 +281,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
 
   /* Mobile Portrait */
   .testimonial-card {
@@ -306,7 +306,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
 
   /* Small Mobile */
   .testimonials-heading {

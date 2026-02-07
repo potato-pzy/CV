@@ -192,7 +192,7 @@
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .blog-resources-section {
     padding: 3.75rem 1.25rem;
   }

@@ -105,7 +105,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .terms-main {
     padding: 5rem 0 3.75rem;
   }
@@ -138,7 +138,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .terms-main {
     padding: 3.75rem 0 2.5rem;
   }

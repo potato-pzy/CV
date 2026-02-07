@@ -45,7 +45,7 @@ function Contact() {
 
 
 
-  const [result, setResult] = useState("");
+  const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle' | 'sending' | 'success'
   const isFormValid = formData.name && formData.email && formData.phone && formData.message;
 
   const handleChange = (e) => {
@@ -58,12 +58,8 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setResult("Sending....");
+    setSubmitStatus('sending');
 
-    // Create new formData from state instead of just e.target to be safe, 
-    // though e.target works if inputs have names. 
-    // The snippet used new FormData(event.target). Let's stick closer to that 
-    // or just use our state. Using FormData(e.target) is standard for Web3Forms.
     const formPayload = new FormData(e.target);
     formPayload.append("access_key", "9eaea009-c1dc-4575-9754-e63ce3d2ad35");
 
@@ -76,7 +72,7 @@ function Contact() {
       const data = await response.json();
 
       if (data.success) {
-        setResult("Form Submitted Successfully");
+        setSubmitStatus('success');
         setFormData({
           name: '',
           email: '',
@@ -86,12 +82,10 @@ function Contact() {
           message: ''
         });
       } else {
-        console.error("Error submitting form", data);
-        setResult(data.message || "Error submitting form");
+        setSubmitStatus('idle');
       }
     } catch (error) {
-      console.error("Network error", error);
-      setResult("Something went wrong. Please try again.");
+      setSubmitStatus('idle');
     }
   };
 
@@ -215,11 +209,14 @@ function Contact() {
 
                   <button
                     type="submit"
-                    className="form-submit"
-                    disabled={!isFormValid}
-                    style={{ opacity: isFormValid ? 1 : 0.5, cursor: isFormValid ? 'pointer' : 'not-allowed' }}
+                    className={`form-submit ${submitStatus === 'success' ? 'form-submit--success' : ''}`}
+                    disabled={!isFormValid || submitStatus === 'sending' || submitStatus === 'success'}
                   >
-                    Request an Exploratory Call
+                    {submitStatus === 'success'
+                      ? 'Submission successful'
+                      : submitStatus === 'sending'
+                        ? 'Sending...'
+                        : 'Request an Exploratory Call'}
                   </button>
                 </div>
               </form>

@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-section {
     padding: 7.5rem 10rem;
     min-height: 50rem;
@@ -31,7 +31,7 @@
   z-index: 10;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-container {
     grid-template-columns: 5fr 7fr;
     grid-template-areas:
@@ -59,7 +59,7 @@
 }
 
 /* Desktop Tabs Area should align with content area top */
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-tabs-area {
     margin-top: 0;
   }
@@ -97,7 +97,7 @@
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-tabs {
     flex-direction: column;
     justify-content: flex-start;
@@ -119,7 +119,7 @@
   white-space: nowrap;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-tab {
     text-align: left;
     align-items: flex-start;
@@ -135,7 +135,7 @@
   transition: all 0.3s ease;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-tab-text {
     font-size: 1.25rem;
     font-weight: 300;
@@ -158,7 +158,7 @@
   transition: all 0.3s ease;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-tab-line {
     width: 15.625rem;
   }
@@ -197,7 +197,7 @@
   align-items: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-content {
     position: relative;
     left: 4.375rem;
@@ -223,7 +223,7 @@
   max-width: 37.5rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .roles-content-description {
     max-width: 32.5rem;
     color: #ffffff;
@@ -244,7 +244,7 @@
 }
 
 /* Tablet Landscape Specific Tweaks */
-@media (min-width: 1025px) and (max-width: 1366px) {
+@media (min-width: 64.0625rem) and (max-width: 85.375rem) {
   .roles-section {
     padding: 6.25rem 5rem;
   }
@@ -268,7 +268,7 @@
 }
 
 /* Tablet Portrait Specific Tweaks */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
   .roles-container {
     gap: 3rem;
   }
@@ -282,7 +282,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
 
   .roles-intro-text,
   .roles-content-description {
@@ -341,11 +341,11 @@
     text-align: left;
     font-size: 0.875rem;
     line-height: 1.6;
-    padding: 0 1rem;
+    padding: 0 1rem 0 0;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .roles-section {
     padding: 3.125rem 1rem;
   }

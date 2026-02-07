@@ -51,7 +51,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className={`navbar ${!isVisible ? 'navbar-hidden' : ''} ${isMenuOpen ? 'navbar-open' : ''}`}>
+            <nav className={`navbar ${!isVisible ? 'navbar-hidden' : ''} ${isMenuOpen ? 'navbar-open' : ''} ${currentPath === '/insights' ? 'navbar--insights' : ''}`}>
                 <div className="navbar-container">
                     <div className="navbar-left">
                         <Link to="/" className="navbar-logo" onClick={closeMenu}>

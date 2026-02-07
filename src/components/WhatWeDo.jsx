@@ -224,10 +224,9 @@ function WhatWeDo() {
 
   return (
     <div className="what-we-do-page">
-      <Navbar />
-
-      {/* Hero Section with Hyperspeed */}
+      {/* Hero Section with Hyperspeed - Navbar inside like Careers */}
       <section className="what-we-do-hero-section">
+        <Navbar />
         <div className="hyperspeed-container">
           <Hyperspeed effectOptions={hyperspeedPresets.one} />
         </div>

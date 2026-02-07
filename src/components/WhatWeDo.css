@@ -3,6 +3,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navbar overrides handled by global Navbar.css */
@@ -59,12 +60,20 @@
     padding: 7.5rem 0 5rem 0;
     background: #000;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .what-we-do-container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 2.5rem;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 48rem) {
+    .what-we-do-container {
+        padding: 0 var(--spacing-2xl);
+    }
 }
 
 /* Hero Content */
@@ -77,12 +86,12 @@
 
 .what-we-do-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: clamp(36px, 6vw, 64px);
+    font-size: clamp(2rem, 6vw, 4rem);
     font-weight: 500;
     color: #ffffff;
-    margin: 0 0 24px 0;
+    margin: 0 0 1.5rem 0;
     line-height: 1.2;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0.125rem 1.25rem rgba(0, 0, 0, 0.8);
     text-transform: capitalize;
 }
 
@@ -158,11 +167,13 @@
     margin-bottom: 5rem;
     z-index: 3;
     position: relative;
+    width: 100%;
+    min-width: 0;
 }
 
 @media (min-width: 48rem) {
     .framework-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.5rem;
     }
 }
@@ -184,6 +195,7 @@
     position: relative;
     overflow: visible;
     min-height: 13.5625rem;
+    min-width: 0;
 }
 
 .framework-card-inner {
@@ -251,7 +263,7 @@
     margin: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
     .framework-description {
         font-size: 1.25rem;
     }
@@ -346,7 +358,7 @@
     z-index: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .ai-discovery-ellipse-glow {
         width: 195.25rem;
         top: 26.25rem;
@@ -361,10 +373,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
-    padding-top: 40px;
+    margin-bottom: 2rem;
+    padding-top: 2.5rem;
     position: relative;
     z-index: 1;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .ai-discovery-section-title {
@@ -388,8 +402,9 @@
 .ai-discovery-carousel-wrapper {
     position: relative;
     width: 100%;
+    max-width: 100%;
     z-index: 1;
-    padding-bottom: 80px;
+    padding-bottom: 5rem;
 }
 
 .ai-discovery-card {
@@ -418,6 +433,7 @@
     position: relative;
     width: 100%;
     height: 33.75rem;
+    max-width: 100%;
     border-radius: 0.625rem 0.625rem 0 0;
     overflow: hidden;
     z-index: 0;
@@ -471,7 +487,7 @@
     gap: 1rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
     .ai-discovery-text-overlay {
         height: 10rem;
     }
@@ -494,29 +510,28 @@
     font-style: italic;
     color: #a6f63b;
     text-decoration: none;
-    padding: 8px 0;
+    padding: 0.5rem 0;
     transition: all 0.3s ease;
     width: fit-content;
 }
 
 .ai-discovery-blog-link:hover {
     color: #ffffff;
-    padding-left: 8px;
+    padding-left: 0.5rem;
 }
 
 .ai-discovery-pagination {
     position: absolute;
-    bottom: 14px;
-    /* Centered with 40px controls */
-    left: 25px;
+    bottom: 0.875rem;
+    left: 1.5625rem;
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     z-index: 10;
 }
 
 .ai-discovery-dot {
-    width: 12px;
-    height: 12px;
+    width: 0.75rem;
+    height: 0.75rem;
     border-radius: 50%;
     background: #4a4a4a;
     cursor: pointer;
@@ -529,18 +544,18 @@
 
 .ai-discovery-controls {
     position: absolute;
-    bottom: 0px;
-    right: 25px;
+    bottom: 0;
+    right: 1.5625rem;
     display: flex;
-    gap: 12px;
+    gap: 0.75rem;
     z-index: 10;
 }
 
 .ai-discovery-btn {
-    width: 52px;
-    height: 40px;
+    width: 3.25rem;
+    height: 2.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -556,57 +571,59 @@
 }
 
 .ai-discovery-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
+/* Responsive: tablet and below (≤768px) */
+@media (max-width: 48rem) {
     .what-we-do-section {
-        padding: 80px 0 60px 0;
+        padding: 5rem 0 3.75rem 0;
     }
 
     .what-we-do-container {
-        padding: 0 40px;
+        padding: 0 var(--spacing-xl);
     }
 
     .what-we-do-title {
-        font-size: 32px;
+        font-size: 2rem;
     }
 
     .framework-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 1.5rem;
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
     }
 
     .ai-discovery-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        padding-top: 30px;
+        gap: 0.75rem;
+        padding-top: 1.875rem;
     }
 
     .ai-discovery-section-title {
-        font-size: 28px;
+        font-size: 1.75rem;
     }
 
     .ai-discovery-section-subtitle {
-        right: 0px;
+        right: 0;
     }
 
     .ai-discovery-image-container {
-        height: 420px;
+        height: 26.25rem;
     }
 
     .ai-discovery-title {
-        font-size: 20px;
-        top: 24px;
-        left: 24px;
+        font-size: 1.25rem;
+        top: 1.5rem;
+        left: 1.5rem;
     }
 
     .ai-discovery-text-overlay {
-        padding: 24px;
-        gap: 12px;
+        padding: 1.5rem;
+        gap: 0.75rem;
     }
 
     .ai-discovery-text {
@@ -614,7 +631,7 @@
     }
 
     .ai-discovery-blog-link {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
     .ai-discovery-pagination {
@@ -626,11 +643,11 @@
     }
 
     .framework-title {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     .framework-description {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
     .framework-card-inner {
@@ -638,25 +655,25 @@
     }
 
     .framework-icon {
-        width: 79.2px;
-        height: 79.2px;
-        margin-bottom: 20px;
-        margin-left: -4px;
+        width: 4.95rem;
+        height: 4.95rem;
+        margin-bottom: 1.25rem;
+        margin-left: -0.25rem;
     }
 
     .framework-icon::after {
-        inset: -12px;
-        filter: blur(6px);
+        inset: -0.75rem;
+        filter: blur(0.375rem);
     }
 
     .framework-title {
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
     }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 30rem) {
     .what-we-do-title {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     .framework-card {
@@ -664,49 +681,49 @@
     }
 
     .ai-discovery-header {
-        padding-top: 20px;
+        padding-top: 1.25rem;
     }
 
     .ai-discovery-section-title {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
 
     .ai-discovery-image-container {
-        height: 340px;
+        height: 21.25rem;
     }
 
     .ai-discovery-title {
-        font-size: 18px;
-        top: 20px;
-        left: 20px;
+        font-size: 1.125rem;
+        top: 1.25rem;
+        left: 1.25rem;
     }
 
     .ai-discovery-text-overlay {
-        padding: 20px;
-        gap: 12px;
+        padding: 1.25rem;
+        gap: 0.75rem;
     }
 
     .ai-discovery-text {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .ai-discovery-blog-link {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .ai-discovery-pagination {
         left: 0;
-        bottom: -45px;
+        bottom: -2.8125rem;
     }
 
     .ai-discovery-controls {
         right: 0;
-        bottom: -50px;
+        bottom: -3.125rem;
     }
 
     .ai-discovery-btn {
-        width: 45px;
-        height: 36px;
+        width: 2.8125rem;
+        height: 2.25rem;
     }
 }
 
@@ -727,16 +744,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px;
-    height: 800px;
+    width: 75rem;
+    height: 50rem;
     background: radial-gradient(ellipse at center, rgba(0, 150, 150, 0.6) 0%, rgba(0, 100, 120, 0.3) 40%, transparent 70%);
-    filter: blur(100px);
+    filter: blur(6.25rem);
     opacity: 0.8;
     pointer-events: none;
     z-index: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 48rem) {
     .ai-discovery-desktop-carousel {
         display: none !important;
     }
@@ -745,36 +762,33 @@
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 20px;
+        gap: 1rem;
+        padding-bottom: 1.25rem;
         width: 100%;
         scrollbar-width: none;
-        /* Firefox */
         -ms-overflow-style: none;
-        /* IE/Edge */
     }
 
     .ai-discovery-mobile-scroll::-webkit-scrollbar {
         display: none;
-        /* Chrome/Safari */
     }
 
     .ai-discovery-mobile-card {
         flex: 0 0 85%;
-        /* Card width */
         scroll-snap-align: center;
         background: #0D0D0D;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
+        border-radius: 0.75rem;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         height: auto;
+        min-width: 0;
     }
 
     .ai-discovery-mobile-image-container {
         width: 100%;
-        height: 200px;
+        height: 12.5rem;
         position: relative;
         overflow: hidden;
     }
@@ -786,14 +800,14 @@
     }
 
     .ai-discovery-mobile-image-container .ai-discovery-title {
-        font-size: 20px;
-        top: 16px;
-        left: 16px;
+        font-size: 1.25rem;
+        top: 1rem;
+        left: 1rem;
     }
 
     .ai-discovery-text-overlay {
         background: #0D0D0D;
-        padding: 20px;
+        padding: 1.25rem;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -802,49 +816,40 @@
 
     .ai-discovery-controls {
         display: none !important;
-        /* Hide arrows on mobile */
     }
 
-    /* Mobile Pagination - Rectangular Bars */
     .ai-discovery-pagination {
         position: relative;
-        bottom: 0px;
-        margin-top: 24px;
+        bottom: 0;
+        margin-top: 1.5rem;
         width: 100%;
         justify-content: center;
-        gap: 6px;
+        gap: 0.375rem;
         padding-left: 0;
     }
 
     .ai-discovery-dot {
-        width: 32px;
-        height: 3px;
-        border-radius: 2px;
+        width: 2rem;
+        height: 0.1875rem;
+        border-radius: 0.125rem;
         background: #1B2823;
         transition: background-color 0.3s ease;
     }
 
     .ai-discovery-dot.active {
         background: #41F33B;
-        width: 32px;
-        /* Keep same width */
+        width: 2rem;
+    }
+}
+
+@media (max-width: 40rem) {
+    .what-we-do-container {
+        padding: 0;
     }
 
-
-
-
-    @media (max-width: 40rem) {
-
-        @media (max-width: 64rem) and (orientation: portrait) {
-            .what-we-do-container {
-                padding: 0 20px;
-            }
-
-            .accelerators-section {
-                padding-left: 0px;
-                padding-right: 0px;
-            }
-        }
+    .accelerators-section {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -853,31 +858,30 @@
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.6;
-    max-width: 944px;
+    max-width: 59rem;
     color: rgba(255, 255, 255, 0.7);
-    margin: 0 auto 48px auto;
-    /* Centered with bottom margin */
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    margin: 0 auto 3rem auto;
+    text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.1);
     text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .what-we-do-animated-text {
-        font-size: 20px;
+        font-size: 1.25rem;
         line-height: 1.5;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 64rem) {
     .what-we-do-animated-text {
-        font-size: 24px;
+        font-size: 1.5rem;
         line-height: 1.4;
     }
 }
 
 @media (max-width: 48rem) {
     .what-we-do-animated-text {
-        font-size: 12px;
+        font-size: 0.75rem;
         line-height: 1.5;
         max-width: 100%;
     }

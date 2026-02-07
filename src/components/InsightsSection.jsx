@@ -7,8 +7,8 @@ import article1Image from '../assets/article_1.jpg';
 import article2Image from '../assets/article_2.png';
 import article3Image from '../assets/article_3.jpg';
 
-// CMS-ready data structure
-const defaultCategories = ['ALL', 'AI ENGINEERING', 'AI STRATEGY', "FOUNDER'S NOTE"];
+// CMS-ready data structure – Founder's Note first in filter
+const defaultCategories = ['ALL', "FOUNDER'S NOTE", 'AI ENGINEERING', 'AI STRATEGY'];
 
 const defaultFeaturedPost = {
   id: 'featured-1',
@@ -19,6 +19,15 @@ const defaultFeaturedPost = {
 };
 
 const defaultArticles = [
+  {
+    id: 3,
+    category: "FOUNDER'S NOTE",
+    date: 'JANUARY, 2026',
+    title: "Founder's Note: Why This Firm Exists",
+    slug: '/blog/founders-note',
+    gradient: 'linear-gradient(135deg, #A4ED3F 0%, #000000 100%)',
+    backgroundImage: article3Image
+  },
   {
     id: 1,
     category: 'AI ENGINEERING',
@@ -37,15 +46,6 @@ const defaultArticles = [
     slug: '/blog/rise-of-agentic-ai',
     gradient: 'linear-gradient(135deg, #A6D8BF 0%, #000000 100%)',
     backgroundImage: article2Image
-  },
-  {
-    id: 3,
-    category: "FOUNDER'S NOTE",
-    date: 'JANUARY, 2026',
-    title: "Founder's Note: Why This Firm Exists",
-    slug: '/blog/founders-note',
-    gradient: 'linear-gradient(135deg, #A4ED3F 0%, #000000 100%)',
-    backgroundImage: article3Image
   },
 ];
 

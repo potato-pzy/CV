@@ -129,7 +129,7 @@
 /* Right Column - Large Image */
 .about-image-container {
     position: relative;
-    top: 14.6875rem;
+    top: 7.6875rem;
     left: 9.375rem;
     width: 39%;
     max-width: 22.625rem;
@@ -147,7 +147,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
     .about-left-column {
         padding: 3rem 4rem;
     }
@@ -164,7 +164,7 @@
     }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 60.5rem) {
     .about-container {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -209,7 +209,7 @@
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
     .about-left-column {
         padding: 2rem 1.5rem;
     }
@@ -248,7 +248,7 @@
 
     .about-image-container {
         position: relative;
-        top: 15.5625rem;
+        top: 1.6875rem;
         left: 9.9375rem;
     }
 }

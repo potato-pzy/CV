@@ -5,7 +5,7 @@
    ============================================ */
 
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -95,6 +95,13 @@
         width: 3.5rem;
         /* ~56px */
     }
+
+    /* Insights page: keep navbar transparent */
+    .navbar.navbar--insights {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+
 }
 
 @media (min-width: 80rem) {
@@ -430,7 +437,7 @@
 }
 
 /* MacBook Air / Pro 13"+ */
-@media (min-width: 1280px) {
+@media (min-width: 80rem) {
     .navbar-logo-svg {
         width: 4.851375rem;
         height: 3.832rem;
@@ -442,7 +449,7 @@
 }
 
 /* MacBook Pro 14" / 16" */
-@media (min-width: 1512px) {
+@media (min-width: 94.5rem) {
     .navbar-logo-svg {
         width: 4.851375rem;
         height: 3.832rem;
@@ -450,7 +457,7 @@
 }
 
 /* iMac / External Monitor */
-@media (min-width: 1920px) {
+@media (min-width: 120rem) {
     .navbar-logo-svg {
         width: 4.851375rem;
         height: 3.832rem;
