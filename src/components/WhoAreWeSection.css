@@ -921,12 +921,11 @@
     }
 
     .whoarewe-founder-back {
-        padding: 1.375rem 1.75rem 2.5rem;
-        /* Increased bottom padding */
+        padding: 2.5rem 2.5rem 3.5rem;
     }
 
     .whoarewe-founder-back-bio {
-        font-size: 7px;
+        font-size: 8.2px;
         line-height: 1;
         margin-top: auto;
         /* Reset for mobile */
