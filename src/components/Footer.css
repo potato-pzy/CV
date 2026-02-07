@@ -14,7 +14,7 @@
 @media (min-width: 48rem) {
   .footer {
     padding: 8.25rem 0;
-    min-height: 400px;
+    min-height: 25rem;
   }
 }
 
@@ -152,9 +152,8 @@
 .footer-part-of-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 85%;
-  max-width: 20rem;
+  justify-content: center;
+  width: auto;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-sm);
 }
@@ -164,6 +163,7 @@
   font-weight: 300;
   color: var(--text-dark-gray);
   text-align: left;
+  white-space: nowrap;
 }
 
 .footer-sub-logo {
@@ -206,7 +206,7 @@
 
 .footer-social-link:hover {
   opacity: 1;
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
 }
 
 .footer-social-icon-img {

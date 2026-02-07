@@ -1,22 +1,22 @@
 .roles-section {
   position: relative;
   width: 100%;
-  padding: 80px 24px;
+  padding: 5rem 1.5rem;
   background-color: #000000;
   overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   .roles-section {
-    padding: 120px 160px;
-    min-height: 800px;
+    padding: 7.5rem 10rem;
+    min-height: 50rem;
     display: flex;
     align-items: center;
   }
 }
 
 .roles-container {
-  max-width: 1320px;
+  max-width: 82.5rem;
   margin: 0 auto;
   width: 100%;
   display: grid;
@@ -25,7 +25,7 @@
     "intro"
     "content"
     "tabs";
-  gap: 56px;
+  gap: 3.5rem;
   text-align: center;
   position: relative;
   z-index: 10;
@@ -37,7 +37,7 @@
     grid-template-areas:
       "title intro"
       "tabs content";
-    gap: 100px;
+    gap: 6.25rem;
     text-align: left;
   }
 }
@@ -66,14 +66,14 @@
 
   .roles-intro-area {
     position: relative;
-    left: 70px;
-    margin-bottom: -40px;
+    left: 4.375rem;
+    margin-bottom: -2.5rem;
   }
 }
 
 .roles-main-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 500;
   color: #ffffff;
   line-height: 1.2;
@@ -85,11 +85,11 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 1rem;
+  margin-top: 1.25rem;
   width: 100%;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -109,13 +109,13 @@
 .roles-tab {
   background: none;
   border: none;
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   cursor: pointer;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   white-space: nowrap;
 }
 
@@ -123,13 +123,13 @@
   .roles-tab {
     text-align: left;
     align-items: flex-start;
-    padding: 12px 0;
+    padding: 0.75rem 0;
   }
 }
 
 .roles-tab-text {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   color: #666666;
   transition: all 0.3s ease;
@@ -137,7 +137,7 @@
 
 @media (min-width: 1024px) {
   .roles-tab-text {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 300;
   }
 }
@@ -152,26 +152,26 @@
 }
 
 .roles-tab-line {
-  width: 80px;
-  height: 1px;
+  width: 5rem;
+  height: 0.0625rem;
   background-color: rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
 
 @media (min-width: 1024px) {
   .roles-tab-line {
-    width: 250px;
+    width: 15.625rem;
   }
 }
 
 .roles-tab.active .roles-tab-line {
   background-color: #a6f63b;
-  height: 2px;
+  height: 0.125rem;
 }
 
 .roles-intro-text {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: clamp(16px, 3vw, 20px);
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 500;
   color: #ffffff;
   line-height: 1.6;
@@ -193,21 +193,21 @@
 .roles-content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .roles-content {
     position: relative;
-    left: 70px;
+    left: 4.375rem;
     align-items: flex-start;
   }
 }
 
 .roles-content-title {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: clamp(24px, 5vw, 32px);
+  font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: 500;
   color: #ffffff;
   margin: 0;
@@ -215,17 +215,17 @@
 
 .roles-content-description {
   font-family: 'Stage Grotesk', sans-serif;
-  font-size: clamp(16px, 3vw, 20px);
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
   margin: 0;
-  max-width: 600px;
+  max-width: 37.5rem;
 }
 
 @media (min-width: 1024px) {
   .roles-content-description {
-    max-width: 520px;
+    max-width: 32.5rem;
     color: #ffffff;
   }
 }
@@ -238,7 +238,7 @@
   width: 150%;
   height: 150%;
   background: radial-gradient(circle at center, rgba(1, 52, 69, 0.4) 0%, transparent 70%);
-  filter: blur(100px);
+  filter: blur(6.25rem);
   pointer-events: none;
   z-index: 0;
 }
@@ -246,39 +246,39 @@
 /* Tablet Landscape Specific Tweaks */
 @media (min-width: 1025px) and (max-width: 1366px) {
   .roles-section {
-    padding: 100px 80px;
+    padding: 6.25rem 5rem;
   }
 
   .roles-container {
     grid-template-columns: 4.5fr 7.5fr;
-    gap: 60px;
+    gap: 3.75rem;
   }
 
   .roles-main-title {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .roles-tab-text {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .roles-tab-line {
-    width: 200px;
+    width: 12.5rem;
   }
 }
 
 /* Tablet Portrait Specific Tweaks */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .roles-container {
-    gap: 48px;
+    gap: 3rem;
   }
 
   .roles-tabs {
-    gap: 40px;
+    gap: 2.5rem;
   }
 
   .roles-tab-line {
-    width: 180px;
+    width: 11.25rem;
   }
 }
 
@@ -286,27 +286,27 @@
 
   .roles-intro-text,
   .roles-content-description {
-    font-size: 15px;
+    font-size: 0.9375rem;
     /* Unified size for mobile */
   }
 
   .roles-intro-text {
-    gap: 4px;
+    gap: 0.25rem;
   }
 
   .roles-tabs {
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   .roles-tab-text {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
   .roles-section {
-    padding: 60px 20px;
+    padding: 3.75rem 1.25rem;
   }
 
   .roles-container {
@@ -316,15 +316,15 @@
       "intro"
       "tabs"
       "content";
-    gap: 40px;
+    gap: 2.5rem;
   }
 
   .roles-main-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .roles-intro-text {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .roles-content {
@@ -333,39 +333,40 @@
   }
 
   .roles-content-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: left;
   }
 
   .roles-content-description {
     text-align: left;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.6;
+    padding: 0 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .roles-section {
-    padding: 50px 16px;
+    padding: 3.125rem 1rem;
   }
 
   .roles-intro-text {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 
   .roles-content-title {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .roles-content-description {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 
   .roles-tabs {
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   .roles-tab-text {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 }

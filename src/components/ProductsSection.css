@@ -32,8 +32,8 @@
 (min-width: 64rem) {
     .about-image-container {
         position: relative;
-        top: 135px;
-        left: 250px;
+        top: 8.4375rem;
+        left: 15.625rem;
     }
 }
 
@@ -188,16 +188,16 @@
     width: 100%;
     max-width: 100%;
     background: #020F14;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+    border-radius: 1.25rem;
     overflow: hidden;
     position: relative;
 }
 
 @media (min-width: 48rem) {
     .validate-card {
-        border-radius: 33px;
-        min-height: 320px;
+        border-radius: 2.0625rem;
+        min-height: 20rem;
     }
 }
 
@@ -211,12 +211,12 @@
 @media (min-width: 48rem) {
     .validate-inner {
         grid-template-columns: 1fr 1fr;
-        min-height: 320px;
+        min-height: 20rem;
     }
 }
 
 .validate-content-left {
-    padding: 20px 16px;
+    padding: 1.25rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -227,30 +227,30 @@
 
 @media (min-width: 48rem) {
     .validate-content-left {
-        padding: 48px 40px;
+        padding: 3rem 2.5rem;
     }
 }
 
 .validate-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.2;
     color: #A6F63B;
-    margin: 0 0 12px 0;
+    margin: 0 0 0.75rem 0;
     white-space: pre-wrap;
 }
 
 @media (min-width: 48rem) {
     .validate-title {
-        font-size: 30px;
-        margin-bottom: 20px;
+        font-size: 1.875rem;
+        margin-bottom: 1.25rem;
     }
 }
 
 .validate-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 300;
     line-height: 1.4;
     color: #ffffff;
@@ -261,19 +261,19 @@
 
 @media (min-width: 48rem) {
     .validate-description {
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 1.5;
     }
 }
 
 .validate-cta {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     padding: 0;
     border: none;
     background: none;
     color: #A6F63B;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -285,8 +285,8 @@
 
 @media (min-width: 48rem) {
     .validate-cta {
-        margin-top: 32px;
-        font-size: 15px;
+        margin-top: 2rem;
+        font-size: 0.9375rem;
     }
 }
 
@@ -327,24 +327,24 @@
 /* Controls */
 .carousel-controls {
     position: relative;
-    margin-top: 24px;
+    margin-top: 1.5rem;
     align-self: center;
     display: flex;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
 @media (min-width: 48rem) {
     .carousel-controls {
-        margin-top: 32px;
+        margin-top: 2rem;
         align-self: flex-end;
     }
 }
 
 .carousel-btn {
-    width: 54px;
-    height: 44px;
+    width: 3.375rem;
+    height: 2.75rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -355,8 +355,8 @@
 
 @media (min-width: 48rem) {
     .carousel-btn {
-        width: 62px;
-        height: 52px;
+        width: 3.875rem;
+        height: 3.25rem;
     }
 }
 
@@ -365,16 +365,16 @@
 }
 
 .carousel-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     color: rgba(255, 255, 255, 0.5);
     transition: all 0.2s ease;
 }
 
 @media (min-width: 48rem) {
     .carousel-btn svg {
-        width: 24px;
-        height: 24px;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
 
@@ -387,23 +387,29 @@
     display: none;
     width: 100%;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.5rem;
 }
 
 @media(max-width: 48rem) {
     .products-section {
-        margin-top: 120px;
-        margin-bottom: 120px;
-        padding-right: 40px;
+        margin-top: 7.5rem;
+        margin-bottom: 1.5rem;
+        padding-right: 0;
+    }
+
+    .products-left {
+        text-align: center;
+        align-items: center;
     }
 
     .products-label {
-        font-size: 10px !important;
+        font-size: 0.625rem !important;
     }
 
     .products-title {
-        font-size: 24px !important;
+        font-size: 1.5rem !important;
         margin-top: 1.5rem;
+        text-align: center;
     }
 
     /* Show Mobile View */
@@ -417,36 +423,36 @@
     }
 
     .validate-card {
-        height: 342px;
-        max-width: 1000px;
+        height: 21.375rem;
+        max-width: 62.5rem;
         width: 109%;
         background: #020f14;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 33px;
-        min-height: 320px;
+        border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+        border-radius: 2.0625rem;
+        min-height: 20rem;
     }
 }
 
 /* Individual Card - Snippet Values */
 .validate-card {
-    width: 272px;
+    width: 17rem;
     max-width: 100%;
-    height: 400px;
+    height: 25rem;
     background: #01141b;
-    border: 0.7px solid rgba(166, 246, 59, 0.2);
-    border-radius: 7px;
+    border: 0.04375rem solid rgba(166, 246, 59, 0.2);
+    border-radius: 0.4375rem;
     overflow: hidden;
     position: relative;
 }
 
 @media(min-width: 48rem) {
     .validate-card {
-        max-width: 1000px;
+        max-width: 62.5rem;
         width: 109%;
         background: #020f14;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 33px;
-        min-height: 320px;
+        border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+        border-radius: 2.0625rem;
+        min-height: 20rem;
         height: auto;
     }
 }
@@ -456,7 +462,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 185px auto;
+    grid-template-rows: 11.5625rem auto;
     height: 100%;
 }
 
@@ -464,12 +470,12 @@
     .validate-inner {
         grid-template-columns: 2fr 1fr;
         grid-template-rows: unset;
-        min-height: 320px;
+        min-height: 20rem;
     }
 }
 
 .validate-content-left {
-    padding: 28px;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -482,7 +488,7 @@
 
 @media (min-width: 48rem) {
     .validate-content-left {
-        padding: 48px 32px;
+        padding: 3rem 2rem;
         order: unset;
         justify-content: center;
     }
@@ -490,31 +496,31 @@
 
 .validate-title {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 21px;
+    font-size: 1.3125rem;
     font-weight: 400;
     line-height: 1.2;
     color: #A6F63B;
-    margin: 0 0 15px 0;
+    margin: 0 0 0.9375rem 0;
     white-space: pre-wrap;
-    max-width: 140px;
+    max-width: 8.75rem;
 }
 
 @media (min-width: 48rem) {
     .validate-title {
-        font-size: 30px;
-        margin-bottom: 20px;
-        max-width: 180px;
+        font-size: 1.875rem;
+        margin-bottom: 1.25rem;
+        max-width: 11.25rem;
     }
 }
 
 .validate-description {
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 11.2px;
+    font-size: 0.7rem;
     font-weight: 400;
     line-height: 1.4;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.01875rem;
     color: #f5f5f5;
-    margin: 0 0 15px 0;
+    margin: 0 0 0.9375rem 0;
     white-space: normal;
     opacity: 1;
     max-width: 100%;
@@ -522,9 +528,9 @@
 
 @media (min-width: 48rem) {
     .validate-description {
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 1.6;
-        max-width: 280px;
+        max-width: 17.5rem;
         white-space: pre-wrap;
     }
 }
@@ -540,12 +546,12 @@
 }
 
 .ai-generates-description {
-    max-width: 140px;
+    max-width: 8.75rem;
 }
 
 @media (min-width: 48rem) {
     .ai-generates-description {
-        max-width: 220px !important;
+        max-width: 13.75rem !important;
     }
 }
 
@@ -556,7 +562,7 @@
     background: none;
     color: #A6F63B;
     font-family: "Stage Grotesk", sans-serif;
-    font-size: 10.5px;
+    font-size: 0.65625rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -571,8 +577,8 @@
 
 @media (min-width: 48rem) {
     .validate-cta {
-        margin-top: 32px;
-        font-size: 15px;
+        margin-top: 2rem;
+        font-size: 0.9375rem;
     }
 }
 
@@ -580,7 +586,7 @@
     position: relative;
     overflow: hidden;
     background: transparent;
-    height: 185px;
+    height: 11.5625rem;
     order: 1;
 }
 
@@ -628,11 +634,11 @@
 /* Mobile Scroll & Nav - Snippet Values */
 .products-mobile-scroll {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
     width: 100vw;
-    margin-left: -40px;
-    margin-right: -40px;
-    padding: 0 calc(50vw - 136px);
+    margin-left: -2.5rem;
+    margin-right: -2.5rem;
+    padding: 0 calc(50vw - 8.5rem);
     /* Centers the 272px wide card */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -653,8 +659,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-top: 24px;
+    gap: 1rem;
+    margin-top: 1.5rem;
     width: 105%;
 }
 
@@ -663,7 +669,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .products-pagination-indicator {
@@ -677,5 +683,5 @@
 
 .products-pagination-indicator-active {
     background: #41f33b;
-    box-shadow: 0 0 15px rgba(65, 243, 59, 0.4);
+    box-shadow: 0 0 0.9375rem rgba(65, 243, 59, 0.4);
 }

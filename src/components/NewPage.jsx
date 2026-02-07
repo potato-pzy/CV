@@ -37,7 +37,8 @@ function NewPage() {
         <div className="about-content">
           <div className="about-left">
             <h2 className="about-heading">
-              <span className="about-heading-green">AI products</span> built for<br />
+              <span className="about-heading-green">AI products</span> <br className="about-mob-break" />
+              built for<br />
               how you work.
             </h2>
             <div className="about-text-container">
