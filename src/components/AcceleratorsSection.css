@@ -743,10 +743,10 @@
 
   .accelerators-text-section p {
     font-size: 1.15rem;
-    line-height: 1.0;
+    line-height: 1.2;
     margin-bottom: 0.125rem;
-    white-space: nowrap;
-    flex-wrap: nowrap !important;
+    text-wrap: balance;
+    flex-wrap: wrap !important;
   }
 
   .accelerators-text-section p:nth-child(2) {
