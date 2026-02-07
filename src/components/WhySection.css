@@ -118,6 +118,8 @@
 .why-header {
   text-align: center;
   width: 100%;
+  padding-right: 0;
+  /* Ensure no inherited or forced padding breaks centering */
 }
 
 @media (min-width: 64rem) {
@@ -180,6 +182,8 @@
   line-height: 1.1;
   color: var(--text-white);
   margin: 0;
+  text-align: center;
+  /* Explicitly center for mobile */
 }
 
 /* Line break visibility control */
@@ -404,7 +408,8 @@
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
   .why-section {
-    padding-right: 40px;
+    padding-right: 0;
+    /* Removed asymmetrical padding that broke centering */
   }
 
   .why-figma-bg {
