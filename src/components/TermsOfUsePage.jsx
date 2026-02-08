@@ -52,9 +52,9 @@ function TermsOfUsePage() {
                 Chartered Vectorial does not accept unauthorised idea submissions outside of established business relationships. To protect the interests of our current clients and ourselves, we must treat the issue of such submissions with great care. Importantly, without a clear business relationship, Chartered Vectorial cannot and does not treat any such submissions in confidence. Accordingly, please do not communicate unauthorised idea submissions to Chartered Vectorial through this website. Any ideas disclosed to Chartered Vectorial outside a pre-existing and documented confidential business relationship are not confidential and Chartered Vectorial may therefore develop, use and freely disclose or publish similar ideas without compensating you or accounting to you. By submitting an idea or other detailed submission to Chartered Vectorial through this website, you agree to be bound by the terms of this stated policy.
               </p>
             </div>
-
+            <p className="terms-contact-text">If you have any questions about these terms, please contact us at</p>
             <div className="terms-contact">
-              <p className="terms-contact-text">If you have any questions about these terms, please contact us at</p>
+            
               <a href="mailto:hello@charteredvectorial.ai" className="terms-contact-link">hello@charteredvectorial.ai</a>
             </div>
           </div>

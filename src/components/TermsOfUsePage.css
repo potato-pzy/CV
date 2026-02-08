@@ -83,12 +83,14 @@
 }
 
 .terms-contact-text {
+  margin-top: 1rem;
   font-family: 'Stage Grotesk', sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   color: #d9d9d9;
   margin: 0 0 0.5rem 0;
   line-height: 1.2;
+  margin-top: 1rem;
 }
 
 .terms-contact-link {
