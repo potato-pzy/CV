@@ -70,6 +70,8 @@
   max-width: 38.9375rem;
   /* 623px - matches Figma width */
   height: auto;
+  bottom: .5rem;
+  position: relative;
 }
 
 /* CTA button */

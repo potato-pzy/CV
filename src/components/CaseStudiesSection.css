@@ -104,16 +104,6 @@
 .case-study-card {
     cursor: pointer;
     transition: transform 0.3s ease;
-    position: relative;
-}
-
-/* White glow effect on case study cards */
-.case-study-card .glowing-effect-overlay {
-    z-index: 1;
-}
-.case-study-card .glowing-effect-overlay .glow::after {
-    opacity: max(0.4, var(--active, 0.4)) !important;
-    transition: opacity 0.35s ease;
 }
 
 /* Staggered card spacing */

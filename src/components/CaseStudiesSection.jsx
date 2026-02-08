@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './CaseStudiesSection.css';
-import { GlowingEffect } from './GlowingEffect';
-import GlassBorder from './GlassBorder';
 import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg';
 import caseStudyLeftBottom from '../assets/homepage-case-study/case-study-left-bottom.jpg';
 import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpeg';
@@ -336,18 +334,6 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
                 animate={isOtherSelected ? { opacity: 0, filter: "blur(10px)" } : { opacity: 1, filter: "blur(0px)" }}
                 transition={editorialTransition}
             >
-                <GlowingEffect
-                    blur={0}
-                    spread={15}
-                    proximity={60}
-                    movementDuration={1.2}
-                    borderWidth={1}
-                    inactiveZone={0.2}
-                    disabled={false}
-                    variant="white"
-                    className="glowing-effect-overlay"
-                />
-                <GlassBorder />
                 <div className="case-study-image-wrapper">
                     {/* Image anchor - uses layoutId for position, but we try to keep scale 1:1 or rely on object-fit */}
                     <motion.div

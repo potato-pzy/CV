@@ -2694,6 +2694,13 @@
 }
 
 /* Hero Canvas Container - Mobile Mask Size */
+/* Laptop and desktop: shift flickering background */
+@media (min-width: 64rem) {
+    .whoarewe-hero .hero-canvas-container {
+        left: 7rem;
+    }
+}
+
 @media (max-width: 48rem) {
     .hero-canvas-container>div {
         -webkit-mask-size: 215vw !important;

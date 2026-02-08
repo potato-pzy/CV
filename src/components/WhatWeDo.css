@@ -82,6 +82,8 @@
     max-width: 156.25rem;
     padding: 0 2.5rem;
     pointer-events: auto;
+    bottom: 5rem ;
+    position: relative;
 }
 
 .what-we-do-title {
@@ -748,6 +750,8 @@
     display: block;
     /* Visible on desktop by default */
     position: relative;
+    /* Prevent collapse when exit animation uses position:absolute (rapid nav bug) */
+    min-height: 48rem;
 }
 
 .ai-discovery-carousel-glow {

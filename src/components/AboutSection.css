@@ -388,6 +388,7 @@
     }
 
     .about-heading {
+        width: 50vw;
         font-size: 2.75rem;
     }
 
@@ -414,6 +415,7 @@
     }
 
     .about-heading {
+        
         font-size: 4.5rem;
     }
 
@@ -460,12 +462,15 @@
 /* Large screens (≥1440px) – full typography; image uses scoped block below */
 @media (min-width: 90rem) {
     .about-content {
+        max-width: 100%;
+        width: 95vw;
         gap: 4rem;
         padding: 0 var(--spacing-2xl);
     }
 
     .about-heading {
         font-size: 4.5rem;
+        width: 50vw;
     }
 
     .about-description {
@@ -493,6 +498,7 @@
         align-items: center;
         margin-left: auto;
         margin-right: auto;
+        top: 15rem;
     }
 
     .about-image-main {
@@ -530,7 +536,7 @@
     }
 
     .about-content {
-        max-width: 111rem;
+        max-width: 100%;
     }
 }
 

@@ -514,7 +514,6 @@
 }
 
 .case-card {
-  position: relative;
   background: rgba(2, 15, 20, 0);
   border: 0.0625rem solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
@@ -529,15 +528,6 @@
 .case-card:hover {
   transform: translateY(-0.25rem);
   border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* White glow effect on case study cards */
-.case-card .glowing-effect-overlay {
-  z-index: 1;
-}
-.case-card .glowing-effect-overlay .glow::after {
-  opacity: max(0.4, var(--active, 0.4)) !important;
-  transition: opacity 0.35s ease;
 }
 
 .case-image-placeholder {
