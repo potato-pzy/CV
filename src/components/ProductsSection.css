@@ -164,6 +164,20 @@
 
     .show-mobile-inline {
         display: inline-flex !important;
+        right:5rem;
+        position: relative;
+    }
+}
+
+/* Small phones (width < 400px) */
+@media (max-width: 25rem) {
+    .show-mobile-inline {
+        right: 3.5rem;
+        font-size: .5rem;
+    }
+    .products-pagination{
+        right: 1rem;
+        position: relative;
     }
 }
 

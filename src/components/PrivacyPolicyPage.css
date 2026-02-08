@@ -126,6 +126,7 @@
 }
 
 .privacy-contact-link {
+  font-size: 1.3rem;
   color: #a6f63b;
   text-decoration: none;
   transition: color 0.3s ease;

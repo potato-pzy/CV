@@ -39,7 +39,7 @@
     gap: clamp(2rem, 6vw, 6rem);
     align-items: start;
     padding: 0;
-
+    text-align: left;
 }
 
 /* Left column with text content */
@@ -250,8 +250,8 @@
         padding: 0 1rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .about-description {
@@ -327,7 +327,7 @@
         margin-right: 0;
         margin-top: 0;
         font-size: 2.25rem;
-        text-align: center;
+        text-align: left;
         order: 1;
     }
 
@@ -339,8 +339,8 @@
         padding: 0 var(--spacing-xl);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .about-description {
@@ -360,9 +360,9 @@
         order: 2;
         margin-bottom: -1.5rem;
         left: 0;
-        align-self: center;
+        align-self: flex-start;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-left: 0;
     }
 
@@ -489,8 +489,8 @@
 /* Image only for 1440px–1919px; base applies below 90rem, 120rem block applies at 1920px+ */
 @media (min-width: 90rem) and (max-width: 119.9375rem) {
     .about-image-container {
-        width: 100%;
-        max-width: 18.5rem;
+        width: 106%;
+        max-width: 20.5rem;
         aspect-ratio: 355 / 402;
         overflow: hidden;
         display: flex;
@@ -498,7 +498,7 @@
         align-items: center;
         margin-left: auto;
         margin-right: auto;
-        top: 15rem;
+        top: 13rem;
     }
 
     .about-image-main {
@@ -540,7 +540,7 @@
     }
 }
 
-/* Mobile (Pixel 7 Pro, etc.) – equal left/right padding and centered content */
+/* Mobile (Pixel 7 Pro, etc.) – equal left/right padding, content left-aligned */
 @media (max-width: 48rem) {
     .about-section {
         padding-left: var(--spacing-xl);
@@ -551,6 +551,7 @@
         padding-left: var(--spacing-md) !important;
         padding-right: var(--spacing-md) !important;
         margin: 0 auto;
+        text-align: left;
     }
 
     .about-left {
@@ -559,12 +560,12 @@
     }
 
     .about-text-container {
-        margin-left: auto;
+        margin-left: 0;
         margin-right: auto;
     }
 
     .about-image-abstract {
-        justify-content: center;
+        justify-content: flex-start;
         margin-left: auto;
         margin-right: auto;
     }

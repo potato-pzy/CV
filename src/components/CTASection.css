@@ -52,7 +52,7 @@
 /* CTA title - fluid typography */
 .cta-title {
   font-family: "Stage Grotesk", sans-serif;
-  font-size: clamp(1.875rem, 5vw, 3.125rem);
+  font-size: clamp(1.875rem, 5vw, 3.325rem);
   /* 30px to 66px fluid */
   font-weight: 400;
   line-height: 1.2;

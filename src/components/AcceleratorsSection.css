@@ -530,6 +530,20 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* White edge glow on hover (What We Do case studies only) */
+.case-card .glowing-effect-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.case-card .glowing-effect-overlay .glow::after {
+  opacity: max(0.4, var(--active, 0.4)) !important;
+  transition: opacity 0.35s ease;
+}
+
 .case-image-placeholder {
   height: 21rem;
   width: 100%;

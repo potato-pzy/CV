@@ -1,69 +1,73 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 import HighVelocityLoader from './HighVelocityLoader';
 
+const MIN_SHOW_MS = 450;
+const MAX_SHOW_MS = 4000;
+
 const GlobalLoader = () => {
     const location = useLocation();
-    const [isLoading, setIsLoading] = useState(true); // Start with true for initial page load
+    const [isLoading, setIsLoading] = useState(true);
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-    // Determines if we should show the loader for this path
-    // You can exclude paths here if needed, e.g. if specific routes shouldn't trigger it
-    const shouldShowLoader = (pathname) => {
-        return true;
-    };
+    const shouldShowLoader = () => true;
 
-    // Handle initial page load
+    // Show loader immediately on internal link click (before navigation)
     useEffect(() => {
-        if (isInitialLoad) {
-            // Lock body scroll during initial load
+        const handleClick = (e) => {
+            const a = e.target.closest('a[href^="/"]');
+            if (!a || a.getAttribute('href')?.startsWith('/#')) return;
+            if (a.origin !== window.location.origin) return;
+            if (isInitialLoad) return;
+            flushSync(() => setIsLoading(true));
             document.body.style.overflow = 'hidden';
+        };
+        document.addEventListener('click', handleClick, true);
+        return () => document.removeEventListener('click', handleClick, true);
+    }, [isInitialLoad]);
 
-            const handleLoad = () => {
-                // Wait a bit for smooth transition after load
-                setTimeout(() => {
-                    setIsLoading(false);
-                    setIsInitialLoad(false);
-                    document.body.style.overflow = 'unset';
-                }, 300);
-            };
-
-            // Check if page is already loaded
-            if (document.readyState === 'complete') {
-                handleLoad();
-            } else {
-                window.addEventListener('load', handleLoad);
-                return () => window.removeEventListener('load', handleLoad);
-            }
+    // Initial page load
+    useEffect(() => {
+        if (!isInitialLoad) return;
+        document.body.style.overflow = 'hidden';
+        const handleLoad = () => {
+            setTimeout(() => {
+                setIsLoading(false);
+                setIsInitialLoad(false);
+                document.body.style.overflow = 'unset';
+            }, 300);
+        };
+        if (document.readyState === 'complete') {
+            handleLoad();
+        } else {
+            window.addEventListener('load', handleLoad);
+            return () => window.removeEventListener('load', handleLoad);
         }
     }, [isInitialLoad]);
 
-    // Handle route changes (after initial load)
+    // Also show on location change (in case navigation wasn't from a click)
     useLayoutEffect(() => {
-        // Skip if this is the initial load
         if (isInitialLoad) return;
-
-        // Trigger loading state immediately on location change
         if (shouldShowLoader(location.pathname)) {
             setIsLoading(true);
-
-            // Lock body scroll
             document.body.style.overflow = 'hidden';
         }
     }, [location.pathname, isInitialLoad]);
 
+    // Hide after min duration; max cap so it never gets stuck
     useEffect(() => {
-        // Only handle route change loading (not initial load)
-        if (isLoading && !isInitialLoad) {
-            // Wait for animation duration (adjust as needed)
-            const timer = setTimeout(() => {
-                setIsLoading(false);
-                // Restore body scroll
-                document.body.style.overflow = 'unset';
-            }, 800); // 0.8 seconds for a snappy transition
-
-            return () => clearTimeout(timer);
-        }
+        if (!isLoading || isInitialLoad) return;
+        const hide = () => {
+            setIsLoading(false);
+            document.body.style.overflow = 'unset';
+        };
+        const minT = setTimeout(hide, MIN_SHOW_MS);
+        const maxT = setTimeout(hide, MAX_SHOW_MS);
+        return () => {
+            clearTimeout(minT);
+            clearTimeout(maxT);
+        };
     }, [isLoading, isInitialLoad]);
 
     if (!isLoading) return null;

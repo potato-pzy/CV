@@ -331,7 +331,11 @@ function WhoAreWeSection() {
                                     <div className="whoarewe-founder-back-content">
                                         <h3 className="whoarewe-founder-back-name">Pradeep Menon</h3>
                                         <p className="whoarewe-founder-back-designation">Founder & CEO, Chartered Vectorial</p>
-                                        <p className="whoarewe-founder-back-bio">Pradeep Menon is the founder and CEO of Chartered Vectorial. He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia. He's a published author and keynote speaker on AI transformation, strategy, and business case development. Know where AI fits before you commit budget.</p>
+                                        <div className="whoarewe-founder-back-bio-wrap">
+                                            <p className="whoarewe-founder-back-bio">Pradeep Menon is the founder and CEO of Chartered Vectorial.</p>
+                                            <p className="whoarewe-founder-back-bio">He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia.</p>
+                                            <p className="whoarewe-founder-back-bio">He's a published author and keynote speaker on AI transformation, strategy, and business case development. Know where AI fits before you commit budget.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +350,10 @@ function WhoAreWeSection() {
                                     <div className="whoarewe-founder-back-content">
                                         <h3 className="whoarewe-founder-back-name">Eyal Agmoni</h3>
                                         <p className="whoarewe-founder-back-designation">Co-Founder, Chartered Vectorial | Founder of Chartered Group and CEO of Chartered Investment Managers</p>
-                                        <p className="whoarewe-founder-back-bio">Eyal Agmoni has spent 35 years building and investing in businesses across Europe and Asia. As Founder of Chartered Group, he's seen how technology reshapes industries and how most enterprises struggle to capture that value. He co-founded Chartered Vectorial to bridge that gap: backing a team that gets AI from strategy to production, not just pilots.</p>
+                                        <div className="whoarewe-founder-back-bio-wrap">
+                                            <p className="whoarewe-founder-back-bio">Eyal Agmoni has spent 35 years building and investing in businesses across Europe and Asia.</p>
+                                            <p className="whoarewe-founder-back-bio">As Founder of Chartered Group, he's seen how technology reshapes industries and how most enterprises struggle to capture that value. He co-founded Chartered Vectorial to bridge that gap: backing a team that gets AI from strategy to production, not just pilots.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

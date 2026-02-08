@@ -78,8 +78,8 @@
 .terms-contact {
   margin-top: 7.5rem;
   text-align: center;
-  padding: 3.75rem 0;
-  border-top: 0.0625rem solid rgba(166, 246, 59, 0.2);
+  padding: 0 0 3.75rem 0;
+  border-bottom: 0.0625rem solid rgba(166, 246, 59, 0.2);
 }
 
 .terms-contact p {
@@ -93,6 +93,7 @@
 }
 
 .terms-contact-link {
+  font-size: 1.3rem;
   color: #a6f63b;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -130,7 +131,7 @@
 
   .terms-contact {
     margin-top: 5rem;
-    padding: 2.5rem 0;
+    padding: 0 0 2.5rem 0;
   }
 
   .terms-contact p {
