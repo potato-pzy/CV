@@ -11,6 +11,7 @@ import s5_1 from '../assets/ Images/blog/Section_5.1.webp';
 import s5_f from '../assets/ Images/blog/Founders_notes_s5.webp';
 import s6_1 from '../assets/ Images/blog/Section_6.1.webp';
 import s6 from '../assets/ Images/blog/Section_6.webp';
+import s5_1_f from '../assets/ Images/blog/s5.1_f.png';
 
 const BlogFoundersNote = () => {
     const content = (
@@ -73,6 +74,13 @@ const BlogFoundersNote = () => {
             </p>
             <p>The core fabric of how businesses operate needs to be rewritten. Not optimised. Rewritten.</p>
 
+            <p>If intelligence is now commoditised, why should every organisation rebuild from
+                scratch? The old consulting model sold time. The new model should sell leverage,
+                products that encode insight, that can be configured with agility rather than
+                rebuilt, that compound value across clients rather than evaporating after each
+                engagement.
+            </p>
+
             <div className="blog-content-image-wrapper">
                 <img src={s4_1} alt="Section 4.1" className="blog-content-image transform-image" />
             </div>
@@ -101,6 +109,13 @@ const BlogFoundersNote = () => {
             <p>
                 A firm that could bring enterprise-grade AI capabilities to organisations regardless of size. The traditional playbook was built for giants, long timelines, large teams, budgets that only the largest institutions could absorb. That left an entire category of ambitious companies underserved: organisations large enough to need real transformation, but priced out of the conventional approach. I wanted to build a firm where the quality of thinking and the rigour of execution didn't depend on the size of the engagement. Where a growing asset manager could access the same firepower as a global bank. Where success was measured not by what was proposed, but by what was running in production.
             </p>
+            <p>
+                I wanted a firm that didn't just consult, it shipped. One that built a library of AI
+                products, learned from every deployment, and made those learnings available to
+                the next client. Not custom builds that disappeared into a single organisation, but
+                reusable intelligence that compounds.
+
+            </p>
             <p>I couldn't find it.</p>
             <p>So I built it.</p>
 
@@ -108,13 +123,30 @@ const BlogFoundersNote = () => {
                 <img src={s5_f} alt="Founder's notes s5" className="blog-content-image" />
             </div>
 
-            <p>Chartered Vectorial exists because I believe the gap between thinking and doing no longer needs to exist.</p>
             <p>
-                We are an AI-native consulting and engineering firm. Not AI-assisted. Not AI-enabled. AI-native means that intelligence is woven into how we think, how we build, how we operate. Our own agents work alongside our engineers, not as tools to be prompted, but as participants in the work itself.
+                Chartered Vectorial exists because I believe intelligence should ship as product,
+                not stay locked in consulting decks.
             </p>
+
+            <div className="blog-content-image-wrapper">
+                <img src={s5_1_f} alt="Founder's notes s5" className="blog-content-image" />
+            </div>
+
             <p>
-                Consulting and engineering are not separate disciplines here. The same team that shapes strategy is the team that ships it. There are no handoffs. No translation layers. No "implementation partners." Intent travels directly into production.
+                We are an AI-native Product Studio, with consulting DNA. Not AI-assisted. Not AIenabled. AI-native means that intelligence is woven into how we think, how we
+                build, how we operate. Our own agents work alongside our engineers, not as tools
+                to be prompted, but as participants in the work itself.
+
             </p>
+
+            <p>
+                We build a library of AI products, shaped by deep workflow insight, configured to
+                how you work. The same team that understands your business is the team that
+                ships what fits. There are no handoffs. No translation layers. No "implementation
+                partners." Intent travels directly into production.
+
+            </p>
+
 
             <div className="blog-content-image-wrapper">
                 <img src={s6_1} alt="Section 6.1" className="blog-content-image transform-image" />
@@ -124,8 +156,10 @@ const BlogFoundersNote = () => {
                 Governance is not an afterthought here, it is how we build. Every system we design carries audit trails, accountability, and explainability from the beginning. Not because regulation demands it, but because intelligence without governance is fragile. Whether the work is in financial services, insurance, or any industry where decisions carry consequence, the discipline remains the same: if it cannot be explained, it should not be deployed.
             </p>
             <p>
-                And we move fast. Not recklessly, but deliberately. Production in 60 to 90 days, not 6 to 12 months. Because strategy that doesn't ship isn't strategy. It's theatre.
-            </p>
+                And we move fast. Not recklessly, but deliberately. Because we're not starting
+                from zero, you're not paying for zero. Products deploy in weeks. Custom
+                extensions in 60-90 days. That's the difference between building and configuring.
+                Because strategy that doesn't ship isn't strategy. It's theatre.            </p>
 
             <div className="blog-content-image-wrapper">
                 <img src={s6} alt="Section 6" className="blog-content-image transform-image" />
@@ -137,12 +171,18 @@ const BlogFoundersNote = () => {
                 The world has shifted. Intelligence is no longer scarce. Value no longer forms at the end of a long sequence of handoffs. The organisations that thrive will be those that understand this and re-organise around it, not by adding AI on top, but by rethinking how insight, execution, and accountability come together.
             </p>
             <p>
-                Our goal is to use intelligence to build intelligent systems and processes. To leverage AI not as a feature, but as the foundation. To invent new ways of working rather than digitising old ones.
+                Our goal is to build a library of intelligent products, and to use AI to build them
+                faster than any traditional firm could. Not one-off systems, but reusable products
+                that encode the workflows of an industry and compound with every deployment.
+                To leverage AI not as a feature, but as the foundation. To invent new ways of
+                working rather than digitising old ones.
             </p>
+
             <p>That is the lens through which we work.</p>
             <p>
-                And these notes, what I'll share here over time, are reflections from inside the work of building an AI-native future. Not prescriptions. Not predictions. Just observations from the practice of building something that I believe needed to exist.
-            </p>
+                And these notes, what I'll share here over time, are reflections from inside that
+                work. Not prescriptions. Not predictions. Just observations from the practice of
+                building something that I believe needed to exist.            </p>
             <p>The work has already begun.</p>
         </>
     );
