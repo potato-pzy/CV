@@ -514,6 +514,7 @@
 }
 
 .case-card {
+  position: relative;
   background: rgba(2, 15, 20, 0);
   border: 0.0625rem solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
@@ -522,6 +523,7 @@
   transition: all -0.3s ease;
   position: relative;
   z-index: 2;
+  min-height: 28rem;
 }
 
 .case-card:hover {
@@ -529,8 +531,17 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* White glow effect on case study cards */
+.case-card .glowing-effect-overlay {
+  z-index: 1;
+}
+.case-card .glowing-effect-overlay .glow::after {
+  opacity: max(0.4, var(--active, 0.4)) !important;
+  transition: opacity 0.35s ease;
+}
+
 .case-image-placeholder {
-  height: 17.25rem;
+  height: 21rem;
   width: 100%;
   border-radius: 0.5rem;
   background: rgba(200, 200, 200, 0.9);
@@ -609,16 +620,14 @@
     padding: 6.25rem 0 5rem 0;
   }
 
-  .accelerators-grid,
-  .case-grid {
+  .accelerators-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
     max-width: 43.75rem;
     padding: 0 1.5rem;
   }
 
-  .accelerators-hero h2,
-  .case-hero h2 {
+  .accelerators-hero h2 {
     font-size: 2.5rem;
   }
 
@@ -637,27 +646,59 @@
   .acc-desc p {
     font-size: 0.9375rem;
   }
+}
 
+/* Tablet only: case study section like mobile (single-row scroll, centered hero). 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
   .case-hero {
     width: 100%;
-    max-width: 43.75rem;
+    max-width: 100%;
     margin: 7.5rem auto 0 auto;
-    /* Centered to match grid */
-    padding: 0 1.5rem;
-    /* Match case-grid padding */
+    padding: 0 var(--spacing-2xl);
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 0.75rem;
-    left: -12.25rem;
-    /* Restore desktop offset */
-    top: 6.125rem;
-    /* Restore desktop offset */
-    padding-left: 4.0625rem;
+    left: 0;
+    top: 0;
+  }
+
+  .case-hero h2 {
+    font-size: 2rem;
   }
 
   .case-hero p {
+    font-size: 0.875rem;
     text-align: center;
+  }
+
+  .case-br-tablet {
+    display: none;
+  }
+
+  .case-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding: 0 var(--spacing-2xl) 1.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 3.5rem auto 0;
+    grid-template-columns: unset;
+  }
+
+  .case-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .case-card {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
+    max-width: none;
+    margin: 0;
   }
 }
 

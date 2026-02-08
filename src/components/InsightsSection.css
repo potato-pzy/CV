@@ -376,6 +376,126 @@
   }
 }
 
+/* Tablet only: same layout as mobile (single col, horizontal scroll articles). 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .insights-section {
+    padding-top: 5rem;
+    padding-bottom: 3.75rem;
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+
+  .insights-container {
+    padding: 0;
+  }
+
+  .insights-why-exists {
+    aspect-ratio: 343 / 240;
+    margin: 2rem 0 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .insights-why-exists-content-wrapper {
+    margin-bottom: 3rem;
+    padding: 0;
+  }
+
+  .insights-why-exists-title {
+    font-size: 1.625rem;
+  }
+
+  .insights-why-exists-content {
+    gap: 0.5rem;
+  }
+
+  .insights-main-content {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .insights-featured {
+    margin: 2.5rem 0 2.5rem 0;
+  }
+
+  .insights-featured-badge {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .insights-featured-title {
+    font-size: 2.25rem;
+  }
+
+  .insights-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .insights-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .insights-filter-btn {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .insights-articles-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding: 0 0 1.25rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    margin-left: 0;
+    scroll-padding: 0 2rem;
+    grid-template-columns: unset;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: left;
+  }
+
+  .insights-articles-grid::before {
+    content: '';
+    flex: 0 0 2rem;
+    scroll-snap-align: none;
+    min-width: 2rem;
+  }
+
+  .insights-articles-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .insights-articles-grid > * {
+    flex: 0 0 75%;
+    scroll-snap-align: center;
+    min-width: 0;
+  }
+
+  .insights-articles-grid > *:first-child {
+    scroll-snap-align: start;
+  }
+
+  .insights-articles-grid::after {
+    content: '';
+    flex: 0 0 2rem;
+    min-width: 2rem;
+  }
+}
+
 @media (max-width: 75rem) {
   .insights-container {
     padding: 0 1.875rem;

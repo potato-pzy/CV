@@ -11,6 +11,8 @@ import docLine from '../assets/accelerator-doc-line.svg'
 import complianceLine from '../assets/accelerator-compliance-line.svg'
 
 import { TextGradientScroll } from './ui/text-gradient-scroll';
+import { GlowingEffect } from './GlowingEffect';
+import GlassBorder from './GlassBorder';
 
 const darkCards = [
   {
@@ -545,6 +547,18 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
         className="case-card"
         ref={cardRef}
       >
+        <GlowingEffect
+          blur={0}
+          spread={15}
+          proximity={60}
+          movementDuration={1.2}
+          borderWidth={1}
+          inactiveZone={0.2}
+          disabled={false}
+          variant="white"
+          className="glowing-effect-overlay"
+        />
+        <GlassBorder />
         <motion.div layoutId={`image-${title}-${id}`}>
           <div className="case-image-placeholder">
             <motion.img

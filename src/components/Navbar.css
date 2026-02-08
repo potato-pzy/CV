@@ -235,6 +235,51 @@
     }
 }
 
+/* Tablet: same hamburger as mobile, but bigger */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+    .navbar-menu {
+        display: none !important;
+    }
+    .navbar-cta {
+        display: none !important;
+    }
+    .navbar-mobile-menu {
+        display: flex !important;
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 0.5rem;
+    }
+    .hamburger-icon {
+        width: 2rem;
+        height: 1.625rem;
+    }
+    .hamburger-icon span {
+        height: 0.1875rem;
+    }
+    .navbar-mobile-menu.active .hamburger-icon span:nth-child(1) {
+        transform: translateY(0.8125rem) rotate(45deg);
+    }
+    .navbar-mobile-menu.active .hamburger-icon span:nth-child(3) {
+        transform: translateY(-0.8125rem) rotate(-45deg);
+    }
+    .mobile-overlay {
+        padding-top: 8rem;
+    }
+    .mobile-menu-content {
+        padding: 0 var(--spacing-2xl) var(--spacing-2xl);
+    }
+    .mobile-nav-list {
+        gap: var(--spacing-xl);
+    }
+    .mobile-link {
+        font-size: 1.5rem;
+    }
+    .mobile-cta {
+        padding: 1.25rem;
+        font-size: 1rem;
+    }
+}
+
 .hamburger-icon {
     width: 1.5rem;
     height: 1.25rem;

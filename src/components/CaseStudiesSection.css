@@ -104,6 +104,16 @@
 .case-study-card {
     cursor: pointer;
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+/* White glow effect on case study cards */
+.case-study-card .glowing-effect-overlay {
+    z-index: 1;
+}
+.case-study-card .glowing-effect-overlay .glow::after {
+    opacity: max(0.4, var(--active, 0.4)) !important;
+    transition: opacity 0.35s ease;
 }
 
 /* Staggered card spacing */
@@ -258,6 +268,7 @@
 
     .case-studies-title,
     .quote-text {
+        display: none;
         font-size: 2.25rem;
     }
 
@@ -285,15 +296,56 @@
 
 /* Tablets (641px to 1024px) */
 @media (min-width: 40.0625rem) and (max-width: 64rem) {
-
-    /* 641px - 1024px */
     .case-studies-column-right {
         padding-top: 2.5rem;
-        /* Reduced stagge for portrait */
     }
 
     .case-study-card {
         max-width: 100%;
+    }
+}
+
+/* Tablet only: same layout as mobile (1 col), bigger fonts, tablet padding. 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+    .case-studies-section {
+        padding: var(--spacing-3xl) var(--spacing-2xl);
+    }
+
+    .case-studies-header {
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .case-studies-title,
+    .quote-text {
+        display: none;
+        font-size: 2.5rem;
+    }
+
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3xl);
+    }
+
+    .case-studies-column {
+        gap: var(--spacing-3xl);
+    }
+
+    .case-studies-column-right {
+        padding-top: 0;
+    }
+
+    .case-study-description {
+        font-size: 1.5rem;
+    }
+
+    .case-study-company {
+        font-size: 1.0625rem;
+    }
+
+    .case-studies-quote {
+        min-height: auto;
+        padding: var(--spacing-2xl) 0;
+        text-align: center;
     }
 }
 

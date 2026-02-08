@@ -127,21 +127,94 @@
     color: #A6F63B;
 }
 
-@media (min-width: 48rem) and (max-width: 64rem) {
-    .careers-hero-title {
-        font-size: 3rem;
-        line-height: 1.15;
+/* Tablet only: same layout as mobile, larger typography/spacing. 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+    .careers-hero-container {
+        min-height: 100vh;
+        padding: 7rem var(--spacing-xl) 0;
+        align-items: flex-start;
     }
 
     .careers-hero-content {
-        padding-left: 0;
         text-align: left;
+        padding-left: 0;
         margin: 0;
         width: 100%;
     }
 
+    .careers-hero-title {
+        font-size: 2.5rem;
+        line-height: 1.15;
+        width: 75%;
+        margin-top: 0;
+        margin-bottom: 1.75rem;
+    }
+
     .careers-hero-subtitle {
-        font-size: 0.75rem;
+        font-size: 1rem;
+        max-width: 85%;
+        text-align: left;
+        line-height: 1.55;
+    }
+
+    .careers-statement {
+        height: auto;
+        min-height: 55vh;
+        padding: 6rem 0;
+    }
+
+    .careers-statement-title {
+        font-size: 2.25rem;
+        text-align: center;
+        margin-bottom: 1.75rem;
+    }
+
+    .careers-statement-text {
+        font-size: 1.375rem;
+        line-height: 1.6;
+        text-align: center;
+        min-height: 0;
+    }
+
+    .careers-who-thrives {
+        padding: 5rem var(--spacing-xl) 6rem;
+    }
+
+    .careers-who-thrives-title {
+        font-size: 2.25rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    .careers-who-thrives-grid {
+        grid-template-columns: 1fr;
+        gap: 4.5rem;
+    }
+
+    .careers-who-thrives-card {
+        padding: 2rem;
+        min-height: auto;
+    }
+
+    .careers-who-thrives-card-title {
+        font-size: 1.875rem;
+    }
+
+    .careers-who-thrives-card-text {
+        font-size: 1.125rem;
+    }
+
+    .careers-roles {
+        padding: 0 var(--spacing-xl) 10rem;
+    }
+
+    .careers-roles-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .careers-roles-title {
+        font-size: 2.25rem;
     }
 }
 
@@ -169,28 +242,6 @@
     text-shadow: 0 0 1.875rem rgba(255, 255, 255, 0.1);
 }
 
-@media (min-width: 48rem) and (max-width: 64rem) {
-    .careers-hero-subtitle {
-        max-width: 80%;
-        margin: 0;
-        text-align: left;
-    }
-
-    .careers-hero-title {
-        margin-left: 0;
-        margin-right: 0;
-        text-align: left;
-    }
-
-    .careers-hero {
-        min-height: 100vh;
-    }
-
-    .careers-hero-container {
-        min-height: 100vh;
-        padding-bottom: 0;
-    }
-}
 
 .careers-statement {
     width: 100%;
@@ -295,10 +346,10 @@
     }
 }
 
-@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+@media (min-width: 48rem) and (max-width: 63.9375rem) and (orientation: portrait) {
     .careers-statement {
-        padding-top: 1.25rem;
-        padding-bottom: 0;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 }
 
@@ -358,6 +409,22 @@
     }
 }
 
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+    .careers-statement-content {
+        padding-left: var(--spacing-2xl);
+        padding-right: var(--spacing-2xl);
+    }
+
+    .careers-statement-text {
+        font-size: 1.375rem;
+        min-height: 0;
+    }
+
+    .careers-who-thrives-card-text {
+        font-size: 1.125rem;
+    }
+}
+
 .careers-ellipse-section {
     position: relative;
     width: 100%;
@@ -396,15 +463,9 @@
     box-sizing: border-box;
 }
 
-@media (min-width: 48rem) and (max-width: 64rem) {
+@media (min-width: 48rem) and (max-width: 63.9375rem) and (orientation: portrait) {
     .careers-who-thrives {
-        padding: 5rem var(--spacing-xl) 6.25rem;
-    }
-}
-
-@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
-    .careers-who-thrives {
-        padding-top: 0;
+        padding-top: 2rem;
     }
 }
 
@@ -486,6 +547,12 @@
     z-index: 2;
 }
 
+/* Make white glow visible on thrives cards (desktop + mobile) */
+.careers-who-thrives-card .glowing-effect-overlay .glow::after {
+    opacity: max(0.4, var(--active, 0.4)) !important;
+    transition: opacity 0.35s ease;
+}
+
 .careers-who-thrives-card-content {
     position: relative;
     z-index: 10;
@@ -558,11 +625,6 @@
     box-sizing: border-box;
 }
 
-@media (min-width: 48rem) and (max-width: 64rem) {
-    .careers-roles {
-        padding: 0 var(--spacing-xl) 8.75rem;
-    }
-}
 
 @media (min-width: 64rem) {
     .careers-roles {

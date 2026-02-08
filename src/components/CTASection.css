@@ -144,11 +144,33 @@
 
 /* Tablets (641px to 1024px) */
 @media (min-width: 40.0625rem) and (max-width: 64rem) {
-
-  /* 641px - 1024px */
   .cta-section {
     padding: var(--spacing-3xl) 0;
-    /* 64px */
+  }
+}
+
+/* Tablet only: same as mobile layout, bigger fonts, tablet padding. 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .cta-section {
+    padding: var(--spacing-4xl) var(--spacing-2xl);
+  }
+
+  .cta-content {
+    gap: var(--spacing-2xl);
+    padding: 0 var(--spacing-xl);
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .cta-button {
+    font-size: 1.0625rem !important;
+    padding: 0.875rem 1.5rem;
   }
 }
 

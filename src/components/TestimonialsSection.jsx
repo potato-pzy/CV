@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './TestimonialsSection.css';
+import { GlowingEffect } from './GlowingEffect';
+import GlassBorder from './GlassBorder';
 
 const testimonials = [
   {
@@ -53,6 +55,8 @@ function TestimonialsSection() {
         <section className="testimonials-carousel">
           {/* Left Card (Decorative) */}
           <div className="testimonial-card testimonial-card-side testimonial-card-left">
+            <GlowingEffect blur={0} spread={15} proximity={60} movementDuration={1.2} borderWidth={1} inactiveZone={0.2} disabled={false} variant="white" className="glowing-effect-overlay" />
+            <GlassBorder />
             <div className="testimonial-card-inner">
               <div className="testimonial-quote">
                 <p className="testimonial-text">{leftTestimonial.quote}</p>
@@ -69,6 +73,8 @@ function TestimonialsSection() {
 
           {/* Center Card (Active) */}
           <div className="testimonial-card testimonial-card-active">
+            <GlowingEffect blur={0} spread={15} proximity={60} movementDuration={1.2} borderWidth={1} inactiveZone={0.2} disabled={false} variant="white" className="glowing-effect-overlay" />
+            <GlassBorder />
             <div className="testimonial-card-backdrop"></div>
             <div className="testimonial-card-inner">
               <div className="testimonial-quote">
@@ -86,6 +92,8 @@ function TestimonialsSection() {
 
           {/* Right Card (Decorative) */}
           <div className="testimonial-card testimonial-card-side testimonial-card-right">
+            <GlowingEffect blur={0} spread={15} proximity={60} movementDuration={1.2} borderWidth={1} inactiveZone={0.2} disabled={false} variant="white" className="glowing-effect-overlay" />
+            <GlassBorder />
             <div className="testimonial-card-inner">
               <div className="testimonial-quote">
                 <p className="testimonial-text">{rightTestimonial.quote}</p>

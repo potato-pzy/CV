@@ -298,25 +298,27 @@
     }
 }
 
-/* Tablets (768px to 1024px) – equal left/right space */
-@media (min-width: 48rem) and (max-width: 64rem) {
+/* Tablet only: same layout as mobile, bigger fonts, tablet padding. 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
     .about-section {
-        padding: var(--spacing-4xl) var(--spacing-xl);
+        padding: 5rem var(--spacing-2xl) 3rem;
+        padding-top: 6rem;
+        min-height: auto;
     }
 
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 3.75rem;
-        padding: 0 var(--spacing-xl);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0;
         margin: 0 auto;
         max-width: 100%;
     }
 
     .about-left {
+        display: contents;
         margin-left: 0;
         margin-right: 0;
-        text-align: center;
-        align-items: center;
     }
 
     .about-heading {
@@ -324,36 +326,58 @@
         margin-left: 0;
         margin-right: 0;
         margin-top: 0;
-        font-size: 3.5rem;
+        font-size: 2.25rem;
+        text-align: center;
+        order: 1;
     }
 
     .about-text-container {
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        left: 0;
+        order: 3;
+        margin-top: -3rem;
+        padding: 0 var(--spacing-xl);
+        display: flex;
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
+    .about-description {
+        font-size: 1.0625rem;
+    }
+
     .about-right {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
+        display: contents;
     }
 
     .about-image-container {
-        left: 0;
-        top: 0;
-        width: 100%;
-        max-width: min(31.25rem, 85vw);
-        margin-left: auto;
-        margin-right: auto;
+        display: none;
     }
 
     .about-image-abstract {
-        
-        margin-left: 0;
+        margin-top: 0;
+        order: 2;
+        margin-bottom: -1.5rem;
+        left: 0;
         align-self: center;
-        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .abstract-image {
+        margin-bottom: 0;
+        z-index: 14;
+        position: relative;
+        left: 0;
+        width: 100%;
+        max-height: 14rem;
+    }
+
+    .btn-see-how {
+        font-size: 0.875rem;
+        padding: 0.875rem 1.75rem;
     }
 }
 
@@ -421,7 +445,7 @@
 }
 
 /* Landscape orientation on tablets */
-@media (min-width: 48rem) and (max-width: 64rem) and (orientation: landscape) {
+@media (min-width: 48rem) and (max-width: 63.9375rem) and (orientation: landscape) {
     .about-section {
         padding: var(--spacing-xl) 0;
         /* 32px - reduced for landscape */

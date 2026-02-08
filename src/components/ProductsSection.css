@@ -390,13 +390,11 @@
 @media(max-width: 48rem) {
     .products-section {
         margin-top: 0.5rem;
-        /* Reduced from 7.5rem */
         margin-bottom: 1.5rem;
         padding-right: 0;
-        
     }
     .products-container{
-        margin-left: 1rem;   
+        margin-left: 1rem;
     }
 
     .products-left {
@@ -414,12 +412,10 @@
         text-align: left;
     }
 
-    /* Show Mobile View */
     .mobile-products-view {
         display: flex;
     }
 
-    /* Hide Desktop View */
     .desktop-view {
         display: none !important;
     }
@@ -432,6 +428,115 @@
         border: 0.0625rem solid rgba(255, 255, 255, 0.15);
         border-radius: 2.0625rem;
         min-height: 20rem;
+    }
+}
+
+/* Tablet only: same as mobile layout, bigger fonts, tablet padding. 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+    .products-section {
+        margin-top: 0.5rem;
+        margin-bottom: 2.5rem;
+        padding: var(--spacing-5xl) var(--spacing-2xl);
+    }
+
+    .products-container {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-2xl);
+        margin-left: 0;
+    }
+
+    .products-left {
+        text-align: left;
+        align-items: flex-start;
+        transform: none;
+    }
+
+    .products-label {
+        font-size: 0.8125rem !important;
+    }
+
+    .products-title {
+        font-size: 2.125rem !important;
+        margin-top: 1.75rem;
+        text-align: left;
+    }
+
+    .mobile-products-view {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .desktop-view {
+        display: none !important;
+    }
+
+    .products-mobile-scroll {
+        display: flex;
+        gap: 1.75rem;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-card-item {
+        flex: 0 0 auto;
+        width: min(22rem, 80vw);
+        min-width: 20rem;
+        scroll-snap-align: center;
+    }
+
+    .mobile-products-view .validate-card {
+        height: 31rem;
+        min-height: 26rem;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 2.25rem;
+        border: 0.0625rem solid rgba(255, 255, 255, 0.15);
+        background: #020f14;
+    }
+
+    .mobile-products-view .validate-content-left {
+        padding: 2.25rem 1.75rem;
+    }
+
+    .mobile-products-view .validate-title {
+        font-size: 1.625rem;
+    }
+
+    .mobile-products-view .validate-description {
+        font-size: 1rem;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .mobile-products-view .consulting-dna-description,
+    .mobile-products-view .ai-generates-description {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .mobile-products-view .validate-title {
+        max-width: 100%;
+    }
+
+    .mobile-products-view .validate-cta {
+        font-size: 0.9375rem;
+    }
+
+    .products-mobile-nav {
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .products-pagination-indicator {
+        width: 2.75rem;
+        height: 0.14rem;
     }
 }
 
@@ -686,4 +791,33 @@
 .products-pagination-indicator-active {
     background: #41f33b;
     box-shadow: 0 0 0.9375rem rgba(65, 243, 59, 0.4);
+}
+
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+    .mobile-products-view .validate-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: 15rem 1fr;
+        height: 100%;
+        min-height: 26rem;
+    }
+
+    .mobile-products-view .validate-content-left {
+        order: 2;
+        padding: 2.25rem 1.75rem;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .mobile-products-view .validate-image-right {
+        height: 15rem;
+        order: 1;
+    }
+
+    .mobile-products-view .validate-image {
+        mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+    }
+
+    .mobile-products-view .validate-gradient-overlay {
+        background: linear-gradient(0deg, #00131a, #001c1ef7 9.52%, #004831a6 64%, #0093522e 89%, #00b15f00 103%);
+    }
 }

@@ -311,6 +311,17 @@
             #0000 calc(var(--spread, 45) * 2deg));
 }
 
+/* Five Intelligences carousel: visible white glow (desktop + mobile) */
+.ai-discovery-card .glowing-effect-overlay,
+.ai-discovery-mobile-card .glowing-effect-overlay {
+    z-index: 1;
+}
+.ai-discovery-card .glowing-effect-overlay .glow::after,
+.ai-discovery-mobile-card .glowing-effect-overlay .glow::after {
+    opacity: max(0.4, var(--active, 0.4)) !important;
+    transition: opacity 0.35s ease;
+}
+
 /* AI Discovery card */
 .ai-discovery-section {
     margin-top: 5rem;

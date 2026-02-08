@@ -8,6 +8,7 @@ import CTASection from './CTASection';
 import Hyperspeed from './Hyperspeed';
 import { hyperspeedPresets } from './HyperSpeedPresets';
 import { GlowingEffect } from './GlowingEffect';
+import GlassBorder from './GlassBorder';
 import { AnimatePresence, motion } from 'framer-motion';
 import envisionLogo from '../assets/envision 1.png';
 import proveLogo from '../assets/prove 1.png';
@@ -269,6 +270,18 @@ function WhatWeDo() {
               >
                 {aiSlides.map((slide, index) => (
                   <div key={index} className="ai-discovery-mobile-card">
+                    <GlowingEffect
+                      blur={0}
+                      spread={15}
+                      proximity={60}
+                      movementDuration={1.2}
+                      borderWidth={1}
+                      inactiveZone={0.2}
+                      disabled={false}
+                      variant="white"
+                      className="glowing-effect-overlay"
+                    />
+                    <GlassBorder />
                     <Link to={slide.blogLink || '#'} className="ai-discovery-mobile-link">
                       <div className="ai-discovery-mobile-image-container">
                         <img src={slide.image} alt="" className="ai-discovery-bg-image" />
@@ -304,6 +317,18 @@ function WhatWeDo() {
                     }}
                     className="ai-discovery-card"
                   >
+                    <GlowingEffect
+                      blur={0}
+                      spread={15}
+                      proximity={60}
+                      movementDuration={1.2}
+                      borderWidth={1}
+                      inactiveZone={0.2}
+                      disabled={false}
+                      variant="white"
+                      className="glowing-effect-overlay"
+                    />
+                    <GlassBorder />
                     {/* Image Link Wrapper */}
                     <Link
                       to={aiSlides[currentSlide].blogLink || '#'}

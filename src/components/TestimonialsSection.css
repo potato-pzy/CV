@@ -146,6 +146,14 @@
   transform: translateY(-50%);
 }
 
+.testimonial-card .glowing-effect-overlay {
+  z-index: 1;
+}
+.testimonial-card .glowing-effect-overlay .glow::after {
+  opacity: max(0.4, var(--active, 0.4)) !important;
+  transition: opacity 0.35s ease;
+}
+
 /* Side cards (blurred background cards) */
 .testimonial-card-side {
   width: 25rem;

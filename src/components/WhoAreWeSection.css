@@ -599,6 +599,7 @@
 
     .whoarewe-founders-description {
         text-align: right;
+        right: 6rem;
     }
 
     .whoarewe-founders-title {
@@ -607,28 +608,38 @@
     }
 }
 
-/* Tablet 48rem–64rem */
-@media (min-width: 48rem) and (max-width: 64rem) {
-
-    /* Hero Section - Optimized for tablets */
+/* Tablet only: same layout as mobile, bigger fonts, tablet padding. 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
     .whoarewe-hero-inner {
-        padding: 5rem 2.5rem;
+        padding: 6rem var(--spacing-2xl);
     }
 
     .whoarewe-hero-title {
-        font-size: 2.625rem;
+        font-size: 2.25rem;
         line-height: 1.15;
-        max-width: 85%;
+        max-width: 90%;
+        text-align: center;
     }
 
     .whoarewe-hero-subtitle {
         font-size: 1rem;
-        max-width: 80%;
+        max-width: 90%;
         line-height: 1.5;
         text-align: center;
     }
 
-    /* Center content text in tablet portrait */
+    .whoarewe-hero-btn {
+        font-size: 0.8125rem;
+        padding: 0.875rem 2rem;
+    }
+
+    .whoarewe-content {
+        margin-top: calc(100vh + 8rem);
+        padding: 0 var(--spacing-2xl);
+        font-size: 1.125rem;
+        text-align: center;
+    }
+
     .whoarewe-content-text {
         align-items: center;
         text-align: center;
@@ -639,118 +650,199 @@
         text-align: center;
     }
 
-    /* Continuation Section */
-    .whoarewe-continuation {
-        padding: 5rem 2.5rem 0;
+    .whoarewe-founders {
+        margin: 6rem auto 0;
+        padding: 0 var(--spacing-2xl);
+        max-width: 100%;
     }
 
-    .whoarewe-continuation-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+    /* Founders: same title/subheading as laptop, horizontal layout, smaller cards */
+    .whoarewe-founders-header {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.75rem;
+        align-items: end;
+        margin-bottom: 5rem;
     }
 
-    .whoarewe-left-image {
-        max-height: 28.125rem;
+    .whoarewe-founders-title {
+        font-size: 2.625rem;
+        line-height: 1.1;
+        text-align: left;
         max-width: 31.25rem;
-        width: auto;
-        margin: 0 auto;
-        object-fit: contain;
     }
 
-    .whoarewe-continuation-headline {
-        font-size: 1.75rem;
-    }
-
-    .whoarewe-headline-desktop {
-        margin-top: 6rem;
-    }
-
-    .whoarewe-continuation-bottom-text {
+    .whoarewe-founders-description {
         font-size: 0.9375rem;
-        width: 100%;
-        top: 0;
+        text-align: right;
+        margin: 0 0 0 auto;
+    }
+
+    .whoarewe-founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.75rem;
+        margin: 0;
+        justify-items: start;
+    }
+
+    .whoarewe-founder-card {
+        max-width: 17rem;
+    }
+
+    .whoarewe-founder-name {
+        font-size: 1.125rem;
+        padding: 1.75rem 0.875rem 0.625rem;
+    }
+
+    .whoarewe-founder-back {
+        padding: 1rem;
+    }
+
+    .whoarewe-founder-back-content {
+        padding: 1rem;
+        font-size: 0.9375rem;
+    }
+
+    .whoarewe-founder-back-name {
+        font-size: 1.0625rem;
+    }
+
+    .whoarewe-founder-back-designation {
+        font-size: 0.425rem;
+    }
+
+    .whoarewe-founder-back-bio {
+        font-size: 0.4875rem;
+    }
+
+    .whoarewe-continuation {
+        padding: 8rem var(--spacing-2xl) 0;
+    }
+
+    .whoarewe-continuation-top-row,
+    .whoarewe-continuation-bottom-row {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        justify-items: center;
     }
 
     .whoarewe-continuation-bottom-row {
-        margin-top: 9.375rem;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
     }
 
-    /* Features Grid - 2 columns with better spacing */
+    .whoarewe-left-image {
+        max-height: 26rem;
+        margin: 0 auto 2rem;
+    }
+
+    .whoarewe-continuation-headline {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .whoarewe-headline-desktop {
+        display: none;
+    }
+
+    .whoarewe-headline-mobile {
+        display: block;
+    }
+
+    .whoarewe-continuation-description-wrapper {
+        justify-content: center;
+    }
+
+    .whoarewe-continuation-bottom-text {
+        font-size: 1rem;
+        text-align: center;
+        white-space: normal;
+    }
+
     .whoarewe-features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 2.5rem;
-        column-gap: 6.25rem;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        margin-top: 2rem;
     }
 
     .whoarewe-feature-title {
         font-size: 1.5rem;
+        width: 100%;
+        text-align: center;
     }
 
     .whoarewe-feature-text {
-        font-size: 0.875rem;
+        font-size: 1rem;
+        text-align: center;
     }
 
-    /* Cards Grid - 3 columns with adjusted sizing */
+    .whoarewe-features-grid.features-visible .whoarewe-feature-title,
+    .whoarewe-features-grid.features-visible .whoarewe-feature-text {
+        text-align: left;
+    }
+
+    .whoarewe-feature-break {
+        display: none;
+    }
+
     .whoarewe-cards-grid {
-        gap: 1.5rem;
-        padding: 0;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        justify-items: center;
     }
 
     .whoarewe-card {
-        height: 23.75rem;
+        height: 26rem;
+        max-width: 22rem;
+        width: 100%;
     }
 
-    /* Founders Section */
-    .whoarewe-founders {
-        margin: 6.25rem auto 0;
-        padding: 0 2.5rem;
-        max-width: 100%;
+    .whoarewe-image-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        gap: 2rem;
+        margin-top: 6rem;
+        padding: 0 var(--spacing-xl);
     }
 
-    .whoarewe-founders-grid {
-        gap: var(--spacing-xl);
+    .whoarewe-image-card {
+        max-width: 22rem;
+        margin: 0 auto;
     }
 
-    .whoarewe-founder-card {
-        max-width: 100%;
+    .whoarewe-image-card-text {
+        font-size: 1.75rem;
     }
 
-    .whoarewe-founders-header {
-        gap: var(--spacing-xl);
-        margin-bottom: var(--spacing-xl);
-    }
-
-    .whoarewe-founders-title {
-        font-size: 2rem;
-    }
-
-    .whoarewe-founders-description {
-        font-size: 0.875rem;
-    }
-
-    /* Scroll indicator */
     .whoarewe-hero .scroll-to-explore {
         bottom: 12vh;
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
     }
+
 }
 
 .whoarewe-founder-card {
     position: relative;
     width: 100%;
     max-width: 28.75rem;
-    /* 460px */
-    max-width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 0;
     cursor: pointer;
 }
 
+/* Laptop: align header text with cards below */
+@media (min-width: 64rem) and (max-width: 119.9375rem) {
+    .whoarewe-founders-title {
+        max-width: 28.75rem;
+    }
+    .whoarewe-founders-grid {
+        justify-items: start;
+    }
+}
+
 @media (min-width: 120rem) {
     .whoarewe-founder-card {
         max-width: 100%;
-        /* Allow grid to control width */
     }
 
     .whoarewe-founders-title {
@@ -837,7 +929,8 @@
     filter: blur(0) !important;
 }
 
-@media (min-width: 48rem) and (max-width: 80rem) {
+/* Tablet only: smaller back content so laptop keeps full size */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
     .whoarewe-founder-back-content {
         font-size: 0.4375rem;
         margin: auto;
@@ -1157,6 +1250,7 @@
 .whoarewe-features-grid.features-visible .whoarewe-feature-item:nth-child(4) {
     transition-delay: 0.4s;
 }
+
 
 .whoarewe-feature-title {
     font-family: "Stage Grotesk", sans-serif;
@@ -2306,7 +2400,7 @@
    ============================================ */
 
 /* Tablet Portrait - Tighter vertical spacing */
-@media (min-width: 48rem) and (max-width: 64rem) and (orientation: portrait) {
+@media (min-width: 48rem) and (max-width: 63.9375rem) and (orientation: portrait) {
     .whoarewe-hero {
         min-height: 70vh;
     }
@@ -2343,42 +2437,54 @@
     }
 
     .whoarewe-founders-header {
-        gap: var(--spacing-lg);
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .whoarewe-founders-grid {
-        gap: var(--spacing-lg);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.75rem;
+        align-items: end;
+        margin-bottom: 5rem;
     }
 
     .whoarewe-founders-title {
-        font-size: 1.75rem;
+        font-size: 2.625rem;
+        line-height: 1.1;
+        text-align: left;
+        max-width: 31.25rem;
     }
 
     .whoarewe-founders-description {
-        font-size: 0.8125rem;
+        font-size: 0.6375rem;
+        text-align: right;
+        margin-left: auto;
+                right: 3rem;
+    }
+
+    .whoarewe-founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.75rem;
     }
 
     .whoarewe-founder-card {
-        max-width: 100%;
+        max-width: 17rem;
     }
 
-    .whoarewe-founder-back-bio {
-        font-size: 7.5px;
-        /* Reduced for better fit on vertical cards */
-        line-height: 1.4;
+    .whoarewe-founder-name {
+        font-size: 1.125rem;
+    }
 
-        /* Reset for tablet portrait */
+    .whoarewe-founder-back-content {
+        font-size: 0.9375rem;
     }
 
     .whoarewe-founder-back-name {
-        font-size: 1.625rem;
-        /* Slightly reduced for better balance */
+        font-size: 1.0625rem;
     }
 
     .whoarewe-founder-back-designation {
-        font-size: 0.6875rem;
-        /* Slightly reduced for tablet portrait */
+        font-size: 0.625rem;
+    }
+
+    .whoarewe-founder-back-bio {
+        font-size: 0.4875rem;
+        line-height: 1.4;
     }
 
     .whoarewe-continuation {
@@ -2432,8 +2538,8 @@
     }
 
     .whoarewe-image-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns for better portrait fit */
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
         gap: 2rem;
         padding: 0 2rem;
     }
@@ -2466,8 +2572,8 @@
     }
 }
 
-/* Tablet Landscape - Wider horizontal layout */
-@media (min-height: 37.5rem) and (max-height: 56.25rem) and (orientation: landscape) {
+/* Tablet Landscape only (exclude laptop by width) - Wider horizontal layout */
+@media (min-width: 48rem) and (max-width: 63.9375rem) and (min-height: 37.5rem) and (max-height: 56.25rem) and (orientation: landscape) {
     .whoarewe-hero {
         min-height: 100vh;
     }
@@ -2494,23 +2600,46 @@
     }
 
     .whoarewe-founders-header {
-        gap: var(--spacing-xl);
-    }
-
-    .whoarewe-founders-grid {
-        gap: var(--spacing-xl);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.75rem;
+        align-items: end;
     }
 
     .whoarewe-founders-title {
-        font-size: 2rem;
+        font-size: 2.625rem;
+        text-align: left;
+        max-width: 31.25rem;
     }
 
     .whoarewe-founders-description {
-        font-size: 14px;
+        font-size: 0.9375rem;
+        text-align: right;
+        margin-left: auto;
+    }
+
+    .whoarewe-founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.75rem;
     }
 
     .whoarewe-founder-card {
-        max-width: 100%;
+        max-width: 17rem;
+    }
+
+    .whoarewe-founder-name {
+        font-size: 1.125rem;
+    }
+
+    .whoarewe-founder-back-name {
+        font-size: 1.0625rem;
+    }
+
+    .whoarewe-founder-back-designation {
+        font-size: 0.625rem;
+    }
+
+    .whoarewe-founder-back-bio {
+        font-size: 0.875rem;
     }
 
     .whoarewe-continuation {
