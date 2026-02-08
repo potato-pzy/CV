@@ -76,23 +76,23 @@
 }
 
 .terms-contact {
-  margin-top: 7.5rem;
-  text-align: center;
+  margin-top: 1.5rem;
+  text-align: left;
   padding: 0 0 3.75rem 0;
   border-bottom: 0.0625rem solid rgba(166, 246, 59, 0.2);
 }
 
-.terms-contact p {
+.terms-contact-text {
   font-family: 'Stage Grotesk', sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   color: #d9d9d9;
-  margin: 0 0 1.25rem 0;
-  line-height: 1.6;
-  text-align: center;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
 }
 
 .terms-contact-link {
+  display: block;
   font-size: 1.3rem;
   color: #a6f63b;
   text-decoration: none;
@@ -130,11 +130,11 @@
   }
 
   .terms-contact {
-    margin-top: 5rem;
+    margin-top: 1.5rem;
     padding: 0 0 2.5rem 0;
   }
 
-  .terms-contact p {
+  .terms-contact-text {
     font-size: 0.875rem;
   }
 }

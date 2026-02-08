@@ -2,7 +2,7 @@ import './WhoAreWeSection.css';
 import Navbar from './Navbar';
 import { TextGradientScroll } from './ui/text-gradient-scroll';
 import { FlickeringGrid } from './ui/flickering-grid';
-import { useEffect, useRef, useState, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import logoSvg from '../assets/Asset 1.svg';
 import layer1Image from '../assets/Layer 1.png';
@@ -15,14 +15,8 @@ import founderEyalImage from '../assets/founder_eyal.jpg';
 import founderCardBg from '../assets/founder_card_bg.svg';
 import leftImage from '../assets/left 1.png';
 
-// Lazy load below-the-fold sections
-const CTASection = lazy(() => import('./CTASection'));
-const Footer = lazy(() => import('./Footer'));
-
-// Lightweight loader
-const SectionLoader = () => (
-    <div style={{ minHeight: '30vh', background: 'transparent' }} />
-);
+import CTASection from './CTASection';
+import Footer from './Footer';
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
 
@@ -369,14 +363,10 @@ function WhoAreWeSection() {
             </div>
 
             {/* CTA Section */}
-            <Suspense fallback={<SectionLoader />}>
-                <CTASection />
-            </Suspense>
+            <CTASection />
 
             {/* Footer */}
-            <Suspense fallback={<SectionLoader />}>
-                <Footer />
-            </Suspense>
+            <Footer />
         </div>
     );
 }

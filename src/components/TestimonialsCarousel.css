@@ -1,7 +1,7 @@
 .testimonials-section {
   background-color: #020F14;
   padding: 6.25rem 0;
-  min-height: 100vh;
+  min-height: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;

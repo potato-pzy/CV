@@ -1,5 +1,5 @@
 .mobile-test-page {
-  min-height: 100vh;
+  min-height: 100vw;
   background-color: #020f14;
   display: flex;
   align-items: center;

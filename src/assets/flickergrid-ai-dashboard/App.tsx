@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
       {/* Main Logo Masked Grid Layer */}
       <div 
-        className="relative z-10 w-[90vw] h-[90vh] max-w-[1000px] max-h-[1000px] animate-logo-pulse" 
+        className="relative z-10 w-[90vw] h-[90vw] max-w-[1000px] max-h-[1000px] animate-logo-pulse" 
         style={maskStyle}
       >
         <FlickeringGrid {...GRID_CONFIG.logo} />

@@ -1,0 +1,631 @@
+/* Lightweight Who Are We - same design, different implementation */
+
+.wa-static-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #020f14;
+  color: #fff;
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.wa-static-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.wa-static-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 2.5rem 2.5rem;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
+  opacity: 0.6;
+}
+
+.wa-static-main {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 7.5rem;
+  background: #000;
+}
+
+/* Hero */
+.wa-static-hero {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #000 !important;
+  overflow: hidden;
+  padding: 0;
+  z-index: 20;
+}
+
+.wa-static-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40vh;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 30%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.wa-static-hero-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.wa-static-hero-logo img {
+  width: 60vw;
+  height: auto;
+  opacity: 0.3;
+  left: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.wa-static-hero-inner {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  padding: 7.5rem clamp(1rem, 4vw, 2rem);
+  box-sizing: border-box;
+}
+
+.wa-static-hero-title {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: clamp(1.5rem, 10vw, 3.4375rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  max-width: 75rem;
+  margin: 0 0 2.5rem 0;
+  text-shadow: 0 0 2.5rem rgba(255,255,255,0.15);
+  text-transform: capitalize;
+}
+
+@media (max-width: 48rem) {
+  .wa-static-hero-title { font-size: 1.5rem !important; }
+}
+
+.wa-static-nowrap { white-space: nowrap; }
+
+.wa-static-hero-sub {
+  font-family: "Blauer Nue", sans-serif;
+  font-size: clamp(0.75rem, 2vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 56.25rem;
+  margin: 0 auto 2rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.wa-static-br-d, .wa-static-br-t { display: none; }
+@media (min-width: 64rem) { .wa-static-br-d { display: block; } }
+@media (min-width: 48rem) and (max-width: 63.9375rem) { .wa-static-br-t { display: block; } }
+
+.wa-static-scroll-hint {
+  position: absolute;
+  bottom: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1rem;
+  color: #A6F63B;
+  z-index: 30;
+}
+
+/* Content */
+.wa-static-content {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  text-align: center;
+  margin-top: calc(100vh + 7.5rem);
+  margin-top: calc(100dvh + 7.5rem);
+  padding: 0 1rem;
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #C7C7C7;
+  box-sizing: border-box;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-content {
+    font-size: 1.5rem;
+    margin-top: calc(100vh + 12.5rem);
+    margin-top: calc(100dvh + 12.5rem);
+  }
+}
+
+.wa-static-paras {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2.5rem;
+  max-width: 56.25rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-paras { align-items: flex-start; }
+}
+
+.wa-static-paras p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.wa-static-acc { color: #A6F63B !important; font-family: "Stage Grotesk", sans-serif; }
+
+/* Ellipse */
+.wa-static-ellipse {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  z-index: 5;
+  left: 0;
+  top: -25rem;
+  overflow: visible;
+}
+
+.wa-static-ellipse-wrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(20rem, 80vw, 75rem);
+  height: clamp(15rem, 50vw, 50rem);
+  border-radius: 50%;
+  overflow: hidden;
+  filter: blur(60px);
+}
+
+.wa-static-ellipse-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Radial */
+.wa-static-radial {
+  position: absolute;
+  width: clamp(20rem, 100vw, 103.625rem);
+  height: clamp(15rem, 50vw, 48.5625rem);
+  border-radius: 50%;
+  background: #001D26;
+  filter: blur(12.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100vh + 37.5rem);
+  top: calc(100dvh + 37.5rem);
+  z-index: -3;
+  pointer-events: none;
+}
+
+.wa-static-radial-bottom {
+  top: auto;
+  bottom: 10%;
+  z-index: -3;
+}
+
+/* Continuation */
+.wa-static-cont {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 12.5rem 1.5rem 0;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+@media (min-width: 64rem) {
+  .wa-static-cont { padding: 18.75rem 2rem 0; }
+}
+
+.wa-static-cont-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.wa-static-cont-row-bottom {
+  margin-top: 7.5rem;
+  margin-bottom: 8rem;
+}
+
+@media (min-width: 64rem) {
+  .wa-static-cont-row {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 10vw, 10rem);
+  }
+  .wa-static-cont-row-bottom {
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: end;
+  }
+}
+
+.wa-static-left-img {
+  max-height: 40.625rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1.5rem;
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 0 3.125rem rgba(166,246,59,0.3));
+}
+
+.wa-static-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-features { grid-template-columns: repeat(2, 1fr); }
+}
+
+.wa-static-feat h3 {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 1rem 0;
+}
+
+.wa-static-feat p {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1rem;
+  color: #C7C7C7;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.wa-static-headline {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .wa-static-headline { text-align: left; max-width: 43rem; }
+}
+
+.wa-static-desc {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  text-align: center;
+}
+
+.wa-static-desc span { display: block; }
+
+@media (min-width: 48rem) {
+  .wa-static-desc { font-size: 1.1875rem; text-align: right; }
+}
+
+/* Cards */
+.wa-static-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 7.5rem auto 0;
+  max-width: 80rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 12.5rem;
+  }
+}
+
+@media (max-width: 64rem) and (min-width: 48rem) {
+  .wa-static-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+.wa-static-card {
+  position: relative;
+  max-width: 25rem;
+  aspect-ratio: 1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0 auto;
+  background: #020F14;
+}
+
+.wa-static-card-front,
+.wa-static-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease;
+}
+
+.wa-static-card-front {
+  opacity: 1;
+}
+
+.wa-static-card:hover .wa-static-card-front {
+  opacity: 0;
+}
+
+.wa-static-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wa-static-card-front p {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 2rem;
+  color: #A6F63B;
+  margin: 0;
+  z-index: 1;
+}
+
+.wa-static-card-back {
+  opacity: 0;
+  background: #020F14;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wa-static-card:hover .wa-static-card-back {
+  opacity: 1;
+}
+
+.wa-static-card-back p {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1rem;
+  color: #C7C7C7;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Founders */
+.wa-static-founders {
+  width: 100%;
+  max-width: 75rem;
+  margin: 7.5rem auto 0;
+  padding: 0 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-founders { margin: 12.5rem auto 0; max-width: 80rem; padding: 0; }
+}
+
+.wa-static-founders-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-founders-head {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.75rem;
+    align-items: end;
+  }
+}
+
+.wa-static-founders-head h2 {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-founders-head h2 { text-align: left; font-size: 2.625rem; }
+}
+
+.wa-static-founders-br { display: none; }
+@media (min-width: 48rem) { .wa-static-founders-br { display: block; } }
+@media (max-width: 48rem) { .wa-static-founders-head .wa-static-acc { display: inline; } }
+
+.wa-static-founders-head p {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  max-width: 28.75rem;
+}
+
+@media (max-width: 48rem) {
+  .wa-static-founders-head p { text-align: center; margin: 0 auto; }
+}
+@media (min-width: 48rem) {
+  .wa-static-founders-head p { text-align: right; margin-left: auto; }
+}
+
+.wa-static-founders-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  justify-items: center;
+}
+
+@media (min-width: 48rem) {
+  .wa-static-founders-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.75rem;
+  }
+}
+
+.wa-static-founder-card {
+  position: relative;
+  width: 100%;
+  max-width: 28.75rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.wa-static-founder-front,
+.wa-static-founder-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.wa-static-founder-front {
+  background: #d1d1d1;
+  z-index: 1;
+}
+
+.wa-static-founder-card:hover .wa-static-founder-front {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wa-static-founder-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.wa-static-founder-front h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 3.75rem 1.5rem 1.25rem;
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0,176,104,1) 0%, rgba(0,176,104,0.8) 40%, transparent 100%);
+  z-index: 5;
+  text-align: left;
+}
+
+.wa-static-founder-back {
+  opacity: 0;
+  background: radial-gradient(circle at 83% -10%, #01121a 0%, #00b068 90%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.wa-static-founder-card:hover .wa-static-founder-back {
+  opacity: 1;
+}
+
+.wa-static-founder-back h3 {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.wa-static-founder-role {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 1rem 0 !important;
+}
+
+.wa-static-founder-back p:last-child {
+  font-family: "Stage Grotesk", sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  margin: 0 !important;
+}
+
+/* Continuation bg */
+.wa-static-cont-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wa-static-cont-bg-c1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.02);
+  filter: blur(9.375rem);
+}
+
+.wa-static-cont-bg-c2 {
+  position: absolute;
+  bottom: -10%;
+  right: -5%;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background: rgba(166,246,59,0.03);
+  filter: blur(9.375rem);
+}

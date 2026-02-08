@@ -17,7 +17,7 @@ function TermsOfUsePage() {
           <h1 className="terms-title">Terms of use</h1>
           
           <div className="terms-content">
-            <p className="terms-date">January 2026</p>
+            <p className="terms-date">February 2026</p>
             
             <div className="terms-body">
               <p>
@@ -54,9 +54,8 @@ function TermsOfUsePage() {
             </div>
 
             <div className="terms-contact">
-              <p>If you have any questions about these terms, please contact us at<br />
-                <a href="mailto:hello@charteredvectorial.ai" className="terms-contact-link">hello@charteredvectorial.ai</a>
-              </p>
+              <p className="terms-contact-text">If you have any questions about these terms, please contact us at</p>
+              <a href="mailto:hello@charteredvectorial.ai" className="terms-contact-link">hello@charteredvectorial.ai</a>
             </div>
           </div>
         </div>

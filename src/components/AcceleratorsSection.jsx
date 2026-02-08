@@ -405,7 +405,7 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
             <motion.div
               layoutId={`card-${title}-${id}`}
               ref={cardRef}
-              className="w-full max-w-[900px] max-h-[90vh] flex flex-col overflow-hidden rounded-2xl bg-[#020F14] relative border border-white/10 shadow-2xl m-4"
+              className="w-full max-w-[900px] max-h-[90vw] flex flex-col overflow-hidden rounded-2xl bg-[#020F14] relative border border-white/10 shadow-2xl m-4"
             >
               <motion.div layoutId={`image-${title}-${id}`} className="relative h-[400px] shrink-0 overflow-hidden">
                 <img

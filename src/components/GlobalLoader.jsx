@@ -5,19 +5,22 @@ import HighVelocityLoader from './HighVelocityLoader';
 
 const MIN_SHOW_MS = 450;
 const MAX_SHOW_MS = 4000;
+const SKIP_PATH = '/static';
 
 const GlobalLoader = () => {
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(true);
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-    const shouldShowLoader = () => true;
+    const shouldShowLoader = () => location.pathname !== SKIP_PATH;
 
     // Show loader immediately on internal link click (before navigation)
     useEffect(() => {
         const handleClick = (e) => {
             const a = e.target.closest('a[href^="/"]');
             if (!a || a.getAttribute('href')?.startsWith('/#')) return;
+            const href = (a.getAttribute('href') || '').split('?')[0];
+            if (href === SKIP_PATH) return;
             if (a.origin !== window.location.origin) return;
             if (isInitialLoad) return;
             flushSync(() => setIsLoading(true));
@@ -30,6 +33,12 @@ const GlobalLoader = () => {
     // Initial page load
     useEffect(() => {
         if (!isInitialLoad) return;
+        if (location.pathname === SKIP_PATH) {
+            setIsLoading(false);
+            setIsInitialLoad(false);
+            document.body.style.overflow = 'unset';
+            return;
+        }
         document.body.style.overflow = 'hidden';
         const handleLoad = () => {
             setTimeout(() => {
@@ -44,7 +53,7 @@ const GlobalLoader = () => {
             window.addEventListener('load', handleLoad);
             return () => window.removeEventListener('load', handleLoad);
         }
-    }, [isInitialLoad]);
+    }, [isInitialLoad, location.pathname]);
 
     // Also show on location change (in case navigation wasn't from a click)
     useLayoutEffect(() => {
@@ -70,7 +79,7 @@ const GlobalLoader = () => {
         };
     }, [isLoading, isInitialLoad]);
 
-    if (!isLoading) return null;
+    if (!isLoading || location.pathname === SKIP_PATH) return null;
 
     return (
         <div style={{
