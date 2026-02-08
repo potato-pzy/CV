@@ -4,7 +4,7 @@
   border-radius: 0.1875rem;
   width: 100%;
   max-width: 25rem;
-  min-height: 30rem;
+  min-height: 32rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

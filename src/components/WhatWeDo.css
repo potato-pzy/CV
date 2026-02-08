@@ -27,6 +27,20 @@
     z-index: 1;
 }
 
+/* Static hero background (no Hyperspeed) – avoids flicker on low-end/mobile */
+.what-we-do-hero-static-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(3, 179, 195, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 50% 120%, rgba(0, 20, 30, 0.9) 0%, transparent 45%),
+                linear-gradient(180deg, #020f14 0%, #000 40%, #020f14 100%);
+    pointer-events: none;
+}
+
 .hero-content-overlay {
     position: relative;
     z-index: 2;
@@ -331,7 +345,15 @@
     position: relative;
     overflow: visible;
     z-index: 1;
-    /* Establish stacking context */
+    padding-left: var(--spacing-lg, 1rem);
+    padding-right: var(--spacing-lg, 1rem);
+}
+
+@media (min-width: 48rem) {
+    .ai-discovery-section {
+        padding-left: var(--spacing-2xl, 2rem);
+        padding-right: var(--spacing-2xl, 2rem);
+    }
 }
 
 /* Green background glow reused from Why section */
@@ -417,7 +439,6 @@
     width: 100%;
     max-width: 100%;
     z-index: 1;
- 
 }
 
 .ai-discovery-card {
@@ -754,18 +775,21 @@
     min-height: 48rem;
 }
 
-.ai-discovery-carousel-glow {
+/* Per-card glow (replaces single carousel glow) */
+.ai-discovery-card-glow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 75rem;
-    height: 50rem;
-    background: radial-gradient(ellipse at center, rgba(0, 150, 150, 0.6) 0%, rgba(0, 100, 120, 0.3) 40%, transparent 70%);
-    filter: blur(6.25rem);
-    opacity: 0.8;
+    width: 120%;
+    height: 80%;
+    max-width: 45rem;
+    background: radial-gradient(ellipse at center, rgba(0, 150, 150, 0.5) 0%, rgba(0, 100, 120, 0.2) 45%, transparent 70%);
+    filter: blur(4rem);
+    opacity: 0.85;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
+    border-radius: inherit;
 }
 
 @media (max-width: 48rem) {
@@ -794,11 +818,24 @@
         background: #0D0D0D;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 0.75rem;
-        overflow: hidden;
+        overflow: visible;
         display: flex;
         flex-direction: column;
         height: auto;
         min-width: 0;
+        position: relative;
+    }
+
+    .ai-discovery-mobile-card .ai-discovery-card-glow {
+        width: 100%;
+        height: 60%;
+        max-width: none;
+        filter: blur(2.5rem);
+    }
+
+    .ai-discovery-mobile-scroll {
+        padding-left: var(--spacing-lg, 1rem);
+        padding-right: var(--spacing-lg, 1rem);
     }
 
     .ai-discovery-mobile-image-container {

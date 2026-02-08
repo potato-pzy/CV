@@ -283,6 +283,13 @@
 }
 
 @media (max-width: 30rem) {
+  .roles-highlight {
+    max-width: 18rem;
+    font-size: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
   .roles-intro-text,
   .roles-content-description {

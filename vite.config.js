@@ -14,7 +14,10 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5175,
     allowedHosts:
-      ['ranging-ultimately-stripes-recordings.trycloudflare.com',
+    
+      [
+        'intellectual-forget-bought-shade.trycloudflare.com',
+        'ranging-ultimately-stripes-recordings.trycloudflare.com',
         'finder-namespace-wish-moms.trycloudflare.com',
         'terrain-drilling-discussion-kept.trycloudflare.com',
         'all',

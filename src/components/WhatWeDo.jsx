@@ -270,6 +270,7 @@ function WhatWeDo() {
               >
                 {aiSlides.map((slide, index) => (
                   <div key={index} className="ai-discovery-mobile-card">
+                    <div className="ai-discovery-card-glow" aria-hidden="true" />
                     <GlowingEffect
                       blur={0}
                       spread={15}
@@ -302,7 +303,6 @@ function WhatWeDo() {
 
               {/* Desktop Carousel */}
               <div className="ai-discovery-desktop-carousel">
-                <div className="ai-discovery-carousel-glow" />
                 <AnimatePresence initial={false} mode="popLayout" custom={direction}>
                   <motion.div
                     key={currentSlide}
@@ -317,6 +317,7 @@ function WhatWeDo() {
                     }}
                     className="ai-discovery-card"
                   >
+                    <div className="ai-discovery-card-glow" aria-hidden="true" />
                     <GlowingEffect
                       blur={0}
                       spread={15}
