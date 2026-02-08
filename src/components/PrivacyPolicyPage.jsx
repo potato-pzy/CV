@@ -17,7 +17,7 @@ function PrivacyPolicyPage() {
           <h1 className="privacy-title">Privacy Policy</h1>
           
           <div className="privacy-content">
-            <p className="privacy-date">January 2026</p>
+            <p className="privacy-date">February 2026</p>
             
             <div className="privacy-body">
               <div className="privacy-section">
