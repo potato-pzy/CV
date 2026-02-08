@@ -13,7 +13,7 @@ const defaultCategories = ['ALL', "FOUNDER'S NOTE", 'AI ENGINEERING', 'AI STRATE
 const defaultFeaturedPost = {
   id: 'featured-1',
   title: "Founder's Note: Why This Firm Exists",
-  date: 'JANUARY, 2026',
+  date: 'FEBRUARY, 2026',
   slug: '/blog/founders-note',
   backgroundImage: featuredImage
 };
@@ -22,7 +22,7 @@ const defaultArticles = [
   {
     id: 3,
     category: "FOUNDER'S NOTE",
-    date: 'JANUARY, 2026',
+    date: 'FEBRUARY, 2026',
     title: "Founder's Note: Why This Firm Exists",
     slug: '/blog/founders-note',
     gradient: 'linear-gradient(135deg, #A4ED3F 0%, #000000 100%)',
@@ -31,7 +31,7 @@ const defaultArticles = [
   {
     id: 1,
     category: 'AI ENGINEERING',
-    date: 'JANUARY, 2026',
+    date: 'FEBRUARY, 2026',
     title: 'The Agentic AI Blueprint',
     displayTitle: <>The Agentic <br /> AI Blueprint</>,
     slug: '/blog/agentic-ai-blueprint',
@@ -41,7 +41,7 @@ const defaultArticles = [
   {
     id: 2,
     category: 'AI STRATEGY',
-    date: 'JANUARY, 2026',
+    date: 'FEBRUARY, 2026',
     title: 'From Intelligence to Execution: The Rise of Agentic AI',
     slug: '/blog/rise-of-agentic-ai',
     gradient: 'linear-gradient(135deg, #A6D8BF 0%, #000000 100%)',

@@ -101,7 +101,7 @@ const BlogRiseOfAgenticAI = () => {
     return (
         <BlogPost
             category="AI STRATEGY"
-            date="JANUARY, 2026"
+            date="FEBRUARY, 2026"
             title="From Intelligence to Execution: The Rise of Agentic AI"
             subtitle="Why Agentic AI Is Reshaping Enterprise Systems"
             content={content}

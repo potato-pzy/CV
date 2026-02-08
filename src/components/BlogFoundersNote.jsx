@@ -150,7 +150,7 @@ const BlogFoundersNote = () => {
     return (
         <BlogPost
             category="Founders Note"
-            date="JANUARY, 2026"
+            date="FEBRUARY, 2026"
             title="Founder's Note: Why This Firm Exists"
             subtitle="Reflections from inside the work of building an AI-native future."
             author={{

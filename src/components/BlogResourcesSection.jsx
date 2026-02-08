@@ -14,7 +14,7 @@ const defaultFeaturedPost = {
   id: 'featured-1',
   image: teamBg1,
   title: 'Why most AI pilots never reach production',
-  date: 'JANUARY, 2026',
+  date: 'FEBRUARY, 2026',
   slug: 'why-most-ai-pilots-never-reach-production',
 };
 
@@ -22,7 +22,7 @@ const defaultArticles = [
   {
     id: 1,
     category: 'AI ENGINEERING',
-    date: 'JANUARY, 2026',
+    date: 'FEBRUARY, 2026',
     title: 'Automating compliance checks in regulated environments',
     image: null,
     slug: 'automating-compliance-checks',
@@ -31,7 +31,7 @@ const defaultArticles = [
   {
     id: 2,
     category: 'ENGINEERING',
-    date: 'JANUARY, 2026',
+    date: 'FEBRUARY, 2026',
     title: 'Automating compliance checks in regulated environments',
     image: null,
     slug: 'automating-compliance-checks-2',
@@ -40,7 +40,7 @@ const defaultArticles = [
   {
     id: 3,
     category: 'ENGINEERING',
-    date: 'JANUARY, 2026',
+    date: 'FEBRUARY, 2026',
     title: 'Automating compliance checks in regulated environments',
     image: blogScreenshot,
     slug: 'automating-compliance-checks-3',

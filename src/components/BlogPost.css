@@ -88,7 +88,8 @@
 /* Featured Image */
 .blog-image-wrapper {
     width: 100%;
-    max-width: 87.5rem;
+    max-width: 75rem;
+    /* Aligned with blog-hero-container and blog-content-layout */
     margin: 0 auto 6.25rem;
     padding: 0 2.5rem;
     overflow: hidden;
@@ -422,14 +423,14 @@
     display: block;
 }
 
-/* Apply transforms only on desktop layout */
+/* Apply transforms removed to ensure text alignment */
 @media (min-width: 64rem) {
     .blog-featured-image {
-        transform: scale(1.09) translateX(-1.5625rem);
+        transform: none;
     }
 
     .blog-content-image.transform-image {
-        transform: scale(1.06) translateX(-0.6875rem);
+        transform: none;
     }
 }
 

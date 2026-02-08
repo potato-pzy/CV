@@ -8,7 +8,7 @@ import featuredImage from '../assets/featured.png'; // Placeholder fallback
 
 const BlogPost = ({
     category = "AI STRATEGY",
-    date = "JAN 31, 2026",
+    date = "FEB 08, 2026",
     title = "The Agentic AI Blueprint: From Intelligence to Execution",
     subtitle = "In a world of static automation, agentic AI marks a fundamental shift from systems that follow instructions to systems that achieve objectives.",
     author = null,

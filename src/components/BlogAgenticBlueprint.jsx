@@ -210,7 +210,7 @@ const BlogAgenticBlueprint = () => {
     return (
         <BlogPost
             category="AI ENGINEERING"
-            date="JANUARY, 2026"
+            date="FEBRUARY, 2026"
             title="The Agentic AI Blueprint"
             subtitle="The agent as the core primitive of systems designed to operate with intent and context."
             content={content}
