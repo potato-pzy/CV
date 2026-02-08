@@ -2,6 +2,16 @@
    CAREERS CTA SECTION
    ============================================ */
 
+@media (min-width: 40.0625rem) and (max-width: 64rem) {
+
+  /* 641px - 1024px */
+  .careers-cta-section {
+    padding: var(--spacing-3xl) 0;
+    /* 64px */
+    min-height: 40vh;
+  }
+}
+
 .careers-cta-section {
   width: 100%;
   position: relative;
