@@ -44,7 +44,7 @@ function Footer() {
             <a href="https://www.instagram.com/charteredvectorial?igsh=MXB5N21wZmM2bzVjbg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <img src={instagramIcon} alt="Instagram" className="footer-social-icon-img" />
             </a>
-            <a href="https://x.com/cvectorial15617?s=21" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+            <a href="https://x.com/CharteredVector" target="_blank" rel="noopener noreferrer" className="footer-social-link">
               <img src={twitterIcon} alt="X" className="footer-social-icon-img" />
             </a>
             <a href="https://www.linkedin.com/company/charteredvectorial" target="_blank" rel="noopener noreferrer" className="footer-social-link">
