@@ -35,7 +35,7 @@ body { margin: 0; font-family: "Stage Grotesk", system-ui, sans-serif; }
   justify-content: space-between;
   padding: 1rem 1.5rem;
   background: rgba(5,5,5,0.8);
-  backdrop-filter: blur(12px);
+   
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .wa-nav-logo { color: #fff; text-decoration: none; font-weight: 500; }
