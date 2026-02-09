@@ -162,31 +162,59 @@ const BlogAgenticBlueprint = () => {
             <p>Let’s break these actions down further:</p>
 
             <h4>Information Sharing Actions</h4>
+            <p>
+                Think of this as the agent's voice, it communicates insights and shares information in a way that's actionable and helpful. These actions include:
+            </p>
             <ul>
-                <li><strong>Writing Messages or Reports:</strong> Like composing an email or drafting a project update.</li>
-                <li><strong>Sending Alerts:</strong> Similar to a phone notification.</li>
-                <li><strong>Creating New Content:</strong> Summarising a long research paper into a brief, clear report.</li>
+                <li><strong>Writing Messages or Reports:</strong> Like composing an email or drafting a project update for a team.</li>
+                <li><strong>Sending Alerts:</strong> Similar to a phone notification reminding you of an upcoming meeting or deadline.</li>
+                <li><strong>Creating New Content:</strong> For example, summarising a long research paper into a brief, clear report or creating a visual presentation.</li>
             </ul>
+            <p>
+                The agent's ability to share information ensures seamless communication between humans, systems, and other agents.
+            </p>
 
             <h4>System Interaction Actions</h4>
+            <p>
+                This is the agent's equivalent of having "hands on a keyboard," directly interacting with computer systems to accomplish tasks. These actions include:
+            </p>
             <ul>
-                <li><strong>Clicking Buttons and Filling Forms:</strong> Like navigating a website to submit data.</li>
-                <li><strong>Communicating with Other Programs:</strong> For instance, querying a weather app for the forecast.</li>
+                <li><strong>Clicking Buttons and Filling Forms:</strong> Like navigating a website to submit data or perform routine tasks.</li>
+                <li><strong>Communicating with Other Programs:</strong> For instance, querying a weather app for the forecast or extracting data from a CRM tool.</li>
             </ul>
+            <p>
+                System interactions allow agents to automate workflows, bridge gaps between applications, and keep systems interconnected.
+            </p>
 
             <h4>Data-Oriented Actions</h4>
+            <p>
+                Think of this as the agent's ability to manage and optimize information, much like how you organise your workspace. Examples include:
+            </p>
             <ul>
-                <li><strong>Sorting and Filtering Data:</strong> Like curating your photo library.</li>
-                <li><strong>Updating and Managing Records:</strong> For instance, keeping contact lists current.</li>
-                <li><strong>Extracting Insights:</strong> Finding and highlighting critical details within large datasets.</li>
+                <li><strong>Sorting and Filtering Data:</strong> Like curating your photo library to find the best shots or organising a folder of documents.</li>
+                <li><strong>Updating and Managing Records:</strong> For instance, keeping contact lists current or updating customer databases.</li>
+                <li><strong>Extracting Insights:</strong> Finding and highlighting critical details within large datasets, similar to identifying key points in meeting notes.</li>
             </ul>
+            <p>
+                Data actions enable agents to derive value from raw information, ensuring accuracy and relevance for decision-making.
+            </p>
 
             <h4>Environment Control Actions</h4>
+            <p>
+                This category equips agents to adjust and influence their digital or physical workspace, much like tuning settings in your home or office. Key examples include:
+            </p>
             <ul>
-                <li><strong>Adjusting Room Temperature:</strong> Like setting a thermostat to optimize comfort.</li>
-                <li><strong>Organising Files:</strong> Ensuring digital folders are structured for easy access.</li>
-                <li><strong>Managing Resources:</strong> Controlling memory or power consumption.</li>
+                <li><strong>Adjusting Room Temperature:</strong> Like setting a thermostat to optimize comfort and energy usage.</li>
+                <li><strong>Organising Files:</strong> Ensuring digital folders are structured for easy access and reducing clutter.</li>
+                <li><strong>Managing Resources:</strong> Controlling memory or power consumption to optimize system performance.</li>
             </ul>
+            <p>
+                Through environment control, agents can create more efficient, streamlined workspaces that align with evolving needs.
+            </p>
+
+            <p>
+                Imagine you're playing with a robot toy. The robot has a brain (like the AI's internal processing) and needs ways to interact with the real world (that's the Action Toolkit). Just as you need hands to pick up toys and a voice to talk to friends, an AI needs tools to interact with its environment. The Action Toolkit is like a Swiss Army knife, it has different tools for different jobs. The AI might need to organise information (like sorting baseball cards), control things (like turning on lights), or communicate (like sending messages to friends). Without these tools, the AI would be like someone who can think brilliantly but can't move or speak, not very helpful!
+            </p>
 
             <p>
                 This is what makes an AI agent truly special - it's not just a smart calculator that sits there thinking. Because it has these tools to act, it can actually help us get things done in the real world. That's what we mean when we say it's "agentic" - it can think AND do.
@@ -194,15 +222,16 @@ const BlogAgenticBlueprint = () => {
 
             <h2>Conclusion: The Path Ahead</h2>
             <p>
-                Agentic AI represents a groundbreaking evolution in artificial intelligence, transitioning systems from passive tools to dynamic, proactive entities. By embracing autonomy, adaptability, and action, Agentic AI redefines how systems interact with the world around them.
+                Agentic AI represents a groundbreaking evolution in artificial intelligence, transitioning systems from passive tools to dynamic, proactive entities. By embracing autonomy, adaptability, and action, Agentic AI redefines how systems interact with the world around them. From its ability to operate independently to its capacity for continuous learning and decision-making, this paradigm offers transformative potential across industries.
             </p>
+            <p>Key takeaways from this blog include:</p>
             <ul>
                 <li><strong>The Definition of Agentic AI:</strong> A self-directed, goal-oriented system capable of adapting dynamically.</li>
                 <li><strong>The Difference from RPA:</strong> Unlike repetitive RPA systems, Agentic AI is dynamic, thoughtful, and continuously improving.</li>
-                <li><strong>Core Characteristics and Components:</strong> The Three A’s- Autonomy, Adaptation, and Action combined with perception, cognition, and action mechanisms.</li>
+                <li><strong>Core Characteristics and Components:</strong> The Three A’s- Autonomy, Adaptation, and Action combined with perception, cognition, and action mechanisms, form the foundation of Agentic AI.</li>
             </ul>
             <p>
-                The true potential of agentic AI is realised within <strong>Multi-Agent Systems (MAS)</strong>, where agents collaborate through structured interaction rather than isolated execution. This approach forms the foundation for scalable, distributed intelligence capable of operating across domains, workflows, and organisational boundaries.
+                The true potential of agentic AI is realised within <strong>Multi-Agent Systems (MAS)</strong>, where agents collaborate through structured interaction rather than isolated execution. By enabling coordination, negotiation, and shared context across specialized agents, MAS architectures allow complex problems to be decomposed and resolved dynamically. This approach forms the foundation for scalable, distributed intelligence capable of operating across domains, workflows, and organisational boundaries.
             </p>
         </>
     );
