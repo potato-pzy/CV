@@ -2,88 +2,22 @@ import CTASection from './CTASection';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { TextGradientScroll } from './ui/text-gradient-scroll';
-import { FlickeringGrid } from './ui/flickering-grid';
 import { useEffect, useRef, useState } from 'react';
-import logoSvg from '../assets/Asset 1.svg';
-import layer1Image from '../assets/Layer 1.png';
 import weBuildImage from '../assets/we_build.jpeg';
 import weThinkImage from '../assets/we_think.jpeg';
 import weStayImage from '../assets/stay.jpeg';
 import ellipseImg from '../assets/whoarewe-ellipse.png';
 import founderPradeepImage from '../assets/founder_pradeep.jpg';
 import founderEyalImage from '../assets/founder_eyal.jpg';
-import founderCardBg from '../assets/founder_card_bg.svg';
 import leftImage from '../assets/left 1.png';
-
-const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
-
-const maskStyle = {
-  WebkitMaskImage: `url('${LOGO_BASE64}')`,
-  WebkitMaskSize: '60vw',
-  WebkitMaskPosition: 'center',
-  WebkitMaskRepeat: 'no-repeat',
-  maskImage: `url('${LOGO_BASE64}')`,
-  maskSize: '60vw',
-  maskPosition: 'center',
-  maskRepeat: 'no-repeat',
-};
-
-const GRID_CONFIG = {
-  background: {
-    color: "#A6F63B",
-    maxOpacity: 0.08,
-    flickerChance: 0.15,
-    squareSize: 4,
-    gridGap: 4,
-  },
-  logo: {
-    color: "#A6F63B",
-    maxOpacity: 0.45,
-    flickerChance: 0.2,
-    squareSize: 2,
-    gridGap: 3,
-  },
-};
 
 function WhoAreWeSection() {
   const cardsGridRef = useRef(null);
   const featuresGridRef = useRef(null);
-  const [cardsVisible, setCardsVisible] = useState(false);
-  const [featuresVisible, setFeaturesVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [cardsVisible, setCardsVisible] = useState(true);
+  const [featuresVisible, setFeaturesVisible] = useState(true);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    const mq = window.matchMedia('(max-width: 768px)');
-    const updateIsMobile = (event) => {
-      setIsMobile(event.matches);
-    };
-    
-    setIsMobile(mq.matches);
-    
-    if (mq.addEventListener) {
-      mq.addEventListener('change', updateIsMobile);
-    } else if (mq.addListener) {
-      mq.addListener(updateIsMobile);
-    }
-    
-    return () => {
-      if (mq.removeEventListener) {
-        mq.removeEventListener('change', updateIsMobile);
-      } else if (mq.removeListener) {
-        mq.removeListener(updateIsMobile);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) {
-      setCardsVisible(true);
-      setFeaturesVisible(true);
-      return;
-    }
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -119,7 +53,7 @@ function WhoAreWeSection() {
     return () => {
       observer.disconnect();
     };
-  }, [isMobile]);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-[#020f14] text-white overflow-x-hidden flex flex-col m-0 p-0">
@@ -141,30 +75,6 @@ function WhoAreWeSection() {
         <section className="absolute top-0 left-0 right-0 w-full flex flex-col items-center justify-center text-center min-h-screen bg-black overflow-hidden p-0 z-20">
           {/* Top gradient overlay - whoarewe-hero::after */}
           <div className="absolute top-0 left-0 right-0 h-[40vh] z-[2] pointer-events-none bg-[linear-gradient(180deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.4)_30%,transparent_100%)]" />
-
-          {/* Flickering Grid Effects - disabled on mobile to avoid canvas GPU issues */}
-          {!isMobile && (
-            <div className="absolute inset-0 w-full h-full overflow-hidden">
-              <FlickeringGrid
-                className="absolute inset-0 w-full h-full [mask-image:radial-gradient(circle_at_center,white_60%,transparent_85%)]"
-                squareSize={GRID_CONFIG.background.squareSize}
-                gridGap={GRID_CONFIG.background.gridGap}
-                color={GRID_CONFIG.background.color}
-                maxOpacity={GRID_CONFIG.background.maxOpacity}
-                flickerChance={GRID_CONFIG.background.flickerChance}
-              />
-              <div style={maskStyle} className="absolute inset-0 w-full h-full">
-                <FlickeringGrid
-                  className="w-full h-full"
-                  squareSize={GRID_CONFIG.logo.squareSize}
-                  gridGap={GRID_CONFIG.logo.gridGap}
-                  color={GRID_CONFIG.logo.color}
-                  maxOpacity={GRID_CONFIG.logo.maxOpacity}
-                  flickerChance={GRID_CONFIG.logo.flickerChance}
-                />
-              </div>
-            </div>
-          )}
 
           <div className="w-full max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10 px-8 py-[120px]">
             <h1 className="font-['Stage_Grotesk'] text-4xl md:text-[55px] font-medium leading-normal tracking-[-0.02em] text-white max-w-[1200px] mb-8 text-center capitalize [text-shadow:0_0_40px_rgba(255,255,255,0.15)]">

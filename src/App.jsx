@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import { useEffect } from 'react'
 import './index.css'
 import GlobalLoader from './components/GlobalLoader'
+import HighVelocityLoader from './components/HighVelocityLoader'
 
 const Home = lazy(() => import('./components/Home'))
 const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
@@ -42,14 +43,24 @@ function ScrollToTop() {
 }
 
 const RouteFallback = () => (
-  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#0a0a0a', color: '#888', fontFamily: 'system-ui,sans-serif' }}>Loading…</div>
+  <div style={{
+    position: 'fixed',
+    inset: 0,
+    zIndex: 20000,
+    background: '#020f14',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }}>
+    <HighVelocityLoader size={64} />
+  </div>
 )
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      {/* <GlobalLoader /> */}
+      <GlobalLoader />
       <Suspense fallback={<RouteFallback />}>
       <Routes>
           <Route path="/" element={<NewPage />} />
