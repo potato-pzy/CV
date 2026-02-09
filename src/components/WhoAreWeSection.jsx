@@ -124,7 +124,7 @@ function WhoAreWeSection() {
     }, [isMobile]);
 
     return (
-        <div className="relative min-h-screen bg-[#020f14] text-white overflow-x-hidden flex flex-col m-0 p-0">
+        <div className="whoarewe-page relative min-h-screen bg-[#020f14] text-white overflow-x-hidden flex flex-col m-0 p-0">
             {/* Background Effects */}
             <div className="fixed inset-0 -z-10 pointer-events-none">
                 {/* tech-grid */}
@@ -133,14 +133,16 @@ function WhoAreWeSection() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] hidden opacity-50 blur-[60px] bg-[radial-gradient(circle,#1A2515_0%,transparent_70%)]" />
             </div>
 
-            {/* Navigation - keeping your existing Navbar component */}
-            <Navbar />
+            {/* Navigation - wrapped in absolute div on mobile for hero extension */}
+            <div className="absolute top-0 left-0 w-full z-[100] md:relative">
+                <Navbar />
+            </div>
 
             {/* Main Content */}
             <main className="relative z-10 w-full flex-grow flex flex-col items-center gap-0 p-0 pb-[120px] bg-black">
 
                 {/* Hero Section */}
-                <section className="absolute top-0 left-0 right-0 w-full flex flex-col items-center justify-center text-center min-h-screen bg-black overflow-hidden p-0 z-20">
+                <section className="relative w-full flex flex-col items-center justify-center text-center min-h-[90vh] sm:min-h-screen bg-transparent sm:bg-black overflow-hidden p-0 z-20">
                     {/* Top gradient overlay - whoarewe-hero::after */}
                     <div className="absolute top-0 left-0 right-0 h-[40vh] z-[2] pointer-events-none bg-[linear-gradient(180deg,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.4)_30%,transparent_100%)]" />
 
@@ -168,34 +170,24 @@ function WhoAreWeSection() {
                         </div>
                     )}
 
-                    <div className="w-full max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10 px-6 sm:px-8 py-20 md:py-[120px]">
-                        <h1 className="font-['Stage_Grotesk'] text-3xl sm:text-4xl md:text-5xl lg:text-[55px] font-medium leading-tight sm:leading-normal tracking-[-0.02em] text-white max-w-[1200px] mb-6 sm:mb-8 text-center capitalize [text-shadow:0_0_40px_rgba(255,255,255,0.15)] px-4">
-                            AI CHANGES THE EQUATION IN HOW VALUE IS CREATED.
+                    <div className="w-full max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10 px-6 sm:px-8 pt-[120px] pb-20 md:py-[120px]">
+                        <h1 className="font-['Stage_Grotesk'] text-[22px] sm:text-4xl md:text-5xl lg:text-[55px] font-medium leading-[1.2] sm:leading-normal tracking-[-0.02em] text-white max-w-[1200px] mb-12 sm:mb-8 text-center uppercase [text-shadow:0_0_40px_rgba(255,255,255,0.15)] px-4">
+                            AI CHANGES THE EQUATION IN HOW <br className="block sm:hidden" /> VALUE IS CREATED
                         </h1>
 
-                        <p className="font-['Blauer_Nue'] text-base sm:text-lg md:text-xl font-normal leading-[1.4] sm:leading-[1.2] normal-case max-w-[740px] mx-auto mb-8 sm:mb-12 tracking-normal text-center text-white/80 px-4">
-                            Chartered Vectorial is an AI-native, applied AI firm. We use AI to accelerate how we consult and how we engineer, so clients get to production faster.
+                        <p className="font-['Blauer_Nue'] text-[14px] sm:text-lg md:text-xl font-normal leading-[1.6] sm:leading-[1.2] normal-case max-w-full sm:max-w-[740px] mx-auto mb-12 sm:mb-12 tracking-tight sm:tracking-normal text-center text-white/70 px-4 text-balance">
+                            Chartered Vectorial is an AI-native, applied AI firm. We build AI products shaped by consulting insight, configured to your workflows and user experience, deployed in weeks.
                         </p>
-
-                        <a
-                            href="#contact"
-                            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-[#A6F63B] text-black font-['Stage_Grotesk'] text-xs font-medium uppercase tracking-[0.01em] rounded-[2px] no-underline transition-all duration-300 leading-normal text-center hover:bg-white shadow-[0_0_15px_rgba(166,246,59,0.4)]"
-                        >
-                            SCHEDULE CONSULT
-                        </a>
                     </div>
 
                     {/* Scroll to explore */}
-                    <div className="absolute bottom-10 sm:bottom-[15vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-['Stage_Grotesk'] text-sm sm:text-base font-normal leading-normal text-[#A6F63B] text-center z-30 animate-bounce [text-shadow:0_0_4px_#FFF]">
+                    <div className="absolute bottom-10 sm:bottom-[15vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-['Stage_Grotesk'] text-sm sm:text-base font-normal leading-normal text-[#A6F63B] text-center z-30 animate-bounce [text-shadow:0_0_4px_#FFF] w-max">
                         <span>Scroll to explore</span>
-                        <svg className="text-[#DFED3F]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M12 5v14M19 12l-7 7-7-7" />
-                        </svg>
                     </div>
                 </section>
 
                 {/* Content Section - matches whoarewe-content, whoarewe-content-text */}
-                <div className="w-full max-w-[831px] mx-auto px-6 relative text-center md:text-left py-24 sm:py-32 font-['Stage_Grotesk'] text-base sm:text-lg md:text-xl font-normal leading-relaxed text-[#C7C7C7]">
+                <div className="w-full max-w-[831px] mx-auto px-6 relative text-center md:text-left py-16 sm:py-32 font-['Stage_Grotesk'] text-base sm:text-lg md:text-xl font-normal leading-relaxed text-[#C7C7C7]">
                     <div className="flex flex-col gap-8 sm:gap-12 relative z-20">
                         <TextGradientScroll
                             text="The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall."
@@ -204,22 +196,22 @@ function WhoAreWeSection() {
                             className="m-0 text-base sm:text-lg md:text-xl max-w-full md:max-w-[80%] font-['Stage_Grotesk'] text-[#C7C7C7]"
                         />
                         <TextGradientScroll
-                            text="We built Chartered Vectorial to close that gap, and we did it with AI."
+                            text="We built Chartered Vectorial to fix that, by fusing consulting depth with AI-powered product delivery."
                             type="letter"
                             textOpacity="soft"
                             className="m-0 text-base sm:text-lg md:text-xl max-w-full md:max-w-[80%] font-['Stage_Grotesk'] text-[#C7C7C7]"
                         />
                         <TextGradientScroll
-                            text="Our AI agents validate transformation hypotheses with consulting-grade rigor. Our AI agents debate approaches, write code, and review each other's work before anything ships. Humans stay in control at every gate."
+                            text="Our AI agents validate transformation hypotheses, debate approaches, and write production-grade code, all governed by humans. The result isn't a roadmap. It's a product. Configured to your workflows. Shipped in weeks."
                             type="letter"
                             textOpacity="soft"
                             className="m-0 text-base sm:text-lg md:text-xl max-w-full md:max-w-[80%] font-['Stage_Grotesk'] text-[#C7C7C7]"
                         />
                         <TextGradientScroll
-                            text="We're an AI-native consulting firm focused on AI transformation. We don't just advise on AI, we use it to deliver."
+                            text="We're an AI-native product studio. We don't just advise on AI, we deliver it."
                             type="letter"
                             textOpacity="soft"
-                            className="m-0 text-base sm:text-lg md:text-xl max-w-full md:max-w-[80%] font-['Stage_Grotesk'] text-[#C7C7C7]"
+                            className="m-0 text-base sm:text-lg md:text-xl max-w-full md:max-w-[80%] font-['Stage_Grotesk'] text-[#A6F63B]"
                         />
                     </div>
                 </div>
@@ -249,22 +241,8 @@ function WhoAreWeSection() {
                             <img
                                 src={leftImage}
                                 alt=""
-                                className="w-full h-auto block mb-12 lg:mb-6 rounded-lg relative top-0 lg:-top-[60px] [filter:drop-shadow(0_0_50px_rgba(166,246,59,0.3))]"
+                                className="w-full h-auto block mb-8 lg:mb-6 rounded-lg relative top-0 lg:-top-[60px] md:[filter:drop-shadow(0_0_50px_rgba(166,246,59,0.3))]"
                             />
-
-                            <div className="relative w-full lg:w-[180%] xl:w-[231%] z-10">
-                                <h2 className="font-['Stage_Grotesk'] text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-medium leading-tight sm:leading-normal tracking-[-0.02em] text-white m-0">
-                                    Small by design. Fast by conviction. Built for companies{' '}
-                                    <span className="text-[#A6F63B]">ready to move.</span>
-                                </h2>
-
-                                {/* Strategy text for Mobile - appears right after title */}
-                                <div className="mt-8 lg:hidden">
-                                    <p className="font-['Stage_Grotesk'] text-base sm:text-lg font-normal leading-relaxed text-[#C7C7C7]">
-                                        We embed with client teams from strategy through production. No handoffs. No abandoned pilots. No reports that gather dust. We think with you. We build with you. We stay until it works.
-                                    </p>
-                                </div>
-                            </div>
                         </div>
 
                         {/* Right Column */}
@@ -272,7 +250,7 @@ function WhoAreWeSection() {
                             {/* Features Grid */}
                             <div
                                 ref={featuresGridRef}
-                                className="grid grid-cols-1 md:grid-cols-2 gap-y-12 sm:gap-y-16 gap-x-12 sm:gap-x-20"
+                                className="grid grid-cols-1 md:grid-cols-2 gap-y-10 sm:gap-y-16 gap-x-8 sm:gap-x-20"
                             >
                                 {[
                                     {
@@ -285,11 +263,11 @@ function WhoAreWeSection() {
                                     },
                                     {
                                         title: "Built by agents, governed by humans",
-                                        text: "AI agents do the heavy lifting- validating, building, reviewing. Humans approve what matters."
+                                        text: "AI agents do the heavy lifting validating, building, reviewing. You get customised products for your workflows, governed by humans at every gate."
                                     },
                                     {
                                         title: "Access, not exclusivity",
-                                        text: "World-class capability shouldn't be reserved for giants. The barrier dropped. We're here to prove it."
+                                        text: "World-class AI products shouldn’t be reserved for giants. We build them for companies ready to move."
                                     }
                                 ].map((feature, index) => (
                                     <div
@@ -307,13 +285,24 @@ function WhoAreWeSection() {
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                    </div>
 
-                            {/* Strategy text for Desktop - remains at the bottom of the right column */}
-                            <div className="hidden lg:block lg:pt-10 lg:mt-4 lg:ml-auto lg:max-w-[70%]">
-                                <p className="font-['Stage_Grotesk'] text-base sm:text-lg md:text-xl font-normal leading-relaxed text-[#C7C7C7] text-left">
-                                    We embed with client teams from strategy through production. No handoffs. No abandoned pilots. No reports that gather dust. We think with you. We build with you. We stay until it works.
-                                </p>
-                            </div>
+                    {/* Text block before cards */}
+                    <div className="max-w-[1320px] mx-auto mb-16 md:mb-24 lg:mb-32 px-2 sm:px-0">
+                        <div className="max-w-[900px] text-center md:text-left">
+                            <h2 className="font-['Stage_Grotesk'] text-[26px] sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight sm:leading-tight tracking-[-0.02em] text-white mb-8">
+                                <span className="block sm:inline">Small by design.</span>
+                                <span className="block sm:inline"> Fast by conviction.</span>
+                                <span className="block sm:inline">
+                                    Built for companies <span className="text-[#A6F63B]">ready</span>
+                                </span>
+                                <span className="block sm:inline text-[#A6F63B]">to move.</span>
+                            </h2>
+                            <p className="font-['Stage_Grotesk'] text-[13px] sm:text-lg md:text-xl font-normal leading-relaxed text-[#C7C7C7] max-w-[760px] mx-auto md:mx-0 tracking-tight sm:tracking-normal">
+                                <span className="block sm:inline">We learn how you work. We shape what changes.</span>
+                                <span className="block sm:inline"> We build what fits. We stay until it runs.</span>
+                            </p>
                         </div>
                     </div>
 
@@ -359,7 +348,7 @@ function WhoAreWeSection() {
 function ThinkCard({ cardsVisible }) {
     return (
         <div
-            className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
+            className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px] sm:translate-y-[30px]'
                 }`}
             style={{ animationDelay: '100ms' }}
         >
@@ -375,10 +364,7 @@ function ThinkCard({ cardsVisible }) {
                 </div>
 
                 {/* Back */}
-                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black border border-[#A6F63B]/30 flex flex-col justify-end p-8">
-                    {/* Top Right Glow */}
-                    <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-[#A6F63B]/20 blur-[60px] rounded-full pointer-events-none" />
-
+                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Validation, strategy, and business case development. Know where AI fits before you commit budget.
                     </p>
@@ -407,13 +393,9 @@ function BuildCard({ cardsVisible }) {
                 </div>
 
                 {/* Back */}
-                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black border border-[#A6F63B]/30 flex flex-col justify-end p-8">
-                    {/* Top Right Glow */}
-                    <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-[#A6F63B]/20 blur-[60px] rounded-full pointer-events-none" />
-
+                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
-                        Production-grade AI agents- tested, governed, audit-ready. Delivered in weeks, not months.
-                    </p>
+                        Production grade AI products configured to your workflows, governed, audit-ready. Delivered in weeks, not months.                    </p>
                 </div>
             </div>
         </div>
@@ -439,10 +421,7 @@ function StayCard({ cardsVisible }) {
                 </div>
 
                 {/* Back */}
-                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black border border-[#A6F63B]/30 flex flex-col justify-end p-8">
-                    {/* Top Right Glow */}
-                    <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-[#A6F63B]/20 blur-[60px] rounded-full pointer-events-none" />
-
+                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Real transformation requires adoption. We stay until your teams run with it, and identify what's next.
                     </p>
@@ -457,11 +436,11 @@ function FoundersSection() {
     return (
         <div className="w-full max-w-[1280px] mx-auto mb-20 md:mb-32 lg:mb-48 px-6 relative z-10">
             {/* Header */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 mb-16 items-start lg:ml-[70px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 mb-12 sm:mb-16 items-start lg:ml-[70px] text-center md:text-left">
                 <h2 className="font-['Stage_Grotesk'] text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight text-white m-0">
                     Meet the Founders
                 </h2>
-                <div className="max-w-[423px]">
+                <div className="max-w-[423px] mx-auto md:mx-0">
                     <p className="font-['Stage_Grotesk'] text-base sm:text-lg font-light leading-relaxed text-white m-0">
                         The Founders of Chartered Vectorial bring experience across engineering, operations, and large-scale system delivery.
                     </p>
@@ -474,16 +453,33 @@ function FoundersSection() {
                 <FounderCard
                     name="Pradeep Menon"
                     designation="Founder & CEO, Chartered Vectorial"
-                    image={founderPradeepImage}
-                    bio="Pradeep Menon is the Founder and CEO of Chartered Vectorial. He started CV to build the AI firm he wished existed, one that ships production-grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO—Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia. He's a published author and keynote speaker on AI transformation."
+                    image={founderEyalImage}
+                    bio={
+                        <>
+                            <p className="mb-6">Pradeep Menon is the founder and CEO of Chartered Vectorial.</p>
+                            <p className="mb-6">
+                                He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia.
+                            </p>
+                            <p>
+                                He's a published author and keynote speaker on AI transformation, strategy, and business case development. Know where AI fits before you commit budget.
+                            </p>
+                        </>
+                    }
                 />
 
                 {/* Eyal Card */}
                 <FounderCard
                     name="Eyal Agmoni"
                     designation="Co-Founder, Chartered Vectorial | Founder of Chartered Group and CEO of Chartered Investment Managers"
-                    image={founderEyalImage}
-                    bio="Eyal Agmoni has spent 35 years building and investing in businesses across Europe and Asia. As Founder of Chartered Group, he's seen how technology reshapes industries and how most enterprises struggle to capture that value. He co-founded Chartered Vectorial to bridge that gap: backing a team that gets AI from strategy to production, not just pilots."
+                    image={founderPradeepImage}
+                    bio={
+                        <>
+                            <p className="mb-6">Eyal Agmoni has spent 35 years building and investing in businesses across Europe and Asia.</p>
+                            <p className="mb-6">
+                                As Founder of Chartered Group, he's seen how technology reshapes industries and how most enterprises struggle to capture that value. He co-founded Chartered Vectorial to bridge that gap: backing a team that gets AI from strategy to production, not just pilots.
+                            </p>
+                        </>
+                    }
                 />
             </div>
         </div>
@@ -495,26 +491,33 @@ function FounderCard({ name, designation, image, bio }) {
         <div className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-0 cursor-pointer group mx-auto">
             {/* Front */}
             <div className="absolute inset-0 w-full h-full transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] opacity-100 z-[1] group-hover:opacity-0 group-hover:pointer-events-none">
-                <img src={image} alt={name} className="w-full h-full object-cover block" />
-                <div className="absolute bottom-0 left-0 right-0 h-full pointer-events-none bg-[linear-gradient(180deg,rgba(166,246,59,0)_82.05%,rgba(32,190,95,0.5)_88.87%,rgba(0,176,104,1)_98.36%)]" />
-                <h3 className="absolute bottom-6 left-6 sm:bottom-7 sm:left-7 font-['Stage_Grotesk'] text-2xl sm:text-[30px] font-normal leading-tight text-white m-0 z-[1]">
+                <img src={image} alt={name} className="w-full h-full object-cover object-top block" />
+                <div className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none bg-gradient-to-t from-[#00b068] via-[#00b068]/50 to-transparent" />
+                <h3 className="absolute bottom-6 left-6 sm:bottom-7 sm:left-7 font-['Stage_Grotesk'] text-2xl sm:text-[32px] font-medium leading-tight text-white m-0 z-[1]">
                     {name}
                 </h3>
             </div>
 
             {/* Back */}
-            <div className="absolute inset-0 w-full h-full opacity-0 z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col p-6 sm:p-7 text-left bg-black/80 backdrop-blur-sm">
-                <div className="absolute inset-0 w-full h-full -z-[1] bg-[radial-gradient(circle_at_83%_-10%,#01121a_0%,#00b068_90%)]" />
-                <div className="h-full flex flex-col">
-                    <h3 className="font-['Stage_Grotesk'] text-2xl sm:text-[30px] font-normal text-white m-0 mb-2">
-                        {name}
-                    </h3>
-                    <p className="font-['Blauer_Nue'] text-[12px] sm:text-[13px] font-medium tracking-[0.05em] text-white mt-1 mb-4 leading-tight">
-                        {designation}
-                    </p>
-                    <p className="w-full font-['Stage_Grotesk'] text-sm sm:text-base font-normal leading-relaxed text-white/90">
-                        {bio}
-                    </p>
+            <div className="absolute inset-0 w-full h-full opacity-0 z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col p-8 sm:p-10 text-left overflow-hidden">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 w-full h-full -z-[1] bg-[linear-gradient(135deg,#00703C_0%,#01121a_100%)]" />
+
+                <div className="h-full flex flex-col justify-between">
+                    <div>
+                        <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[40px] font-medium text-white m-0 mb-2 leading-tight">
+                            {name}
+                        </h3>
+                        <p className="font-['Stage_Grotesk'] text-sm sm:text-base font-bold tracking-tight text-white mt-1 leading-tight">
+                            {designation}
+                        </p>
+                    </div>
+
+                    <div className="max-w-full">
+                        <div className="font-['Stage_Grotesk'] text-[13px] sm:text-[15px] font-normal leading-relaxed text-white/95">
+                            {bio}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
