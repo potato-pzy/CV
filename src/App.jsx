@@ -27,7 +27,6 @@ const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'))
 const MobileTestPage = lazy(() => import('./mobiletest/MobileTestPage'))
 const LoaderDemo = lazy(() => import('./components/LoaderDemo'))
 const ValidatePage = lazy(() => import('../validate/ValidatePage'))
-const Backup = lazy(() => import('./components/backup'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -49,7 +48,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <GlobalLoader />
+      {/* <GlobalLoader /> */}
       <Suspense fallback={<RouteFallback />}>
       <Routes>
           <Route path="/" element={<NewPage />} />
@@ -75,7 +74,6 @@ function App() {
           <Route path="/mobiletest" element={<MobileTestPage />} />
           <Route path="/loader" element={<LoaderDemo />} />
           <Route path="/validate" element={<ValidatePage />} />
-          <Route path="/backup" element={<Backup />} />
         </Routes>
       </Suspense>
     </Router>

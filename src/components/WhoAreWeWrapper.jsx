@@ -1,21 +1,30 @@
-import { useState, useEffect } from 'react'
-import WhoAreWeSection from './WhoAreWeSection'
-import Backup from './backup'
+import { useEffect, useState } from 'react';
+import { isMobile } from '../lib/utils';
+import WhoAreWeSection from './WhoAreWeSection';
+import WhoAreWeStatic from './WhoAreWeStatic';
 
 function WhoAreWeWrapper() {
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 48rem)')
-    setIsMobile(mediaQuery.matches)
+    // Check on mount and on resize
+    const checkMobile = () => {
+      setIsMobileDevice(isMobile() || window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-    const handleChange = (e) => setIsMobile(e.matches)
-    mediaQuery.addEventListener('change', handleChange)
+  // On mobile, show static React version with shared layout
+  if (isMobileDevice) {
+    return <WhoAreWeStatic />;
+  }
 
-    return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [])
-
-  return isMobile ? <Backup /> : <WhoAreWeSection />
+  // On desktop, show React component
+  return <WhoAreWeSection />;
 }
 
-export default WhoAreWeWrapper
+export default WhoAreWeWrapper;

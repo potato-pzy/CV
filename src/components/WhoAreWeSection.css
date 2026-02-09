@@ -2760,11 +2760,3 @@
         padding-right: 2.5rem;
     }
 }
-
-/* Ensure founders back bio text on mobile matches desktop paragraph size */
-@media (max-width: 63.9375rem) {
-    .whoarewe-founder-back-bio {
-        font-size: 1rem;
-        line-height: 1.5 !important;
-    }
-}

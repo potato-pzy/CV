@@ -14,16 +14,37 @@
     </div>
 
     <main class="wa-main">
-      <nav class="wa-nav">
-        <a href="/" class="wa-nav-logo">Chartered Vectorial</a>
-        <div class="wa-nav-links">
-          <a href="/">Home</a>
-          <a href="/whoweare">Who We Are</a>
-          <a href="/whatwedo">What We Do</a>
-          <a href="/contact">Contact</a>
-          <a href="/contact" class="wa-nav-cta">See it in Action</a>
+      <header class="navbar navbar-static">
+        <div class="navbar-container">
+          <div class="navbar-left">
+            <a href="/" class="navbar-logo">
+              <svg viewBox="0 0 65 41" fill="none" xmlns="http://www.w3.org/2000/svg" class="navbar-logo-svg">
+                <path d="M36.165 0L32.7882 9.26001H9.2915V0H36.165Z" fill="currentColor" />
+                <path d="M38.6219 31.74L35.0731 41H0V16.4141L3.24545 11.6884H9.29149V31.74H38.6219Z" fill="currentColor" />
+                <path d="M64.9999 0L50.0769 41H39.3093L54.3233 0H64.9999Z" fill="currentColor" />
+              </svg>
+            </a>
+            <ul class="navbar-menu">
+              <li>
+                <a href="/whoweare" class="navbar-link">Who We Are</a>
+              </li>
+              <li>
+                <a href="/whatwedo" class="navbar-link">What we do</a>
+              </li>
+              <li>
+                <a href="/insights" class="navbar-link">Insights</a>
+              </li>
+              <li>
+                <a href="/careers" class="navbar-link">Careers</a>
+              </li>
+              <li>
+                <a href="/contact" class="navbar-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <a href="/contact" class="navbar-cta">See it in Action</a>
         </div>
-      </nav>
+      </header>
 
       <section class="wa-hero">
         <div class="wa-hero-logo">
@@ -131,6 +152,22 @@
             </div>
           </div>
         </div>
+        <script>
+        // #region agent log
+        setTimeout(()=>{
+          const cards=document.querySelector('.wa-cards');
+          const card1=document.querySelectorAll('.wa-card')[0];
+          if(cards){
+            const cs=getComputedStyle(cards);
+            fetch('http://127.0.0.1:7243/ingest/ca827bc0-43c4-444b-ab41-819e4d4426e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'whoarewe.html:cards-container',message:'wa-cards styles',data:{display:cs.display,gridCols:cs.gridTemplateColumns,width:cs.width,maxWidth:cs.maxWidth,margin:cs.margin,padding:cs.padding,vw:window.innerWidth,rect:cards.getBoundingClientRect()},timestamp:Date.now(),hypothesisId:'A,C,E'})}).catch(()=>{});
+          }
+          if(card1){
+            const cs=getComputedStyle(card1);
+            fetch('http://127.0.0.1:7243/ingest/ca827bc0-43c4-444b-ab41-819e4d4426e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'whoarewe.html:card1',message:'card1 styles',data:{display:cs.display,width:cs.width,maxWidth:cs.maxWidth,opacity:cs.opacity,visibility:cs.visibility,position:cs.position,margin:cs.margin,rect:card1.getBoundingClientRect()},timestamp:Date.now(),hypothesisId:'A,B,D'})}).catch(()=>{});
+          }
+        },500);
+        // #endregion
+        </script>
 
         <div class="wa-radial wa-radial-bottom"></div>
 
@@ -172,14 +209,49 @@
       <div class="wa-cont-bg-c2"></div>
     </div>
 
-    <section class="wa-cta">
-      <h2>What comes next is worth building together.</h2>
-      <a href="/contact"><button class="wa-cta-btn">SEE IT IN ACTION</button></a>
+    <section class="cta-section">
+      <div class="cta-background">
+        <img
+          src="/whoarewe/cta-background.png"
+          alt="Background pattern"
+          class="cta-bg-image"
+        />
+      </div>
+      <div class="cta-content">
+        <h2 class="cta-title">
+          What comes next is worth building together.
+        </h2>
+        <a href="/contact">
+          <button class="cta-button">SEE IT IN ACTION</button>
+        </a>
+      </div>
     </section>
 
-    <footer class="wa-footer">
-      <p>© 2026 Chartered Vectorial. All rights reserved.</p>
-      <a href="/">Back to Home</a>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <p class="footer-copyright">
+            © 2026 Chartered Vectorial.<br />All rights reserved.
+          </p>
+        </div>
+        <div class="footer-center">
+          <p class="footer-section-title">Chartered Vectorial</p>
+          <nav class="footer-nav">
+            <a href="/whoweare" class="footer-link">Who We Are</a>
+            <a href="/whatwedo" class="footer-link">What We Do</a>
+            <a href="/careers" class="footer-link">Careers</a>
+            <a href="/terms" class="footer-link">Terms of Use</a>
+            <a href="/privacy" class="footer-link">Privacy Policy</a>
+          </nav>
+        </div>
+        <div class="footer-right">
+          <p class="footer-section-title">Get Connected</p>
+          <nav class="footer-nav">
+            <a href="/insights" class="footer-link footer-link-underline">Insights</a>
+            <a href="/contact" class="footer-link footer-link-underline">Contact</a>
+          </nav>
+        </div>
+      </div>
     </footer>
   </div>
 </body>
