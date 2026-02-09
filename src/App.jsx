@@ -1,29 +1,31 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import './index.css'
 import GlobalLoader from './components/GlobalLoader'
-import Home from './components/Home'
-import WhoAreWeSection from './components/WhoAreWeSection'
-import WhoAreWeStatic from './components/WhoAreWeStatic'
-import CareersSection from './components/CareersSection'
-import Insights from './components/Insights'
-import WhatWeDo from './components/WhatWeDo'
-import Contact from './components/Contact'
-import NewPage from './components/NewPage'
-import BusinessImageDemo from './components/BusinessImageDemo'
-import TestimonialsDemo from './components/TestimonialsDemo'
-import ArticleCardsDemo from './components/ArticleCardsDemo'
-import InsightsSectionDemo from './components/InsightsSectionDemo'
-import RolesSectionDemo from './components/RolesSectionDemo'
-import BlogPost from './components/BlogPost'
-import BlogRiseOfAgenticAI from './components/BlogRiseOfAgenticAI'
-import BlogAgenticBlueprint from './components/BlogAgenticBlueprint'
-import BlogFoundersNote from './components/BlogFoundersNote'
-import TermsOfUsePage from './components/TermsOfUsePage'
-import PrivacyPolicyPage from './components/PrivacyPolicyPage'
-import MobileTestPage from './mobiletest/MobileTestPage'
-import LoaderDemo from './components/LoaderDemo'
-import ValidatePage from '../validate/ValidatePage'
+
+const Home = lazy(() => import('./components/Home'))
+const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
+const WhoAreWeStatic = lazy(() => import('./components/WhoAreWeStatic'))
+const CareersSection = lazy(() => import('./components/CareersSection'))
+const Insights = lazy(() => import('./components/Insights'))
+const WhatWeDo = lazy(() => import('./components/WhatWeDo'))
+const Contact = lazy(() => import('./components/Contact'))
+const NewPage = lazy(() => import('./components/NewPage'))
+const BusinessImageDemo = lazy(() => import('./components/BusinessImageDemo'))
+const TestimonialsDemo = lazy(() => import('./components/TestimonialsDemo'))
+const ArticleCardsDemo = lazy(() => import('./components/ArticleCardsDemo'))
+const InsightsSectionDemo = lazy(() => import('./components/InsightsSectionDemo'))
+const RolesSectionDemo = lazy(() => import('./components/RolesSectionDemo'))
+const BlogPost = lazy(() => import('./components/BlogPost'))
+const BlogRiseOfAgenticAI = lazy(() => import('./components/BlogRiseOfAgenticAI'))
+const BlogAgenticBlueprint = lazy(() => import('./components/BlogAgenticBlueprint'))
+const BlogFoundersNote = lazy(() => import('./components/BlogFoundersNote'))
+const TermsOfUsePage = lazy(() => import('./components/TermsOfUsePage'))
+const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'))
+const MobileTestPage = lazy(() => import('./mobiletest/MobileTestPage'))
+const LoaderDemo = lazy(() => import('./components/LoaderDemo'))
+const ValidatePage = lazy(() => import('../validate/ValidatePage'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -37,11 +39,16 @@ function ScrollToTop() {
   return null
 }
 
+const RouteFallback = () => (
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#0a0a0a', color: '#888', fontFamily: 'system-ui,sans-serif' }}>Loading…</div>
+)
+
 function App() {
   return (
     <Router>
       <ScrollToTop />
       {/* <GlobalLoader /> */}
+      <Suspense fallback={<RouteFallback />}>
       <Routes>
           <Route path="/" element={<NewPage />} />
           <Route path="/whoweare" element={<WhoAreWeSection />} />
@@ -66,6 +73,7 @@ function App() {
           <Route path="/loader" element={<LoaderDemo />} />
           <Route path="/validate" element={<ValidatePage />} />
         </Routes>
+      </Suspense>
     </Router>
   )
 }

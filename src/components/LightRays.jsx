@@ -86,12 +86,33 @@ const LightRays = ({
       cleanupFunctionRef.current = null;
     }
 
+    const checkContainerSize = (container) => {
+      if (!container) return false;
+      const rect = container.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    };
+
     const initializeWebGL = async () => {
       if (!containerRef.current) return;
 
       await new Promise(resolve => setTimeout(resolve, 10));
 
       if (!containerRef.current) return;
+
+      // Wait for container to have valid dimensions
+      let retries = 0;
+      const maxRetries = 10;
+      while (!checkContainerSize(containerRef.current) && retries < maxRetries) {
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        retries++;
+      }
+
+      if (!checkContainerSize(containerRef.current)) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('LightRays: Container has zero dimensions, skipping WebGL initialization');
+        }
+        return;
+      }
 
       const renderer = new Renderer({
         dpr: Math.min(window.devicePixelRatio, 2),

@@ -2086,9 +2086,6 @@
     transition: opacity 0.5s ease;
 }
 
-.whoarewe-card-icon .iconify {
-    color: #A6F63B;
-}
 
 .whoarewe-card:hover .whoarewe-card-front-content .whoarewe-card-icon {
     opacity: 0.6;

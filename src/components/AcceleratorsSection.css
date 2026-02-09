@@ -42,6 +42,8 @@
 }
 
 .accelerators-text-section {
+  position: relative;
+  /* Framer Motion useScroll needs a non-static container for scroll offset */
   max-width: 60rem;
   margin: 0 auto;
   text-align: center;

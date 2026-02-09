@@ -32,8 +32,6 @@ const fullMaskStyle = {
     maskPosition: 'center',
     maskRepeat: 'no-repeat',
 };
-const maskStyle = useWhoAreWeFallbacks() ? {} : fullMaskStyle;
-
 // 定义网格动画颜色和配置
 const GRID_CONFIG = {
     background: {
@@ -53,6 +51,8 @@ const GRID_CONFIG = {
 };
 
 function WhoAreWeSection() {
+    const useFallbacks = useWhoAreWeFallbacks();
+    const maskStyle = useFallbacks ? {} : fullMaskStyle;
     const cardsGridRef = useRef(null);
     const featuresGridRef = useRef(null);
     const [cardsVisible, setCardsVisible] = useState(false);
@@ -120,7 +120,7 @@ function WhoAreWeSection() {
                             style={{
                                 ...maskStyle,
                                 // Safari/mobile: no animation on this div
-                                ...(useWhoAreWeFallbacks() ? {} : { animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }),
+                                ...(useFallbacks ? {} : { animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }),
                                 left: '-5%',
                             }}
                         >
@@ -156,8 +156,8 @@ function WhoAreWeSection() {
                             "Our AI agents validate transformation hypotheses, debate approaches, and write production grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
                             "We're an AI-native product studio. We don't just advise on AI, we deliver it."
                         ].map((text, index) => {
-                            const MotionWrapper = useWhoAreWeFallbacks() ? 'div' : motion.div;
-                            const motionProps = useWhoAreWeFallbacks()
+                            const MotionWrapper = useFallbacks ? 'div' : motion.div;
+                            const motionProps = useFallbacks
                                 ? {}
                                 : {
                                     initial: { opacity: 0, y: 30 },
@@ -171,7 +171,7 @@ function WhoAreWeSection() {
                                 };
                             return (
                                 <MotionWrapper key={index} {...motionProps}>
-                                    {useWhoAreWeFallbacks() ? (
+                                    {useFallbacks ? (
                                         <p className={`whoarewe-para ${index === 3 ? 'whoarewe-highlight' : ''}`}>{text}</p>
                                     ) : (
                                         <TextGradientScroll

@@ -367,6 +367,22 @@ const Hyperspeed = ({
                     };
                 }
                 this.container = container;
+                
+                // Validate container dimensions before initializing WebGL
+                if (!container || container.offsetWidth === 0 || container.offsetHeight === 0) {
+                    if (process.env.NODE_ENV === 'development') {
+                        console.warn('Hyperspeed: Container has zero dimensions, cannot initialize WebGL');
+                    }
+                    this.disposed = true;
+                    this.assets = {};
+                    this.clock = null;
+                    this.renderer = null;
+                    this.composer = null;
+                    this.camera = null;
+                    this.scene = null;
+                    return;
+                }
+                
                 this.renderer = new THREE.WebGLRenderer({
                     antialias: !isMobile, // Disable fixed AA on mobile for performance
                     alpha: true,
@@ -377,9 +393,10 @@ const Hyperspeed = ({
                 this.composer = new EffectComposer(this.renderer);
                 container.append(this.renderer.domElement);
 
+                const aspect = container.offsetHeight > 0 ? container.offsetWidth / container.offsetHeight : 1;
                 this.camera = new THREE.PerspectiveCamera(
                     options.fov,
-                    container.offsetWidth / container.offsetHeight,
+                    aspect,
                     0.1,
                     10000
                 );
@@ -436,8 +453,11 @@ const Hyperspeed = ({
             }
 
             onWindowResize() {
+                if (this.disposed || !this.renderer || !this.camera || !this.composer) return;
                 const width = this.container.offsetWidth;
                 const height = this.container.offsetHeight;
+                
+                if (width === 0 || height === 0) return;
 
                 this.renderer.setSize(width, height);
                 this.camera.aspect = width / height;
@@ -446,6 +466,7 @@ const Hyperspeed = ({
             }
 
             initPasses() {
+                if (this.disposed || !this.scene || !this.camera || !this.composer) return;
                 this.renderPass = new RenderPass(this.scene, this.camera);
                 this.composer.addPass(this.renderPass);
 
@@ -506,6 +527,7 @@ const Hyperspeed = ({
             }
 
             init() {
+                if (this.disposed) return;
                 this.initPasses();
                 const options = this.options;
                 this.road.init();
@@ -599,6 +621,7 @@ const Hyperspeed = ({
             }
 
             render(delta) {
+                if (this.disposed || !this.composer) return;
                 this.composer.render(delta);
             }
 
@@ -1128,15 +1151,30 @@ const Hyperspeed = ({
 
         (function () {
             const container = document.getElementById('lights');
+            if (!container) return;
+            
             const options = { ...effectOptions };
             options.distortion = distortions[options.distortion];
 
+            // Check dimensions before initializing
+            const checkAndInit = () => {
+                if (!container) return;
+                
+                if (container.offsetWidth > 0 && container.offsetHeight > 0) {
+                    const myApp = new App(container, options);
+                    appRef.current = myApp;
+                    // Only initialize if not disposed (i.e., dimensions were valid)
+                    if (!myApp.disposed) {
+                        myApp.loadAssets().then(myApp.init);
+                    }
+                } else {
+                    // Retry after a short delay
+                    setTimeout(checkAndInit, 50);
+                }
+            };
+
             // Defer heavy Three.js initialization to allow the loader animation to start smoothly
-            setTimeout(() => {
-                const myApp = new App(container, options);
-                appRef.current = myApp;
-                myApp.loadAssets().then(myApp.init);
-            }, 100);
+            setTimeout(checkAndInit, 100);
         })();
 
         return () => {

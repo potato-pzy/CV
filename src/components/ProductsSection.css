@@ -62,7 +62,7 @@
 (min-width: 48rem) and (orientation: landscape) {
     .products-container {
         grid-template-columns: 1fr 1.2fr;
-        gap: 6vw;
+        gap: 3rem;
         padding: 0 var(--spacing-2xl);
         max-width: var(--container-2xl);
         align-items: center;
