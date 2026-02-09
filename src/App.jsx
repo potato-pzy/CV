@@ -8,6 +8,7 @@ const Home = lazy(() => import('./components/Home'))
 const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
 const WhoAreWeWrapper = lazy(() => import('./components/WhoAreWeWrapper'))
 const WhoAreWeStatic = lazy(() => import('./components/WhoAreWeStatic'))
+const Backup = lazy(() => import('./components/backup'))
 const CareersSection = lazy(() => import('./components/CareersSection'))
 const Insights = lazy(() => import('./components/Insights'))
 const WhatWeDo = lazy(() => import('./components/WhatWeDo'))
@@ -55,6 +56,7 @@ function App() {
           <Route path="/whoweare.html" element={<Navigate to="/whoweare" replace />} />
           <Route path="/whoweare" element={<WhoAreWeWrapper />} />
           <Route path="/static" element={<WhoAreWeStatic />} />
+          <Route path="/backup" element={<Backup />} />
           <Route path="/whatwedo" element={<WhatWeDo />} />
           <Route path="/careers" element={<CareersSection />} />
           <Route path="/insights" element={<Insights />} />
