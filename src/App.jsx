@@ -55,6 +55,7 @@ function App() {
           <Route path="/" element={<NewPage />} />
           <Route path="/whoweare.html" element={<Navigate to="/whoweare" replace />} />
           <Route path="/whoweare" element={<WhoAreWeWrapper />} />
+          <Route path="/whoweare-section" element={<WhoAreWeSection />} />
           <Route path="/static" element={<WhoAreWeStatic />} />
           <Route path="/backup" element={<Backup />} />
           <Route path="/whatwedo" element={<WhatWeDo />} />
