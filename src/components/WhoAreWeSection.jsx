@@ -366,7 +366,7 @@ function ThinkCard({ cardsVisible }) {
                 {/* Back */}
                 <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
-                        Validation, strategy, and business case development. Know where AI fits before you commit budget.
+                        Validation, strategy, and business case development.
                     </p>
                 </div>
             </div>

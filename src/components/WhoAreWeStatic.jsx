@@ -328,7 +328,7 @@ function WhoAreWeSection() {
                                         <div className="whoarewe-founder-back-bio-wrap">
                                             <p className="whoarewe-founder-back-bio">Pradeep Menon is the founder and CEO of Chartered Vectorial.</p>
                                             <p className="whoarewe-founder-back-bio">He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia.</p>
-                                            <p className="whoarewe-founder-back-bio">He's a published author and keynote speaker on AI transformation, strategy, and business case development. Know where AI fits before you commit budget.</p>
+                                            <p className="whoarewe-founder-back-bio">He's a published author and keynote speaker on AI transformation, strategy, and business case development.</p>
                                         </div>
                                     </div>
                                 </div>
