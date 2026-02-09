@@ -123,51 +123,6 @@
           </div>
         </div>
 
-        <div class="wa-cards">
-          <div class="wa-card">
-            <div class="wa-card-front">
-              <img src="/whoarewe/we_think.jpeg" alt="We Think" loading="lazy" />
-              <p>We Think</p>
-            </div>
-            <div class="wa-card-back">
-              <p>Validation, strategy, and business case development. Know where AI fits before you commit budget.</p>
-            </div>
-          </div>
-          <div class="wa-card">
-            <div class="wa-card-front">
-              <img src="/whoarewe/we_build.jpeg" alt="We Build" loading="lazy" />
-              <p>We Build</p>
-            </div>
-            <div class="wa-card-back">
-              <p>Production grade AI products configured to your workflows, governed, audit-ready. Delivered in weeks, not months.</p>
-            </div>
-          </div>
-          <div class="wa-card">
-            <div class="wa-card-front">
-              <img src="/whoarewe/stay.jpeg" alt="We Stay" loading="lazy" />
-              <p>We Stay</p>
-            </div>
-            <div class="wa-card-back">
-              <p>Real transformation requires adoption. We stay until your teams run with it, and identify what's next.</p>
-            </div>
-          </div>
-        </div>
-        <script>
-        // #region agent log
-        setTimeout(()=>{
-          const cards=document.querySelector('.wa-cards');
-          const card1=document.querySelectorAll('.wa-card')[0];
-          if(cards){
-            const cs=getComputedStyle(cards);
-            fetch('http://127.0.0.1:7243/ingest/ca827bc0-43c4-444b-ab41-819e4d4426e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'whoarewe.html:cards-container',message:'wa-cards styles',data:{display:cs.display,gridCols:cs.gridTemplateColumns,width:cs.width,maxWidth:cs.maxWidth,margin:cs.margin,padding:cs.padding,vw:window.innerWidth,rect:cards.getBoundingClientRect()},timestamp:Date.now(),hypothesisId:'A,C,E'})}).catch(()=>{});
-          }
-          if(card1){
-            const cs=getComputedStyle(card1);
-            fetch('http://127.0.0.1:7243/ingest/ca827bc0-43c4-444b-ab41-819e4d4426e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'whoarewe.html:card1',message:'card1 styles',data:{display:cs.display,width:cs.width,maxWidth:cs.maxWidth,opacity:cs.opacity,visibility:cs.visibility,position:cs.position,margin:cs.margin,rect:card1.getBoundingClientRect()},timestamp:Date.now(),hypothesisId:'A,B,D'})}).catch(()=>{});
-          }
-        },500);
-        // #endregion
-        </script>
 
         <div class="wa-radial wa-radial-bottom"></div>
 
