@@ -2,17 +2,22 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { font-size: 100%; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; font-family: "Stage Grotesk", system-ui, sans-serif; }
+body { 
+  margin: 0; 
+  font-family: "Stage Grotesk", system-ui, sans-serif;
+  -webkit-overflow-scrolling: touch;
+}
 
 .wa-page {
   position: relative;
   min-height: 100vh;
-  min-height: 100dvh;
   background: #020f14;
   color: #fff;
   overflow-x: clip;
   display: flex;
   flex-direction: column;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .wa-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
@@ -70,8 +75,9 @@ body { margin: 0; font-family: "Stage Grotesk", system-ui, sans-serif; }
   position: absolute; top: 0; left: 0; right: 0; width: 100%;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center;
-  min-height: 100vh; min-height: 100dvh;
+  min-height: 100vh;
   background: #000 !important;
+  will-change: transform;
   overflow: hidden; padding: 0; z-index: 20;
 }
 .wa-hero::after {
@@ -123,12 +129,12 @@ body { margin: 0; font-family: "Stage Grotesk", system-ui, sans-serif; }
 /* Content */
 .wa-content {
   width: 100%; max-width: 100%; position: relative; text-align: center;
-  margin-top: calc(100vh + 7.5rem); margin-top: calc(100dvh + 7.5rem);
+  margin-top: calc(100vh + 7.5rem);
   padding: 0 1rem; font-size: 1rem; line-height: 1.6;
   color: #C7C7C7;
 }
 @media (min-width: 48rem) {
-  .wa-content { font-size: 1.5rem; margin-top: calc(100vh + 12.5rem); margin-top: calc(100dvh + 12.5rem); }
+  .wa-content { font-size: 1.5rem; margin-top: calc(100vh + 12.5rem); }
 }
 .wa-paras {
   display: flex; flex-direction: column; align-items: flex-start; text-align: left;
@@ -155,7 +161,7 @@ body { margin: 0; font-family: "Stage Grotesk", system-ui, sans-serif; }
   width: clamp(20rem, 100vw, 103.625rem); height: clamp(15rem, 50vw, 48.5625rem);
   border-radius: 50%; background: #001D26; filter: blur(12.5rem);
   left: 50%; transform: translateX(-50%);
-  top: calc(100vh + 37.5rem); top: calc(100dvh + 37.5rem);
+  top: calc(100vh + 37.5rem);
   z-index: -3; pointer-events: none;
 }
 .wa-radial-bottom { top: auto; bottom: 10%; z-index: -3; }
