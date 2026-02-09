@@ -1,43 +1,21 @@
-import { useEffect, useState } from 'react';
-import { isMobile } from '../lib/utils';
-import WhoAreWeSection from './WhoAreWeSection';
+import { useState, useEffect } from 'react'
+import WhoAreWeSection from './WhoAreWeSection'
+import Backup from './backup'
 
 function WhoAreWeWrapper() {
-  const [isMobileDevice, setIsMobileDevice] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Check on mount and on resize
-    const checkMobile = () => {
-      setIsMobileDevice(isMobile() || window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    const mediaQuery = window.matchMedia('(max-width: 48rem)')
+    setIsMobile(mediaQuery.matches)
 
-  // On mobile, show static HTML file via iframe
-  if (isMobileDevice) {
-    return (
-      <div style={{ width: '100%', height: '100vh', overflow: 'auto' }}>
-        <iframe
-          src="/whoarewe.html"
-          style={{
-            width: '100%',
-            minHeight: '100vh',
-            border: 'none',
-            display: 'block'
-          }}
-          title="Who We Are"
-          scrolling="yes"
-        />
-      </div>
-    );
-  }
+    const handleChange = (e) => setIsMobile(e.matches)
+    mediaQuery.addEventListener('change', handleChange)
 
-  // On desktop, show React component
-  return <WhoAreWeSection />;
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  return isMobile ? <Backup /> : <WhoAreWeSection />
 }
 
-export default WhoAreWeWrapper;
+export default WhoAreWeWrapper

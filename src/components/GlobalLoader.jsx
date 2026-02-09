@@ -3,8 +3,8 @@ import { flushSync } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 import HighVelocityLoader from './HighVelocityLoader';
 
-const MIN_SHOW_MS = 450;
-const MAX_SHOW_MS = 4000;
+const MIN_SHOW_MS = 150;
+const MAX_SHOW_MS = 2500;
 const SKIP_PATH = '/static';
 
 const GlobalLoader = () => {
@@ -41,11 +41,9 @@ const GlobalLoader = () => {
         }
         document.body.style.overflow = 'hidden';
         const handleLoad = () => {
-            setTimeout(() => {
-                setIsLoading(false);
-                setIsInitialLoad(false);
-                document.body.style.overflow = 'unset';
-            }, 300);
+            setIsLoading(false);
+            setIsInitialLoad(false);
+            document.body.style.overflow = 'unset';
         };
         if (document.readyState === 'complete') {
             handleLoad();

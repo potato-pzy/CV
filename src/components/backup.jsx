@@ -1,159 +1,195 @@
-import './backup.css';
+import './WhoAreWeSection.css';
+import Navbar from './Navbar';
+import CTASection from './CTASection';
+import Footer from './Footer';
 
 function Backup() {
   return (
-    <div className="wa-page">
-      <div className="wa-bg">
-        <div className="wa-grid"></div>
+    <div className="whoarewe-page">
+      <div className="whoarewe-background-effects">
+        <div className="tech-grid"></div>
+        <div className="gradient-radial"></div>
       </div>
 
-      <main className="wa-main">
-        <nav className="wa-nav">
-          <a href="/" className="wa-nav-logo">Chartered Vectorial</a>
-          <div className="wa-nav-links">
-            <a href="/">Home</a>
-            <a href="/whoweare">Who We Are</a>
-            <a href="/whatwedo">What We Do</a>
-            <a href="/contact">Contact</a>
-            <a href="/contact" className="wa-nav-cta">See it in Action</a>
-          </div>
-        </nav>
+      <main className="whoarewe-main">
+        <Navbar />
 
-        <section className="wa-hero">
-          <div className="wa-hero-logo">
+        <section className="whoarewe-hero">
+          <div className="whoarewe-hero-logo">
             <img src="/whoarewe/logo.svg" alt="" />
           </div>
-          <div className="wa-hero-inner">
-            <h1 className="wa-hero-title">
-              AI CHANGES THE <br className="wa-br-d" />
-              EQUATION <br className="wa-br-t" />
-              IN HOW <span className="wa-nowrap">VALUE IS CREATED</span>
+          <div className="whoarewe-hero-inner">
+            <h1 className="whoarewe-hero-title">
+              AI CHANGES THE <br className="whoarewe-hero-break-desktop" />
+              EQUATION <br className="whoarewe-hero-break-tablet" />
+              IN HOW <span style={{ whiteSpace: 'nowrap' }}>VALUE IS CREATED</span>
             </h1>
-            <p className="wa-hero-sub">
+            <p className="whoarewe-hero-subtitle">
               Chartered Vectorial is an AI-native, applied AI firm. We build AI products
               shaped by consulting insight, configured to your workflows and user experience,
               deployed in weeks.
             </p>
           </div>
-          <div className="wa-scroll-hint">Scroll to explore</div>
-        </section>
-
-        <section className="wa-content">
-          <div className="wa-paras">
-            <p>The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall.</p>
-            <p>We built Chartered Vectorial to fix that, by fusing consulting depth with AI powered product delivery.</p>
-            <p>Our AI agents validate transformation hypotheses, debate approaches, and write production grade code, all governed by humans. The result isn't a roadmap. It's a product. Configured to your workflows. Shipped in weeks.</p>
-            <p className="wa-acc">We're an AI-native product studio. We don't just advise on AI, we deliver it.</p>
+          <div className="scroll-to-explore">
+            <span>Scroll to explore</span>
           </div>
         </section>
 
-        <section className="wa-ellipse">
-          <div className="wa-ellipse-wrap">
-            <img src="/whoarewe/whoarewe-ellipse.png" alt="" loading="lazy" />
+        <section className="whoarewe-content">
+          <div className="whoarewe-content-text">
+            <p className="whoarewe-para">The traditional model separates thinking from doing. Consultants advise. Engineers build. Handoffs create gaps. Pilots stall.</p>
+            <p className="whoarewe-para">We built Chartered Vectorial to fix that, by fusing consulting depth with AI powered product delivery.</p>
+            <p className="whoarewe-para">Our AI agents validate transformation hypotheses, debate approaches, and write production grade code, all governed by humans. The result isn't a roadmap. It's a product. Configured to your workflows. Shipped in weeks.</p>
+            <p className="whoarewe-para whoarewe-highlight">We're an AI-native product studio. We don't just advise on AI, we deliver it.</p>
           </div>
         </section>
 
-        <div className="wa-radial"></div>
+        <section className="whoarewe-ellipse">
+          <div className="whoarewe-ellipse-container">
+            <img src="/whoarewe/whoarewe-ellipse.png" alt="" className="whoarewe-ellipse-image" loading="lazy" />
+          </div>
+        </section>
 
-        <section className="wa-cont">
-          <div className="wa-cont-row">
-            <div className="wa-cont-left">
-              <img src="/whoarewe/left.png" alt="" className="wa-left-img" loading="lazy" />
+        {/* Radial Blur Oval */}
+        <div className="whoarewe-radial-blur-oval"></div>
+
+        <section className="whoarewe-continuation">
+          <div className="whoarewe-continuation-top-row">
+            <div className="whoarewe-continuation-left">
+              <div className="whoarewe-left-image-glow"></div>
+              <img src="/whoarewe/left.png" alt="" className="whoarewe-left-image" loading="lazy" />
             </div>
-            <div className="wa-features">
-              <div className="wa-feat">
-                <h3>Leverage over <br />headcount</h3>
-                <p>A small team with the right products can out-deliver large teams. Our AI agents multiply what each person can ship.</p>
-              </div>
-              <div className="wa-feat">
-                <h3>Strategy that <br />ships</h3>
-                <p>Slide decks don't create value. AI products in production do. We stay until our products delivers.</p>
-              </div>
-              <div className="wa-feat">
-                <h3>Built by agents, <br />governed by humans</h3>
-                <p>AI agents do the heavy lifting validating, building, reviewing. You get customised products for your workflows, governed by humans at every gate.</p>
-              </div>
-              <div className="wa-feat">
-                <h3>Access, not <br />exclusivity</h3>
-                <p>World-class AI products shouldn't be reserved for giants. We build them for companies ready to move.</p>
+            <div className="whoarewe-continuation-right">
+              <div className="whoarewe-features-grid features-visible">
+                <div className="whoarewe-feature-item">
+                  <h3 className="whoarewe-feature-title">Leverage over <br />headcount</h3>
+                  <p className="whoarewe-feature-text">
+                    A small team with the right products can out-deliver large teams. Our AI agents multiply what each person can ship.
+                  </p>
+                </div>
+                <div className="whoarewe-feature-item">
+                  <h3 className="whoarewe-feature-title whoarewe-feature-title-strategy">Strategy that <br />ships</h3>
+                  <p className="whoarewe-feature-text">
+                    Slide decks don't create value. AI products in production do. We stay until our products delivers.
+                  </p>
+                </div>
+                <div className="whoarewe-feature-item">
+                  <h3 className="whoarewe-feature-title">
+                    Built by agents, <br className="whoarewe-feature-break" />governed by humans
+                  </h3>
+                  <p className="whoarewe-feature-text">
+                    AI agents do the heavy lifting validating, building, reviewing. You get customised products for your workflows, governed by humans at every gate.
+                  </p>
+                </div>
+                <div className="whoarewe-feature-item">
+                  <h3 className="whoarewe-feature-title">
+                    Access, not <br className="whoarewe-feature-break" />exclusivity
+                  </h3>
+                  <p className="whoarewe-feature-text">
+                    World-class AI products shouldn't be reserved for giants. We build them for companies ready to move.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="wa-cont-row wa-cont-row-bottom">
-            <div className="wa-cont-left">
-              <h1 className="wa-headline">
+          <div className="whoarewe-continuation-bottom-row">
+            <div className="whoarewe-continuation-left">
+              <h1 className="whoarewe-continuation-headline">
                 Small by design.<br />
                 Fast by conviction.<br />
-                Built for companies <span className="wa-acc">ready to move.</span>
+                Built for companies <span className="whoarewe-highlight">ready to move.</span>
               </h1>
             </div>
-            <div className="wa-cont-right">
-              <p className="wa-desc">
-                <span>We learn how you work. We shape what changes.</span>
-                <span>We build what fits. We stay until it runs.</span>
+            <div className="whoarewe-continuation-right">
+              <div className="whoarewe-continuation-description-wrapper">
+                <p className="whoarewe-continuation-bottom-text">
+                  <span style={{ display: 'block' }}>We learn how you work. We shape what changes.</span>
+                  <span style={{ display: 'block' }}>We build what fits. We stay until it runs.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="whoarewe-image-cards-grid cards-visible">
+            <div className="whoarewe-image-card">
+              <div className="whoarewe-image-card-front">
+                <img src="/whoarewe/we_think.jpeg" alt="We Think" className="whoarewe-image-card-img" loading="lazy" />
+                <p className="whoarewe-image-card-text">We Think</p>
+              </div>
+              <div className="whoarewe-image-card-back">
+                <div className="whoarewe-card-body">
+                  Validation, strategy, and business case development. Know where AI fits before you commit budget.
+                </div>
+              </div>
+            </div>
+            <div className="whoarewe-image-card">
+              <div className="whoarewe-image-card-front">
+                <img src="/whoarewe/we_build.jpeg" alt="We Build" className="whoarewe-image-card-img" loading="lazy" />
+                <p className="whoarewe-image-card-text">We Build</p>
+              </div>
+              <div className="whoarewe-image-card-back">
+                <div className="whoarewe-card-body">
+                  Production grade AI products configured to your workflows, governed, audit-ready. Delivered in weeks, not months.
+                </div>
+              </div>
+            </div>
+            <div className="whoarewe-image-card">
+              <div className="whoarewe-image-card-front">
+                <img src="/whoarewe/stay.jpeg" alt="We Stay" className="whoarewe-image-card-img" loading="lazy" />
+                <p className="whoarewe-image-card-text">We Stay</p>
+              </div>
+              <div className="whoarewe-image-card-back">
+                <div className="whoarewe-card-body">
+                  Real transformation requires adoption. We stay until your teams run with it, and identify what's next.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Radial Blur Oval Duplicate */}
+          <div className="whoarewe-radial-blur-oval" style={{ top: 'auto', bottom: '10%', zIndex: -3 }}></div>
+
+          <div className="whoarewe-founders">
+            <div className="whoarewe-founders-header">
+              <h2 className="whoarewe-founders-title">Meet <br className="founder-br" /><span className="whoarewe-highlight">the Founders</span></h2>
+              <p className="whoarewe-founders-description">
+                The Founders of Chartered Vectorial bring experience across engineering, operations, and large-scale system delivery.
               </p>
             </div>
-          </div>
-
-          <div className="wa-cards">
-            <div className="wa-card">
-              <div className="wa-card-front">
-                <img src="/whoarewe/we_think.jpeg" alt="We Think" loading="lazy" />
-                <p>We Think</p>
-              </div>
-              <div className="wa-card-back">
-                <p>Validation, strategy, and business case development. Know where AI fits before you commit budget.</p>
-              </div>
-            </div>
-            <div className="wa-card">
-              <div className="wa-card-front">
-                <img src="/whoarewe/we_build.jpeg" alt="We Build" loading="lazy" />
-                <p>We Build</p>
-              </div>
-              <div className="wa-card-back">
-                <p>Production grade AI products configured to your workflows, governed, audit-ready. Delivered in weeks, not months.</p>
-              </div>
-            </div>
-            <div className="wa-card">
-              <div className="wa-card-front">
-                <img src="/whoarewe/stay.jpeg" alt="We Stay" loading="lazy" />
-                <p>We Stay</p>
-              </div>
-              <div className="wa-card-back">
-                <p>Real transformation requires adoption. We stay until your teams run with it, and identify what's next.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="wa-radial wa-radial-bottom"></div>
-
-          <div className="wa-founders">
-            <div className="wa-founders-head">
-              <h2>Meet <br className="wa-founders-br" /><span className="wa-acc">the Founders</span></h2>
-              <p>The Founders of Chartered Vectorial bring experience across engineering, operations, and large-scale system delivery.</p>
-            </div>
-            <div className="wa-founders-grid">
-              <div className="wa-founder-card">
-                <div className="wa-founder-front">
-                  <img src="/whoarewe/founder_eyal.jpg" alt="Pradeep Menon" loading="lazy" />
-                  <h3>Pradeep Menon</h3>
+            <div className="whoarewe-founders-grid">
+              <div className="whoarewe-founder-card">
+                <div className="whoarewe-founder-front">
+                  <img src="/whoarewe/founder_eyal.jpg" alt="Pradeep Menon" className="whoarewe-founder-image" loading="lazy" />
+                  <div className="whoarewe-founder-gradient"></div>
+                  <h3 className="whoarewe-founder-name">Pradeep Menon</h3>
                 </div>
-                <div className="wa-founder-back">
-                  <h3>Pradeep Menon</h3>
-                  <p className="wa-founder-role">Founder & CEO, Chartered Vectorial</p>
-                  <p>Pradeep Menon is the founder and CEO of Chartered Vectorial. He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia. He's a published author and keynote speaker on AI transformation, strategy, and business case development.</p>
+                <div className="whoarewe-founder-back">
+                  <div className="whoarewe-founder-back-bg"></div>
+                  <div className="whoarewe-founder-back-content">
+                    <h3 className="whoarewe-founder-back-name">Pradeep Menon</h3>
+                    <p className="whoarewe-founder-back-designation">Founder & CEO, Chartered Vectorial</p>
+                    <div className="whoarewe-founder-back-bio-wrap">
+                      <p className="whoarewe-founder-back-bio">Pradeep Menon is the founder and CEO of Chartered Vectorial. He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia. He's a published author and keynote speaker on AI transformation, strategy, and business case development.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="wa-founder-card">
-                <div className="wa-founder-front">
-                  <img src="/whoarewe/founder_pradeep.jpg" alt="Eyal Agmoni" loading="lazy" />
-                  <h3>Eyal Agmoni</h3>
+              <div className="whoarewe-founder-card">
+                <div className="whoarewe-founder-front">
+                  <img src="/whoarewe/founder_pradeep.jpg" alt="Eyal Agmoni" className="whoarewe-founder-image whoarewe-founder-image-adjust" loading="lazy" />
+                  <div className="whoarewe-founder-gradient"></div>
+                  <h3 className="whoarewe-founder-name">Eyal Agmoni</h3>
                 </div>
-                <div className="wa-founder-back">
-                  <h3>Eyal Agmoni</h3>
-                  <p className="wa-founder-role">Co-Founder, Chartered Vectorial | Founder of Chartered Group and CEO of Chartered Investment Managers</p>
-                  <p>Eyal Agmoni has spent 35 years building and investing in businesses across Europe and Asia. As Founder of Chartered Group, he's seen how technology reshapes industries and how most enterprises struggle to capture that value. He co-founded Chartered Vectorial to bridge that gap: backing a team that gets AI from strategy to production, not just pilots.</p>
+                <div className="whoarewe-founder-back">
+                  <div className="whoarewe-founder-back-bg"></div>
+                  <div className="whoarewe-founder-back-content">
+                    <h3 className="whoarewe-founder-back-name">Eyal Agmoni</h3>
+                    <p className="whoarewe-founder-back-designation">Co-Founder, Chartered Vectorial | Founder of Chartered Group and CEO of Chartered Investment Managers</p>
+                    <div className="whoarewe-founder-back-bio-wrap">
+                      <p className="whoarewe-founder-back-bio">Eyal Agmoni has spent 35 years building and investing in businesses across Europe and Asia. As Founder of Chartered Group, he's seen how technology reshapes industries and how most enterprises struggle to capture that value. He co-founded Chartered Vectorial to bridge that gap: backing a team that gets AI from strategy to production, not just pilots.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -161,20 +197,16 @@ function Backup() {
         </section>
       </main>
 
-      <div className="wa-cont-bg">
-        <div className="wa-cont-bg-c1"></div>
-        <div className="wa-cont-bg-c2"></div>
+      <div className="whoarewe-continuation-bg">
+        <div className="whoarewe-continuation-bg-circle whoarewe-continuation-bg-circle-1"></div>
+        <div className="whoarewe-continuation-bg-circle whoarewe-continuation-bg-circle-2"></div>
       </div>
 
-      <section className="wa-cta">
-        <h2>What comes next is worth building together.</h2>
-        <a href="/contact"><button className="wa-cta-btn">SEE IT IN ACTION</button></a>
-      </section>
+      {/* CTA Section */}
+      <CTASection />
 
-      <footer className="wa-footer">
-        <p>© 2026 Chartered Vectorial. All rights reserved.</p>
-        <a href="/">Back to Home</a>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

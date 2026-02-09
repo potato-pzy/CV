@@ -49,7 +49,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      {/* <GlobalLoader /> */}
+      <GlobalLoader />
       <Suspense fallback={<RouteFallback />}>
       <Routes>
           <Route path="/" element={<NewPage />} />
