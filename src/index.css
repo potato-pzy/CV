@@ -216,6 +216,8 @@ body {
 }
 
 #root {
+  position: relative;
+  /* Framer Motion useScroll needs a non-static container for scroll offset */
   background-color: var(--bg-dark);
   min-height: 100vh;
   width: 100%;

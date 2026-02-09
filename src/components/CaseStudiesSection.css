@@ -427,10 +427,11 @@
     inset: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     z-index: 10000;
     pointer-events: none;
     padding: 1.25rem;
+    overflow-y: auto;
 }
 
 .case-expanded-card {
@@ -450,9 +451,11 @@
 }
 
 .case-expanded-image-container {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 25rem;
     flex-shrink: 0;
+    z-index: 5;
 }
 
 .case-expanded-image {
@@ -483,7 +486,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
     transition: all 0.2s;
 }
 

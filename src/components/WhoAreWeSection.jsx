@@ -17,11 +17,12 @@ import leftImage from '../assets/left 1.png';
 
 import CTASection from './CTASection';
 import Footer from './Footer';
+import { useWhoAreWeFallbacks, isSafari } from '../lib/utils';
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
 
-// 定义遮罩样式
-const maskStyle = {
+// Safari/mobile: skip base64 mask to avoid crashes and reduce load; apply mask only on desktop non-Safari.
+const fullMaskStyle = {
     WebkitMaskImage: `url('${LOGO_BASE64}')`,
     WebkitMaskSize: '60vw',
     WebkitMaskPosition: 'center',
@@ -31,6 +32,7 @@ const maskStyle = {
     maskPosition: 'center',
     maskRepeat: 'no-repeat',
 };
+const maskStyle = useWhoAreWeFallbacks() ? {} : fullMaskStyle;
 
 // 定义网格动画颜色和配置
 const GRID_CONFIG = {
@@ -73,10 +75,10 @@ function WhoAreWeSection() {
             { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
         );
 
+        // requestAnimationFrame instead of setTimeout for reliable firing on iOS Safari
         const checkAndObserve = (element, setVisible) => {
             if (!element) return;
-
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 const rect = element.getBoundingClientRect();
                 const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
                 if (isVisible) {
@@ -84,7 +86,7 @@ function WhoAreWeSection() {
                 } else {
                     observer.observe(element);
                 }
-            }, 100);
+            });
         };
 
         checkAndObserve(cardsGridRef.current, setCardsVisible);
@@ -117,7 +119,8 @@ function WhoAreWeSection() {
                             className="absolute top-0 bottom-0 right-0 z-0 translate-y-[2vh] motion-safe:animate-fade-in"
                             style={{
                                 ...maskStyle,
-                                animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                                // Safari/mobile: no animation on this div
+                                ...(useWhoAreWeFallbacks() ? {} : { animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }),
                                 left: '-5%',
                             }}
                         >
@@ -152,26 +155,35 @@ function WhoAreWeSection() {
                             "We built Chartered Vectorial to fix that, by fusing consulting depth with AI powered product delivery.",
                             "Our AI agents validate transformation hypotheses, debate approaches, and write production grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
                             "We're an AI-native product studio. We don't just advise on AI, we deliver it."
-                        ].map((text, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{
-                                    duration: 0.8,
-                                    delay: index * 0.1,
-                                    ease: [0.21, 0.47, 0.32, 0.98]
-                                }}
-                            >
-                                <TextGradientScroll
-                                    text={text}
-                                    type="letter"
-                                    textOpacity="soft"
-                                    className={`whoarewe-para ${index === 3 ? 'whoarewe-highlight' : ''}`}
-                                />
-                            </motion.div>
-                        ))}
+                        ].map((text, index) => {
+                            const MotionWrapper = useWhoAreWeFallbacks() ? 'div' : motion.div;
+                            const motionProps = useWhoAreWeFallbacks()
+                                ? {}
+                                : {
+                                    initial: { opacity: 0, y: 30 },
+                                    whileInView: { opacity: 1, y: 0 },
+                                    viewport: { once: true, margin: '-100px' },
+                                    transition: {
+                                        duration: 0.8,
+                                        delay: index * 0.1,
+                                        ease: [0.21, 0.47, 0.32, 0.98]
+                                    }
+                                };
+                            return (
+                                <MotionWrapper key={index} {...motionProps}>
+                                    {useWhoAreWeFallbacks() ? (
+                                        <p className={`whoarewe-para ${index === 3 ? 'whoarewe-highlight' : ''}`}>{text}</p>
+                                    ) : (
+                                        <TextGradientScroll
+                                            text={text}
+                                            type="letter"
+                                            textOpacity="soft"
+                                            className={`whoarewe-para ${index === 3 ? 'whoarewe-highlight' : ''}`}
+                                        />
+                                    )}
+                                </MotionWrapper>
+                            );
+                        })}
                     </div>
                 </section>
 

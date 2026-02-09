@@ -401,11 +401,11 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
 
       <AnimatePresence>
         {active && (
-          <div className="fixed inset-0 grid place-items-center z-[10000]" style={{}}>
+          <div className="fixed inset-0 flex justify-center pt-6 pb-6 z-[10000] overflow-y-auto">
             <motion.div
               layoutId={`card-${title}-${id}`}
               ref={cardRef}
-              className="w-full max-w-[900px] max-h-[90vw] flex flex-col overflow-hidden rounded-2xl bg-[#020F14] relative border border-white/10 shadow-2xl m-4"
+              className="w-full max-w-[900px] max-h-[90vh] flex flex-col overflow-hidden rounded-2xl bg-[#020F14] relative border border-white/10 shadow-2xl m-4 shrink-0"
             >
               <motion.div layoutId={`image-${title}-${id}`} className="relative h-[400px] shrink-0 overflow-hidden">
                 <img

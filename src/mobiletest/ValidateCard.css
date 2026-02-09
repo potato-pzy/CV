@@ -1,9 +1,9 @@
 /* Validate Card Component */
 .validate-card {
   position: relative;
-  width: 272px;
-  height: 342px;
-  border-radius: 7px;
+  width: 100%;
+  height: 30%;
+  border-radius: 9px;
   border: 0.7px solid rgba(166, 246, 59, 0.2);
   background-color: #01141b;
   overflow: hidden;
@@ -31,14 +31,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    360deg,
-    rgba(0, 19, 26, 1) 0%,
-    rgba(0, 28, 30, 0.97) 9.52%,
-    rgba(0, 72, 49, 0.65) 71%,
-    rgba(0, 147, 82, 0.18) 96%,
-    rgba(0, 177, 95, 0) 105%
-  );
+  background: linear-gradient(360deg,
+      rgba(0, 19, 26, 1) 0%,
+      rgba(0, 28, 30, 0.97) 9.52%,
+      rgba(0, 72, 49, 0.65) 71%,
+      rgba(0, 147, 82, 0.18) 96%,
+      rgba(0, 177, 95, 0) 105%);
   z-index: 1;
 }
 

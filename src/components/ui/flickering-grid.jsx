@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useCallback, memo } from "react";
+import { useWhoAreWeFallbacks } from "@/lib/utils";
 
 export const FlickeringGrid = memo(({
   color = "#10b981",
@@ -13,11 +14,14 @@ export const FlickeringGrid = memo(({
   ...rest
 }) => {
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const visibleRef = useRef(true);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
+    // Safari/WebKit: guard against null context
     if (!ctx) return;
 
     const { width, height } = canvas;
@@ -46,6 +50,9 @@ export const FlickeringGrid = memo(({
   }, [color, maxOpacity, flickerChance, squareSize, gridGap]);
 
   useEffect(() => {
+    // Safari/mobile: canvas animation disabled; no RAF loop
+    if (useWhoAreWeFallbacks()) return;
+
     const handleResize = () => {
       const canvas = canvasRef.current;
       if (canvas) {
@@ -66,8 +73,9 @@ export const FlickeringGrid = memo(({
 
     const render = (currentTime) => {
       animationFrameId = window.requestAnimationFrame(render);
+      // Pause redraw when off-screen to avoid continuous redraws
+      if (!visibleRef.current) return;
       const deltaTime = currentTime - lastTime;
-
       if (deltaTime >= interval) {
         lastTime = currentTime - (deltaTime % interval);
         draw();
@@ -75,21 +83,47 @@ export const FlickeringGrid = memo(({
     };
     render(0);
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibleRef.current = entry.isIntersecting;
+        });
+      },
+      { threshold: 0, rootMargin: "0px" }
+    );
+    const el = containerRef.current;
+    if (el) observer.observe(el);
+
     return () => {
       window.removeEventListener("resize", handleResize);
       if (animationFrameId) {
         window.cancelAnimationFrame(animationFrameId);
       }
+      if (el) observer.unobserve(el);
     };
   }, [draw]);
 
+  // Safari/mobile: no canvas; transparent fallback
+  if (useWhoAreWeFallbacks()) {
+    return (
+      <div
+        className={`block w-full h-full ${className}`}
+        style={style}
+        aria-hidden="true"
+        {...rest}
+      />
+    );
+  }
+
   return (
-    <canvas
-      ref={canvasRef}
-      className={`block w-full h-full ${className}`}
-      style={style}
-      {...rest}
-    />
+    <div ref={containerRef} className="block w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className={`block w-full h-full ${className}`}
+        style={style}
+        {...rest}
+      />
+    </div>
   );
 });
 

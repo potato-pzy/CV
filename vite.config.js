@@ -16,6 +16,8 @@ export default defineConfig({
     allowedHosts:
     
       [
+        'asia-which-thehun-exposed.trycloudflare.com',          
+        'midlands-skilled-macintosh-interest.trycloudflare.com',
         'intellectual-forget-bought-shade.trycloudflare.com',
         'ranging-ultimately-stripes-recordings.trycloudflare.com',
         'finder-namespace-wish-moms.trycloudflare.com',
