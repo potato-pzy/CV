@@ -5,6 +5,7 @@ import image from '../assets/blog/blog_rise_agentic.png';
 const BlogRiseOfAgenticAI = () => {
     const content = (
         <>
+            <h3>Why Agentic AI Is Reshaping Enterprise Systems</h3>
             <p className="lead">
                 Artificial intelligence has reached an inflection point.
             </p>
@@ -83,10 +84,13 @@ const BlogRiseOfAgenticAI = () => {
             </p>
 
             <p>An LLM-centric system is linear:</p>
-            <p><strong>Input → inference → output</strong></p>
-
+            <ul>
+                <li>Input → inference → output</li>
+            </ul>
             <p>An agentic system is cyclical:</p>
-            <p><strong>Observe → decide → act → observe again</strong></p>
+            <ul>
+                <li>Observe → decide → act → observe again</li>
+            </ul>
 
             <p>In practical terms, agentic systems:</p>
             <ul>
