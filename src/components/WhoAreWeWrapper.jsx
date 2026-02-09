@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { isMobile } from '../lib/utils';
 import WhoAreWeSection from './WhoAreWeSection';
-import WhoAreWeStatic from './WhoAreWeStatic';
+import Backup from './backup';
 
 function WhoAreWeWrapper() {
   const [isMobileDevice, setIsMobileDevice] = useState(false);
@@ -18,9 +18,9 @@ function WhoAreWeWrapper() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // On mobile, show static React version with shared layout
+  // On mobile, show backup version
   if (isMobileDevice) {
-    return <WhoAreWeStatic />;
+    return <Backup />;
   }
 
   // On desktop, show React component
