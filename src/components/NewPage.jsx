@@ -39,7 +39,7 @@ function NewPage() {
                 Production-ready AI products, configured to how you work. From our library or built for you, deployed in weeks.<br /><br />
                 No adaptation. No compromise. Just results.
               </p>
-              <Link to="/whatwedo" className="btn-see-how">See it in Action</Link>
+              <Link to="/whatwedo" className="btn-see-how">See how it works</Link>
             </div>
             <div className="about-image-abstract">
               <img src={aboutLogo} alt="" className="abstract-image" />

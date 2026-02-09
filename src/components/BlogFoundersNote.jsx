@@ -133,7 +133,7 @@ const BlogFoundersNote = () => {
             </div>
 
             <p>
-                We are an AI-native Product Studio, with consulting DNA. Not AI-assisted. Not AIenabled. AI-native means that intelligence is woven into how we think, how we
+                We are an AI-native Product Studio, with consulting DNA. Not AI-assisted. Not AI-enabled. AI-native means that intelligence is woven into how we think, how we
                 build, how we operate. Our own agents work alongside our engineers, not as tools
                 to be prompted, but as participants in the work itself.
 

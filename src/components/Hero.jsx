@@ -27,9 +27,9 @@ function Hero() {
                     <p className="hero-subtitle blauer-neue">
                         AI-native. AI products that fit your business. Configured to your workflows.
                     </p>
-                    <Link to="/contact">
+                    <Link to="/whatwedo">
                         <button className="btn-primary">
-                            <div className="btn-primary-text">SEE IT IN ACTION</div>
+                            <div className="btn-primary-text">EXPLORE MORE →</div>
                         </button>
                     </Link>
                 </div>
