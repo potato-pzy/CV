@@ -8,14 +8,19 @@ export function cn(...inputs) {
 /** Safari/WebKit detection for iOS compatibility fallbacks. */
 export function isSafari() {
   if (typeof navigator === "undefined") return false;
-  return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  const ua = navigator.userAgent || "";
+  // Debug log to verify detection on real devices (safe no-op in production)
+  console.debug?.("[WhoWeAre] isSafari UA:", ua);
+  return /^((?!chrome|android).)*safari/i.test(ua);
 }
 
 export function isMobile() {
   if (typeof navigator === "undefined") return false;
   
   // Check for touch capability first (catches most modern mobile devices including iPhone 16)
-  const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const hasTouchScreen =
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
   
   // iPadOS 13+ reports desktop UA; detect via platform + touch
   const isIPad = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
@@ -31,7 +36,17 @@ export function isMobile() {
   // Standard mobile detection
   const isStandardMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent);
   
-  return isIOS || isIPad || isSafariTouch || isStandardMobile;
+  const result = isIOS || isIPad || isSafariTouch || isStandardMobile;
+  console.debug?.("[WhoWeAre] isMobile result:", {
+    ua: navigator.userAgent,
+    hasTouchScreen,
+    isIPad,
+    isIOS,
+    isSafariTouch,
+    isStandardMobile,
+    result,
+  });
+  return result;
 }
 
 /** True when we should use Who Are We fallbacks (Safari, mobile, or narrow viewport). */

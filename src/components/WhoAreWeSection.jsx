@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import { TextGradientScroll } from './ui/text-gradient-scroll';
 import { FlickeringGrid } from './ui/flickering-grid';
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import logoSvg from '../assets/Asset 1.svg';
 import layer1Image from '../assets/Layer 1.png';
 import weBuildImage from '../assets/we_build.jpeg';
@@ -158,27 +157,29 @@ function WhoAreWeSection() {
             }}
           />
 
-          {/* Flickering Grid Effects */}
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <FlickeringGrid
-              className="absolute inset-0 w-full h-full [mask-image:radial-gradient(circle_at_center,white_60%,transparent_85%)]"
-              squareSize={GRID_CONFIG.background.squareSize}
-              gridGap={GRID_CONFIG.background.gridGap}
-              color={GRID_CONFIG.background.color}
-              maxOpacity={GRID_CONFIG.background.maxOpacity}
-              flickerChance={GRID_CONFIG.background.flickerChance}
-            />
-            <div style={maskStyle} className="absolute inset-0 w-full h-full">
+          {/* Flickering Grid Effects - disabled on mobile to avoid canvas GPU issues */}
+          {!isMobile && (
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
               <FlickeringGrid
-                className="w-full h-full"
-                squareSize={GRID_CONFIG.logo.squareSize}
-                gridGap={GRID_CONFIG.logo.gridGap}
-                color={GRID_CONFIG.logo.color}
-                maxOpacity={GRID_CONFIG.logo.maxOpacity}
-                flickerChance={GRID_CONFIG.logo.flickerChance}
+                className="absolute inset-0 w-full h-full [mask-image:radial-gradient(circle_at_center,white_60%,transparent_85%)]"
+                squareSize={GRID_CONFIG.background.squareSize}
+                gridGap={GRID_CONFIG.background.gridGap}
+                color={GRID_CONFIG.background.color}
+                maxOpacity={GRID_CONFIG.background.maxOpacity}
+                flickerChance={GRID_CONFIG.background.flickerChance}
               />
+              <div style={maskStyle} className="absolute inset-0 w-full h-full">
+                <FlickeringGrid
+                  className="w-full h-full"
+                  squareSize={GRID_CONFIG.logo.squareSize}
+                  gridGap={GRID_CONFIG.logo.gridGap}
+                  color={GRID_CONFIG.logo.color}
+                  maxOpacity={GRID_CONFIG.logo.maxOpacity}
+                  flickerChance={GRID_CONFIG.logo.flickerChance}
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="w-full max-w-[1280px] mx-auto flex flex-col items-center text-center relative z-10 px-8 py-[120px]">
             <h1 className="font-['Stage_Grotesk'] text-4xl md:text-[55px] font-medium leading-normal tracking-[-0.02em] text-white max-w-[1200px] mb-8 text-center capitalize"
@@ -241,7 +242,7 @@ function WhoAreWeSection() {
 
         {/* Radial Blur Oval */}
         <div 
-          className="absolute w-[1658px] h-[777px] rounded-[1658px] bg-[#001D26] blur-[200px] left-1/2 -translate-x-1/2 -z-[3] pointer-events-none"
+          className="hidden md:block absolute w-[1658px] h-[777px] rounded-[1658px] bg-[#001D26] blur-[200px] left-1/2 -translate-x-1/2 -z-[3] pointer-events-none"
           style={{ top: 'calc(100vh + 600px)' }}
         />
 
@@ -337,7 +338,7 @@ function WhoAreWeSection() {
 
         {/* Radial Blur Oval Duplicate */}
         <div 
-          className="absolute w-[1658px] h-[777px] rounded-[1658px] bg-[#001D26] blur-[200px] left-1/2 -translate-x-1/2 -z-[3] pointer-events-none"
+          className="hidden md:block absolute w-[1658px] h-[777px] rounded-[1658px] bg-[#001D26] blur-[200px] left-1/2 -translate-x-1/2 -z-[3] pointer-events-none"
           style={{ top: 'calc(100vh + 1400px)' }}
         />
 
@@ -345,7 +346,7 @@ function WhoAreWeSection() {
         <FoundersSection />
 
         {/* Background circles */}
-        <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="hidden md:block fixed inset-0 pointer-events-none z-0">
           <div 
             className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full blur-[150px]"
             style={{ background: 'rgba(255, 255, 255, 0.02)' }}

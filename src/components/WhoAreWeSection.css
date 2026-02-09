@@ -1492,9 +1492,10 @@
 .whoarewe-card-overlay {
     position: absolute;
     inset: 0;
-    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.2;
-    mix-blend-mode: overlay;
+    /* Decorative noise overlay removed for Safari privacy compatibility */
+    background-image: none;
+    opacity: 0;
+    mix-blend-mode: normal;
 }
 
 .whoarewe-card-gradient {
@@ -1544,9 +1545,10 @@
 .whoarewe-card-stay-overlay {
     position: absolute;
     inset: 0;
-    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.1;
-    mix-blend-mode: overlay;
+    /* Decorative noise overlay removed for Safari privacy compatibility */
+    background-image: none;
+    opacity: 0;
+    mix-blend-mode: normal;
 }
 
 .whoarewe-card-stay-gradient {
