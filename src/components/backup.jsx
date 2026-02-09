@@ -1,4 +1,7 @@
 import './backup.css';
+import Navbar from './Navbar';
+import CTASection from './CTASection';
+import Footer from './Footer';
 
 function Backup() {
   return (
@@ -8,16 +11,7 @@ function Backup() {
       </div>
 
       <main className="wa-main">
-        <nav className="wa-nav">
-          <a href="/" className="wa-nav-logo">Chartered Vectorial</a>
-          <div className="wa-nav-links">
-            <a href="/">Home</a>
-            <a href="/whoweare">Who We Are</a>
-            <a href="/whatwedo">What We Do</a>
-            <a href="/contact">Contact</a>
-            <a href="/contact" className="wa-nav-cta">See it in Action</a>
-          </div>
-        </nav>
+        <Navbar />
 
         <section className="wa-hero">
           <div className="wa-hero-logo">
@@ -49,7 +43,7 @@ function Backup() {
 
         <section className="wa-ellipse">
           <div className="wa-ellipse-wrap">
-            <img src="/whoarewe/whoarewe-ellipse.png" alt="" loading="lazy" />
+            <img src="/whoarewe/whoarewe-ellipse.png" alt="" />
           </div>
         </section>
 
@@ -58,7 +52,7 @@ function Backup() {
         <section className="wa-cont">
           <div className="wa-cont-row">
             <div className="wa-cont-left">
-              <img src="/whoarewe/left.png" alt="" className="wa-left-img" loading="lazy" />
+              <img src="/whoarewe/left.png" alt="" className="wa-left-img" />
             </div>
             <div className="wa-features">
               <div className="wa-feat">
@@ -99,7 +93,7 @@ function Backup() {
           <div className="wa-cards">
             <div className="wa-card">
               <div className="wa-card-front">
-                <img src="/whoarewe/we_think.jpeg" alt="We Think" loading="lazy" />
+                <img src="/whoarewe/we_think.jpeg" alt="We Think" />
                 <p>We Think</p>
               </div>
               <div className="wa-card-back">
@@ -108,7 +102,7 @@ function Backup() {
             </div>
             <div className="wa-card">
               <div className="wa-card-front">
-                <img src="/whoarewe/we_build.jpeg" alt="We Build" loading="lazy" />
+                <img src="/whoarewe/we_build.jpeg" alt="We Build" />
                 <p>We Build</p>
               </div>
               <div className="wa-card-back">
@@ -117,7 +111,7 @@ function Backup() {
             </div>
             <div className="wa-card">
               <div className="wa-card-front">
-                <img src="/whoarewe/stay.jpeg" alt="We Stay" loading="lazy" />
+                <img src="/whoarewe/stay.jpeg" alt="We Stay" />
                 <p>We Stay</p>
               </div>
               <div className="wa-card-back">
@@ -136,7 +130,7 @@ function Backup() {
             <div className="wa-founders-grid">
               <div className="wa-founder-card">
                 <div className="wa-founder-front">
-                  <img src="/whoarewe/founder_eyal.jpg" alt="Pradeep Menon" loading="lazy" />
+                  <img src="/whoarewe/founder_eyal.jpg" alt="Pradeep Menon" />
                   <h3>Pradeep Menon</h3>
                 </div>
                 <div className="wa-founder-back">
@@ -147,7 +141,7 @@ function Backup() {
               </div>
               <div className="wa-founder-card">
                 <div className="wa-founder-front">
-                  <img src="/whoarewe/founder_pradeep.jpg" alt="Eyal Agmoni" loading="lazy" />
+                  <img src="/whoarewe/founder_pradeep.jpg" alt="Eyal Agmoni" />
                   <h3>Eyal Agmoni</h3>
                 </div>
                 <div className="wa-founder-back">
@@ -166,15 +160,8 @@ function Backup() {
         <div className="wa-cont-bg-c2"></div>
       </div>
 
-      <section className="wa-cta">
-        <h2>What comes next is worth building together.</h2>
-        <a href="/contact"><button className="wa-cta-btn">SEE IT IN ACTION</button></a>
-      </section>
-
-      <footer className="wa-footer">
-        <p>© 2026 Chartered Vectorial. All rights reserved.</p>
-        <a href="/">Back to Home</a>
-      </footer>
+      <CTASection />
+      <Footer />
     </div>
   );
 }
