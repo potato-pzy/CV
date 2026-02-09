@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 import './index.css'
 import GlobalLoader from './components/GlobalLoader'
 import HighVelocityLoader from './components/HighVelocityLoader'
+import RouteWithReady from './components/RouteWithReady'
+import { RouteReadyProvider } from './context/RouteReadyContext'
 
 const Home = lazy(() => import('./components/Home'))
 const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
@@ -56,40 +58,50 @@ const RouteFallback = () => (
   </div>
 )
 
+function wrapWithReady(Component) {
+  return (
+    <RouteWithReady>
+      <Component />
+    </RouteWithReady>
+  )
+}
+
 function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <GlobalLoader />
-      <Suspense fallback={<RouteFallback />}>
-      <Routes>
-          <Route path="/" element={<NewPage />} />
-          <Route path="/whoweare.html" element={<Navigate to="/whoweare" replace />} />
-          <Route path="/whoweare" element={<WhoAreWeWrapper />} />
-          <Route path="/whoweare-section" element={<WhoAreWeSection />} />
-          <Route path="/static" element={<WhoAreWeStatic />} />
-          <Route path="/backup" element={<Backup />} />
-          <Route path="/whatwedo" element={<WhatWeDo />} />
-          <Route path="/careers" element={<CareersSection />} />
-          <Route path="/insights" element={<Insights />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/terms" element={<TermsOfUsePage />} />
-          <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/new" element={<Home />} />
-          <Route path="/business-image" element={<BusinessImageDemo />} />
-          <Route path="/testimonials" element={<TestimonialsDemo />} />
-          <Route path="/article-cards" element={<ArticleCardsDemo />} />
-          <Route path="/insights-section" element={<InsightsSectionDemo />} />
-          <Route path="/roles-section" element={<RolesSectionDemo />} />
-          <Route path="/blog-template" element={<BlogPost />} />
-          <Route path="/blog/rise-of-agentic-ai" element={<BlogRiseOfAgenticAI />} />
-          <Route path="/blog/agentic-ai-blueprint" element={<BlogAgenticBlueprint />} />
-          <Route path="/blog/founders-note" element={<BlogFoundersNote />} />
-          <Route path="/mobiletest" element={<MobileTestPage />} />
-          <Route path="/loader" element={<LoaderDemo />} />
-          <Route path="/validate" element={<ValidatePage />} />
-        </Routes>
-      </Suspense>
+      <RouteReadyProvider>
+        <ScrollToTop />
+        <GlobalLoader />
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={wrapWithReady(NewPage)} />
+            <Route path="/whoweare.html" element={<Navigate to="/whoweare" replace />} />
+            <Route path="/whoweare" element={wrapWithReady(WhoAreWeWrapper)} />
+            <Route path="/whoweare-section" element={wrapWithReady(WhoAreWeSection)} />
+            <Route path="/static" element={wrapWithReady(WhoAreWeStatic)} />
+            <Route path="/backup" element={wrapWithReady(Backup)} />
+            <Route path="/whatwedo" element={wrapWithReady(WhatWeDo)} />
+            <Route path="/careers" element={wrapWithReady(CareersSection)} />
+            <Route path="/insights" element={wrapWithReady(Insights)} />
+            <Route path="/contact" element={wrapWithReady(Contact)} />
+            <Route path="/terms" element={wrapWithReady(TermsOfUsePage)} />
+            <Route path="/privacy" element={wrapWithReady(PrivacyPolicyPage)} />
+            <Route path="/new" element={wrapWithReady(Home)} />
+            <Route path="/business-image" element={wrapWithReady(BusinessImageDemo)} />
+            <Route path="/testimonials" element={wrapWithReady(TestimonialsDemo)} />
+            <Route path="/article-cards" element={wrapWithReady(ArticleCardsDemo)} />
+            <Route path="/insights-section" element={wrapWithReady(InsightsSectionDemo)} />
+            <Route path="/roles-section" element={wrapWithReady(RolesSectionDemo)} />
+            <Route path="/blog-template" element={wrapWithReady(BlogPost)} />
+            <Route path="/blog/rise-of-agentic-ai" element={wrapWithReady(BlogRiseOfAgenticAI)} />
+            <Route path="/blog/agentic-ai-blueprint" element={wrapWithReady(BlogAgenticBlueprint)} />
+            <Route path="/blog/founders-note" element={wrapWithReady(BlogFoundersNote)} />
+            <Route path="/mobiletest" element={wrapWithReady(MobileTestPage)} />
+            <Route path="/loader" element={wrapWithReady(LoaderDemo)} />
+            <Route path="/validate" element={wrapWithReady(ValidatePage)} />
+          </Routes>
+        </Suspense>
+      </RouteReadyProvider>
     </Router>
   )
 }
