@@ -201,6 +201,11 @@
     overflow: hidden;
     padding: 0;
     z-index: 20;
+    pointer-events: none;
+}
+
+.whoarewe-hero > * {
+    pointer-events: auto;
 }
 
 /* Top black gradient - pro UI enhancement */
@@ -351,6 +356,7 @@
     line-height: 1.6;
     color: #C7C7C7;
     box-sizing: border-box;
+    z-index: 25;
 }
 
 @media (min-width: 48rem) {
@@ -506,7 +512,7 @@
     /* Standardized gap (Mobile: 120px) */
     padding: 0 1.25rem;
     position: relative;
-    z-index: 10;
+    z-index: 25;
 }
 
 @media (min-width: 48rem) {
@@ -1072,7 +1078,7 @@
     margin: 0 auto;
     padding: 12.5rem var(--spacing-lg) 0;
     position: relative;
-    z-index: 10;
+    z-index: 25;
     box-sizing: border-box;
 }
 

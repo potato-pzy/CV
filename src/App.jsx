@@ -1,11 +1,12 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import './index.css'
 import GlobalLoader from './components/GlobalLoader'
 
 const Home = lazy(() => import('./components/Home'))
 const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
+const WhoAreWeWrapper = lazy(() => import('./components/WhoAreWeWrapper'))
 const WhoAreWeStatic = lazy(() => import('./components/WhoAreWeStatic'))
 const CareersSection = lazy(() => import('./components/CareersSection'))
 const Insights = lazy(() => import('./components/Insights'))
@@ -26,6 +27,7 @@ const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'))
 const MobileTestPage = lazy(() => import('./mobiletest/MobileTestPage'))
 const LoaderDemo = lazy(() => import('./components/LoaderDemo'))
 const ValidatePage = lazy(() => import('../validate/ValidatePage'))
+const Backup = lazy(() => import('./components/backup'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -51,7 +53,8 @@ function App() {
       <Suspense fallback={<RouteFallback />}>
       <Routes>
           <Route path="/" element={<NewPage />} />
-          <Route path="/whoweare" element={<WhoAreWeSection />} />
+          <Route path="/whoweare.html" element={<Navigate to="/whoweare" replace />} />
+          <Route path="/whoweare" element={<WhoAreWeWrapper />} />
           <Route path="/static" element={<WhoAreWeStatic />} />
           <Route path="/whatwedo" element={<WhatWeDo />} />
           <Route path="/careers" element={<CareersSection />} />
@@ -72,6 +75,7 @@ function App() {
           <Route path="/mobiletest" element={<MobileTestPage />} />
           <Route path="/loader" element={<LoaderDemo />} />
           <Route path="/validate" element={<ValidatePage />} />
+          <Route path="/backup" element={<Backup />} />
         </Routes>
       </Suspense>
     </Router>
