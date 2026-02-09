@@ -181,8 +181,8 @@ function WhoAreWeSection() {
                     </div>
 
                     {/* Scroll to explore */}
-                    <div className="absolute bottom-10 sm:bottom-[15vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-['Stage_Grotesk'] text-sm sm:text-base font-normal leading-normal text-[#A6F63B] text-center z-30 animate-bounce [text-shadow:0_0_4px_#FFF] w-max">
-                        <span>Scroll to explore</span>
+                    <div className="absolute bottom-10 sm:bottom-[15vh] inset-x-0 mx-auto flex flex-col items-center gap-2 font-['Stage_Grotesk'] text-sm sm:text-base font-normal leading-normal text-[#A6F63B] text-center z-30 animate-bounce [text-shadow:0_0_4px_#FFF] w-max">
+                        <span style={{ left: '3rem', position: 'relative' }}>Scroll to explore</span>
                     </div>
                 </section>
 
@@ -461,7 +461,7 @@ function FoundersSection() {
                                 He started CV to build the AI firm he wished existed, one that ships production grade AI, fast, for enterprises tired of pilots that go nowhere. Over 20 years, Pradeep held senior roles at Microsoft (Field CTO, Digital Natives, Asia), Alibaba Cloud (Director, Big Data & AI Solutions), and IBM (Sr. Architect), delivering Data and AI solutions across Europe and Asia.
                             </p>
                             <p>
-                                He's a published author and keynote speaker on AI transformation, strategy, and business case development. Know where AI fits before you commit budget.
+                                He's a published author and keynote speaker on AI transformation, strategy, and business case development.
                             </p>
                         </>
                     }
