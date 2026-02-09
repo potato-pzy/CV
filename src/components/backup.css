@@ -9,6 +9,7 @@ html {
   -webkit-text-size-adjust: 100%; 
   scroll-behavior: smooth;
   height: -webkit-fill-available;
+  background: #020f14;
 }
 body { 
   margin: 0; 
@@ -16,12 +17,12 @@ body {
   -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #020f14;
 }
 
 .wa-page {
   position: relative;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
   background: #020f14;
   color: #fff;
   overflow-x: clip;
@@ -89,7 +90,6 @@ body {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
   background: #000 !important;
   will-change: transform;
   -webkit-transform: translate3d(0,0,0);
