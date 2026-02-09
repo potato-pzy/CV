@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogPost from './BlogPost';
-import image from '../assets/blog_rise_agentic.png';
+import image from '../assets/blog/blog_rise_agentic.png';
 
 const BlogRiseOfAgenticAI = () => {
     const content = (

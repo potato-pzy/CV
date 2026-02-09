@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { GlowingEffect } from './GlowingEffect';
 import GlassBorder from './GlassBorder';
-import contactHero from '../assets/contact-hero.png';
+import contactHero from '../assets/contact/contact-hero.png';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -61,7 +61,7 @@ function Contact() {
     setSubmitStatus('sending');
 
     const formPayload = new FormData(e.target);
-    formPayload.append("access_key", "3062a272-a6d3-4041-8521-7cd48342648f");
+    formPayload.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

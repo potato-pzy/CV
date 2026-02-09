@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ArticleCard from './ArticleCard';
 import './InsightsSection.css';
-import featuredImage from '../assets/featured.png';
-import article1Image from '../assets/article_1.jpg';
-import article2Image from '../assets/article_2.png';
-import article3Image from '../assets/article_3.jpg';
+import featuredImage from '../assets/insights/featured.png';
+import article1Image from '../assets/insights/article_1.jpg';
+import article2Image from '../assets/insights/article_2.png';
+import article3Image from '../assets/insights/article_3.jpg';
 
 // CMS-ready data structure – Founder's Note first in filter
 const defaultCategories = ['ALL', "FOUNDER'S NOTE", 'AI ENGINEERING', 'AI STRATEGY'];

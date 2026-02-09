@@ -3,13 +3,13 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import { TextGradientScroll } from './ui/text-gradient-scroll';
 import { useEffect, useRef, useState } from 'react';
-import weBuildImage from '../assets/we_build.jpeg';
-import weThinkImage from '../assets/we_think.jpeg';
-import weStayImage from '../assets/stay.jpeg';
-import ellipseImg from '../assets/whoarewe-ellipse.png';
-import founderPradeepImage from '../assets/founder_pradeep.jpg';
-import founderEyalImage from '../assets/founder_eyal.jpg';
-import leftImage from '../assets/left 1.png';
+import weBuildImage from '../assets/who-we-are/we_build.jpeg';
+import weThinkImage from '../assets/who-we-are/we_think.jpeg';
+import weStayImage from '../assets/who-we-are/stay.jpeg';
+import ellipseImg from '../assets/who-we-are/whoarewe-ellipse.png';
+import founderPradeepImage from '../assets/who-we-are/founder_pradeep.jpg';
+import founderEyalImage from '../assets/who-we-are/founder_eyal.jpg';
+import leftImage from '../assets/who-we-are/left 1.png';
 
 function WhoAreWeSection() {
   const cardsGridRef = useRef(null);

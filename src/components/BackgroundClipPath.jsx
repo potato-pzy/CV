@@ -1,7 +1,7 @@
 import './BackgroundClipPath.css';
-import clipRect1 from '../assets/clippath-rect-1.png';
-import clipRect2 from '../assets/clippath-rect-2.png';
-import clipRect3 from '../assets/clippath-rect-3.png';
+import clipRect1 from '../assets/home/clippath-rect-1.png';
+import clipRect2 from '../assets/home/clippath-rect-2.png';
+import clipRect3 from '../assets/home/clippath-rect-3.png';
 
 function BackgroundClipPath() {
 

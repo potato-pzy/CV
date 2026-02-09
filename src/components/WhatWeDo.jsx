@@ -10,15 +10,15 @@ import { hyperspeedPresets } from './HyperSpeedPresets';
 import { GlowingEffect } from './GlowingEffect';
 import GlassBorder from './GlassBorder';
 import { AnimatePresence, motion } from 'framer-motion';
-import envisionLogo from '../assets/envision 1.png';
-import proveLogo from '../assets/prove 1.png';
-import buildLogo from '../assets/build 1.png';
-import adaptLogo from '../assets/Adopt 1.png';
-import strategicIntelligence from '../assets/carousal/strategicintelligence.jpg.jpeg';
-import documentIntelligence from '../assets/carousal/documentintelligence.jpg.jpeg';
-import researchIntelligence from '../assets/carousal/research_intelligence.jpg.jpeg';
-import processIntelligence from '../assets/carousal/Processintelligence.jpg.jpeg';
-import functionalIntelligence from '../assets/carousal/functionalintelligence.jpg.jpeg';
+import envisionLogo from '../assets/what-we-do/envision 1.png';
+import proveLogo from '../assets/what-we-do/prove 1.png';
+import buildLogo from '../assets/what-we-do/build 1.png';
+import adaptLogo from '../assets/what-we-do/Adopt 1.png';
+import strategicIntelligence from '../assets/what-we-do/strategicintelligence.jpg.jpeg';
+import documentIntelligence from '../assets/what-we-do/documentintelligence.jpg.jpeg';
+import researchIntelligence from '../assets/what-we-do/research_intelligence.jpg.jpeg';
+import processIntelligence from '../assets/what-we-do/Processintelligence.jpg.jpeg';
+import functionalIntelligence from '../assets/what-we-do/functionalintelligence.jpg.jpeg';
 
 function WhatWeDo() {
   const [currentSlide, setCurrentSlide] = useState(0);

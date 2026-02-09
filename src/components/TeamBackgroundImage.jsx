@@ -1,6 +1,6 @@
 import './TeamBackgroundImage.css';
-import teamBg1 from '../assets/team-bg-1.png';
-import teamBg2 from '../assets/team-bg-2.png';
+import teamBg1 from '../assets/blog/team-bg-1.png';
+import teamBg2 from '../assets/blog/team-bg-2.png';
 
 function TeamBackgroundImage() {
   return (

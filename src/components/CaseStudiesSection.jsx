@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './CaseStudiesSection.css';
-import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg';
-import caseStudyLeftBottom from '../assets/homepage-case-study/case-study-left-bottom.jpg';
-import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpeg';
+import caseStudyLeftTop from '../assets/home/case-study-left-top.jpg';
+import caseStudyLeftBottom from '../assets/home/case-study-left-bottom.jpg';
+import caseStudyRight from '../assets/home/case-study-right.jpeg';
 
 const leftColumnStudies = [
     {
@@ -255,7 +255,7 @@ const rightColumnStudies = [
             {
                 type: 'outcomes',
                 title: 'Projected Outcomes and Platform Capabilities',
-                content: 'The IFA Sales Co-Pilot is designed to transform how sales teams respond to advisor queries. Where responses previously required hours of manual research across fragmented PDF documentation, the platform enables instant, citation-backed answers in seconds, representing a potential 95%+ reduction in query response time.\n\nBy eliminating manual document lookup, the solution is expected to significantly improve sales productivity, allowing representatives to redirect time from research toward strategic IFA engagement and relationship building. The AI-powered retrieval system consolidates 12+ Japanese PDF manuals into a unified conversational interface, creating a single source of truth for operational and compliance knowledge.\n\nEarly testing demonstrates the platform\'s ability to deliver consistent, document-grounded responses with source citations, reducing the risk of inconsistent or inaccurate guidance that can arise from manual interpretation. These capabilities position the sales team to support IFAs with greater speed, accuracy, and confidence as advisory complexity continues to grow.'
+                content: 'The compliance platform transforms how regulatory documents are reviewed. Where each document previously required 10–15 minutes of manual review across 600+ monthly documents, the AI-powered system processes documents in ≤30 seconds, representing a potential 95%+ reduction in review time and eliminating 100–150 person-hours of compliance officer effort.\n\nBy achieving 90% accuracy without fine-tuning, the Zero-Shot Compliance Engine delivers production-grade reliability while maintaining full audit trails and FSA alignment. The solution addresses scalability concerns as document volumes project toward 1,000+, with consistent, rule-based verification replacing variable human interpretation.\n\nImmutable retention, digital signatures, and regulator-ready trails position PWM Japan Securities to meet ISO 27001 and Japanese FSA requirements with greater speed, consistency, and confidence as regulatory complexity continues to grow.'
             },
             {
                 type: 'stack',

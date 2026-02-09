@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './ProductsSection.css';
 
-import imgValidate4Weeks from '../assets/validate_4weeks.png';
-import imgValidateDNA from '../assets/validate_dna.png';
-import imgValidateFive from '../assets/validate_Five.png';
+import imgValidate4Weeks from '../assets/what-we-do/validate_4weeks.png';
+import imgValidateDNA from '../assets/what-we-do/validate_dna.png';
+import imgValidateFive from '../assets/what-we-do/validate_Five.png';
 
 function ProductsSection() {
     // 1. Define the Data (Slides)

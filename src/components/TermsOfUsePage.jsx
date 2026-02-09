@@ -1,7 +1,7 @@
 import './TermsOfUsePage.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import termsBg from '../assets/terms_background.svg';
+import termsBg from '../assets/shared/terms_background.svg';
 
 function TermsOfUsePage() {
   return (

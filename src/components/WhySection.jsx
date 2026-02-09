@@ -1,6 +1,6 @@
 import './WhySection.css';
-import whyBg from '../assets/why-cv-bg.svg';
-import whySectionBg from '../assets/why-section-background.svg';
+import whyBg from '../assets/shared/why-cv-bg.svg';
+import whySectionBg from '../assets/shared/why-section-background.svg';
 
 const leftColumnCards = [
   {

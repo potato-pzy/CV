@@ -9,8 +9,8 @@ import CaseStudiesSection from './CaseStudiesSection'
 import TestimonialsCarousel from './TestimonialsCarousel'
 import CTASection from './CTASection'
 import Footer from './Footer'
-import aboutLogo from '../assets/about logo .png'
-import aboutLeft from '../assets/ Images/Web Images/HOMEPAGE/Top Right.jpg'
+import aboutLogo from '../assets/home/about logo .png'
+import aboutLeft from '../assets/home/top-right.jpg'
 
 function AboutGlow() {
   return (

@@ -3,12 +3,12 @@ import { useState, useEffect, useRef, useId } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import salesIcon from '../assets/sales-what.png'
-import docIcon from '../assets/doc-what.png'
-import complianceIcon from '../assets/compliance-what.png'
-import salesLine from '../assets/accelerator-sales-line.svg'
-import docLine from '../assets/accelerator-doc-line.svg'
-import complianceLine from '../assets/accelerator-compliance-line.svg'
+import salesIcon from '../assets/accelerators/sales-what.png'
+import docIcon from '../assets/accelerators/doc-what.png'
+import complianceIcon from '../assets/accelerators/compliance-what.png'
+import salesLine from '../assets/accelerators/accelerator-sales-line.svg'
+import docLine from '../assets/accelerators/accelerator-doc-line.svg'
+import complianceLine from '../assets/accelerators/accelerator-compliance-line.svg'
 
 import { TextGradientScroll } from './ui/text-gradient-scroll';
 import { GlowingEffect } from './GlowingEffect';
@@ -34,9 +34,9 @@ const darkCards = [
   },
 ]
 
-import caseStudyLeftTop from '../assets/homepage-case-study/case-study-left-top.jpg'
-import caseStudyLeftBottom from '../assets/homepage-case-study/case-study-left-bottom.jpg'
-import caseStudyRight from '../assets/homepage-case-study/case-study-right.jpeg'
+import caseStudyLeftTop from '../assets/home/case-study-left-top.jpg'
+import caseStudyLeftBottom from '../assets/home/case-study-left-bottom.jpg'
+import caseStudyRight from '../assets/home/case-study-right.jpeg'
 
 const lightCards = [
   {
@@ -218,7 +218,7 @@ const lightCards = [
       {
         type: 'outcomes',
         title: 'Projected Outcomes and Platform Capabilities',
-        content: 'The IFA Sales Co-Pilot is designed to transform how sales teams respond to advisor queries. Where responses previously required hours of manual research across fragmented PDF documentation, the platform enables instant, citation-backed answers in seconds, representing a potential 95%+ reduction in query response time.\n\nBy eliminating manual document lookup, the solution is expected to significantly improve sales productivity, allowing representatives to redirect time from research toward strategic IFA engagement and relationship building. The AI-powered retrieval system consolidates 12+ Japanese PDF manuals into a unified conversational interface, creating a single source of truth for operational and compliance knowledge.\n\nEarly testing demonstrates the platform\'s ability to deliver consistent, document-grounded responses with source citations, reducing the risk of inconsistent or inaccurate guidance that can arise from manual interpretation. These capabilities position the sales team to support IFAs with greater speed, accuracy, and confidence as advisory complexity continues to grow.'
+        content: 'The compliance platform transforms how regulatory documents are reviewed. Where each document previously required 10–15 minutes of manual review across 600+ monthly documents, the AI-powered system processes documents in ≤30 seconds, representing a potential 95%+ reduction in review time and eliminating 100–150 person-hours of compliance officer effort.\n\nBy achieving 90% accuracy without fine-tuning, the Zero-Shot Compliance Engine delivers production-grade reliability while maintaining full audit trails and FSA alignment. The solution addresses scalability concerns as document volumes project toward 1,000+, with consistent, rule-based verification replacing variable human interpretation.\n\nImmutable retention, digital signatures, and regulator-ready trails position PWM Japan Securities to meet ISO 27001 and Japanese FSA requirements with greater speed, consistency, and confidence as regulatory complexity continues to grow.'
       },
       {
         type: 'stack',
@@ -376,13 +376,26 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
 
   useEffect(() => {
     if (active) {
+      const scrollY = window.scrollY;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
 
-    return () => {
-      document.body.style.overflow = '';
+      return () => {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.paddingRight = '';
+        window.scrollTo(0, scrollY);
+      };
     }
   }, [active])
 
@@ -401,7 +414,7 @@ function CaseCard({ image, label, title, content, sections, cardId, shouldAutoOp
 
       <AnimatePresence>
         {active && (
-          <div className="fixed inset-0 flex justify-center pt-6 pb-6 z-[10000] overflow-y-auto">
+          <div className="fixed inset-0 flex justify-center pt-6 pb-6 z-[10000] overflow-y-auto" style={{ overscrollBehavior: 'contain' }}>
             <motion.div
               layoutId={`card-${title}-${id}`}
               ref={cardRef}

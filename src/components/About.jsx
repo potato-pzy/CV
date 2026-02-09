@@ -1,6 +1,6 @@
 import './About.css';
-import officeWindow from '../assets/office-window.png';
-import greenAbstract from '../assets/green-abstract.png';
+import officeWindow from '../assets/about/office-window.png';
+import greenAbstract from '../assets/about/green-abstract.png';
 
 function About() {
     return (

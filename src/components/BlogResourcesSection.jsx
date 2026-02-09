@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './BlogResourcesSection.css';
-import teamBg1 from '../assets/team-bg-1.png';
-import teamBg2 from '../assets/team-bg-2.png';
-import blogRect1 from '../assets/blog-rectangle-1.png';
-import blogScreenshot from '../assets/blog-screenshot.png';
-import blogRect2 from '../assets/blog-rectangle-2.png';
-import blogRect3 from '../assets/blog-rectangle-3.png';
+import teamBg1 from '../assets/blog/team-bg-1.png';
+import teamBg2 from '../assets/blog/team-bg-2.png';
+import blogRect1 from '../assets/blog/blog-rectangle-1.png';
+import blogScreenshot from '../assets/blog/blog-screenshot.png';
+import blogRect2 from '../assets/blog/blog-rectangle-2.png';
+import blogRect3 from '../assets/blog/blog-rectangle-3.png';
 
 // CMS-ready data structure - can be replaced with CMS data
 const defaultCategories = ['ALL', 'AI ENGINEERING', 'USECASES', 'FOUNDER\'S NOTES'];

@@ -1,6 +1,6 @@
 import './CTASection.css';
 import { Link } from 'react-router-dom';
-import ctaBg from '../assets/cta-background.png';
+import ctaBg from '../assets/shared/cta-background.png';
 
 function CTASection({ title, subtitle, buttonText }) {
   return (

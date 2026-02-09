@@ -47,7 +47,7 @@
     min-height: 100vh;
     position: relative;
     padding-top: 0;
-    background-image: url('/src/assets/careers-hero.jpg');
+    background-image: url('../assets/careers/careers-hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -7,10 +7,10 @@ import { GlowingEffect } from './GlowingEffect';
 import GlassBorder from './GlassBorder';
 import RolesSection from './RolesSection';
 
-import visionariesIcon from '../assets/Visionaries.svg';
-import orchestratorIcon from '../assets/Orchestrator.svg';
-import buildersIcon from '../assets/Builders.svg';
-import learnerIcon from '../assets/Learner.svg';
+import visionariesIcon from '../assets/careers/Visionaries.svg';
+import orchestratorIcon from '../assets/careers/Orchestrator.svg';
+import buildersIcon from '../assets/careers/Builders.svg';
+import learnerIcon from '../assets/careers/Learner.svg';
 
 function CareersSection() {
     return (

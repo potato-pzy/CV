@@ -1,5 +1,5 @@
 import './CareersCTASection.css';
-import ctaBg from '../assets/cta-background.png';
+import ctaBg from '../assets/shared/cta-background.png';
 
 function CareersCTASection() {
   return (

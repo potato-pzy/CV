@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './AboutSection.css';
-import imgWomanWindow from '../assets/ Images/Web Images/HOMEPAGE/Top Right.jpg';
-import imgAbstract from '../assets/Asset 1.svg';
+import imgWomanWindow from '../assets/home/top-right.jpg';
+import imgAbstract from '../assets/shared/Asset 1.svg';
 
 function AboutSection() {
 

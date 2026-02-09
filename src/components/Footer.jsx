@@ -1,11 +1,11 @@
 import './Footer.css';
 import { Link } from 'react-router-dom';
-import footerLogo from '../assets/footer_logo.png';
-import footerBg from '../assets/footer-bg.svg';
-import footerSubLogo from '../assets/footer sub.svg';
-import instagramIcon from '../assets/social_instagram.svg';
-import twitterIcon from '../assets/social_twitter.svg';
-import linkedinIcon from '../assets/social_linkedin.svg';
+import footerLogo from '../assets/shared/footer_logo.png';
+import footerBg from '../assets/shared/footer-bg.svg';
+import footerSubLogo from '../assets/shared/footer sub.svg';
+import instagramIcon from '../assets/shared/social_instagram.svg';
+import twitterIcon from '../assets/shared/social_twitter.svg';
+import linkedinIcon from '../assets/shared/social_linkedin.svg';
 
 function Footer() {
   return (
