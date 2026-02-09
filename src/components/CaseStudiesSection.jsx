@@ -133,8 +133,7 @@ const leftColumnStudies = [
             },
             {
                 type: 'solution',
-                title: 'The Solution',
-                subtitle: 'AI-based Document Generation for Chartered Investment, Germany\n\nHow PatchBot reduces document update cycles from manual comparison to AI-assisted patch generation with >90% accuracy, while maintaining compliance and version integrity across financial instruments?',
+                title: 'Our Solution',
                 subsections: [
                     {
                         heading: 'AI-Driven Document Patching',
@@ -146,7 +145,18 @@ const leftColumnStudies = [
                     },
                     {
                         heading: 'End-to-End Workflow',
-                        content: 'PatchBot manages the full lifecycle:<br />• Document ingestion and parsing<br />• Clause chunking and semantic mapping<br />• Patch generation and review<br />• Editable output with formatting preserved<br /><br />Users review and apply changes through a web-based interface, enabling faster updates without disrupting existing workflows.'
+                        content: (
+                            <>
+                                <p className="mb-2">PatchBot manages the full lifecycle:</p>
+                                <ul className="list-disc pl-6 space-y-1 mb-4">
+                                    <li>Document ingestion and parsing</li>
+                                    <li>Clause chunking and semantic mapping</li>
+                                    <li>Patch generation and review</li>
+                                    <li>Editable output with formatting preserved</li>
+                                </ul>
+                                <p>Users review and apply changes through a web-based interface, enabling faster updates without disrupting existing workflows.</p>
+                            </>
+                        )
                     }
                 ]
             },
@@ -168,15 +178,14 @@ const leftColumnStudies = [
                 type: 'stack',
                 title: 'Technology Stack',
                 table: {
-                    headers: ['Layer', 'Image 1 Technology', 'Image 2 Technology'],
+                    headers: ['Layer', 'Technology'],
                     rows: [
-                        { layer: 'Frontend', tech1: 'React 18 + TypeScript, Tailwind CSS, Shadcn/UI', tech2: 'React (Web-based review & editing)' },
-                        { layer: 'Backend', tech1: 'Python FastAPI, Azure App Service', tech2: 'Python FastAPI' },
-                        { layer: 'AI Layer', tech1: 'Azure OpenAI (GPT-4o), GPT-4o Vision for document extraction', tech2: 'Azure OpenAI (GPT-4o)' },
-                        { layer: 'Data/Search', tech1: 'Azure Cosmos DB, Azure SQL Database', tech2: 'Neo4j (Knowledge Graph), Semantic search + graph traversal' },
-                        { layer: 'Storage', tech1: 'Azure Blob Storage', tech2: 'Not Specified' },
-                        { layer: 'Identity', tech1: 'Azure AD B2C, OAuth 2.0, RBAC', tech2: 'Not Specified' },
-                        { layer: 'Doc Handling', tech1: 'Not Specified', tech2: 'python-docx, OnlyOffice' }
+                        { layer: 'Frontend', technology: 'React (Web-based review & editing)' },
+                        { layer: 'Backend', technology: 'Python FastAPI' },
+                        { layer: 'AI Layer', technology: 'Azure OpenAI (GPT-4o)' },
+                        { layer: 'Knowledge Graph', technology: 'Neo4j' },
+                        { layer: 'Search & Retrieval', technology: 'Semantic search + graph traversal' },
+                        { layer: 'Document Handling', technology: 'python-docx, OnlyOffice' }
                     ]
                 }
             },
@@ -227,8 +236,7 @@ const rightColumnStudies = [
             },
             {
                 type: 'solution',
-                title: 'The Solution',
-                subtitle: 'From 600+ Monthly Documents to Real-Time Compliance Decisions\n\nHow did the Chartered Vectorial team shift compliance review from multi-hour assessment to ≤30-second processing?',
+                title: 'Our Solution',
                 subsections: [
                     {
                         heading: 'AI-First Architecture',
@@ -254,8 +262,8 @@ const rightColumnStudies = [
             },
             {
                 type: 'outcomes',
-                title: 'Projected Outcomes and Platform Capabilities',
-                content: 'The compliance platform transforms how regulatory documents are reviewed. Where each document previously required 10–15 minutes of manual review across 600+ monthly documents, the AI-powered system processes documents in ≤30 seconds, representing a potential 95%+ reduction in review time and eliminating 100–150 person-hours of compliance officer effort.\n\nBy achieving 90% accuracy without fine-tuning, the Zero-Shot Compliance Engine delivers production-grade reliability while maintaining full audit trails and FSA alignment. The solution addresses scalability concerns as document volumes project toward 1,000+, with consistent, rule-based verification replacing variable human interpretation.\n\nImmutable retention, digital signatures, and regulator-ready trails position PWM Japan Securities to meet ISO 27001 and Japanese FSA requirements with greater speed, consistency, and confidence as regulatory complexity continues to grow.'
+                title: 'Projected Outcome and Platform Capabilities',
+                content: 'The PWM Compliance Agent is engineered to dramatically accelerate compliance workflows. Document processing time is designed to reduce from the current 10–15 minutes per document to under 30 seconds, a potential 97% improvement in review speed. With this efficiency, the platform is built to handle 1,000+ documents monthly, more than doubling current throughput capacity of approximately 450 documents.\n\nEarly validation indicates the zero-shot AI engine achieves approximately 90% accuracy on compliance determinations, delivering consistent results compared to the variable outcomes of manual review. By automating routine validation, the solution is expected to reduce manual compliance workload by up to 70%, freeing approximately 70+ person-hours monthly for higher-value oversight activities.\n\nThe platform provides complete audit trail coverage from day one, replacing previously fragmented records with immutable, regulator-ready documentation that meets FSA and ISO 27001 requirements. These capabilities position PWM\'s compliance team to scale operations confidently as document volumes grow toward projected targets.'
             },
             {
                 type: 'stack',
@@ -436,7 +444,11 @@ function ExpandableCaseStudyCard({ id, image, description, company, aspectRatio,
                                                 {section.subsections && section.subsections.map((subsection, subIndex) => (
                                                     <div key={subIndex} className="case-subsection">
                                                         <h5>{subsection.heading}</h5>
-                                                        <p>{subsection.content}</p>
+                                                        {typeof subsection.content === 'string' ? (
+                                                            <p>{subsection.content}</p>
+                                                        ) : (
+                                                            <div className="case-subsection-content">{subsection.content}</div>
+                                                        )}
                                                     </div>
                                                 ))}
 

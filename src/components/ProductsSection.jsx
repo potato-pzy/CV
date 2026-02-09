@@ -147,7 +147,7 @@ function ProductsSection() {
                         Consulting insight. <br className="title-break" />Product speed.
                     </h2>
                     <Link to="/whatwedo" className="btn-explore hide-mobile">
-                        See it in Action
+                        EXPLORE MORE →
                         <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -253,7 +253,7 @@ function ProductsSection() {
 
                         {/* Mobile Explore Button */}
                         <Link to="/whatwedo" className="btn-explore show-mobile-inline">
-                            See it in Action
+                            EXPLORE MORE →
                             <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 5H12M12 5L8 1M12 5L8 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
