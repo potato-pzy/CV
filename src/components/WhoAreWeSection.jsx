@@ -51,6 +51,15 @@ const GRID_CONFIG = {
 };
 
 function WhoAreWeSection() {
+    const [isMobile, setIsMobile] = useState(false);
+    
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+    
     const useFallbacks = useWhoAreWeFallbacks();
     const maskStyle = useFallbacks ? {} : fullMaskStyle;
     const cardsGridRef = useRef(null);
@@ -109,24 +118,25 @@ function WhoAreWeSection() {
                 <Navbar />
                 {/* Hero Section */}
                 <section className="whoarewe-hero">
-                    {/* Flickering Grid Effects */}
-                    <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none hero-canvas-container">
-                        <FlickeringGrid
-                            className="absolute inset-0 z-0 motion-safe:animate-pulse"
-                            {...GRID_CONFIG.background}
-                        />
-                        <div
-                            className="absolute top-0 bottom-0 right-0 z-0 translate-y-[2vh] motion-safe:animate-fade-in"
-                            style={{
-                                ...maskStyle,
-                                // Safari/mobile: no animation on this div
-                                ...(useFallbacks ? {} : { animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }),
-                                left: '-5%',
-                            }}
-                        >
-                            <FlickeringGrid {...GRID_CONFIG.logo} />
+                    {/* Flickering Grid Effects - Desktop Only */}
+                    {!isMobile && (
+                        <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none hero-canvas-container">
+                            <FlickeringGrid
+                                className="absolute inset-0 z-0 motion-safe:animate-pulse"
+                                {...GRID_CONFIG.background}
+                            />
+                            <div
+                                className="absolute top-0 bottom-0 right-0 z-0 translate-y-[2vh] motion-safe:animate-fade-in"
+                                style={{
+                                    ...maskStyle,
+                                    ...(useFallbacks ? {} : { animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }),
+                                    left: '-5%',
+                                }}
+                            >
+                                <FlickeringGrid {...GRID_CONFIG.logo} />
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     <div className="whoarewe-hero-inner">
                         <h1 className="whoarewe-hero-title">
@@ -156,8 +166,8 @@ function WhoAreWeSection() {
                             "Our AI agents validate transformation hypotheses, debate approaches, and write production grade code, all governed by humans. The result isn't a roadmap. It's aproduct. Configured to your workflows. Shipped in weeks.",
                             "We're an AI-native product studio. We don't just advise on AI, we deliver it."
                         ].map((text, index) => {
-                            const MotionWrapper = useFallbacks ? 'div' : motion.div;
-                            const motionProps = useFallbacks
+                            const MotionWrapper = (useFallbacks || isMobile) ? 'div' : motion.div;
+                            const motionProps = (useFallbacks || isMobile)
                                 ? {}
                                 : {
                                     initial: { opacity: 0, y: 30 },
@@ -171,7 +181,7 @@ function WhoAreWeSection() {
                                 };
                             return (
                                 <MotionWrapper key={index} {...motionProps}>
-                                    {useFallbacks ? (
+                                    {(useFallbacks || isMobile) ? (
                                         <p className={`whoarewe-para ${index === 3 ? 'whoarewe-highlight' : ''}`}>{text}</p>
                                     ) : (
                                         <TextGradientScroll
