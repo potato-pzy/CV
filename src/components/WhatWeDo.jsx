@@ -96,6 +96,25 @@ function WhatWeDo() {
       return () => clearTimeout(timer);
     }
 
+    if (location.hash === '#ai-discovery-section') {
+      const scrollToAIDiscovery = () => {
+        const element = document.getElementById('ai-discovery-section');
+        if (element) {
+          const headerOffset = 80; // Adjust for sticky navbar
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      };
+
+      const timer = setTimeout(scrollToAIDiscovery, 100);
+      return () => clearTimeout(timer);
+    }
+
     if (location.hash === '#what-we-do-section') {
       const scrollToSection = () => {
         const element = document.getElementById('what-we-do-section');
@@ -254,6 +273,7 @@ function WhatWeDo() {
 
           {/* AI Discovery card */}
           <div id="blog" className="ai-discovery-section">
+            <div id="ai-discovery-section" />
             <div className="ai-discovery-bg-green-glow" />
             {/* Header - Restored to top for baseline alignment */}
             <div className="ai-discovery-header">
