@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Component, useRef } from 'react';
 import Navbar from './Navbar';
 import CareersCTASection from './CareersCTASection';
 import Footer from './Footer';
@@ -13,8 +13,106 @@ import buildersIcon from '../assets/careers/Builders.svg';
 import learnerIcon from '../assets/careers/Learner.svg';
 import careersHero from '../assets/careers/careers-hero.jpg';
 
+// Error Boundary to prevent component failures from breaking the page
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('Component error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || null;
+    }
+    return this.props.children;
+  }
+}
+
 function CareersMobile() {
-  // isMobile state removed - this component only renders on mobile via CareersWrapper
+  // Mobile detection with SSR safety (matching WhoAreWeSection pattern)
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
+  );
+
+  // Refs and visibility state for intersection observer
+  const cardsGridRef = useRef(null);
+  const [cardsVisible, setCardsVisible] = useState(false);
+
+  // Mobile detection effect
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mq = window.matchMedia('(max-width: 768px)');
+    const updateIsMobile = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    setIsMobile(mq.matches);
+
+    if (mq.addEventListener) {
+      mq.addEventListener('change', updateIsMobile);
+    } else if (mq.addListener) {
+      mq.addListener(updateIsMobile);
+    }
+
+    return () => {
+      if (mq.removeEventListener) {
+        mq.removeEventListener('change', updateIsMobile);
+      } else if (mq.removeListener) {
+        mq.removeListener(updateIsMobile);
+      }
+    };
+  }, []);
+
+  // Intersection observer for card animations with mobile bypass
+  useEffect(() => {
+    if (isMobile) {
+      // On mobile, show everything immediately to avoid Safari privacy warnings
+      setCardsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === cardsGridRef.current) {
+              setCardsVisible(true);
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const checkAndObserve = (element, setVisible) => {
+      if (!element) return;
+      setTimeout(() => {
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+        if (isVisible) {
+          setVisible(true);
+        } else {
+          observer.observe(element);
+        }
+      }, 100);
+    };
+
+    checkAndObserve(cardsGridRef.current, setCardsVisible);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isMobile]);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden antialiased">
@@ -141,7 +239,7 @@ function CareersMobile() {
             Who thrives here
           </h2>
 
-          <div className="grid w-full min-w-0 grid-cols-1 gap-[4.125rem] md:grid-cols-2 md:gap-[4.125rem]">
+          <div ref={cardsGridRef} className={`grid w-full min-w-0 grid-cols-1 gap-[4.125rem] md:grid-cols-2 md:gap-[4.125rem] ${cardsVisible ? 'cards-visible' : ''}`}>
             {/* Visionaries */}
             <div className="relative flex min-h-[18.75rem] min-w-0 flex-col justify-start rounded-[0.75rem] border border-[rgba(255,255,255,0.1)] bg-[rgba(2,15,20,0)] p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(2,15,20,0.15)]">
               <GlowingEffect
@@ -261,7 +359,9 @@ function CareersMobile() {
         </section>
 
         {/* Roles section (existing component + CSS) */}
-        <RolesSection />
+        <ErrorBoundary fallback={<div className="py-16" />}>
+          <RolesSection />
+        </ErrorBoundary>
       </main>
 
       <><CareersCTASection /><Footer /></>
