@@ -48,7 +48,7 @@ const leftColumnStudies = [
             },
             {
                 type: 'solution',
-                title: 'The Solution',
+                title: 'Our Solution',
                 subsections: [
                     {
                         heading: 'AI Powered Sales Copilot',
