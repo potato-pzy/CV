@@ -101,7 +101,7 @@ function CareersMobile() {
 
               <TextGradientScroll
                 text="Most companies talk about AI. We run on it. Our agents validate hypotheses, debate architecture, review code, and flag risks before humans make the call. Fewer meetings. More shipping. Real accountability."
-                type="word"
+                type="letter"
                 textOpacity="soft"
                 className="font-['Stage_Grotesk',sans-serif] !text-sm font-normal !leading-relaxed text-white m-0 !text-center !mx-auto !w-full"
               />
