@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 
 const CareersCTASection = lazy(() => import('./CareersCTASection'));
 const Footer = lazy(() => import('./Footer'));
+const RolesSection = lazy(() => import('./RolesSection'));
 
 import visionariesIcon from '../assets/careers/Visionaries.svg';
 import orchestratorIcon from '../assets/careers/Orchestrator.svg';
@@ -86,16 +87,16 @@ function CareersMobile() {
         </section>
 
         {/* Statement */}
-        <section className="relative flex min-h-[60vh] w-full items-center border-t border-[rgba(255,255,255,0.05)] bg-transparent px-0 py-16 overflow-hidden z-20">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(0,0,0,0.4)] to-transparent" />
-
+        <section
+          className="relative isolate flex min-h-[60vh] w-full items-center border-t border-[rgba(255,255,255,0.05)] bg-transparent px-0 py-16 overflow-hidden z-30"
+        >
           <div className="relative z-10 box-border mx-auto w-full max-w-[82.5rem] px-6">
-            <div className="mx-auto max-w-[56rem] !text-center !flex !flex-col !items-center">
-              <h2 className="w-full !text-center font-['Stage_Grotesk',sans-serif] !text-[1.25rem] font-medium tracking-tight text-white mb-6">
+            <div className="mx-auto max-w-[56rem] !flex !flex-col !items-start">
+              <h2 className="relative z-30 w-full !text-left font-['Stage_Grotesk',sans-serif] !text-[3.125rem] font-medium tracking-tight !text-white mb-6 leading-[1.05] animate-none transition-none mix-blend-normal">
                 How we work
               </h2>
 
-              <p className="font-['Stage_Grotesk',sans-serif] text-sm font-normal leading-relaxed text-white/70 m-0 text-center mx-auto w-full max-w-full">
+              <p className="relative z-30 font-['Stage_Grotesk',sans-serif] text-sm font-normal leading-relaxed !text-white m-0 !text-left mx-auto w-full max-w-full animate-none transition-none mix-blend-normal">
                 Most companies talk about AI. We run on it. Our agents validate hypotheses, debate architecture, review code, and flag risks before humans make the call. Fewer meetings. More shipping. Real accountability.
               </p>
             </div>
@@ -213,6 +214,9 @@ function CareersMobile() {
           </div>
         </section>
 
+        <Suspense fallback={null}>
+          <RolesSection />
+        </Suspense>
 
       </main>
 

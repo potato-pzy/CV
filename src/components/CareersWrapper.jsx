@@ -13,8 +13,20 @@ function CareersWrapper() {
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
     const handler = (e) => setIsMobile(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
+    // Support both modern and legacy iOS Safari
+    if (mq.addEventListener) {
+      mq.addEventListener('change', handler);
+    } else if (mq.addListener) {
+      mq.addListener(handler);
+    }
+
+    return () => {
+      if (mq.removeEventListener) {
+        mq.removeEventListener('change', handler);
+      } else if (mq.removeListener) {
+        mq.removeListener(handler);
+      }
+    };
   }, []);
 
   return (
