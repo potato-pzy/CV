@@ -146,6 +146,7 @@
 @media (min-width: 40.0625rem) and (max-width: 64rem) {
   .cta-section {
     padding: var(--spacing-3xl) 0;
+    min-height: 50vh;
   }
 }
 
@@ -153,6 +154,7 @@
 @media (min-width: 48rem) and (max-width: 63.9375rem) {
   .cta-section {
     padding: var(--spacing-4xl) var(--spacing-2xl);
+    min-height: 50vh;
   }
 
   .cta-content {
