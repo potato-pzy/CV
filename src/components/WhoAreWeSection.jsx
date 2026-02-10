@@ -241,7 +241,7 @@ function WhoAreWeSection() {
                             <img
                                 src={leftImage}
                                 alt=""
-                                className="w-full h-auto block mb-8 lg:mb-6 rounded-lg relative top-0 lg:-top-[60px] md:[filter:drop-shadow(0_0_50px_rgba(166,246,59,0.3))]"
+                                className="w-full h-auto block mb-8 lg:mb-6 rounded-lg relative top-0 lg:-top-[60px] [filter:drop-shadow(0_0_50px_rgba(166,246,59,0.3))]"
                             />
                         </div>
 
@@ -346,15 +346,16 @@ function WhoAreWeSection() {
 
 // Card Components
 function ThinkCard({ cardsVisible }) {
+    const [flipped, setFlipped] = useState(false);
     return (
         <div
             className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px] sm:translate-y-[30px]'
                 }`}
             style={{ animationDelay: '100ms' }}
         >
-            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5">
+            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => setFlipped(f => !f)}>
                 {/* Front */}
-                <div className="absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] opacity-100 group-hover:opacity-0 group-hover:pointer-events-none bg-black">
+                <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weThinkImage} alt="We Think" className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                         <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[36px] font-medium leading-tight tracking-[-0.01em] text-[#A6F63B] m-0">
@@ -364,7 +365,7 @@ function ThinkCard({ cardsVisible }) {
                 </div>
 
                 {/* Back */}
-                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
+                <div className={`absolute inset-0 w-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Validation, strategy, and business case development.
                     </p>
@@ -375,15 +376,16 @@ function ThinkCard({ cardsVisible }) {
 }
 
 function BuildCard({ cardsVisible }) {
+    const [flipped, setFlipped] = useState(false);
     return (
         <div
             className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
                 }`}
             style={{ animationDelay: '300ms' }}
         >
-            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5">
+            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => setFlipped(f => !f)}>
                 {/* Front */}
-                <div className="absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] opacity-100 group-hover:opacity-0 group-hover:pointer-events-none bg-black">
+                <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weBuildImage} alt="We Build" className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                         <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[36px] font-medium leading-tight tracking-[-0.01em] text-[#A6F63B] m-0">
@@ -393,7 +395,7 @@ function BuildCard({ cardsVisible }) {
                 </div>
 
                 {/* Back */}
-                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
+                <div className={`absolute inset-0 w-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Production grade AI products configured to your workflows, governed, audit-ready. Delivered in weeks, not months.                    </p>
                 </div>
@@ -403,15 +405,16 @@ function BuildCard({ cardsVisible }) {
 }
 
 function StayCard({ cardsVisible }) {
+    const [flipped, setFlipped] = useState(false);
     return (
         <div
             className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
                 }`}
             style={{ animationDelay: '500ms' }}
         >
-            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5">
+            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => setFlipped(f => !f)}>
                 {/* Front */}
-                <div className="absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] opacity-100 group-hover:opacity-0 group-hover:pointer-events-none bg-black">
+                <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weStayImage} alt="We Stay" className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                         <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[36px] font-medium leading-tight tracking-[-0.01em] text-[#A6F63B] m-0">
@@ -421,7 +424,7 @@ function StayCard({ cardsVisible }) {
                 </div>
 
                 {/* Back */}
-                <div className="absolute inset-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center">
+                <div className={`absolute inset-0 w-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Real transformation requires adoption. We stay until your teams run with it, and identify what's next.
                     </p>
@@ -487,10 +490,11 @@ function FoundersSection() {
 }
 
 function FounderCard({ name, designation, image, bio }) {
+    const [flipped, setFlipped] = useState(false);
     return (
-        <div className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-0 cursor-pointer group mx-auto">
+        <div className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-0 cursor-pointer group mx-auto" onClick={() => setFlipped(f => !f)}>
             {/* Front */}
-            <div className="absolute inset-0 w-full h-full transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] opacity-100 z-[1] group-hover:opacity-0 group-hover:pointer-events-none">
+            <div className={`absolute inset-0 w-full h-full transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] z-[1] ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                 <img src={image} alt={name} className="w-full h-full object-cover object-top block" />
                 <div className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none bg-gradient-to-t from-[#00b068] via-[#00b068]/50 to-transparent" />
                 <h3 className="absolute bottom-6 left-6 sm:bottom-7 sm:left-7 font-['Stage_Grotesk'] text-2xl sm:text-[32px] font-medium leading-tight text-white m-0 z-[1]">
@@ -499,7 +503,7 @@ function FounderCard({ name, designation, image, bio }) {
             </div>
 
             {/* Back */}
-            <div className="absolute inset-0 w-full h-full opacity-0 z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col p-8 sm:p-10 text-left overflow-hidden">
+            <div className={`absolute inset-0 w-full h-full z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col p-8 sm:p-10 text-left overflow-hidden ${flipped ? 'opacity-100' : 'opacity-0'}`}>
                 {/* Background Gradient */}
                 <div className="absolute inset-0 w-full h-full -z-[1] bg-[linear-gradient(135deg,#00703C_0%,#01121a_100%)]" />
 
