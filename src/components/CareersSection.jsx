@@ -81,7 +81,7 @@ function CareersSection() {
                             <h2 className="careers-statement-title">How we work</h2>
                             <TextGradientScroll
                                 text="Most companies talk about AI. We run on it. Our agents validate hypotheses, debate architecture, review code, and flag risks before humans make the call. Fewer meetings. More shipping. Real accountability."
-                                type="letter"
+                                type="word"
                                 textOpacity="soft"
                                 className="careers-statement-text"
                             />
@@ -110,7 +110,7 @@ function CareersSection() {
                                 movementDuration={1.2}
                                 borderWidth={1}
                                 inactiveZone={0.2}
-                                disabled={false}
+                                disabled={isMobile}
                                 variant="white"
                                 className="glowing-effect-overlay"
                             />
@@ -134,7 +134,7 @@ function CareersSection() {
                                 movementDuration={1.2}
                                 borderWidth={1}
                                 inactiveZone={0.2}
-                                disabled={false}
+                                disabled={isMobile}
                                 variant="white"
                                 className="glowing-effect-overlay"
                             />
@@ -158,7 +158,7 @@ function CareersSection() {
                                 movementDuration={1.2}
                                 borderWidth={1}
                                 inactiveZone={0.2}
-                                disabled={false}
+                                disabled={isMobile}
                                 variant="white"
                                 className="glowing-effect-overlay"
                             />
@@ -182,7 +182,7 @@ function CareersSection() {
                                 movementDuration={1.2}
                                 borderWidth={1}
                                 inactiveZone={0.2}
-                                disabled={false}
+                                disabled={isMobile}
                                 variant="white"
                                 className="glowing-effect-overlay"
                             />

@@ -14,35 +14,7 @@ import learnerIcon from '../assets/careers/Learner.svg';
 import careersHero from '../assets/careers/careers-hero.jpg';
 
 function CareersMobile() {
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
-  );
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const mq = window.matchMedia('(max-width: 768px)');
-    const updateIsMobile = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    setIsMobile(mq.matches);
-
-    // Support both modern and legacy iOS Safari
-    if (mq.addEventListener) {
-      mq.addEventListener('change', updateIsMobile);
-    } else if (mq.addListener) {
-      mq.addListener(updateIsMobile);
-    }
-
-    return () => {
-      if (mq.removeEventListener) {
-        mq.removeEventListener('change', updateIsMobile);
-      } else if (mq.removeListener) {
-        mq.removeListener(updateIsMobile);
-      }
-    };
-  }, []);
+  // isMobile state removed - this component only renders on mobile via CareersWrapper
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden antialiased">
@@ -169,52 +141,42 @@ function CareersMobile() {
             Who thrives here
           </h2>
 
-          <div className="grid w-full min-w-0 grid-cols-1 gap-6">
-            {[
-              { title: 'Visionaries', icon: visionariesIcon, text: 'You see where AI is heading, not just where it is. You think in systems, not tasks.' },
-              { title: 'Orchestrators', icon: orchestratorIcon, text: "You don't just execute. You direct AI agents, connect the dots, and know when to step in." },
-              { title: 'Builders', icon: buildersIcon, text: "You ship. Prototypes, production systems, client demos, you'd rather show than tell." },
-              { title: 'Learners', icon: learnerIcon, text: 'AI moves fast. You move faster. You\'re curious, adaptable, and energised by change.' }
-            ].map((card, idx) => (
-              <div key={idx} className="relative flex min-h-[auto] min-w-0 flex-col !items-center !text-center justify-start rounded-xl border border-white/10 bg-transparent p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.02]">
-                <GlowingEffect
-                  blur={0}
-                  spread={15}
-                  proximity={60}
-                  movementDuration={1.2}
-                  borderWidth={1}
-                  inactiveZone={0.2}
-                  disabled={true}
-                  variant="white"
-                  className="glowing-effect-overlay"
-                />
-                <GlassBorder />
-                <div className="relative z-10 flex flex-col !items-center !text-center">
-                  <div className="mb-3 h-8 w-8">
-                    <img
-                      src={card.icon}
-                      alt=""
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                  <h3 className="mb-2 font-['Stage_Grotesk',sans-serif] !text-lg font-normal tracking-tight text-[#A6F63B]">
-                    {card.title}
-                  </h3>
+          <div className="grid w-full min-w-0 grid-cols-1 gap-[4.125rem] md:grid-cols-2 md:gap-[4.125rem]">
+            {/* Visionaries */}
+            <div className="relative flex min-h-[18.75rem] min-w-0 flex-col justify-start rounded-[0.75rem] border border-[rgba(255,255,255,0.1)] bg-[rgba(2,15,20,0)] p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(2,15,20,0.15)]">
+              <GlowingEffect
+                blur={0}
+                spread={15}
+                proximity={60}
+                movementDuration={1.2}
+                borderWidth={1}
+                inactiveZone={0.2}
+                disabled={true}
+                variant="white"
+                className="glowing-effect-overlay"
+              />
+              <GlassBorder />
+              <div className="relative z-10 flex flex-col items-start text-left">
+                <div className="mb-6 h-12 w-12">
+                  <img
+                    src={visionariesIcon}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
                 </div>
                 <p className="relative z-10 m-0 !text-center font-['Blauer_Nue',sans-serif] !text-[0.7rem] font-normal !leading-relaxed text-white/90">
                   {card.text}
                 </p>
               </div>
             ))}
-          </div>
+            </div>
         </section>
 
         {/* Roles section (existing component + CSS) */}
         <RolesSection />
       </main>
 
-      <CareersCTASection />
-      <Footer />
+      <><CareersCTASection /><Footer /></>
     </div>
   );
 }

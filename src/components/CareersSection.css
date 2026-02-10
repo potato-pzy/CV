@@ -330,7 +330,7 @@
 
 @media (min-width: 64rem) {
     .careers-hero-content {
-       right:6rem;
+        right: 6rem;
     }
 
     .careers-statement {
@@ -341,7 +341,7 @@
 @media (min-width: 120rem) {
     .careers-hero-content {
         max-width: 62rem;
-        right:12rem;
+        right: 12rem;
 
     }
 }
@@ -529,7 +529,7 @@
     justify-content: flex-start;
     min-height: 18.75rem;
     min-width: 0;
-    backdrop-filter: blur(0.5rem);
+    /* backdrop-filter: blur(0.5rem); - Removed: expensive GPU compositing on mobile Safari */
     transition: background-color 0.5s ease, transform 0.3s ease;
     border: 0.0625rem solid rgba(255, 255, 255, 0.1);
 }
@@ -713,6 +713,7 @@
 
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
+
     .careers-statement-container,
     .careers-who-thrives {
         padding-left: var(--spacing-xl);
