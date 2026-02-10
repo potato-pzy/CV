@@ -49,18 +49,18 @@ export function isMobile() {
   return result;
 }
 
-/** True when we should use Who Are We fallbacks (Safari, mobile, or narrow viewport). */
+/** True when we should use Who Are We fallbacks (mobile only). */
 export function useWhoAreWeFallbacks() {
   // Always use fallback for narrow viewports (mobile-sized screens)
   const narrowViewport = typeof window !== "undefined" && window.innerWidth <= 768;
   
-  // Use fallback for Safari (has webkit mask/animation issues)
-  const isSafariBrowser = isSafari();
+  // Use fallback for Safari on mobile only (iOS has webkit mask/canvas issues)
+  // Desktop Safari on MacBooks supports canvas fine
+  const isSafariOnMobile = isSafari() && isMobile();
   
   // Use fallback for all mobile devices
   const isMobileDevice = isMobile();
   
-  // Conservative: if any condition is true, use the lightweight version
-  return narrowViewport || isSafariBrowser || isMobileDevice;
+  return narrowViewport || isSafariOnMobile || isMobileDevice;
 }
 
