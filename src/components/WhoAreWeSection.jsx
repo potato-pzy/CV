@@ -50,6 +50,7 @@ function WhoAreWeSection() {
     const featuresGridRef = useRef(null);
     const [cardsVisible, setCardsVisible] = useState(false);
     const [featuresVisible, setFeaturesVisible] = useState(false);
+    const [activeCardId, setActiveCardId] = useState(null);
     const [isMobile, setIsMobile] = useState(() =>
         typeof window !== 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
     );
@@ -312,13 +313,13 @@ function WhoAreWeSection() {
                         className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 justify-center max-w-[1320px] mx-auto"
                     >
                         {/* We Think Card */}
-                        <ThinkCard cardsVisible={cardsVisible} />
+                        <ThinkCard cardsVisible={cardsVisible} activeCardId={activeCardId} onCardClick={setActiveCardId} />
 
                         {/* We Build Card */}
-                        <BuildCard cardsVisible={cardsVisible} />
+                        <BuildCard cardsVisible={cardsVisible} activeCardId={activeCardId} onCardClick={setActiveCardId} />
 
                         {/* We Stay Card */}
-                        <StayCard cardsVisible={cardsVisible} />
+                        <StayCard cardsVisible={cardsVisible} activeCardId={activeCardId} onCardClick={setActiveCardId} />
                     </div>
                 </div>
 
@@ -326,7 +327,7 @@ function WhoAreWeSection() {
                 <div className="hidden md:block absolute w-[1658px] h-[777px] rounded-[1658px] bg-[#001D26] blur-[200px] left-1/2 -translate-x-1/2 -z-[3] pointer-events-none top-[calc(100vh+1400px)]" />
 
                 {/* Meet the Founders Section */}
-                <FoundersSection />
+                <FoundersSection activeCardId={activeCardId} onCardClick={setActiveCardId} />
 
                 {/* Background circles */}
                 <div className="hidden md:block fixed inset-0 pointer-events-none z-0">
@@ -344,16 +345,18 @@ function WhoAreWeSection() {
     );
 }
 
+const CARD_IDS = { THINK: 'think', BUILD: 'build', STAY: 'stay', PRADEEP: 'pradeep', EYAL: 'eyal' };
+
 // Card Components
-function ThinkCard({ cardsVisible }) {
-    const [flipped, setFlipped] = useState(false);
+function ThinkCard({ cardsVisible, activeCardId, onCardClick }) {
+    const flipped = activeCardId === CARD_IDS.THINK;
     return (
         <div
             className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20px] sm:translate-y-[30px]'
                 }`}
             style={{ animationDelay: '100ms' }}
         >
-            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => setFlipped(f => !f)}>
+            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => onCardClick(prev => prev === CARD_IDS.THINK ? null : CARD_IDS.THINK)}>
                 {/* Front */}
                 <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weThinkImage} alt="We Think" className="absolute inset-0 w-full h-full object-cover block" />
@@ -375,15 +378,15 @@ function ThinkCard({ cardsVisible }) {
     );
 }
 
-function BuildCard({ cardsVisible }) {
-    const [flipped, setFlipped] = useState(false);
+function BuildCard({ cardsVisible, activeCardId, onCardClick }) {
+    const flipped = activeCardId === CARD_IDS.BUILD;
     return (
         <div
             className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
                 }`}
             style={{ animationDelay: '300ms' }}
         >
-            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => setFlipped(f => !f)}>
+            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => onCardClick(prev => prev === CARD_IDS.BUILD ? null : CARD_IDS.BUILD)}>
                 {/* Front */}
                 <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weBuildImage} alt="We Build" className="absolute inset-0 w-full h-full object-cover block" />
@@ -404,15 +407,15 @@ function BuildCard({ cardsVisible }) {
     );
 }
 
-function StayCard({ cardsVisible }) {
-    const [flipped, setFlipped] = useState(false);
+function StayCard({ cardsVisible, activeCardId, onCardClick }) {
+    const flipped = activeCardId === CARD_IDS.STAY;
     return (
         <div
             className={`relative w-full max-w-[340px] aspect-square bg-transparent cursor-pointer transition-all duration-[800ms] ease-out mx-auto ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'
                 }`}
             style={{ animationDelay: '500ms' }}
         >
-            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => setFlipped(f => !f)}>
+            <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => onCardClick(prev => prev === CARD_IDS.STAY ? null : CARD_IDS.STAY)}>
                 {/* Front */}
                 <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weStayImage} alt="We Stay" className="absolute inset-0 w-full h-full object-cover block" />
@@ -435,7 +438,7 @@ function StayCard({ cardsVisible }) {
 }
 
 // Meet the Founders Section
-function FoundersSection() {
+function FoundersSection({ activeCardId, onCardClick }) {
     return (
         <div className="w-full max-w-[1280px] mx-auto mb-20 md:mb-32 lg:mb-48 px-6 relative z-10">
             {/* Header */}
@@ -454,6 +457,9 @@ function FoundersSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row lg:justify-center gap-8 md:gap-12 lg:gap-16">
                 {/* Pradeep Card */}
                 <FounderCard
+                    cardId={CARD_IDS.PRADEEP}
+                    activeCardId={activeCardId}
+                    onCardClick={onCardClick}
                     name="Pradeep Menon"
                     designation="Founder & CEO, Chartered Vectorial"
                     image={founderEyalImage}
@@ -472,6 +478,9 @@ function FoundersSection() {
 
                 {/* Eyal Card */}
                 <FounderCard
+                    cardId={CARD_IDS.EYAL}
+                    activeCardId={activeCardId}
+                    onCardClick={onCardClick}
                     name="Eyal Agmoni"
                     designation="Co-Founder, Chartered Vectorial | Founder of Chartered Group and CEO of Chartered Investment Managers"
                     image={founderPradeepImage}
@@ -489,36 +498,39 @@ function FoundersSection() {
     );
 }
 
-function FounderCard({ name, designation, image, bio }) {
-    const [flipped, setFlipped] = useState(false);
+function FounderCard({ cardId, activeCardId, onCardClick, name, designation, image, bio }) {
+    const flipped = activeCardId === cardId;
     return (
-        <div className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-0 cursor-pointer group mx-auto" onClick={() => setFlipped(f => !f)}>
+        <div
+            className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-none cursor-pointer group mx-auto max-[480px]:w-[260px] max-[480px]:h-[280px] max-[480px]:aspect-[3/5] md:max-w-[17rem] xl:max-w-full"
+            onClick={() => onCardClick(prev => prev === cardId ? null : cardId)}
+        >
             {/* Front */}
             <div className={`absolute inset-0 w-full h-full transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] z-[1] ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
-                <img src={image} alt={name} className="w-full h-full object-cover object-top block" />
-                <div className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none bg-gradient-to-t from-[#00b068] via-[#00b068]/50 to-transparent" />
-                <h3 className="absolute bottom-6 left-6 sm:bottom-7 sm:left-7 font-['Stage_Grotesk'] text-2xl sm:text-[32px] font-medium leading-tight text-white m-0 z-[1]">
+                <img src={image} alt={name} className="w-full h-full object-cover block object-[center_20%]" />
+                <div className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none bg-gradient-to-t from-[#00b068] via-[#00b068]/80 to-transparent" />
+                <h3 className="absolute bottom-0 left-0 right-0 font-['Stage_Grotesk'] text-[2rem] font-normal text-white m-0 pt-14 px-6 pb-5 z-[1] text-left max-[480px]:text-xl md:text-lg md:pt-7 md:px-3.5 md:pb-2.5">
                     {name}
                 </h3>
             </div>
 
             {/* Back */}
-            <div className={`absolute inset-0 w-full h-full z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col p-8 sm:p-10 text-left overflow-hidden ${flipped ? 'opacity-100' : 'opacity-0'}`}>
-                {/* Background Gradient */}
-                <div className="absolute inset-0 w-full h-full -z-[1] bg-[linear-gradient(135deg,#00703C_0%,#01121a_100%)]" />
+            <div className={`absolute inset-0 w-full h-full z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col items-start text-left overflow-hidden pt-6 pb-8 px-8 md:p-4 max-[480px]:p-4 max-[480px]:pt-4 ${flipped ? 'opacity-100' : 'opacity-0'}`}>
+                {/* Background: whoarewe.css radial-gradient */}
+                <div className="absolute inset-0 w-full h-full -z-[1] bg-[radial-gradient(circle_at_83%_-10%,#01121a_0%,#00b068_90%)]" />
 
-                <div className="h-full flex flex-col justify-between">
-                    <div>
-                        <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[40px] font-medium text-white m-0 mb-2 leading-tight">
+                <div className="h-full flex flex-col items-start w-full">
+                    <div className="w-full">
+                        <h3 className="font-['Stage_Grotesk'] text-[1.875rem] font-normal text-white m-0 mb-1 leading-tight max-[480px]:text-2xl md:text-[1.0625rem] lg:text-[1.0625rem]">
                             {name}
                         </h3>
-                        <p className="font-['Stage_Grotesk'] text-sm sm:text-base font-bold tracking-tight text-white mt-1 leading-tight">
+                        <p className="font-['Blauer_Nue'] text-[0.8125rem] font-medium tracking-[0.05em] text-white/80 m-0 mt-1 leading-normal max-[480px]:text-[0.5625rem] md:text-[0.625rem] lg:text-[0.625rem]">
                             {designation}
                         </p>
                     </div>
 
-                    <div className="max-w-full">
-                        <div className="font-['Stage_Grotesk'] text-[13px] sm:text-[15px] font-normal leading-relaxed text-white/95">
+                    <div className="max-w-[95%] mt-auto mx-auto max-[480px]:mt-4 flex flex-col justify-end flex-1 min-h-0">
+                        <div className="font-['Stage_Grotesk'] text-base font-normal leading-[1.5] text-white/95 max-[1024px]:text-[0.6875rem] max-[1024px]:leading-[1.25] max-[480px]:text-[0.5125rem] max-[480px]:leading-none max-[480px]:[&_p]:!mb-2 lg:text-xs lg:leading-[1.3] xl:text-sm xl:leading-[1.3] [&_p]:!mb-3.5 [&_p:last-child]:!mb-0 ">
                             {bio}
                         </div>
                     </div>
