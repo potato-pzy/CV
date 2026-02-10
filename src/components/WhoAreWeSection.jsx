@@ -5,14 +5,12 @@ import { TextGradientScroll } from './ui/text-gradient-scroll';
 import { FlickeringGrid } from './ui/flickering-grid';
 import { useEffect, useRef, useState } from 'react';
 import logoSvg from '../assets/shared/Asset 1.svg';
-import layer1Image from '../assets/who-we-are/Layer 1.png';
 import weBuildImage from '../assets/who-we-are/we_build.jpeg';
 import weThinkImage from '../assets/who-we-are/we_think.jpeg';
 import weStayImage from '../assets/who-we-are/stay.jpeg';
 import ellipseImg from '../assets/who-we-are/whoarewe-ellipse.png';
 import founderPradeepImage from '../assets/who-we-are/founder_pradeep.jpg';
 import founderEyalImage from '../assets/who-we-are/founder_eyal.jpg';
-import founderCardBg from '../assets/who-we-are/founder_card_bg.svg';
 import leftImage from '../assets/who-we-are/left 1.png';
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAApCAYAAABqUERyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKZSURBVHgB1ZrtcdNAEIZ3dfqIZ/IjdGA6MBVgKiAd4A6ACoAKCBUQOoAKEB2oA1yC/smSIx17MSbKiiR78Tmz98wkipS1Er+3t/d6TwgCum7701pYwvGpiyJ7BgFo2+43AM4FoVUKikDE7xCAptku6TCXxNLfvEhAEX1vv0EQ7Eoa2ffml6JMwPVslpYQgCSBl5I4muLlbIZrNZlg7fADAtA03UpYC0gsvLw+ghKszS4gAPTGXgtD6ywz18JrEaFyaQkH0jTNnA7nklhXhOmrdj+rEMFVaAiCWUojx0VYhQiuQkMAjME3skhXhLNyfyZcHez7YcAzOAI0IvXpaZipIDV0iFCOz0Ui5HlegXIQzTt59PBlfHZLhK7rFn0/HfGTk7TaFxGt0OhKV4WKD+o/Edz6ai1+Tf5TJTabq1d0KEEpvjaZX0t2N2nm9OY/QLT42WR+7e+4m49Sl6URqUHa2+TJ6900oJsIlxZ97GwyiFauvU2eXo96Gvh4gxubzElingZ+3uDGJnNU9RP8eZxN5qjqLPlCc/ytLPL+XkW0meCMHR0WklhukznRitD3ILbJ5A0+3ff7aEWQttBA0KuIsiYcapM5kWbCYTaZE50I1tozqcO9yyZzohNhs9mKeoiOu2zyJA4iw8cm53kq2syJSgRfmwxCohKBmj7iqeCzpRfVEmlMEsQmc0QiIPYLWpvhKTHG1uNeoJ838GsFCkUwn+nGT0yyom+jhqjzBrJ/4iGbzMG23VpQB66LIn0+vuLz0EVRZC/AA5WFkadz216dS5s/j9nSUykCT+dhGDxWBf8tPY0i3PrUt9sOCGuTOepEmKazvIUmtcmT14EyeDofwyZzVIlAWXDJp8IxbDJH9dNrPjvNhzz59gcxYvpH71M0oQAAAABJRU5ErkJggg==";
@@ -370,7 +368,7 @@ function ThinkCard({ cardsVisible, activeCardId, onCardClick }) {
                 {/* Back */}
                 <div className={`absolute inset-0 w-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
-                        Validation, strategy, and business case development.
+                    Validation, strategy, and business case development. Know where AI fits before you commit budget.
                     </p>
                 </div>
             </div>

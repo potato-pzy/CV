@@ -5,14 +5,12 @@ import { FlickeringGrid } from './ui/flickering-grid';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import logoSvg from '../assets/shared/Asset 1.svg';
-import layer1Image from '../assets/who-we-are/Layer 1.png';
 import weBuildImage from '../assets/who-we-are/we_build.jpeg';
 import weThinkImage from '../assets/who-we-are/we_think.jpeg';
 import weStayImage from '../assets/who-we-are/stay.jpeg';
 import ellipseImg from '../assets/who-we-are/whoarewe-ellipse.png';
 import founderPradeepImage from '../assets/who-we-are/founder_pradeep.jpg';
 import founderEyalImage from '../assets/who-we-are/founder_eyal.jpg';
-import founderCardBg from '../assets/who-we-are/founder_card_bg.svg';
 import leftImage from '../assets/who-we-are/left 1.png';
 
 import CTASection from './CTASection';
