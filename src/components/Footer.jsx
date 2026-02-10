@@ -23,12 +23,12 @@ function Footer() {
 
       <div className="footer-container">
         <div className="footer-left">
-          <div className="footer-logo-section">
+          <a href="/" className="footer-logo-section">
             <img
               src={footerLogo}
               className="footer-logo-image"
             />
-          </div>
+          </a>
           <div className="footer-part-of-section">
             <span className="footer-part-of-text">A part of</span>
             <a href="https://charteredgroup.com" target="_blank" rel="noopener noreferrer">
