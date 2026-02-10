@@ -164,12 +164,100 @@ function CareersMobile() {
                     className="h-full w-full object-contain"
                   />
                 </div>
-                <p className="relative z-10 m-0 !text-center font-['Blauer_Nue',sans-serif] !text-[0.7rem] font-normal !leading-relaxed text-white/90">
-                  {card.text}
+                <h3 className="mb-4 font-['Stage_Grotesk',sans-serif] text-[1rem] font-medium text-white">Visionaries</h3>
+                <p className="relative z-10 m-0 font-['Blauer_Nue',sans-serif] !text-[0.7rem] font-normal !leading-relaxed text-white/90">
+                  You see where AI is heading, not just where it is. You think in systems, not tasks.
                 </p>
               </div>
-            ))}
             </div>
+
+            {/* Orchestrators */}
+            <div className="relative flex min-h-[18.75rem] min-w-0 flex-col justify-start rounded-[0.75rem] border border-[rgba(255,255,255,0.1)] bg-[rgba(2,15,20,0)] p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(2,15,20,0.15)]">
+              <GlowingEffect
+                blur={0}
+                spread={15}
+                proximity={60}
+                movementDuration={1.2}
+                borderWidth={1}
+                inactiveZone={0.2}
+                disabled={true}
+                variant="white"
+                className="glowing-effect-overlay"
+              />
+              <GlassBorder />
+              <div className="relative z-10 flex flex-col items-start text-left">
+                <div className="mb-6 h-12 w-12">
+                  <img
+                    src={orchestratorIcon}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <h3 className="mb-4 font-['Stage_Grotesk',sans-serif] text-[1rem] font-medium text-white">Orchestrators</h3>
+                <p className="relative z-10 m-0 font-['Blauer_Nue',sans-serif] !text-[0.7rem] font-normal !leading-relaxed text-white/90">
+                  You don't just execute. You direct AI agents, connect the dots, and know when to step in.
+                </p>
+              </div>
+            </div>
+
+            {/* Builders */}
+            <div className="relative flex min-h-[18.75rem] min-w-0 flex-col justify-start rounded-[0.75rem] border border-[rgba(255,255,255,0.1)] bg-[rgba(2,15,20,0)] p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(2,15,20,0.15)]">
+              <GlowingEffect
+                blur={0}
+                spread={15}
+                proximity={60}
+                movementDuration={1.2}
+                borderWidth={1}
+                inactiveZone={0.2}
+                disabled={true}
+                variant="white"
+                className="glowing-effect-overlay"
+              />
+              <GlassBorder />
+              <div className="relative z-10 flex flex-col items-start text-left">
+                <div className="mb-6 h-12 w-12">
+                  <img
+                    src={buildersIcon}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <h3 className="mb-4 font-['Stage_Grotesk',sans-serif] text-[1rem] font-medium text-white">Builders</h3>
+                <p className="relative z-10 m-0 font-['Blauer_Nue',sans-serif] !text-[0.7rem] font-normal !leading-relaxed text-white/90">
+                  You ship. Prototypes, production systems, client demos, you'd rather show than tell.
+                </p>
+              </div>
+            </div>
+
+            {/* Learners */}
+            <div className="relative flex min-h-[18.75rem] min-w-0 flex-col justify-start rounded-[0.75rem] border border-[rgba(255,255,255,0.1)] bg-[rgba(2,15,20,0)] p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(2,15,20,0.15)]">
+              <GlowingEffect
+                blur={0}
+                spread={15}
+                proximity={60}
+                movementDuration={1.2}
+                borderWidth={1}
+                inactiveZone={0.2}
+                disabled={true}
+                variant="white"
+                className="glowing-effect-overlay"
+              />
+              <GlassBorder />
+              <div className="relative z-10 flex flex-col items-start text-left">
+                <div className="mb-6 h-12 w-12">
+                  <img
+                    src={learnerIcon}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <h3 className="mb-4 font-['Stage_Grotesk',sans-serif] text-[1rem] font-medium text-white">Learners</h3>
+                <p className="relative z-10 m-0 font-['Blauer_Nue',sans-serif] !text-[0.7rem] font-normal !leading-relaxed text-white/90">
+                  AI moves fast. You move faster. You're curious, adaptable, and energised by change.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Roles section (existing component + CSS) */}
