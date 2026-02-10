@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './CareersSection.css';
 import Navbar from './Navbar';
 import CareersCTASection from './CareersCTASection';
@@ -13,6 +14,36 @@ import buildersIcon from '../assets/careers/Builders.svg';
 import learnerIcon from '../assets/careers/Learner.svg';
 
 function CareersSection() {
+    const [isMobile, setIsMobile] = useState(() =>
+        typeof window !== 'undefined' ? window.matchMedia('(max-width: 768px)').matches : false
+    );
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const mq = window.matchMedia('(max-width: 768px)');
+        const updateIsMobile = (event) => {
+            setIsMobile(event.matches);
+        };
+
+        setIsMobile(mq.matches);
+
+        // Support both modern and legacy iOS Safari
+        if (mq.addEventListener) {
+            mq.addEventListener('change', updateIsMobile);
+        } else if (mq.addListener) {
+            mq.addListener(updateIsMobile);
+        }
+
+        return () => {
+            if (mq.removeEventListener) {
+                mq.removeEventListener('change', updateIsMobile);
+            } else if (mq.removeListener) {
+                mq.removeListener(updateIsMobile);
+            }
+        };
+    }, []);
+
     return (
         <div className="careers-page">
             <div className="careers-background">
