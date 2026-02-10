@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import Navbar from './Navbar';
-import CareersCTASection from './CareersCTASection';
-import Footer from './Footer';
+
+const CareersCTASection = lazy(() => import('./CareersCTASection'));
+const Footer = lazy(() => import('./Footer'));
 
 import visionariesIcon from '../assets/careers/Visionaries.svg';
 import orchestratorIcon from '../assets/careers/Orchestrator.svg';
@@ -32,22 +33,22 @@ function CareersMobile() {
             width: '37.5rem',
             height: '37.5rem',
             background: 'rgba(255, 255, 255, 0.02)',
-            filter: 'blur(7.5rem)',
+            filter: 'blur(3rem)', // Reduced from 7.5rem
           }}
         />
       </div>
 
       <main className="relative z-10 w-full">
         {/* Hero */}
-        <section
-          className="relative min-h-screen pt-0"
-          style={{
-            backgroundImage: `url(${careersHero})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
+        <section className="relative min-h-screen pt-0 overflow-hidden">
+          {/* Lazy-loaded Hero Image */}
+          <img
+            src={careersHero}
+            alt="Real World AI Needs Real World Thinking"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
           {/* Overlays originally from ::before / ::after */}
           <div className="absolute inset-0 bg-black/50 z-[1]" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[40vh] bg-gradient-to-b from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.4)] to-transparent z-[2]" />
@@ -78,8 +79,8 @@ function CareersMobile() {
               </div>
             </div>
 
-            <div className="absolute bottom-[15vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-center font-['Stage_Grotesk',sans-serif] text-[1rem] font-normal text-[#A6F63B] [text-shadow:0_0_0.25rem_#FFF] z-30 animate-bounce">
-              {/* Intentionally left empty as in original */}
+            <div className="absolute bottom-[15vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-center font-['Stage_Grotesk',sans-serif] text-[1rem] font-normal text-[#A6F63B] [text-shadow:0_0_0.25rem_#FFF] z-30">
+              {/* Intentionally left empty as in original, removed animate-bounce */}
             </div>
           </div>
         </section>
@@ -105,13 +106,13 @@ function CareersMobile() {
         <section className="relative top-[3.125rem] z-[1] h-full w-full overflow-hidden pointer-events-none">
           <div className="relative flex h-full w-full items-center justify-center">
             <div
-              className="absolute opacity-60"
+              className="absolute opacity-40"
               style={{
                 width: '75rem',
                 height: '37.5rem',
                 background:
-                  'radial-gradient(ellipse at center, rgba(0, 150, 150, 0.15) 0%, rgba(0, 100, 120, 0.08) 30%, transparent 70%)',
-                filter: 'blur(6.25rem)',
+                  'radial-gradient(ellipse at center, rgba(0, 150, 150, 0.1) 0%, rgba(0, 100, 120, 0.05) 40%, transparent 80%)',
+                filter: 'blur(3rem)', // Reduced from 6.25rem
               }}
             />
           </div>
@@ -120,12 +121,12 @@ function CareersMobile() {
         {/* Who thrives */}
         <section className="relative z-20 box-border mx-auto w-full max-w-[82.5rem] px-6 py-16">
           <div
-            className="pointer-events-none absolute -top-[29.125rem] left-1/2 -translate-x-1/2 -z-10 rounded-full opacity-[0.77]"
+            className="pointer-events-none absolute -top-[29.125rem] left-1/2 -translate-x-1/2 -z-10 rounded-full opacity-[0.6]"
             style={{
               width: '106.625rem',
               height: '45.625rem',
               background: 'linear-gradient(180deg, #001117 0%, #013445 100%)',
-              filter: 'blur(12.5rem)',
+              filter: 'blur(5rem)', // Reduced from 12.5rem
             }}
           />
 
@@ -141,7 +142,8 @@ function CareersMobile() {
                 <div className="mb-6 h-12 w-12">
                   <img
                     src={visionariesIcon}
-                    alt=""
+                    alt="Visionaries"
+                    loading="lazy"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -159,7 +161,8 @@ function CareersMobile() {
                 <div className="mb-6 h-12 w-12">
                   <img
                     src={orchestratorIcon}
-                    alt=""
+                    alt="Orchestrators"
+                    loading="lazy"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -177,7 +180,8 @@ function CareersMobile() {
                 <div className="mb-6 h-12 w-12">
                   <img
                     src={buildersIcon}
-                    alt=""
+                    alt="Builders"
+                    loading="lazy"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -195,7 +199,8 @@ function CareersMobile() {
                 <div className="mb-6 h-12 w-12">
                   <img
                     src={learnerIcon}
-                    alt=""
+                    alt="Learners"
+                    loading="lazy"
                     className="h-full w-full object-contain"
                   />
                 </div>
@@ -211,10 +216,12 @@ function CareersMobile() {
 
       </main>
 
-      <><CareersCTASection /><Footer /></>
+      <Suspense fallback={null}>
+        <CareersCTASection />
+        <Footer />
+      </Suspense>
     </div>
   );
 }
 
 export default CareersMobile;
-

@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import CareersSection from './CareersSection';
-import CareersMobile from './CareersMobile';
+import { useEffect, useState, lazy, Suspense } from 'react';
+
+const CareersSection = lazy(() => import('./CareersSection'));
+const CareersMobile = lazy(() => import('./CareersMobile'));
 
 function CareersWrapper() {
   const [isMobile, setIsMobile] = useState(() =>
@@ -16,12 +17,15 @@ function CareersWrapper() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  return isMobile ? (
-    <CareersMobile key="mobile" />
-  ) : (
-    <CareersSection key="desktop" />
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black" />}>
+      {isMobile ? (
+        <CareersMobile key="mobile" />
+      ) : (
+        <CareersSection key="desktop" />
+      )}
+    </Suspense>
   );
 }
 
 export default CareersWrapper;
-
