@@ -12,7 +12,7 @@ const WhoAreWeSection = lazy(() => import('./components/WhoAreWeSection'))
 const WhoAreWeWrapper = lazy(() => import('./components/WhoAreWeWrapper'))
 const WhoAreWeStatic = lazy(() => import('./components/WhoAreWeStatic'))
 const Backup = lazy(() => import('./components/backup'))
-const CareersSection = lazy(() => import('./components/CareersSection'))
+const CareersWrapper = lazy(() => import('./components/CareersWrapper'))
 const Insights = lazy(() => import('./components/Insights'))
 const WhatWeDo = lazy(() => import('./components/WhatWeDo'))
 const Contact = lazy(() => import('./components/Contact'))
@@ -81,7 +81,7 @@ function App() {
             <Route path="/static" element={wrapWithReady(WhoAreWeStatic)} />
             <Route path="/backup" element={wrapWithReady(Backup)} />
             <Route path="/whatwedo" element={wrapWithReady(WhatWeDo)} />
-            <Route path="/careers" element={wrapWithReady(CareersSection)} />
+            <Route path="/careers" element={wrapWithReady(CareersWrapper)} />
             <Route path="/insights" element={wrapWithReady(Insights)} />
             <Route path="/contact" element={wrapWithReady(Contact)} />
             <Route path="/terms" element={wrapWithReady(TermsOfUsePage)} />
