@@ -277,7 +277,7 @@ function WhoAreWeSection() {
                                             }`}
                                         style={{ transitionDelay: `${(index + 1) * 100}ms` }}
                                     >
-                                        <h3 className="font-['Stage_Grotesk'] text-2xl sm:text-[28px] font-medium leading-tight sm:leading-[30px] tracking-[-0.01em] text-white m-0">
+                                        <h3 className="font-['Stage_Grotesk'] text-[1.75rem] md:text-[28px] font-medium leading-tight sm:leading-[30px] tracking-[-0.01em] text-white m-0 max-w-[12ch] md:max-w-none break-words">
                                             {feature.title}
                                         </h3>
                                         <p className="font-['Stage_Grotesk'] text-sm sm:text-base font-normal leading-normal text-[#C7C7C7] m-0">
@@ -358,7 +358,7 @@ function ThinkCard({ cardsVisible, activeCardId, onCardClick }) {
         >
             <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => onCardClick(prev => prev === CARD_IDS.THINK ? null : CARD_IDS.THINK)}>
                 {/* Front */}
-                <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
+                <div className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weThinkImage} alt="We Think" className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                         <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[36px] font-medium leading-tight tracking-[-0.01em] text-[#A6F63B] m-0">
@@ -368,7 +368,7 @@ function ThinkCard({ cardsVisible, activeCardId, onCardClick }) {
                 </div>
 
                 {/* Back */}
-                <div className={`absolute inset-0 w-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
+                <div className={`absolute inset-0 w-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Validation, strategy, and business case development.
                     </p>
@@ -388,7 +388,7 @@ function BuildCard({ cardsVisible, activeCardId, onCardClick }) {
         >
             <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => onCardClick(prev => prev === CARD_IDS.BUILD ? null : CARD_IDS.BUILD)}>
                 {/* Front */}
-                <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
+                <div className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weBuildImage} alt="We Build" className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                         <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[36px] font-medium leading-tight tracking-[-0.01em] text-[#A6F63B] m-0">
@@ -398,7 +398,7 @@ function BuildCard({ cardsVisible, activeCardId, onCardClick }) {
                 </div>
 
                 {/* Back */}
-                <div className={`absolute inset-0 w-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
+                <div className={`absolute inset-0 w-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Production grade AI products configured to your workflows, governed, audit-ready. Delivered in weeks, not months.                    </p>
                 </div>
@@ -417,7 +417,7 @@ function StayCard({ cardsVisible, activeCardId, onCardClick }) {
         >
             <div className="relative w-full h-full group rounded-[24px] overflow-hidden border border-white/5" onClick={() => onCardClick(prev => prev === CARD_IDS.STAY ? null : CARD_IDS.STAY)}>
                 {/* Front */}
-                <div className={`absolute inset-0 w-full h-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
+                <div className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-black ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                     <img src={weStayImage} alt="We Stay" className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                         <h3 className="font-['Stage_Grotesk'] text-[32px] sm:text-[36px] font-medium leading-tight tracking-[-0.01em] text-[#A6F63B] m-0">
@@ -427,7 +427,7 @@ function StayCard({ cardsVisible, activeCardId, onCardClick }) {
                 </div>
 
                 {/* Back */}
-                <div className={`absolute inset-0 w-full transition-opacity duration-[550ms] ease-[cubic-bezier(0.85,0,0,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
+                <div className={`absolute inset-0 w-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] bg-[#020b0d] border border-white/10 flex flex-col justify-center items-center p-8 text-center ${flipped ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}>
                     <p className="font-['Stage_Grotesk'] text-base sm:text-[17px] font-normal leading-relaxed text-white relative z-10 m-0">
                         Real transformation requires adoption. We stay until your teams run with it, and identify what's next.
                     </p>
@@ -447,7 +447,7 @@ function FoundersSection({ activeCardId, onCardClick }) {
                     Meet the Founders
                 </h2>
                 <div className="max-w-[423px] mx-auto md:mx-0">
-                    <p className="font-['Stage_Grotesk'] text-base sm:text-lg font-light leading-relaxed text-white m-0">
+                    <p className="font-['Stage_Grotesk'] text-base sm:text-lg font-light leading-relaxed text-white m-0 text-[0.937rem] max-w-[31vh]">
                         The Founders of Chartered Vectorial bring experience across engineering, operations, and large-scale system delivery.
                     </p>
                 </div>
@@ -502,35 +502,35 @@ function FounderCard({ cardId, activeCardId, onCardClick, name, designation, ima
     const flipped = activeCardId === cardId;
     return (
         <div
-            className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-none cursor-pointer group mx-auto max-[480px]:w-[260px] max-[480px]:h-[280px] max-[480px]:aspect-[3/5] md:max-w-[17rem] xl:max-w-full"
+            className="relative w-full max-w-[460px] aspect-square overflow-hidden rounded-none cursor-pointer group mx-auto max-md:w-[260px] max-md:h-[280px] max-md:aspect-[3/5] md:max-w-[17rem] xl:max-w-full"
             onClick={() => onCardClick(prev => prev === cardId ? null : cardId)}
         >
             {/* Front */}
-            <div className={`absolute inset-0 w-full h-full transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] z-[1] ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
+            <div className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] z-[1] ${flipped ? 'opacity-0 pointer-events-none' : 'opacity-100'} group-hover:opacity-0 group-hover:pointer-events-none`}>
                 <img src={image} alt={name} className="w-full h-full object-cover block object-[center_20%]" />
                 <div className="absolute bottom-0 left-0 right-0 h-[40%] pointer-events-none bg-gradient-to-t from-[#00b068] via-[#00b068]/80 to-transparent" />
-                <h3 className="absolute bottom-0 left-0 right-0 font-['Stage_Grotesk'] text-[2rem] font-normal text-white m-0 pt-14 px-6 pb-5 z-[1] text-left max-[480px]:text-xl md:text-lg md:pt-7 md:px-3.5 md:pb-2.5">
+                <h3 className="absolute bottom-0 left-0 right-0 font-['Stage_Grotesk'] text-[2rem] font-normal text-white m-0 pt-14 px-6 pb-5 z-[1] text-left max-md:text-xl md:text-lg md:pt-7 md:px-3.5 md:pb-2.5">
                     {name}
                 </h3>
             </div>
 
             {/* Back */}
-            <div className={`absolute inset-0 w-full h-full z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 flex flex-col items-start text-left overflow-hidden pt-6 pb-8 px-8 md:p-4 max-[480px]:p-4 max-[480px]:pt-4 ${flipped ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`absolute inset-0 w-full h-full z-[2] transition-opacity duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:opacity-100 flex flex-col items-start text-left overflow-hidden pt-6 pb-8 px-8 md:p-4 max-[480px]:p-4 max-[480px]:pt-4 ${flipped ? 'opacity-100' : 'opacity-0'}`}>
                 {/* Background: whoarewe.css radial-gradient */}
                 <div className="absolute inset-0 w-full h-full -z-[1] bg-[radial-gradient(circle_at_83%_-10%,#01121a_0%,#00b068_90%)]" />
 
                 <div className="h-full flex flex-col items-start w-full">
                     <div className="w-full">
-                        <h3 className="font-['Stage_Grotesk'] text-[1.875rem] font-normal text-white m-0 mb-1 leading-tight max-[480px]:text-2xl md:text-[1.0625rem] lg:text-[1.0625rem]">
+                        <h3 className="font-['Stage_Grotesk'] text-[1.875rem] font-normal text-white m-0 mb-1 leading-tight max-md:text-[1.5rem] md:text-[1.0625rem] lg:text-[1.0625rem]">
                             {name}
                         </h3>
-                        <p className="font-['Blauer_Nue'] text-[0.8125rem] font-medium tracking-[0.05em] text-white/80 m-0 mt-1 leading-normal max-[480px]:text-[0.5625rem] md:text-[0.625rem] lg:text-[0.625rem]">
+                        <p className="font-['Blauer_Nue'] text-[0.8125rem] font-medium tracking-[0.05em] text-white/80 m-0 mt-1 leading-normal max-md:text-[0.5625rem] md:text-[0.625rem] lg:text-[0.625rem]">
                             {designation}
                         </p>
                     </div>
 
                     <div className="max-w-[95%] mt-auto mx-auto max-[480px]:mt-4 flex flex-col justify-end flex-1 min-h-0">
-                        <div className="font-['Stage_Grotesk'] text-base font-normal leading-[1.5] text-white/95 max-[1024px]:text-[0.6875rem] max-[1024px]:leading-[1.25] max-[480px]:text-[0.5125rem] max-[480px]:leading-none max-[480px]:[&_p]:!mb-2 lg:text-xs lg:leading-[1.3] xl:text-sm xl:leading-[1.3] [&_p]:!mb-3.5 [&_p:last-child]:!mb-0 ">
+                        <div className="font-['Stage_Grotesk'] text-base font-normal leading-[1.5] text-white/95 max-md:text-[0.5125rem] max-md:leading-none max-md:[&_p]:!mb-2 md:text-[0.6875rem] md:leading-[1.25] lg:text-xs lg:leading-[1.3] xl:text-sm xl:leading-[1.3] [&_p]:!mb-3.5 [&_p:last-child]:!mb-0 ">
                             {bio}
                         </div>
                     </div>
