@@ -96,7 +96,7 @@ function CareersMobile() {
           <div className="relative z-10 box-border mx-auto w-full max-w-[82.5rem] px-6">
             <div className="mx-auto max-w-[56rem] !text-center !flex !flex-col !items-center">
               <h2 className="w-full !text-center font-['Stage_Grotesk',sans-serif] !text-[1.25rem] font-medium tracking-tight text-white mb-6">
-                How we work .
+                How we work
               </h2>
 
               <TextGradientScroll
