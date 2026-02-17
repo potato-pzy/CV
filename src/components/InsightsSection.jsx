@@ -3,72 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import ArticleCard from './ArticleCard';
 import './InsightsSection.css';
 import { fetchLatestBlogCards } from '../lib/sanityQueries';
-import featuredImage from '../assets/insights/featured.png';
-import article1Image from '../assets/insights/article_1.jpg';
-import article2Image from '../assets/insights/article_2.png';
-import article3Image from '../assets/insights/article_3.jpg';
 
-// CMS-ready data structure – Founder's Note first in filter
-const defaultCategories = ['ALL', "FOUNDER'S NOTE", 'AI ENGINEERING', 'AI STRATEGY'];
-
-const defaultFeaturedPost = {
-  id: 'featured-1',
-  title: "Founder's Note: Why This Firm Exists",
-  date: 'FEBRUARY, 2026',
-  slug: '/blog/founders-note',
-  backgroundImage: featuredImage
-};
-
-const defaultArticles = [
-  {
-    id: 3,
-    category: "FOUNDER'S NOTE",
-    date: 'FEBRUARY, 2026',
-    title: "Founder's Note: Why This Firm Exists",
-    slug: '/blog/founders-note',
-    gradient: 'linear-gradient(135deg, #A4ED3F 0%, #000000 100%)',
-    backgroundImage: article3Image
-  },
-  {
-    id: 1,
-    category: 'AI ENGINEERING',
-    date: 'FEBRUARY, 2026',
-    title: 'The Agentic AI Blueprint',
-    displayTitle: <>The Agentic <br /> AI Blueprint</>,
-    slug: '/blog/agentic-ai-blueprint',
-    gradient: 'linear-gradient(135deg, #008C56 0%, #071920 100%)',
-    backgroundImage: article1Image
-  },
-  {
-    id: 2,
-    category: 'AI STRATEGY',
-    date: 'FEBRUARY, 2026',
-    title: 'From Intelligence to Execution: The Rise of Agentic AI',
-    slug: '/blog/rise-of-agentic-ai',
-    gradient: 'linear-gradient(135deg, #A6D8BF 0%, #000000 100%)',
-    backgroundImage: article2Image
-  },
-];
-
-function InsightsSection({
-  featuredPost = defaultFeaturedPost,
-  articles = defaultArticles,
-  categories = defaultCategories,
-  showBookCallButton = true
-}) {
+function InsightsSection() {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [currentScrollIndex, setCurrentScrollIndex] = useState(0);
-  const [cmsArticles, setCmsArticles] = useState(null);
-  const [cmsFeaturedPost, setCmsFeaturedPost] = useState(null);
-  const [cmsCategories, setCmsCategories] = useState(null);
+  const [articles, setArticles] = useState([]);
+  const [featuredPost, setFeaturedPost] = useState(null);
+  const [categories, setCategories] = useState(['ALL']);
+  const [isLoading, setIsLoading] = useState(true);
   const scrollRef = useRef(null);
   const location = useLocation();
 
-  const effectiveArticles = cmsArticles || articles;
-  const effectiveFeaturedPost = cmsFeaturedPost || featuredPost;
-  const effectiveCategories = cmsCategories || categories;
-
-  const filteredArticles = effectiveArticles.filter(
+  const filteredArticles = articles.filter(
     article => activeCategory === 'ALL' || article.category === activeCategory
   );
 
@@ -88,12 +34,14 @@ function InsightsSection({
 
   useEffect(() => {
     if (location.hash === '#blogs') {
+      // First scroll to top to ensure clean layout, then scroll to blogs
+      window.scrollTo(0, 0);
       setTimeout(() => {
         const element = document.getElementById('blogs');
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 200);
+      }, 300);
     }
   }, [location]);
 
@@ -102,6 +50,7 @@ function InsightsSection({
 
     async function load() {
       try {
+        setIsLoading(true);
         console.log('InsightsSection: Starting to load blog cards...')
         const latest = await fetchLatestBlogCards(12);
         console.log('InsightsSection: Loaded blog cards:', latest)
@@ -111,11 +60,50 @@ function InsightsSection({
         }
         if (!latest || latest.length === 0) {
           console.warn('InsightsSection: No blog cards found or empty array')
+          setIsLoading(false);
           return;
         }
 
-        setCmsArticles(latest);
-        setCmsFeaturedPost({
+        // Preload all images BEFORE setting state (prevents content flash)
+        const imagesToPreload = [
+          latest[0].backgroundImage, // Featured image
+          ...latest.slice(0, 12).map(article => article.backgroundImage).filter(Boolean)
+        ];
+
+
+
+        console.log('InsightsSection: Preloading images...', imagesToPreload.length);
+
+        const imagePromises = imagesToPreload.map(src => {
+          return new Promise((resolve) => {
+            if (!src) {
+              resolve();
+              return;
+            }
+            const img = new Image();
+            img.onload = () => {
+              console.log('InsightsSection: Image loaded:', src);
+              resolve();
+            };
+            img.onerror = () => {
+              console.warn('InsightsSection: Image failed to load:', src);
+              resolve(); // Resolve anyway to not block the page
+            };
+            img.src = src;
+          });
+        });
+
+        // Wait for all images to load
+        await Promise.all(imagePromises);
+        console.log('InsightsSection: All images loaded');
+
+        if (cancelled) {
+          return;
+        }
+
+        // NOW set all state - images are already preloaded
+        setArticles(latest);
+        setFeaturedPost({
           id: latest[0].id,
           title: latest[0].title,
           date: latest[0].date,
@@ -126,9 +114,11 @@ function InsightsSection({
         const derived = Array.from(
           new Set(latest.map((a) => a.category).filter(Boolean))
         );
-        setCmsCategories(['ALL', ...derived]);
+        setCategories(['ALL', ...derived]);
+        setIsLoading(false);
       } catch (err) {
         console.error('Failed to load Sanity blog cards:', err);
+        setIsLoading(false);
       }
     }
 
@@ -151,34 +141,53 @@ function InsightsSection({
 
       <div className="insights-container">
         {/* Featured Section */}
-        <Link to={effectiveFeaturedPost.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div className="insights-why-exists">
-            <div className="insights-image-cropper">
-              <img
-                src={featuredImage}
-                alt="Featured"
-                className="insights-featured-img"
-                style={{ transform: 'scale(1.0)', transformOrigin: 'top center' }}
-              />
+        {isLoading ? (
+          <div className="skeleton-wrapper">
+            <div className="insights-why-exists skeleton-featured">
+              <div className="insights-image-cropper">
+                <div className="skeleton-image" style={{ width: '100%', height: '100%', backgroundColor: 'rgba(255,255,255,0.05)' }} />
+              </div>
+              <div className="insights-why-exists-overlay">
+                <span className="insights-why-exists-badge">FEATURED</span>
+              </div>
             </div>
-            <div className="insights-why-exists-overlay">
-              <span className="insights-why-exists-badge">FEATURED</span>
+            <div className="insights-why-exists-content-wrapper">
+              <div className="insights-why-exists-content">
+                <div className="skeleton-text" style={{ width: '70%', height: '2.5rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', marginBottom: '1rem' }} />
+                <div className="skeleton-text" style={{ width: '30%', height: '1rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px' }} />
+              </div>
             </div>
           </div>
+        ) : featuredPost ? (
+          <Link to={featuredPost.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="insights-why-exists">
+              <div className="insights-image-cropper">
+                <img
+                  src={featuredPost.backgroundImage}
+                  alt="Featured"
+                  className="insights-featured-img"
+                  style={{ transform: 'scale(1.0)', transformOrigin: 'top center' }}
+                />
+              </div>
+              <div className="insights-why-exists-overlay">
+                <span className="insights-why-exists-badge">FEATURED</span>
+              </div>
+            </div>
 
-          <div className="insights-why-exists-content-wrapper">
-            <div className="insights-why-exists-content">
-              <h2 className="insights-why-exists-title">{effectiveFeaturedPost.title}</h2>
-              <p className="insights-why-exists-date">{effectiveFeaturedPost.date}</p>
+            <div className="insights-why-exists-content-wrapper">
+              <div className="insights-why-exists-content">
+                <h2 className="insights-why-exists-title">{featuredPost.title}</h2>
+                <p className="insights-why-exists-date">{featuredPost.date}</p>
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        ) : null}
 
         {/* Featured Article Section */}
         <div className="insights-main-content" id="blogs">
           {/* Filter Buttons */}
           <div className="insights-filters">
-            {effectiveCategories.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 className={`insights-filter-btn ${activeCategory === cat ? 'active' : ''}`}
@@ -199,19 +208,35 @@ function InsightsSection({
             ref={scrollRef}
             onScroll={handleScroll}
           >
-            {filteredArticles.map((article) => (
-              <ArticleCard
-                key={article.id}
-                category={article.category}
-                date={article.date}
-                title={article.title}
-                displayTitle={article.displayTitle}
-                slug={article.slug}
-                gradient={article.gradient}
-                backgroundImage={article.backgroundImage}
-                backgroundBlend={article.backgroundBlend}
-              />
-            ))}
+            {isLoading ? (
+              <>
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="article-card skeleton-card">
+                    <div className="skeleton-image" style={{ width: '100%', height: '300px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '8px', marginBottom: '1rem' }} />
+                    <div className="skeleton-text" style={{ width: '40%', height: '0.875rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', marginBottom: '0.75rem' }} />
+                    <div className="skeleton-text" style={{ width: '80%', height: '1.5rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px' }} />
+                  </div>
+                ))}
+              </>
+            ) : filteredArticles.length > 0 ? (
+              filteredArticles.map((article) => (
+                <ArticleCard
+                  key={article.id}
+                  category={article.category}
+                  date={article.date}
+                  title={article.title}
+                  displayTitle={article.displayTitle}
+                  slug={article.slug}
+                  gradient={article.gradient}
+                  backgroundImage={article.backgroundImage}
+                  backgroundBlend={article.backgroundBlend}
+                />
+              ))
+            ) : (
+              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem 0', color: 'rgba(255,255,255,0.6)' }}>
+                <p>No articles found.</p>
+              </div>
+            )}
           </div>
 
           {/* Pagination Indicators (Mobile Only) */}

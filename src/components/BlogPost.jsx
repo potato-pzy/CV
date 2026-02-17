@@ -174,9 +174,16 @@ const BlogPost = ({
                 <section className="blog-footer-nav">
                     <div className="blog-nav-item">
                         <p className="nav-label">Back to</p>
-                        <Link to="/insights#blogs" className="nav-item-link">
+                        <button
+                            onClick={() => {
+                                window.scrollTo(0, 0);
+                                navigate('/insights#blogs', { replace: true });
+                            }}
+                            className="nav-item-link"
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                        >
                             <h3 className="nav-title">Insights</h3>
-                        </Link>
+                        </button>
                     </div>
 
                     {nextPost ? (
