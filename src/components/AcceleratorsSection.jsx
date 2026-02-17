@@ -21,7 +21,7 @@ const darkCards = [
     underline: salesLine,
   },
   {
-    title: 'Document Intelligence',
+    title: 'Content Intelligence',
     body: 'Keep legal and policy documents aligned as regulations change, with automated updates at scale.',
     icon: docIcon,
     underline: docLine,

@@ -357,8 +357,8 @@
     .whoarewe-content {
         text-align: center;
         font-size: 1.5rem;
-        margin-top: calc(100vh + 12.5rem);
-        /* Standardized gap from hero (Desktop: 200px) */
+        margin-top: calc(100vh + 6rem);
+        /* Reduced from 200px to 96px for tighter desktop layout */
     }
 }
 
@@ -835,6 +835,7 @@
     .whoarewe-founders-title {
         max-width: 28.75rem;
     }
+
     .whoarewe-founders-grid {
         justify-items: start;
     }
@@ -966,11 +967,13 @@
     color: #ffffff;
     margin-bottom: 0.875rem;
 }
+
 .whoarewe-founder-back-bio-wrap {
     margin-top: auto;
     display: flex;
     flex-direction: column;
 }
+
 .whoarewe-founder-back-content .whoarewe-founder-back-bio:last-child {
     margin-bottom: 0;
 }
@@ -1102,6 +1105,7 @@
 }
 
 @media (min-width: 64rem) {
+
     .whoarewe-continuation-top-row,
     .whoarewe-continuation-bottom-row {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -2396,6 +2400,7 @@
 
 /* Ultra-wide support */
 @media (min-width: 120rem) {
+
     .whoarewe-hero-inner,
     .whoarewe-founders {
         max-width: 80rem;
@@ -2461,7 +2466,7 @@
         font-size: 0.6375rem;
         text-align: right;
         margin-left: auto;
-                right: 3rem;
+        right: 3rem;
     }
 
     .whoarewe-founders-grid {
@@ -2724,7 +2729,7 @@
 
 /* Mobile horizontal padding */
 @media (max-width: 48rem) {
- 
+
     .whoarewe-founders-title .founder-br {
         display: none !important;
         /* Hide on mobile - single line text */
@@ -2741,8 +2746,8 @@
     }
 
     .whoarewe-founders-description {
-       
-                width: 100%;
+
+        width: 100%;
     }
 
     .whoarewe-founder-name {

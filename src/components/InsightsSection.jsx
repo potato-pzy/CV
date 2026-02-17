@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ArticleCard from './ArticleCard';
 import './InsightsSection.css';
+import { fetchLatestBlogCards } from '../lib/sanityQueries';
 import featuredImage from '../assets/insights/featured.png';
 import article1Image from '../assets/insights/article_1.jpg';
 import article2Image from '../assets/insights/article_2.png';
@@ -57,10 +58,17 @@ function InsightsSection({
 }) {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [currentScrollIndex, setCurrentScrollIndex] = useState(0);
+  const [cmsArticles, setCmsArticles] = useState(null);
+  const [cmsFeaturedPost, setCmsFeaturedPost] = useState(null);
+  const [cmsCategories, setCmsCategories] = useState(null);
   const scrollRef = useRef(null);
   const location = useLocation();
 
-  const filteredArticles = articles.filter(
+  const effectiveArticles = cmsArticles || articles;
+  const effectiveFeaturedPost = cmsFeaturedPost || featuredPost;
+  const effectiveCategories = cmsCategories || categories;
+
+  const filteredArticles = effectiveArticles.filter(
     article => activeCategory === 'ALL' || article.category === activeCategory
   );
 
@@ -89,6 +97,47 @@ function InsightsSection({
     }
   }, [location]);
 
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        console.log('InsightsSection: Starting to load blog cards...')
+        const latest = await fetchLatestBlogCards(12);
+        console.log('InsightsSection: Loaded blog cards:', latest)
+        if (cancelled) {
+          console.log('InsightsSection: Load cancelled')
+          return;
+        }
+        if (!latest || latest.length === 0) {
+          console.warn('InsightsSection: No blog cards found or empty array')
+          return;
+        }
+
+        setCmsArticles(latest);
+        setCmsFeaturedPost({
+          id: latest[0].id,
+          title: latest[0].title,
+          date: latest[0].date,
+          slug: latest[0].slug,
+          backgroundImage: latest[0].backgroundImage
+        });
+
+        const derived = Array.from(
+          new Set(latest.map((a) => a.category).filter(Boolean))
+        );
+        setCmsCategories(['ALL', ...derived]);
+      } catch (err) {
+        console.error('Failed to load Sanity blog cards:', err);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <section className="insights-section">
       <div className="insights-bottom-glow" />
@@ -102,11 +151,11 @@ function InsightsSection({
 
       <div className="insights-container">
         {/* Featured Section */}
-        <Link to={featuredPost.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link to={effectiveFeaturedPost.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="insights-why-exists">
             <div className="insights-image-cropper">
               <img
-                src={featuredPost.backgroundImage || featuredImage}
+                src={featuredImage}
                 alt="Featured"
                 className="insights-featured-img"
                 style={{ transform: 'scale(1.0)', transformOrigin: 'top center' }}
@@ -119,8 +168,8 @@ function InsightsSection({
 
           <div className="insights-why-exists-content-wrapper">
             <div className="insights-why-exists-content">
-              <h2 className="insights-why-exists-title">{featuredPost.title}</h2>
-              <p className="insights-why-exists-date">{featuredPost.date}</p>
+              <h2 className="insights-why-exists-title">{effectiveFeaturedPost.title}</h2>
+              <p className="insights-why-exists-date">{effectiveFeaturedPost.date}</p>
             </div>
           </div>
         </Link>
@@ -129,7 +178,7 @@ function InsightsSection({
         <div className="insights-main-content" id="blogs">
           {/* Filter Buttons */}
           <div className="insights-filters">
-            {categories.map((cat) => (
+            {effectiveCategories.map((cat) => (
               <button
                 key={cat}
                 className={`insights-filter-btn ${activeCategory === cat ? 'active' : ''}`}

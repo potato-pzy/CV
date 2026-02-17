@@ -100,11 +100,17 @@
 
 .products-label {
     font-family: "Blauer Nue", sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--accent-green);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+
+@media (max-width: 48rem) {
+    .products-label {
+        font-size: 0.9375rem !important;
+    }
 }
 
 .products-title {
@@ -419,7 +425,7 @@
     }
 
     .products-label {
-        font-size: 0.625rem !important;
+        font-size: 0.9375rem !important;
     }
 
     .products-title {
@@ -437,13 +443,13 @@
     }
 
     .validate-card {
-        height: 21.375rem;
-        max-width: 62.5rem;
-        width: 109%;
+        width: 17rem;
+        height: 23.66rem;
+        max-width: 90vw;
         background: #020f14;
         border: 0.0625rem solid rgba(255, 255, 255, 0.15);
         border-radius: 2.0625rem;
-        min-height: 20rem;
+        aspect-ratio: 3 / 4;
     }
 }
 
@@ -508,13 +514,13 @@
     }
 
     .mobile-products-view .validate-card {
-        height: 31rem;
-        min-height: 26rem;
-        max-width: 100%;
-        width: 100%;
+        width: 22rem;
+        height: 30.33rem;
+        max-width: 85vw;
         border-radius: 2.25rem;
         border: 0.0625rem solid rgba(255, 255, 255, 0.15);
         background: #020f14;
+        aspect-ratio: 3 / 4;
     }
 
     .mobile-products-view .validate-content-left {
@@ -558,14 +564,15 @@
 
 /* Individual Card - Snippet Values */
 .validate-card {
-    width: 100%;
+    width: 17rem;
+    height: 23.66rem;
     max-width: 100%;
-    height: 25rem;
     background: #01141b;
     border: 0.04375rem solid rgba(166, 246, 59, 0.2);
     border-radius: 0.4375rem;
     overflow: hidden;
     position: relative;
+    aspect-ratio: 3 / 4;
 }
 
 @media(min-width: 48rem) {
@@ -575,8 +582,9 @@
         background: #020f14;
         border: 0.0625rem solid rgba(255, 255, 255, 0.15);
         border-radius: 2.0625rem;
-        min-height: 20rem;
+        min-height: 22rem;
         height: auto;
+        aspect-ratio: auto;
     }
 }
 

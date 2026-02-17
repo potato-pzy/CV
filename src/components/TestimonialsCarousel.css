@@ -1,6 +1,6 @@
 .testimonials-section {
   background-color: #020F14;
-  padding: 6.25rem 0;
+  padding: 6.25rem 0 3rem 0;
   min-height: 100vw;
   display: flex;
   flex-direction: column;
@@ -64,6 +64,7 @@
 .testimonial-card .glowing-effect-overlay {
   z-index: 1;
 }
+
 .testimonial-card .glowing-effect-overlay .glow::after {
   opacity: max(0.4, var(--active, 0.4)) !important;
   transition: opacity 0.35s ease;
@@ -224,7 +225,7 @@
 
 @media (max-width: 53.125rem) {
   .testimonials-section {
-    padding: 5rem 0;
+    padding: 5rem 0 2rem 0;
   }
 
   .testimonials-heading {
@@ -335,7 +336,7 @@
 /* Tablet only: same layout as laptop (3-card carousel, side cards visible). 768px–1023px */
 @media (min-width: 48rem) and (max-width: 63.9375rem) {
   .testimonials-section {
-    padding: 6.25rem var(--spacing-2xl);
+    padding: 6.25rem var(--spacing-2xl) 3rem var(--spacing-2xl);
   }
 
   .testimonials-heading {

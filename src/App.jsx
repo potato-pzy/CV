@@ -20,9 +20,11 @@ const NewPage = lazy(() => import('./components/NewPage'))
 const BusinessImageDemo = lazy(() => import('./components/BusinessImageDemo'))
 const TestimonialsDemo = lazy(() => import('./components/TestimonialsDemo'))
 const ArticleCardsDemo = lazy(() => import('./components/ArticleCardsDemo'))
+const ArticleGrid = lazy(() => import('./components/ArticleGrid'))
 const InsightsSectionDemo = lazy(() => import('./components/InsightsSectionDemo'))
 const RolesSectionDemo = lazy(() => import('./components/RolesSectionDemo'))
 const BlogPost = lazy(() => import('./components/BlogPost'))
+const SanityBlogPost = lazy(() => import('./components/SanityBlogPost'))
 const BlogRiseOfAgenticAI = lazy(() => import('./components/BlogRiseOfAgenticAI'))
 const BlogAgenticBlueprint = lazy(() => import('./components/BlogAgenticBlueprint'))
 const BlogFoundersNote = lazy(() => import('./components/BlogFoundersNote'))
@@ -31,6 +33,7 @@ const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'))
 const MobileTestPage = lazy(() => import('./mobiletest/MobileTestPage'))
 const LoaderDemo = lazy(() => import('./components/LoaderDemo'))
 const ValidatePage = lazy(() => import('../validate/ValidatePage'))
+const SanityDebug = lazy(() => import('./components/SanityDebug'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -90,15 +93,18 @@ function App() {
             <Route path="/business-image" element={wrapWithReady(BusinessImageDemo)} />
             <Route path="/testimonials" element={wrapWithReady(TestimonialsDemo)} />
             <Route path="/article-cards" element={wrapWithReady(ArticleCardsDemo)} />
+            <Route path="/article" element={wrapWithReady(ArticleGrid)} />
             <Route path="/insights-section" element={wrapWithReady(InsightsSectionDemo)} />
             <Route path="/roles-section" element={wrapWithReady(RolesSectionDemo)} />
             <Route path="/blog-template" element={wrapWithReady(BlogPost)} />
+            <Route path="/blog/:slug" element={wrapWithReady(SanityBlogPost)} />
             <Route path="/blog/rise-of-agentic-ai" element={wrapWithReady(BlogRiseOfAgenticAI)} />
             <Route path="/blog/agentic-ai-blueprint" element={wrapWithReady(BlogAgenticBlueprint)} />
             <Route path="/blog/founders-note" element={wrapWithReady(BlogFoundersNote)} />
             <Route path="/mobiletest" element={wrapWithReady(MobileTestPage)} />
             <Route path="/loader" element={wrapWithReady(LoaderDemo)} />
             <Route path="/validate" element={wrapWithReady(ValidatePage)} />
+            <Route path="/sanity-debug" element={wrapWithReady(SanityDebug)} />
           </Routes>
         </Suspense>
       </RouteReadyProvider>

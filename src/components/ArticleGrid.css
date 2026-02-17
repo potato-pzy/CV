@@ -1,0 +1,126 @@
+.articleGridPage {
+  min-height: 100vh;
+  background: #020f14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  gap: 1.6875rem;
+  width: 100%;
+}
+
+.articleGridPage .article-card {
+  min-height: 28rem;
+}
+
+.articleGridPage .article-card-title {
+  font-size: 1.45rem;
+}
+
+.articleGridPage .article-card-image-container {
+  height: 17rem;
+}
+
+@media (max-width: 87.5rem) {
+  .articleGrid {
+    grid-template-columns: repeat(auto-fit, 23.125rem);
+    justify-content: center;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .articleGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0;
+    max-width: 43.75rem;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet only: same layout as mobile (single col, horizontal scroll articles). 768px–1023px */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .articleGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding: 0 0 1.25rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    margin-left: 0;
+    scroll-padding: 0 2rem;
+    grid-template-columns: unset;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-content: left;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .articleGrid::before {
+    content: '';
+    flex: 0 0 2rem;
+    scroll-snap-align: none;
+    min-width: 2rem;
+  }
+
+  .articleGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .articleGrid > * {
+    flex: 0 0 75%;
+    scroll-snap-align: center;
+    min-width: 0;
+  }
+
+  .articleGrid > *:first-child {
+    scroll-snap-align: start;
+  }
+
+  .articleGrid::after {
+    content: '';
+    flex: 0 0 2rem;
+    min-width: 2rem;
+  }
+}
+
+@media (max-width: 75rem) {
+  .articleGrid {
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 23.125rem));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .articleGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    scroll-padding-left: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .articleGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .articleGridPage .article-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    max-width: none;
+    margin: 0;
+  }
+}

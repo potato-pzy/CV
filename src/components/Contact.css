@@ -40,11 +40,17 @@
 .contact-container {
   max-width: 80rem;
   width: 100%;
-  margin: 7.1875rem auto;
+  margin: 4rem auto;
   padding: 0 var(--spacing-xl);
   position: relative;
   z-index: 12;
   box-sizing: border-box;
+}
+
+@media (min-width: 48rem) {
+  .contact-container {
+    margin: 7.1875rem auto;
+  }
 }
 
 .contact-content {

@@ -167,7 +167,7 @@ function WhatWeDo() {
       blogLink: '/contact'
     },
     {
-      title: 'Document Intelligence',
+      title: 'Content Intelligence',
       image: documentIntelligence,
       text: "What's trapped in your documents?",
       linkText: "What's trapped in your documents?",

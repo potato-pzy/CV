@@ -5,8 +5,8 @@
 
 .case-studies-section {
     width: 100%;
-    padding: var(--spacing-4xl) var(--spacing-md);
-    /* 80px 16px */
+    padding: var(--spacing-2xl) var(--spacing-md);
+    /* reduced from 80px to 48px */
     position: relative;
     overflow-x: hidden;
     min-height: 100vh;
@@ -21,8 +21,8 @@
 
     /* 768px */
     .case-studies-section {
-        padding: var(--spacing-4xl) var(--spacing-xl);
-        /* 80px 32px */
+        padding: var(--spacing-2xl) var(--spacing-xl);
+        /* reduced from 80px to 48px */
     }
 }
 
@@ -248,8 +248,8 @@
 
     /* 640px */
     .case-studies-section {
-        padding: var(--spacing-2xl) var(--spacing-md) 0;
-        /* 48px 16px 0 - Reduced bottom padding */
+        padding: var(--spacing-lg) var(--spacing-md) 0;
+        /* 24px 16px 0 - Further reduced top padding */
     }
 
     .case-studies-header {
