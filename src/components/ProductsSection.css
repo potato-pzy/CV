@@ -583,7 +583,7 @@
         border: 0.0625rem solid rgba(255, 255, 255, 0.15);
         border-radius: 2.0625rem;
         min-height: 22rem;
-        height: auto;
+        
         aspect-ratio: auto;
     }
 }
